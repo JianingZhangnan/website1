@@ -15,7 +15,7 @@ $action = New-ScheduledTaskAction `
 
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) `
   -RepetitionInterval (New-TimeSpan -Hours 2) `
-  -RepetitionDuration ([TimeSpan]::MaxValue)
+  -RepetitionDuration (New-TimeSpan -Days 3650)
 
 $settings = New-ScheduledTaskSettingsSet `
   -StartWhenAvailable `
