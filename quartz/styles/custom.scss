@@ -1,0 +1,42 @@
+@use "./base.scss";
+
+:root {
+  --fpks-radius: 12px;
+}
+
+body {
+  background-image: radial-gradient(circle at 8% 4%, rgba(55, 111, 99, 0.06), transparent 24rem);
+}
+
+.page-title a {
+  letter-spacing: 0.02em;
+}
+
+article h1,
+article h2,
+article h3 {
+  text-wrap: balance;
+}
+
+article img {
+  border-radius: var(--fpks-radius);
+  box-shadow: 0 8px 28px rgba(20, 30, 25, 0.08);
+}
+
+article blockquote {
+  border-radius: 0 var(--fpks-radius) var(--fpks-radius) 0;
+  background: var(--highlight);
+  padding-block: 0.35rem;
+}
+
+.explorer .folder-outer,
+.backlinks,
+.graph {
+  scrollbar-width: thin;
+}
+
+@media (max-width: 800px) {
+  body {
+    background-image: none;
+  }
+}

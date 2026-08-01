@@ -1,35 +1,17 @@
-# Editor and AI tool state
-/.obsidian/
-/.codex/
-/.vscode/
-/.obsidian.vimrc
-AGENT.md
-CLAUDE.md
-
-# Private and unfinished content
-/DRAFT/
-/Clippings/
-
-# Generated and temporary files
-/.tmp_pdf_read/
-*.bak*
-*.log
-*.aux
-*.tmp
-*.temp
-~$*
 .DS_Store
-Thumbs.db
-Desktop.ini
-
-# Large or third-party binary material
-*.pdf
-*.ttf
-
-# Secrets and credentials
+node_modules/
+public/
+prof/
+tsconfig.tsbuildinfo
+.obsidian/
+.quartz-cache/
+private/
+.replit
+replit.nix
+.wrangler/
+.dev.vars
 .env
 .env.*
+*.log
 *.pem
 *.key
-*.p12
-*.pfx

@@ -1,21 +1,33 @@
-# FPKS
+# FPKS 知识花园
 
-FPKS is a personal physics and mathematics knowledge base prepared for the
-knowledge section of my personal website. The repository contains Markdown
-notes, diagrams, source files, and supporting images covering topics such as
-quantum mechanics, statistical physics, mathematical methods, linear algebra,
-and the renormalization group.
+这是 Jianing 的个人网站知识库，使用 [Quartz 4](https://quartz.jzhao.xyz/) 将 Obsidian Markdown 笔记构建为静态网站，并通过 Cloudflare Pages 发布。
 
-## Repository policy
+## 内容与发布
 
-This public repository intentionally excludes local editor and AI-tool
-configuration, drafts, temporary render output, backup files, fonts, and PDF
-collections. These excluded files remain in the local knowledge vault and are
-not deleted by Git.
+- 网站内容位于 `content/`。
+- 本地完整资料库位于台式机 `D:\learn\FPKS`，其中的草稿、私人配置、PDF、字体和临时文件不会公开。
+- `scripts/publish.ps1` 将公开内容同步到本仓库、构建网站、提交并推送。
+- 推送到 `main` 后，由 Cloudflare Pages 自动构建和发布。
 
-## License
+本地预览：
 
-Original notes, code, and other original material in this repository are
-licensed under the [MIT License](LICENSE). Quoted material, referenced works,
-trademarks, and any third-party material remain subject to their respective
-owners' rights.
+```powershell
+npm ci
+npx quartz build --serve
+```
+
+同步并发布：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\publish.ps1
+```
+
+Cloudflare Pages 构建配置：
+
+- Build command: `npx quartz build`
+- Build output directory: `public`
+- Node.js: `22` 或更高
+
+## 许可
+
+本仓库原创知识库内容使用 MIT License，详见 `LICENSE`。Quartz 自身的许可见 `LICENSE.txt`。引用的图片或第三方材料仍归原权利人所有。
