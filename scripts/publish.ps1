@@ -10,6 +10,7 @@ $ContentRoot = Join-Path $RepoRoot 'content'
 $LogRoot = Join-Path $env:LOCALAPPDATA 'FPKS-Publish'
 $LogFile = Join-Path $LogRoot 'publish.log'
 $MutexName = 'Local\FPKS-Website-Publish'
+$env:GIT_SSH_COMMAND = '"C:/Program Files/Git/usr/bin/ssh.exe" -F /dev/null -o BatchMode=yes -o ConnectTimeout=15 -o StrictHostKeyChecking=yes'
 $AllowedDirectories = @(
   'AISE',
   'assets',
@@ -63,6 +64,29 @@ try {
   if (-not (Test-Path -LiteralPath (Join-Path $RepoRoot '.git') -PathType Container)) {
     throw "Git repository not found: $RepoRoot"
   }
+
+  Push-Location $RepoRoot
+  try {
+    $workingTreeState = & git.exe status --porcelain
+    if ($LASTEXITCODE -ne 0) {
+      throw "git status failed with exit code $LASTEXITCODE"
+    }
+    if ($workingTreeState) {
+      throw "Repository has uncommitted changes; refusing to merge or publish:`n$($workingTreeState -join [Environment]::NewLine)"
+    }
+
+    $branch = & git.exe branch --show-current
+    if ($LASTEXITCODE -ne 0 -or $branch.Trim() -ne 'main') {
+      throw "Publisher requires the desktop repository to be on main. Current branch: $branch"
+    }
+
+    Write-Log 'Fast-forwarding the desktop checkout from origin/main.'
+    Invoke-Checked -FilePath 'git.exe' -ArgumentList @('fetch', '--prune', 'origin', 'main')
+    Invoke-Checked -FilePath 'git.exe' -ArgumentList @('merge', '--ff-only', 'FETCH_HEAD')
+  } finally {
+    Pop-Location
+  }
+
   New-Item -ItemType Directory -Force -Path $ContentRoot | Out-Null
 
   foreach ($directory in $AllowedDirectories) {
@@ -106,9 +130,20 @@ try {
 
   Push-Location $RepoRoot
   try {
-    if (-not (Test-Path -LiteralPath (Join-Path $RepoRoot 'node_modules') -PathType Container)) {
+    $nodeModules = Join-Path $RepoRoot 'node_modules'
+    $dependencyStamp = Join-Path $nodeModules '.fpks-dependency-stamp'
+    $expectedDependencyStamp = '{0}:{1}' -f `
+      (Get-FileHash -LiteralPath (Join-Path $RepoRoot 'package.json') -Algorithm SHA256).Hash,
+      (Get-FileHash -LiteralPath (Join-Path $RepoRoot 'package-lock.json') -Algorithm SHA256).Hash
+    $installedDependencyStamp = if (Test-Path -LiteralPath $dependencyStamp -PathType Leaf) {
+      (Get-Content -LiteralPath $dependencyStamp -Raw).Trim()
+    } else {
+      ''
+    }
+    if (-not (Test-Path -LiteralPath $nodeModules -PathType Container) -or $installedDependencyStamp -ne $expectedDependencyStamp) {
       Write-Log 'Installing pinned Node.js dependencies.'
-      Invoke-Checked -FilePath 'npm.cmd' -ArgumentList @('ci')
+      Invoke-Checked -FilePath 'npm.cmd' -ArgumentList @('ci', '--prefer-offline', '--no-audit')
+      Set-Content -LiteralPath $dependencyStamp -Value $expectedDependencyStamp -Encoding ascii
     }
 
     Write-Log 'Building the static site.'
@@ -122,19 +157,18 @@ try {
       throw "git diff failed with exit code $LASTEXITCODE"
     }
 
-    if (-not $hasChanges) {
-      Write-Log 'No public content changes; nothing to publish.'
-      exit 0
+    if ($hasChanges) {
+      $message = 'Update knowledge base {0:yyyy-MM-dd HH:mm}' -f (Get-Date)
+      Invoke-Checked -FilePath 'git.exe' -ArgumentList @('commit', '-m', $message)
+    } else {
+      Write-Log 'No new public content changes.'
     }
 
-    $message = 'Update knowledge base {0:yyyy-MM-dd HH:mm}' -f (Get-Date)
-    Invoke-Checked -FilePath 'git.exe' -ArgumentList @('commit', '-m', $message)
     if (-not $NoPush) {
-      $env:GIT_SSH_COMMAND = '"C:/Program Files/Git/usr/bin/ssh.exe" -F /dev/null -o BatchMode=yes -o ConnectTimeout=15 -o StrictHostKeyChecking=yes'
       Invoke-Checked -FilePath 'git.exe' -ArgumentList @('push', 'origin', 'main')
-      Write-Log 'Changes pushed to origin/main.'
+      Write-Log 'Desktop main is synchronized with origin/main.'
     } else {
-      Write-Log 'NoPush was specified; commit created locally only.'
+      Write-Log 'NoPush was specified; local commits were not pushed.'
     }
   } finally {
     Pop-Location

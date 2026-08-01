@@ -9,7 +9,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "jianing-fpks.pages.dev",
+    baseUrl: "notes.zjnmcp.me",
     ignorePatterns: ["private", "templates", ".obsidian", "DRAFT", "Clippings"],
     defaultDateType: "modified",
     theme: {
