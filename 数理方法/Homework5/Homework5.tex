@@ -1,0 +1,762 @@
+\documentclass[UTF8,zihao=-4]{ctexart}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\allowdisplaybreaks
+
+\begin{document}
+
+\section*{一}
+
+两端固定、长度为 $l$ 的琴弦，忽略重力。初始时刻在琴弦的 $x=c$ 处，拉离平衡位置 $h$ 的高度，然后静止释放。求该体系的定解。
+
+定解问题为
+\[
+u_{tt}-a^2u_{xx}=0,\qquad u(0,t)=u(l,t)=0,
+\]
+\[
+u(x,0)=f(x)=
+\begin{cases}
+\dfrac{h}{c}x,&0\le x\le c,\\[4pt]
+\dfrac{h}{l-c}(l-x),&c\le x\le l,
+\end{cases}
+\qquad u_t(x,0)=0.
+\]
+
+由边界条件可知
+\[
+X_n(x)=\sin\dfrac{n\pi x}{l},\qquad \omega_n=\dfrac{an\pi}{l},
+\qquad n=1,2,\dots
+\]
+\[
+u(x,t)=\sum_{n=1}^{\infty}(A_n\cos\omega_n t+B_n\sin\omega_n t)
+\sin\dfrac{n\pi x}{l}.
+\]
+由 $u_t(x,0)=0$，得 $B_n=0$。又
+\[
+A_n=\dfrac{2}{l}\left[
+\int_0^c\dfrac{h}{c}x\sin\dfrac{n\pi x}{l}\,\mathrm{d}x
++\int_c^l\dfrac{h}{l-c}(l-x)\sin\dfrac{n\pi x}{l}\,\mathrm{d}x
+\right]
+=\dfrac{2hl^2}{n^2\pi^2c(l-c)}\sin\dfrac{n\pi c}{l}.
+\]
+故
+\[
+u(x,t)=\sum_{n=1}^{\infty}
+\dfrac{2hl^2}{n^2\pi^2c(l-c)}\sin\dfrac{n\pi c}{l}
+\cos\dfrac{an\pi t}{l}\sin\dfrac{n\pi x}{l}.
+\]
+
+\section*{二}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题：
+\[
+u_{tt}-a^2u_{xx}=0,\qquad
+u(0,t)=0,\quad u_x(l,t)=0,
+\]
+\[
+u(x,0)=cx,\qquad u_t(x,0)=0.
+\]
+
+由边界条件可知
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad X_n(x)=\sin k_nx,\qquad
+\omega_n=ak_n,\qquad n=0,1,2,\dots
+\]
+\[
+u(x,t)=\sum_{n=0}^{\infty}(A_n\cos\omega_nt+B_n\sin\omega_nt)\sin k_nx.
+\]
+由 $u_t(x,0)=0$，得 $B_n=0$。又
+\[
+A_n=\dfrac{2}{l}\int_0^lcx\sin k_nx\,\mathrm{d}x
+=\dfrac{8cl(-1)^n}{(2n+1)^2\pi^2}.
+\]
+故
+\[
+u(x,t)=\sum_{n=0}^{\infty}
+\dfrac{8cl(-1)^n}{(2n+1)^2\pi^2}
+\cos\dfrac{(2n+1)\pi at}{2l}\sin\dfrac{(2n+1)\pi x}{2l}.
+\]
+
+\section*{三}
+
+利用分离变数法，在一维系统 $(0\le x\le l)$ 上，求下列定解问题：
+\[
+u_{tt}+u_t-a^2u_{xx}=0,\qquad
+u_x(0,t)=u_x(l,t)=0,
+\]
+\[
+u(x,0)=\sin x,\qquad u_t(x,0)=0.
+\]
+
+由边界条件可知
+\[
+k_n=\dfrac{n\pi}{l},\qquad X_n(x)=\cos k_nx,\qquad
+\omega_n=ak_n,\qquad n=0,1,2,\dots
+\]
+令
+\[
+u(x,t)=\sum_{n=0}^{\infty}c_n\Phi_n(t)\cos k_nx,\qquad
+\Phi_n(0)=1,\quad \Phi_n'(0)=0.
+\]
+其中
+\[
+c_0=\dfrac{1}{l}\int_0^l\sin x\,\mathrm{d}x=\dfrac{1-\cos l}{l},
+\]
+\[
+c_n=\dfrac{2}{l}\int_0^l\sin x\cos\dfrac{n\pi x}{l}\,\mathrm{d}x
+=\dfrac{2l\left[1-(-1)^n\cos l\right]}{l^2-n^2\pi^2},\qquad n\ge1.
+\]
+$\Phi_n$ 满足
+\[
+\Phi_n''+\Phi_n'+\omega_n^2\Phi_n=0.
+\]
+记
+\[
+r_{n\pm}=\dfrac{-1\pm\sqrt{1-4\omega_n^2}}{2}.
+\]
+则
+\[
+\Phi_n(t)=
+\begin{cases}
+\dfrac{-r_{n-}e^{r_{n+}t}+r_{n+}e^{r_{n-}t}}{r_{n+}-r_{n-}},
+&\omega_n\ne\dfrac12,\\[8pt]
+\left(1+\dfrac{t}{2}\right)e^{-t/2},&\omega_n=\dfrac12.
+\end{cases}
+\]
+故
+\[
+u(x,t)=c_0\Phi_0(t)+\sum_{n=1}^{\infty}
+c_n\Phi_n(t)\cos\dfrac{n\pi x}{l}.
+\]
+
+\section*{四}
+
+在一维系统 $(0\le x\le l)$ 上，求下列定解问题：
+\[
+u_t-a^2u_{xx}=0,\qquad
+u_x(0,t)=0,\quad u(l,t)=0,
+\]
+\[
+u(x,0)=x.
+\]
+
+由边界条件可知
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad X_n(x)=\cos k_nx,\qquad n=0,1,2,\dots
+\]
+\[
+u(x,t)=\sum_{n=0}^{\infty}A_ne^{-a^2k_n^2t}\cos k_nx.
+\]
+由 $u(x,0)=x$，
+\[
+A_n=\dfrac{2}{l}\int_0^lx\cos k_nx\,\mathrm{d}x
+=\dfrac{4l(-1)^n}{(2n+1)\pi}
+-\dfrac{8l}{(2n+1)^2\pi^2}.
+\]
+故
+\[
+u(x,t)=\sum_{n=0}^{\infty}
+\left[
+\dfrac{4l(-1)^n}{(2n+1)\pi}
+-\dfrac{8l}{(2n+1)^2\pi^2}
+\right]
+e^{-a^2(2n+1)^2\pi^2t/(4l^2)}
+\cos\dfrac{(2n+1)\pi x}{2l}.
+\]
+
+\section*{五}
+
+在方形区域 $(0\le x\le a,\ 0\le y\le b)$ 中，求下列定解问题：
+\[
+u_{xx}+u_{yy}=0,
+\]
+\[
+u(0,y)=0,\quad u(a,y)=c(1-y),\qquad
+u(x,0)=c,\quad u(x,b)=0.
+\]
+
+令 $u=v+w$，其中
+\[
+v(0,y)=v(x,0)=v(x,b)=0,\qquad v(a,y)=c(1-y),
+\]
+\[
+w(0,y)=w(a,y)=w(x,b)=0,\qquad w(x,0)=c.
+\]
+则
+\[
+v=\sum_{n=1}^{\infty}A_n\sinh\dfrac{n\pi x}{b}\sin\dfrac{n\pi y}{b},
+\]
+\[
+A_n\sinh\dfrac{n\pi a}{b}
+=\dfrac{2}{b}\int_0^bc(1-y)\sin\dfrac{n\pi y}{b}\,\mathrm{d}y
+=\dfrac{2c\left[1+(b-1)(-1)^n\right]}{n\pi}.
+\]
+又
+\[
+w=\sum_{m=1}^{\infty}B_m\sin\dfrac{m\pi x}{a}\sinh\dfrac{m\pi(b-y)}{a},
+\]
+\[
+B_m\sinh\dfrac{m\pi b}{a}
+=\dfrac{2}{a}\int_0^ac\sin\dfrac{m\pi x}{a}\,\mathrm{d}x
+=\dfrac{2c\left[1-(-1)^m\right]}{m\pi}.
+\]
+故
+\[
+u=\sum_{n=1}^{\infty}
+\dfrac{2c\left[1+(b-1)(-1)^n\right]}{n\pi\sinh\dfrac{n\pi a}{b}}
+\sinh\dfrac{n\pi x}{b}\sin\dfrac{n\pi y}{b}
+\]
+\[
+\sum_{m=1}^{\infty}
+\dfrac{2c\left[1-(-1)^m\right]}{m\pi\sinh\dfrac{m\pi b}{a}}
+\sin\dfrac{m\pi x}{a}\sinh\dfrac{m\pi(b-y)}{a}.
+\]
+
+\section*{六}
+
+在方形区域 $(0\le x\le a,\ 0\le y\le b)$ 中，求下列定解问题：
+\[
+u_{xx}+u_{yy}=0,
+\]
+\[
+u_x(0,y)=0,\quad u(a,y)=2y,\qquad
+u_y(x,0)=u_y(x,b)=0.
+\]
+
+由 $y$ 方向边界条件可知
+\[
+Y_n(y)=\cos\dfrac{n\pi y}{b},\qquad n=0,1,2,\dots
+\]
+故
+\[
+u=A_0+\sum_{n=1}^{\infty}A_n\cosh\dfrac{n\pi x}{b}\cos\dfrac{n\pi y}{b}.
+\]
+由 $u(a,y)=2y$，
+\[
+A_0=\dfrac1b\int_0^b2y\,\mathrm{d}y=b,
+\]
+\[
+A_n\cosh\dfrac{n\pi a}{b}
+=\dfrac{2}{b}\int_0^b2y\cos\dfrac{n\pi y}{b}\,\mathrm{d}y
+=\dfrac{4b\left[(-1)^n-1\right]}{n^2\pi^2}.
+\]
+故
+\[
+u(x,y)=b+\sum_{n=1}^{\infty}
+\dfrac{4b\left[(-1)^n-1\right]}{n^2\pi^2\cosh\dfrac{n\pi a}{b}}
+\cosh\dfrac{n\pi x}{b}\cos\dfrac{n\pi y}{b}.
+\]
+
+\section*{七}
+
+在一个内半径为 $\rho_1$，外半径为 $\rho_2$ 的圆环
+$(\rho_1\le\rho\le\rho_2,\ 0\le\theta<2\pi)$ 内，求解拉普拉斯方程的定解：
+\[
+\dfrac1\rho\dfrac{\partial}{\partial\rho}\left(\rho\dfrac{\partial u}{\partial\rho}\right)
++\dfrac1{\rho^2}\dfrac{\partial^2u}{\partial\theta^2}=0,
+\]
+\[
+u(\rho_1,\theta)=\sin\theta,\qquad u_\rho(\rho_2,\theta)=0.
+\]
+
+只含 $\sin\theta$ 项，设
+\[
+u(\rho,\theta)=\left(C\rho+\dfrac{D}{\rho}\right)\sin\theta.
+\]
+由边界条件
+\[
+C\rho_1+\dfrac{D}{\rho_1}=1,\qquad
+C-\dfrac{D}{\rho_2^2}=0.
+\]
+解得
+\[
+C=\dfrac{\rho_1}{\rho_1^2+\rho_2^2},\qquad
+D=\dfrac{\rho_1\rho_2^2}{\rho_1^2+\rho_2^2}.
+\]
+故
+\[
+u(\rho,\theta)=
+\dfrac{\rho_1}{\rho_1^2+\rho_2^2}
+\left(\rho+\dfrac{\rho_2^2}{\rho}\right)\sin\theta.
+\]
+
+\section*{八}
+
+在一个内半径为 $\rho_1$，外半径为 $\rho_2$ 的圆环
+$(\rho_1\le\rho\le\rho_2,\ 0\le\theta<2\pi)$ 内，求解拉普拉斯方程的定解：
+\[
+\dfrac1\rho\dfrac{\partial}{\partial\rho}\left(\rho\dfrac{\partial u}{\partial\rho}\right)
++\dfrac1{\rho^2}\dfrac{\partial^2u}{\partial\theta^2}
+=12\rho^2\cos^2\theta,
+\]
+\[
+u(\rho_1,\theta)=0,\qquad u_\rho(\rho_2,\theta)=0.
+\]
+
+因为
+\[
+12\rho^2\cos^2\theta=6\rho^2+6\rho^2\cos2\theta,
+\]
+设
+\[
+u(\rho,\theta)=R_0(\rho)+R_2(\rho)\cos2\theta.
+\]
+则
+\[
+R_0''+\dfrac1\rho R_0'=6\rho^2,\qquad
+R_0(\rho_1)=0,\quad R_0'(\rho_2)=0,
+\]
+\[
+R_0(\rho)=\dfrac38(\rho^4-\rho_1^4)-\dfrac32\rho_2^4\ln\dfrac{\rho}{\rho_1}.
+\]
+又
+\[
+R_2''+\dfrac1\rho R_2'-\dfrac4{\rho^2}R_2=6\rho^2,
+\qquad R_2(\rho_1)=0,\quad R_2'(\rho_2)=0.
+\]
+设
+\[
+R_2(\rho)=\dfrac12\rho^4+C\rho^2+\dfrac{D}{\rho^2}.
+\]
+由边界条件得
+\[
+C=-\dfrac{2\rho_2^6+\rho_1^6}{2(\rho_1^4+\rho_2^4)},\qquad
+D=\dfrac{\rho_1^4\rho_2^4(2\rho_2^2-\rho_1^2)}
+{2(\rho_1^4+\rho_2^4)}.
+\]
+故
+\[
+u(\rho,\theta)=
+\dfrac38(\rho^4-\rho_1^4)-\dfrac32\rho_2^4\ln\dfrac{\rho}{\rho_1}
++\left(\dfrac12\rho^4+C\rho^2+\dfrac{D}{\rho^2}\right)\cos2\theta.
+\]
+
+\section*{九}
+
+在半径为 $a$ 的半圆盘中 $(0\le\rho\le a,\ 0\le\theta\le\pi)$，求解定解问题：
+\[
+\dfrac1\rho\dfrac{\partial}{\partial\rho}\left(\rho\dfrac{\partial u}{\partial\rho}\right)
++\dfrac1{\rho^2}\dfrac{\partial^2u}{\partial\theta^2}=0,
+\]
+\[
+u(\rho,0)=0,\qquad u(\rho,\pi)=0,\qquad
+u(a,\theta)=u_0\theta(\pi-\theta).
+\]
+
+设
+\[
+u(\rho,\theta)=\sum_{n=1}^{\infty}A_n\rho^n\sin n\theta.
+\]
+由 $\rho=a$，
+\[
+u_0\theta(\pi-\theta)=\sum_{n=1}^{\infty}A_na^n\sin n\theta.
+\]
+因此
+\[
+A_na^n=\dfrac{2u_0}{\pi}\int_0^\pi \theta(\pi-\theta)\sin n\theta\,\mathrm{d}\theta
+=\dfrac{4u_0\left[1-(-1)^n\right]}{\pi n^3}.
+\]
+故
+\[
+u(\rho,\theta)=
+\sum_{n=1}^{\infty}
+\dfrac{4u_0\left[1-(-1)^n\right]}{\pi n^3}
+\left(\dfrac{\rho}{a}\right)^n\sin n\theta.
+\]
+
+\section*{十}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题：
+\[
+u_{tt}-a^2u_{xx}=b\sinh x,\qquad
+u(0,t)=u(l,t)=0,
+\]
+\[
+u(x,0)=0,\qquad u_t(x,0)=0.
+\]
+
+令
+\[
+u(x,t)=\sum_{n=1}^{\infty}T_n(t)\sin\dfrac{n\pi x}{l},\qquad
+\omega_n=\dfrac{an\pi}{l}.
+\]
+右端展开为
+\[
+b\sinh x=\sum_{n=1}^{\infty}F_n\sin\dfrac{n\pi x}{l},
+\]
+\[
+F_n=\dfrac{2b}{l}\int_0^l\sinh x\sin\dfrac{n\pi x}{l}\,\mathrm{d}x
+=\dfrac{2b(-1)^{n+1}n\pi\sinh l}{l^2+n^2\pi^2}.
+\]
+故
+\[
+T_n''+\omega_n^2T_n=F_n,\qquad T_n(0)=T_n'(0)=0,
+\]
+\[
+T_n(t)=\dfrac{F_n}{\omega_n^2}(1-\cos\omega_nt).
+\]
+即
+\[
+u(x,t)=\sum_{n=1}^{\infty}
+\dfrac{2bl^2(-1)^{n+1}\sinh l}{a^2n\pi(l^2+n^2\pi^2)}
+\left(1-\cos\dfrac{an\pi t}{l}\right)\sin\dfrac{n\pi x}{l}.
+\]
+
+\section*{十一}
+
+在方形区域 $(0\le x\le a,\ 0\le y\le b)$ 中，求下列定解问题：
+\[
+u_{xx}+u_{yy}=-1,
+\]
+\[
+u(0,y)=2,\quad u(a,y)=2,\qquad
+u_y(x,0)=2,\quad u_y(x,b)=2.
+\]
+
+令 $u=v+w$，列表为
+\[
+\begin{array}{c|cc|cc|c}
+ & x=0 & x=a & y=0 & y=b & \text{方程}\\ \hline
+v & 2 & 2 & v_y=0 & v_y=0 & v_{xx}+v_{yy}=-1\\
+w & 0 & 0 & w_y=2 & w_y=2 & w_{xx}+w_{yy}=0
+\end{array}
+\]
+先解 $v$，取
+\[
+v(x,y)=2+\dfrac{a}{2}x-\dfrac{x^2}{2}.
+\]
+再解 $w$：
+\[
+w_{xx}+w_{yy}=0,\qquad w(0,y)=w(a,y)=0,\qquad
+w_y(x,0)=w_y(x,b)=2.
+\]
+设
+\[
+w=\sum_{n=1}^{\infty}Y_n(y)\sin\dfrac{n\pi x}{a},\qquad
+\mu_n=\dfrac{n\pi}{a}.
+\]
+常数 $2$ 的正弦展开系数为
+\[
+d_n=\dfrac{2}{a}\int_0^a2\sin\dfrac{n\pi x}{a}\,\mathrm{d}x
+=\dfrac{4[1-(-1)^n]}{n\pi}.
+\]
+取
+\[
+Y_n(y)=\dfrac{d_n}{\mu_n\cosh\dfrac{\mu_nb}{2}}
+\sinh\mu_n\left(y-\dfrac b2\right).
+\]
+故
+\[
+u(x,y)=2+\dfrac{a}{2}x-\dfrac{x^2}{2}
++\sum_{n=1}^{\infty}
+\dfrac{4a[1-(-1)^n]}{n^2\pi^2\cosh\dfrac{n\pi b}{2a}}
+\sinh\dfrac{n\pi}{a}\left(y-\dfrac b2\right)
+\sin\dfrac{n\pi x}{a}.
+\]
+
+\section*{十二}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题 $(g\text{ 是常数})$：
+\[
+u_{tt}-a^2u_{xx}=g,\qquad
+u(0,t)=0,\quad u_x(l,t)=0,
+\]
+\[
+u(x,0)=0,\qquad u_t(x,0)=0.
+\]
+
+由边界条件可知
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad X_n(x)=\sin k_nx,\qquad
+\omega_n=ak_n.
+\]
+令
+\[
+u=\sum_{n=0}^{\infty}T_n(t)\sin k_nx.
+\]
+右端展开为
+\[
+g=\sum_{n=0}^{\infty}G_n\sin k_nx,\qquad
+G_n=\dfrac{2}{l}\int_0^lg\sin k_nx\,\mathrm{d}x
+=\dfrac{2g}{lk_n}.
+\]
+于是
+\[
+T_n''+\omega_n^2T_n=G_n,\qquad T_n(0)=T_n'(0)=0,
+\]
+\[
+T_n(t)=\dfrac{G_n}{\omega_n^2}(1-\cos\omega_nt).
+\]
+故
+\[
+u(x,t)=\sum_{n=0}^{\infty}
+\dfrac{16gl^2}{a^2(2n+1)^3\pi^3}
+\left(1-\cos\dfrac{(2n+1)\pi at}{2l}\right)
+\sin\dfrac{(2n+1)\pi x}{2l}.
+\]
+
+\section*{十三}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题：
+\[
+u_{tt}-a^2u_{xx}=A\sin\omega t,\qquad
+u(0,t)=0,\quad u_x(l,t)=0,
+\]
+\[
+u(x,0)=0,\qquad u_t(x,0)=0.
+\]
+
+令
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad \Omega_n=ak_n,\qquad
+u=\sum_{n=0}^{\infty}T_n(t)\sin k_nx.
+\]
+于是
+\[
+T_n''+\Omega_n^2T_n=\dfrac{2A}{lk_n}\sin\omega t,\qquad
+T_n(0)=T_n'(0)=0.
+\]
+当 $\omega\ne\Omega_n$ 时，
+\[
+u(x,t)=\sum_{n=0}^{\infty}
+\dfrac{2A}{lk_n(\Omega_n^2-\omega^2)}
+\left(\sin\omega t-\dfrac{\omega}{\Omega_n}\sin\Omega_nt\right)\sin k_nx.
+\]
+当 $\omega=\Omega_m$ 时，第 $m$ 项改为
+\[
+\dfrac{A}{lk_m\Omega_m^2}
+\left(\sin\Omega_mt-\Omega_mt\cos\Omega_mt\right)\sin k_mx.
+\]
+
+\section*{十四}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题：
+\[
+u_t-a^2u_{xx}=A\sin\omega t,\qquad
+u(0,t)=0,\quad u_x(l,t)=0,
+\]
+\[
+u(x,0)=A\cos\dfrac{\pi x}{l}.
+\]
+
+令
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad
+\lambda_n=a^2k_n^2,\qquad
+u=\sum_{n=0}^{\infty}T_n(t)\sin k_nx.
+\]
+初值系数为
+\[
+C_n=\dfrac{2A}{l}\int_0^l\cos\dfrac{\pi x}{l}\sin k_nx\,\mathrm{d}x
+=\dfrac{4A(2n+1)}{\pi(2n-1)(2n+3)}.
+\]
+于是
+\[
+T_n'+\lambda_nT_n=\dfrac{2A}{lk_n}\sin\omega t,\qquad T_n(0)=C_n.
+\]
+故
+\[
+\begin{aligned}
+u(x,t)=\sum_{n=0}^{\infty}\Bigg[
+&\dfrac{4A(2n+1)}{\pi(2n-1)(2n+3)}e^{-\lambda_nt}\\
+&+\dfrac{2A}{lk_n(\lambda_n^2+\omega^2)}
+\left(\lambda_n\sin\omega t-\omega\cos\omega t+\omega e^{-\lambda_nt}\right)
+\Bigg]\sin k_nx.
+\end{aligned}
+\]
+
+\section*{十五}
+
+在一维系统 $(0\le x\le l)$ 上，求解定解问题：
+\[
+u_{tt}-a^2u_{xx}=bx(l-x),
+\]
+\[
+u(0,t)=0,\quad u(l,t)=A\sin\omega t,\qquad
+u(x,0)=0,\quad u_t(x,0)=0.
+\]
+
+令
+\[
+u(x,t)=\dfrac{Ax}{l}\sin\omega t+v(x,t),
+\qquad
+v=\sum_{n=1}^{\infty}T_n(t)\sin\dfrac{n\pi x}{l}.
+\]
+记
+\[
+k_n=\dfrac{n\pi}{l},\qquad \Omega_n=ak_n.
+\]
+则
+\[
+T_n''+\Omega_n^2T_n=
+\dfrac{4bl^2[1-(-1)^n]}{n^3\pi^3}
+-\dfrac{2A\omega^2(-1)^n}{n\pi}\sin\omega t,
+\]
+\[
+T_n(0)=0,\qquad
+T_n'(0)=\dfrac{2A\omega(-1)^n}{n\pi}.
+\]
+当 $\omega\ne\Omega_n$ 时，
+\[
+\begin{aligned}
+u(x,t)=\dfrac{Ax}{l}\sin\omega t+\sum_{n=1}^{\infty}\Bigg[
+&\dfrac{4bl^4[1-(-1)^n]}{a^2n^5\pi^5}(1-\cos\Omega_nt)\\
+&+\dfrac{2A\omega l(-1)^n}{an^2\pi^2}\sin\Omega_nt\\
+&-\dfrac{2A\omega^2(-1)^n}{n\pi(\Omega_n^2-\omega^2)}
+\left(\sin\omega t-\dfrac{\omega}{\Omega_n}\sin\Omega_nt\right)
+\Bigg]\sin k_nx.
+\end{aligned}
+\]
+当 $\omega=\Omega_m$ 时，第 $m$ 项中最后一项改为
+\[
+-\dfrac{A(-1)^m}{m\pi}
+\left(\sin\Omega_mt-\Omega_mt\cos\Omega_mt\right).
+\]
+
+\section*{十六}
+
+在一维系统 $(0\le x\le l)$ 上，求下列定解问题：
+\[
+u_t-a^2u_{xx}=0,\qquad
+u_x(0,t)=0,\quad u_x(l,t)=Be^{-\alpha t},
+\]
+\[
+u(x,0)=0.
+\]
+
+记
+\[
+\mu=\dfrac{\sqrt{\alpha}}{a}.
+\]
+取
+\[
+p(x,t)=-\dfrac{B}{\mu\sin\mu l}\cos\mu x\,e^{-\alpha t}.
+\]
+令 $u=p+w$，则
+\[
+w_t-a^2w_{xx}=0,\qquad w_x(0,t)=w_x(l,t)=0,
+\]
+\[
+w(x,0)=\dfrac{B}{\mu\sin\mu l}\cos\mu x.
+\]
+设
+\[
+w=C_0+\sum_{n=1}^{\infty}C_ne^{-a^2n^2\pi^2t/l^2}\cos\dfrac{n\pi x}{l}.
+\]
+则
+\[
+C_0=\dfrac{1}{l}\int_0^l\dfrac{B}{\mu\sin\mu l}\cos\mu x\,\mathrm{d}x
+=\dfrac{B}{\mu^2l},
+\]
+\[
+C_n=\dfrac{2}{l}\int_0^l\dfrac{B}{\mu\sin\mu l}
+\cos\mu x\cos\dfrac{n\pi x}{l}\,\mathrm{d}x
+=\dfrac{2B(-1)^n}{l\left(\mu^2-\dfrac{n^2\pi^2}{l^2}\right)}.
+\]
+故
+\[
+u(x,t)=-\dfrac{B}{\mu\sin\mu l}\cos\mu x\,e^{-\alpha t}
++\dfrac{B}{\mu^2l}
++\sum_{n=1}^{\infty}
+\dfrac{2B(-1)^n}{l\left(\mu^2-\dfrac{n^2\pi^2}{l^2}\right)}
+e^{-a^2n^2\pi^2t/l^2}\cos\dfrac{n\pi x}{l}.
+\]
+
+\section*{十七}
+
+在一维系统 $(0\le x\le l)$ 上，求下列定解问题：
+\[
+u_{tt}-a^2u_{xx}=0,
+\]
+\[
+u(0,t)=\cos\dfrac{\pi at}{l},\qquad u_x(l,t)=0,
+\]
+\[
+u(x,0)=\cos\dfrac{\pi x}{l},\qquad
+u_t(x,0)=\sin\dfrac{\pi x}{2l}.
+\]
+
+取
+\[
+p(x,t)=\cos\dfrac{\pi x}{l}\cos\dfrac{\pi at}{l},
+\qquad u=p+v.
+\]
+则
+\[
+v_{tt}-a^2v_{xx}=0,\qquad v(0,t)=0,\quad v_x(l,t)=0,
+\]
+\[
+v(x,0)=0,\qquad v_t(x,0)=\sin\dfrac{\pi x}{2l}.
+\]
+由边界条件
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad \omega_n=ak_n.
+\]
+因为初速只含 $n=0$ 项，
+\[
+v(x,t)=\dfrac{1}{\omega_0}\sin\omega_0t\sin k_0x
+=\dfrac{2l}{a\pi}\sin\dfrac{a\pi t}{2l}\sin\dfrac{\pi x}{2l}.
+\]
+故
+\[
+u(x,t)=\cos\dfrac{\pi x}{l}\cos\dfrac{\pi at}{l}
++\dfrac{2l}{a\pi}\sin\dfrac{a\pi t}{2l}\sin\dfrac{\pi x}{2l}.
+\]
+
+\section*{十八}
+
+在一维系统 $(0\le x\le l)$ 上，求下列定解问题：
+\[
+u_t-a^2u_{xx}=0,
+\]
+\[
+u(0,t)=Ae^{-\alpha t},\qquad u_x(l,t)=Be^{-\beta t},
+\]
+\[
+u(x,0)=0.
+\]
+
+记
+\[
+\mu=\dfrac{\sqrt{\alpha}}{a},\qquad
+\nu=\dfrac{\sqrt{\beta}}{a}.
+\]
+取
+\[
+p(x,t)=A\dfrac{\cos\mu(l-x)}{\cos\mu l}e^{-\alpha t}
++\dfrac{B}{\nu\cos\nu l}\sin\nu x\,e^{-\beta t}.
+\]
+令 $u=p+v$，则
+\[
+v_t-a^2v_{xx}=0,\qquad v(0,t)=0,\quad v_x(l,t)=0,
+\]
+\[
+v(x,0)=-
+A\dfrac{\cos\mu(l-x)}{\cos\mu l}
+-\dfrac{B}{\nu\cos\nu l}\sin\nu x.
+\]
+设
+\[
+k_n=\dfrac{(2n+1)\pi}{2l},\qquad \lambda_n=a^2k_n^2,
+\qquad
+v=\sum_{n=0}^{\infty}C_ne^{-\lambda_nt}\sin k_nx.
+\]
+则
+\[
+C_n=-\dfrac{2}{l}
+\left[
+\dfrac{Ak_n}{k_n^2-\mu^2}
++\dfrac{B}{k_n^2-\nu^2}
+\right].
+\]
+故
+\[
+u(x,t)=
+A\dfrac{\cos\mu(l-x)}{\cos\mu l}e^{-\alpha t}
++\dfrac{B}{\nu\cos\nu l}\sin\nu x\,e^{-\beta t}
++\sum_{n=0}^{\infty}C_ne^{-\lambda_nt}\sin k_nx.
+\]
+
+\end{document}
