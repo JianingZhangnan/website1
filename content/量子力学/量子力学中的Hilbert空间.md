@@ -1,22 +1,30 @@
 # 量子力学中的 Hilbert 空间
 
-## ket、bra 与内积
+## ket、bra 与对偶
 
->[!def] ket, bra
->- ket $|\alpha\rangle$ 表示一个量子态，$\alpha$ 是态的标记。所有 ket 构成一个 Hilbert 空间 $\mathcal H$。 
->- bra $\bra{\beta }$ 表示一个 [[3F Duality#^linearfunctional|linear functional]]，它将 $\ket{\alpha }$ 映射为复数数域 $\mathbb{C}$ 中的一个数： 
->$$\langle \beta|\alpha  \rangle \in \mathbb{C}$$
+定义 ket：$|\alpha\rangle$ 表示一个量子态，$\alpha$ 是态的标记。所有 ket 构成一个 Hilbert 空间 $\mathcal H$。
 
-记 bra $\langle\alpha|$ 为 ket 的对偶，则所有 bra 构成一个 Hilbert 空间 $\mathcal H^{*}$。ket、bra 之间互为对偶空间([[3F Duality|Dual space]]), 也就是说任意一个 bra 可以看成整个 ket 空间的 linear functional .
+记 bra $\langle\alpha|$ 为 ket 的对偶，则所有 bra 构成一个 Hilbert 空间 $\mathcal H^{*}$。ket、bra 之间互为对偶空间。
 
-注意：这个对偶是反线性的，即
+注意：这个对偶（记为 DC，对偶共轭）是反线性的，即
+
 $$
 c_\alpha|\alpha\rangle+c_\beta|\beta\rangle\ \xrightarrow{\ \mathrm{DC}\ }\ c_\alpha^{*}\langle\alpha|+c_\beta^{*}\langle\beta|.
 $$
 
+## 内积
 
+内积的定义：$\langle\beta|\alpha\rangle$——$\langle\beta|$ 将 $|\alpha\rangle$ 映射为一个复数。基本性质：
 
-## Operator
+$$
+\langle\beta|\alpha\rangle=\langle\alpha|\beta\rangle^{*},\qquad
+\langle\alpha|\alpha\rangle\ge0,\qquad
+\langle\gamma|\,(c_1|\alpha\rangle+c_2|\beta\rangle)=c_1\langle\gamma|\alpha\rangle+c_2\langle\gamma|\beta\rangle.
+$$
+
+由此定义态矢量的模 $\|\alpha\|=\sqrt{\langle\alpha|\alpha\rangle}$；正交条件 $\langle\alpha|\beta\rangle=0$。
+
+## 算符
 
 算符：对态矢量的变换操作。线性算符满足
 
