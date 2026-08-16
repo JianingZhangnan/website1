@@ -18,6 +18,7 @@ const ReadonlyExcalidraw: QuartzComponent = ({ fileData }: QuartzComponentProps)
         class="readonly-excalidraw-mount"
         data-excalidraw-scene={sceneUrl}
         data-excalidraw-title={fileData.frontmatter?.title ?? "Excalidraw 绘图"}
+        data-excalidraw-immersive="true"
       >
         <p class="readonly-excalidraw-loading">正在载入只读绘图…</p>
       </div>

@@ -1,5 +1,13 @@
 .excalidraw-reader {
   --reader-border: color-mix(in srgb, var(--gray) 35%, transparent);
+  --reader-pan-cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='32' viewBox='0 0 26 32'%3E%3Cpath d='M8 30c-3 0-5-1-7-4L.8 21c-.8-1.7 1.5-3.5 3-2.3L7 21V8a2 2 0 0 1 4 0v7V5a2 2 0 0 1 4 0v10V7a2 2 0 0 1 4 0v8-5a2 2 0 0 1 4 0v8c0 8-5 12-12 12Z' fill='%23fff' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      8 8,
+    grab;
+  --reader-grabbing-cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='27' height='32' viewBox='0 0 27 32'%3E%3Cpath d='M7 30c-3 0-5-1-7-4l1-9c.2-2 3-2.5 4-.7l2 3V9a2 2 0 0 1 4 0v6-8a2 2 0 0 1 4 0v8-7a2 2 0 0 1 4 0v7-5a2 2 0 0 1 4 0v8c0 8-5 12-12 12Z' fill='%23fff' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      9 10,
+    grabbing;
   overflow: hidden;
   border: 1px solid var(--reader-border);
   border-radius: 0.8rem;
@@ -99,7 +107,15 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #fff;
+  background: var(--island-bg-color, #fff);
+}
+
+.excalidraw-reader .excalidraw__canvas.interactive {
+  cursor: var(--reader-pan-cursor) !important;
+}
+
+.excalidraw-reader .excalidraw__canvas.interactive:active {
+  cursor: var(--reader-grabbing-cursor) !important;
 }
 
 /* Excalidraw disables iframe/embeddable pointer events in view mode. Every
@@ -122,9 +138,10 @@
   height: 100%;
   padding: 0.75rem;
   overflow: auto;
+  border: 1px solid var(--color-surface-high, #e3e3e8);
   border-radius: 0.35rem;
-  background: #fff;
-  color: #1b1b1f;
+  background: var(--island-bg-color, #fff);
+  color: var(--text-primary-color, #1b1b1f);
   font:
     14px/1.45 system-ui,
     sans-serif;
@@ -132,40 +149,26 @@
 
 .published-note-embed pre {
   margin: 0.5rem 0;
+  padding: 0.55rem;
   overflow: auto;
+  border: 1px solid var(--color-surface-high, #e3e3e8);
+  border-radius: 0.3rem;
+  background: var(--color-surface-low, #ececf4);
+  color: var(--text-primary-color, #1b1b1f);
   white-space: pre-wrap;
   font:
     12px/1.4 ui-monospace,
     monospace;
 }
 
+.published-note-embed a,
+.published-link-embed {
+  color: var(--color-primary, #6965db);
+}
+
 .published-link-embed {
   display: grid;
   place-items: center;
-}
-
-.reader-media-list {
-  padding: 0.8rem;
-  border-top: 1px solid var(--reader-border);
-}
-
-.reader-media-list h2 {
-  margin: 0 0 0.6rem;
-  font-size: 1rem;
-}
-
-.reader-media-item {
-  display: grid;
-  grid-template-columns: minmax(8rem, 0.35fr) minmax(12rem, 1fr);
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.35rem 0;
-}
-
-.reader-media-item audio,
-.reader-media-item video {
-  width: 100%;
-  max-height: 12rem;
 }
 
 .reader-loading,
@@ -197,9 +200,5 @@
   .excalidraw-viewport {
     height: 68vh;
     min-height: 420px;
-  }
-
-  .reader-media-item {
-    grid-template-columns: 1fr;
   }
 }

@@ -1,6 +1,10 @@
+import { execFile } from "node:child_process"
 import { readFile, readdir, stat } from "node:fs/promises"
 import path from "node:path"
+import { promisify } from "node:util"
 import { fileURLToPath } from "node:url"
+
+const execFileAsync = promisify(execFile)
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const siteRoot = path.join(repoRoot, "sites", "acoustic")
@@ -25,6 +29,8 @@ const files = await walk(contentRoot)
 const relativeFiles = files.map((file) => path.relative(contentRoot, file).replaceAll("\\", "/"))
 const relativeKeys = new Set(relativeFiles.map((item) => item.toLocaleLowerCase("en-US")))
 const failures = []
+const referencedCropKeys = new Set()
+const lfsTargetKeys = new Set()
 
 for (const relative of relativeFiles) {
   if (relative.split("/").some((segment) => blocked.has(segment.toLocaleLowerCase("en-US")))) {
@@ -59,6 +65,48 @@ for (const relative of relativeFiles.filter((item) => item.endsWith(".md"))) {
     failures.push(`Raw Obsidian drawing payload leaked: ${relative}`)
   if (/\[\[(?:Language|Lauguage)(?:\/|\]\])/i.test(markdown))
     failures.push(`Blocked note link leaked: ${relative}`)
+  if (/!\[\[[^\]]+\.pdf(?:#[^\]]*)?\]\]/i.test(markdown))
+    failures.push(`Embedded PDF was not converted to a static crop: ${relative}`)
+
+  for (const match of markdown.matchAll(
+    /<figure class="[^"]*pdf-plus-crop[^"]*"[\s\S]*?<\/figure>/g,
+  )) {
+    const figure = match[0]
+    const source = figure.match(/data-pdf-source="([^"]+)"/)?.[1]
+    const page = figure.match(/data-pdf-page="(\d+)"/)?.[1]
+    const image = figure.match(/<img[^>]+src="\.\/([^"]+)"/)?.[1]
+    const link = figure.match(/<a[^>]+href="\.\/([^"#]+)#page=(\d+)"/)?.slice(1)
+    if (!source || !page || !image || !link) {
+      failures.push(`${relative}: malformed PDF++ crop figure`)
+      continue
+    }
+    const imageKey = decodeURI(image).toLocaleLowerCase("en-US")
+    const sourceKey = decodeURI(source).toLocaleLowerCase("en-US")
+    const linkKey = decodeURI(link[0]).toLocaleLowerCase("en-US")
+    if (!imageKey.startsWith("assets/files/generated/pdf-plus/") || !imageKey.endsWith(".webp")) {
+      failures.push(`${relative}: invalid PDF++ crop path ${image}`)
+    }
+    if (!sourceKey.endsWith(".pdf") || sourceKey !== linkKey || page !== link[1]) {
+      failures.push(`${relative}: PDF++ crop source/page link does not match its metadata`)
+    }
+    if (!relativeKeys.has(imageKey)) failures.push(`${relative}: missing PDF++ crop ${image}`)
+    if (!relativeKeys.has(sourceKey)) failures.push(`${relative}: missing source PDF ${source}`)
+    referencedCropKeys.add(imageKey)
+    lfsTargetKeys.add(imageKey)
+    lfsTargetKeys.add(sourceKey)
+  }
+}
+
+const generatedCropKeys = new Set(
+  relativeFiles
+    .filter((item) => item.startsWith("assets/files/generated/pdf-plus/") && item.endsWith(".webp"))
+    .map((item) => item.toLocaleLowerCase("en-US")),
+)
+for (const key of generatedCropKeys) {
+  if (!referencedCropKeys.has(key)) failures.push(`Unreferenced generated PDF++ crop: ${key}`)
+}
+for (const key of referencedCropKeys) {
+  if (!generatedCropKeys.has(key)) failures.push(`Referenced PDF++ crop is not generated: ${key}`)
 }
 
 const sceneFiles = relativeFiles.filter(
@@ -69,6 +117,7 @@ if (sceneFiles.length !== 3)
 for (const relative of sceneFiles) {
   const scenePath = path.join(contentRoot, ...relative.split("/"))
   const scene = JSON.parse(await readFile(scenePath, "utf8"))
+  if (Object.hasOwn(scene, "media")) failures.push(`${relative}: obsolete media list is present`)
   const filesById = scene.files ?? {}
   const sourcesById = scene.fileSources ?? {}
   for (const element of scene.elements ?? []) {
@@ -105,6 +154,11 @@ for (const relative of sceneFiles) {
 
 const viewerSource = await readFile(path.join(repoRoot, "viewer", "excalidraw-reader.tsx"), "utf8")
 const viewerStyles = await readFile(path.join(repoRoot, "viewer", "excalidraw-reader.css"), "utf8")
+const readerComponent = await readFile(
+  path.join(repoRoot, "quartz", "components", "ReadonlyExcalidraw.tsx"),
+  "utf8",
+)
+const baseStyles = await readFile(path.join(repoRoot, "quartz", "styles", "base.scss"), "utf8")
 for (const required of [
   "viewModeEnabled={true}",
   "saveToActiveFile: false",
@@ -113,12 +167,53 @@ for (const required of [
   "scrollToContent",
   "requestFullscreen",
   "themechange",
+  'host.dataset.excalidrawImmersive === "true"',
+  'event.key !== "Escape"',
 ]) {
   if (!viewerSource.includes(required))
     failures.push(`Readonly viewer control is missing: ${required}`)
 }
 if (!viewerStyles.includes("pointer-events: auto !important")) {
   failures.push("Published Excalidraw media/link layers are not interactive")
+}
+if (viewerSource.includes("reader-media-list") || viewerStyles.includes("reader-media-list")) {
+  failures.push("Standalone Excalidraw media list has not been removed")
+}
+for (const required of [
+  "--reader-pan-cursor",
+  "--reader-grabbing-cursor",
+  "--island-bg-color",
+  "--color-surface-low",
+  "--text-primary-color",
+]) {
+  if (!viewerStyles.includes(required))
+    failures.push(`Readonly viewer style is missing: ${required}`)
+}
+if (!readerComponent.includes('data-excalidraw-immersive="true"')) {
+  failures.push("Excalidraw pages are not configured to open immersively")
+}
+for (const required of ["acoustic-report", "pdf-plus-crop", "pdf-plus-theme-adapt"]) {
+  if (!baseStyles.includes(required)) failures.push(`Acoustic report style is missing: ${required}`)
+}
+
+const indexMarkdown = await readFile(path.join(contentRoot, "index.md"), "utf8")
+if (!/cssclasses:\s*\["acoustic-report"\]/.test(indexMarkdown)) {
+  failures.push("Acoustic report does not carry its scoped task-list class")
+}
+
+for (const key of lfsTargetKeys) {
+  const repoRelative = path.posix.join("sites", "acoustic", "content", key)
+  try {
+    const { stdout } = await execFileAsync("git", ["check-attr", "filter", "--", repoRelative], {
+      cwd: repoRoot,
+      windowsHide: true,
+    })
+    if (!stdout.trim().endsWith(": lfs")) {
+      failures.push(`Published binary is not covered by Git LFS: ${repoRelative}`)
+    }
+  } catch (error) {
+    failures.push(`Could not verify Git LFS for ${repoRelative}: ${error.message}`)
+  }
 }
 
 if (failures.length) {

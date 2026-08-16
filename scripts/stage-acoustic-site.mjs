@@ -9,6 +9,7 @@ import { SVG } from "mathjax-full/js/output/svg.js"
 import { liteAdaptor } from "mathjax-full/js/adaptors/liteAdaptor.js"
 import { RegisterHTMLHandler } from "mathjax-full/js/handlers/html.js"
 import { AllPackages } from "mathjax-full/js/input/tex/AllPackages.js"
+import { parsePdfPlusFragment, renderPdfPlusCrop } from "./pdf-plus-crops.mjs"
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const publicationRoot = path.join(repoRoot, "sites", "acoustic")
@@ -34,6 +35,17 @@ for (let index = 0; index < argv.length; index += 1) {
 }
 
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"))
+const pdfPlusSettings = manifest.pdfPlus
+if (
+  !pdfPlusSettings ||
+  !Number.isFinite(pdfPlusSettings.renderScale) ||
+  pdfPlusSettings.renderScale <= 0 ||
+  pdfPlusSettings.format !== "webp" ||
+  typeof pdfPlusSettings.lossless !== "boolean" ||
+  typeof pdfPlusSettings.themeAdapt !== "boolean"
+) {
+  throw new Error("publication.json has an invalid pdfPlus rendering contract")
+}
 const vaultCandidates = [requestedVault, "D:\\BaiduSyncdisk\\FPKS", "D:\\learn\\FPKS"].filter(
   Boolean,
 )
@@ -304,8 +316,66 @@ function pageHref(note, fragment = "") {
 }
 
 const warnings = []
-function transformWikilinks(markdown, fromFile, strict) {
-  return markdown.replace(/(!?)\[\[([^\]]+)\]\]/g, (_whole, embed, inner) => {
+const pdfPlusCropCache = new Map()
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+}
+
+async function replaceAsync(value, pattern, replacer) {
+  let output = ""
+  let cursor = 0
+  for (const match of value.matchAll(pattern)) {
+    output += value.slice(cursor, match.index)
+    output += await replacer(match[0], ...match.slice(1))
+    cursor = match.index + match[0].length
+  }
+  return output + value.slice(cursor)
+}
+
+async function publishPdfPlusEmbed(resolved, target, parsed) {
+  let selection
+  try {
+    selection = parsePdfPlusFragment(parsed.fragment)
+  } catch (error) {
+    throw new Error(
+      `Invalid embedded PDF++ selection [[${parsed.target}${parsed.fragment}]]: ${error.message}`,
+    )
+  }
+
+  const cacheKey = `${resolved}\0${selection.page}\0${selection.rect.join(",")}`
+  let crop = pdfPlusCropCache.get(cacheKey)
+  if (!crop) {
+    const rendered = await renderPdfPlusCrop(resolved, selection, pdfPlusSettings)
+    const output = path.posix.join("assets", "files", "generated", "pdf-plus", rendered.filename)
+    addBuffer(output, rendered.buffer)
+    crop = { ...rendered, output }
+    pdfPlusCropCache.set(cacheKey, crop)
+  }
+
+  const label =
+    parsed.alias || `${path.basename(resolved, path.extname(resolved))}, p.${selection.page}`
+  const sourceHref = `./${encodeURI(target)}#page=${selection.page}`
+  const imageHref = `./${encodeURI(crop.output)}`
+  const widthStyle = selection.width ? ` style="--pdf-plus-width: ${selection.width}px"` : ""
+  const themeClass = pdfPlusSettings.themeAdapt ? " pdf-plus-theme-adapt" : ""
+  return [
+    `<figure class="pdf-plus-crop${themeClass}" data-pdf-source="${escapeHtml(target)}" data-pdf-page="${selection.page}" data-pdf-rect="${selection.rect.join(",")}"${widthStyle}>`,
+    `  <a href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener" aria-label="打开 ${escapeHtml(label)} 对应的原 PDF 页面">`,
+    `    <img src="${escapeHtml(imageHref)}" alt="${escapeHtml(label)}" width="${crop.width}" height="${crop.height}" loading="lazy" decoding="async">`,
+    "  </a>",
+    `  <figcaption>${escapeHtml(label)}</figcaption>`,
+    "</figure>",
+  ].join("\n")
+}
+
+async function transformWikilinks(markdown, fromFile, strict) {
+  return replaceAsync(markdown, /(!?)\[\[([^\]]+)\]\]/g, async (_whole, embed, inner) => {
     const parsed = splitWikiInner(inner)
     let resolved
     try {
@@ -330,6 +400,9 @@ function transformWikilinks(markdown, fromFile, strict) {
     }
 
     const target = registerAsset(resolved)
+    if (extension === ".pdf" && embed === "!") {
+      return publishPdfPlusEmbed(resolved, target, parsed)
+    }
     return `${embed}[[${target}${parsed.fragment}${parsed.alias ? `|${parsed.alias}` : ""}]]`
   })
 }
@@ -424,8 +497,6 @@ async function buildDrawing(notePath, markdown) {
   const files = { ...(sourceScene.files ?? {}) }
   const fileSources = {}
   const publishedEmbeds = {}
-  const media = []
-  const mediaSeen = new Set()
 
   for (const element of elements) {
     if (element.type === "image" && element.fileId) {
@@ -505,10 +576,6 @@ async function buildDrawing(notePath, markdown) {
     const label = parsed.alias || path.basename(resolved)
     element.link = href
     if (element.type === "embeddable") publishedEmbeds[element.id] = { kind, href, label }
-    if ((kind === "audio" || kind === "video") && !mediaSeen.has(href)) {
-      mediaSeen.add(href)
-      media.push({ kind, href, label })
-    }
   }
 
   const appState = {
@@ -525,7 +592,6 @@ async function buildDrawing(notePath, markdown) {
       files,
       fileSources,
       publishedEmbeds,
-      media,
     },
     body: extractDrawingBody(markdown),
   }
@@ -546,11 +612,21 @@ function addCopy(relative, source) {
   if (existing && existing.source !== source) throw new Error(`Output collision: ${normalized}`)
   outputs.set(normalized, { type: "copy", source })
 }
+function addBuffer(relative, buffer) {
+  const normalized = normalizeSlashes(relative)
+  if (normalized.startsWith("../") || path.isAbsolute(normalized))
+    throw new Error(`Unsafe output path: ${relative}`)
+  const existing = outputs.get(normalized)
+  if (existing && (!existing.buffer || !existing.buffer.equals(buffer))) {
+    throw new Error(`Output collision: ${normalized}`)
+  }
+  outputs.set(normalized, { type: "buffer", buffer })
+}
 
-const transformedReport = transformWikilinks(reportMarkdown, reportPath, true)
+const transformedReport = await transformWikilinks(reportMarkdown, reportPath, true)
 addText(
   "index.md",
-  `${titleFrontmatter("语音增强算法研究报告", 'description: "三种语音增强算法的复现、结构分析与统一测试报告"\n')}${removeFrontmatter(transformedReport).trim()}\n`,
+  `${titleFrontmatter("语音增强算法研究报告", 'description: "三种语音增强算法的复现、结构分析与统一测试报告"\ncssclasses: ["acoustic-report"]\n')}${removeFrontmatter(transformedReport).trim()}\n`,
 )
 
 for (const notePath of [...selectedNotes].sort((left, right) =>
@@ -569,11 +645,11 @@ for (const notePath of [...selectedNotes].sort((left, right) =>
       "> [!info] 只读互动绘图\n> 可平移、缩放、适应画布、全屏、切换主题并打开公开链接；网页不提供编辑、保存或导出。\n"
     addText(
       outputName,
-      `${titleFrontmatter(title, `excalidrawScene: ${JSON.stringify(`assets/scenes/${sceneName}`)}\n`)}${notice}${drawing.body ? `\n${transformWikilinks(drawing.body, notePath, false)}\n` : ""}`,
+      `${titleFrontmatter(title, `excalidrawScene: ${JSON.stringify(`assets/scenes/${sceneName}`)}\n`)}${notice}${drawing.body ? `\n${await transformWikilinks(drawing.body, notePath, false)}\n` : ""}`,
     )
     addText(path.posix.join("assets", "scenes", sceneName), `${JSON.stringify(drawing.scene)}\n`)
   } else {
-    const transformed = transformWikilinks(markdown, notePath, false)
+    const transformed = await transformWikilinks(markdown, notePath, false)
     const body = /^---\s*$/m.test(transformed)
       ? transformed
       : `${titleFrontmatter(path.basename(notePath, ".md"))}${transformed.trim()}\n`
@@ -601,7 +677,7 @@ const noteList = [...outputs.keys()]
   .filter((item) => item.endsWith(".md"))
   .sort((a, b) => a.localeCompare(b, "zh-CN"))
 const assetList = [...outputs.entries()]
-  .filter(([, entry]) => entry.type === "copy")
+  .filter(([, entry]) => entry.type === "copy" || entry.type === "buffer")
   .map(([relative]) => relative)
   .sort()
 console.log(`${apply ? "Applying" : "Previewing"} manual acoustic publication from ${reportPath}`)
@@ -639,7 +715,8 @@ try {
       throw new Error(`Output escapes staging directory: ${relative}`)
     await mkdir(path.dirname(destination), { recursive: true })
     if (entry.type === "text") await writeFile(destination, entry.text, "utf8")
-    else await copyFile(entry.source, destination)
+    else if (entry.type === "copy") await copyFile(entry.source, destination)
+    else await writeFile(destination, entry.buffer)
   }
 
   const stagedFiles = await walkFiles(stagingRoot)

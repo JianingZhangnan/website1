@@ -12,19 +12,12 @@ type PublishedEmbed = {
   text?: string
 }
 
-type PublishedMedia = {
-  href: string
-  label: string
-  kind: "audio" | "video"
-}
-
 type PublishedScene = {
   elements: readonly Record<string, unknown>[]
   appState?: Record<string, unknown>
   files?: Record<string, Record<string, unknown>>
   fileSources?: Record<string, { href: string; mimeType: string }>
   publishedEmbeds?: Record<string, PublishedEmbed>
-  media?: PublishedMedia[]
 }
 
 type ReaderApi = {
@@ -116,12 +109,15 @@ function Reader({ host }: { host: HTMLElement }) {
   const title = host.dataset.excalidrawTitle ?? "Excalidraw 绘图"
   const apiRef = useRef<ReaderApi | null>(null)
   const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const scrollPositionRef = useRef(0)
   const [scene, setScene] = useState<PublishedScene | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [theme, setTheme] = useState(currentQuartzTheme)
   const [themeOverride, setThemeOverride] = useState<"auto" | "light" | "dark">("auto")
   const [nativeFullscreen, setNativeFullscreen] = useState(false)
-  const [pseudoFullscreen, setPseudoFullscreen] = useState(false)
+  const [pseudoFullscreen, setPseudoFullscreen] = useState(
+    host.dataset.excalidrawImmersive === "true",
+  )
   const fullscreen = nativeFullscreen || pseudoFullscreen
 
   useEffect(() => {
@@ -146,18 +142,23 @@ function Reader({ host }: { host: HTMLElement }) {
   }, [themeOverride])
 
   useEffect(() => {
-    const syncFullscreen = () =>
-      setNativeFullscreen(document.fullscreenElement === wrapperRef.current)
+    const syncFullscreen = () => {
+      const enteredNativeFullscreen = document.fullscreenElement === wrapperRef.current
+      setNativeFullscreen(enteredNativeFullscreen)
+      if (enteredNativeFullscreen) setPseudoFullscreen(false)
+    }
     document.addEventListener("fullscreenchange", syncFullscreen)
     return () => document.removeEventListener("fullscreenchange", syncFullscreen)
   }, [])
 
   useEffect(() => {
     if (!pseudoFullscreen) return
+    scrollPositionRef.current = window.scrollY
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = "hidden"
     return () => {
       document.body.style.overflow = previousOverflow
+      window.scrollTo(0, scrollPositionRef.current)
     }
   }, [pseudoFullscreen])
 
@@ -178,6 +179,26 @@ function Reader({ host }: { host: HTMLElement }) {
     })
   }, [])
 
+  useEffect(() => {
+    if (!scene) return
+    const timer = window.setTimeout(() => {
+      apiRef.current?.refresh()
+      fit()
+    }, 100)
+    return () => window.clearTimeout(timer)
+  }, [fit, pseudoFullscreen, scene])
+
+  useEffect(() => {
+    if (!pseudoFullscreen) return
+    const exitOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || document.fullscreenElement) return
+      event.preventDefault()
+      setPseudoFullscreen(false)
+    }
+    document.addEventListener("keydown", exitOnEscape)
+    return () => document.removeEventListener("keydown", exitOnEscape)
+  }, [pseudoFullscreen])
+
   const toggleFullscreen = useCallback(async () => {
     if (!wrapperRef.current) return
     if (document.fullscreenElement === wrapperRef.current) {
@@ -185,12 +206,21 @@ function Reader({ host }: { host: HTMLElement }) {
     } else if (pseudoFullscreen) {
       setPseudoFullscreen(false)
     } else {
+      setPseudoFullscreen(true)
       try {
-        await wrapperRef.current.requestFullscreen()
+        void wrapperRef.current.requestFullscreen().catch(() => {
+          setNativeFullscreen(false)
+          setPseudoFullscreen(true)
+        })
       } catch {
+        setNativeFullscreen(false)
         setPseudoFullscreen(true)
       }
-      if (document.fullscreenElement !== wrapperRef.current) setPseudoFullscreen(true)
+      window.setTimeout(() => {
+        const enteredNativeFullscreen = document.fullscreenElement === wrapperRef.current
+        setNativeFullscreen(enteredNativeFullscreen)
+        setPseudoFullscreen(!enteredNativeFullscreen)
+      }, 250)
     }
     window.setTimeout(() => {
       apiRef.current?.refresh()
@@ -287,21 +317,6 @@ function Reader({ host }: { host: HTMLElement }) {
           }}
         />
       </div>
-      {scene?.media && scene.media.length > 0 && (
-        <section className="reader-media-list" aria-label="绘图中的媒体">
-          <h2>绘图中的音视频</h2>
-          {scene.media.map((item) => (
-            <div className="reader-media-item" key={item.href}>
-              <span>{item.label}</span>
-              {item.kind === "audio" ? (
-                <audio controls preload="metadata" src={item.href} />
-              ) : (
-                <video controls preload="metadata" src={item.href} />
-              )}
-            </div>
-          ))}
-        </section>
-      )}
     </div>
   )
 }

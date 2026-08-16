@@ -2,7 +2,12 @@
 title: "LiSenNet input"
 ---
 
-![[assets/files/papers/LiSenNet_paper.pdf#page=2&rect=41,632,209,758|LiSenNet, p.2]]
+<figure class="pdf-plus-crop pdf-plus-theme-adapt" data-pdf-source="assets/files/papers/LiSenNet_paper.pdf" data-pdf-page="2" data-pdf-rect="41,632,209,758">
+  <a href="./assets/files/papers/LiSenNet_paper.pdf#page=2" target="_blank" rel="noopener" aria-label="打开 LiSenNet, p.2 对应的原 PDF 页面">
+    <img src="./assets/files/generated/pdf-plus/lisennet-paper-p2-b272207b6d17a6e1.webp" alt="LiSenNet, p.2" width="1176" height="882" loading="lazy" decoding="async">
+  </a>
+  <figcaption>LiSenNet, p.2</figcaption>
+</figure>
 
 上图截取自论文。上图中 STFT 后产生的复数频谱输出三条特征：
 1. 压缩振幅 $|A|^{c}$, 压缩的目的是让振幅较低的声音也能有可观的输入特征。

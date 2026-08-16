@@ -1,6 +1,7 @@
 ---
 title: "语音增强算法研究报告"
 description: "三种语音增强算法的复现、结构分析与统一测试报告"
+cssclasses: ["acoustic-report"]
 ---
 
 # 概况
@@ -61,7 +62,12 @@ DeepFilterNet2 从整体图上看是 encoder 后直接分到 ERB decoder 和 DF 
 ## 4. Loss 函数设计
 
 GTCRN 的 loss 同时比较 waveform 和 spectrogram。
-![[assets/files/papers/GTCRN_paper.pdf#page=3&rect=43,72,305,274|GTCRN, p.3]]
+<figure class="pdf-plus-crop pdf-plus-theme-adapt" data-pdf-source="assets/files/papers/GTCRN_paper.pdf" data-pdf-page="3" data-pdf-rect="43,72,305,274">
+  <a href="./assets/files/papers/GTCRN_paper.pdf#page=3" target="_blank" rel="noopener" aria-label="打开 GTCRN, p.3 对应的原 PDF 页面">
+    <img src="./assets/files/generated/pdf-plus/gtcrn-paper-p3-0f0581bb08e926d6.webp" alt="GTCRN, p.3" width="1834" height="1414" loading="lazy" decoding="async">
+  </a>
+  <figcaption>GTCRN, p.3</figcaption>
+</figure>
 
 我们的训练代码写成 `70*Lmag + 30*(Lreal+Limag) + LSISNR`，相当于把论文 loss 整体乘了 100，不改变各分项相对权重。
 

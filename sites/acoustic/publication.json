@@ -16,5 +16,11 @@
   ],
   "includeAssetsEmbeddedByApprovedNotes": true,
   "blockedPathSegments": ["Language", "Lauguage"],
-  "maximumAssetBytes": 25165824
+  "maximumAssetBytes": 25165824,
+  "pdfPlus": {
+    "renderScale": 7,
+    "format": "webp",
+    "lossless": true,
+    "themeAdapt": true
+  }
 }
