@@ -158,6 +158,11 @@ const readerComponent = await readFile(
   path.join(repoRoot, "quartz", "components", "ReadonlyExcalidraw.tsx"),
   "utf8",
 )
+const renderPageSource = await readFile(
+  path.join(repoRoot, "quartz", "components", "renderPage.tsx"),
+  "utf8",
+)
+const runSiteSource = await readFile(path.join(repoRoot, "scripts", "run-site.mjs"), "utf8")
 const baseStyles = await readFile(path.join(repoRoot, "quartz", "styles", "base.scss"), "utf8")
 for (const required of [
   "viewModeEnabled={true}",
@@ -192,6 +197,13 @@ for (const required of [
 if (!readerComponent.includes('data-excalidraw-immersive="true"')) {
   failures.push("Excalidraw pages are not configured to open immersively")
 }
+if (
+  !readerComponent.includes("versionedReaderAsset") ||
+  !renderPageSource.includes("versionedCoreAsset") ||
+  !runSiteSource.includes("QUARTZ_ASSET_VERSION")
+) {
+  failures.push("Mutable acoustic assets are not revision-versioned")
+}
 for (const required of ["acoustic-report", "pdf-plus-crop", "pdf-plus-theme-adapt"]) {
   if (!baseStyles.includes(required)) failures.push(`Acoustic report style is missing: ${required}`)
 }
@@ -199,6 +211,22 @@ for (const required of ["acoustic-report", "pdf-plus-crop", "pdf-plus-theme-adap
 const indexMarkdown = await readFile(path.join(contentRoot, "index.md"), "utf8")
 if (!/cssclasses:\s*\["acoustic-report"\]/.test(indexMarkdown)) {
   failures.push("Acoustic report does not carry its scoped task-list class")
+}
+
+if (!relativeKeys.has("_headers")) {
+  failures.push("Cloudflare cache revalidation rules are missing")
+} else {
+  const headers = await readFile(path.join(contentRoot, "_headers"), "utf8")
+  for (const required of [
+    "/index.css",
+    "/static/contentIndex.json",
+    "/static/excalidraw-reader/reader.css",
+    "/static/excalidraw-reader/reader.js",
+    "/assets/scenes/*",
+    "max-age=0, must-revalidate",
+  ]) {
+    if (!headers.includes(required)) failures.push(`Cloudflare headers are missing: ${required}`)
+  }
 }
 
 for (const key of lfsTargetKeys) {

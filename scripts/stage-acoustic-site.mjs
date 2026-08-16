@@ -623,6 +623,26 @@ function addBuffer(relative, buffer) {
   outputs.set(normalized, { type: "buffer", buffer })
 }
 
+addText(
+  "_headers",
+  `# Mutable build entrypoints must revalidate after every manual deployment.
+/index.css
+  Cache-Control: public, max-age=0, must-revalidate
+/prescript.js
+  Cache-Control: public, max-age=0, must-revalidate
+/postscript.js
+  Cache-Control: public, max-age=0, must-revalidate
+/static/contentIndex.json
+  Cache-Control: public, max-age=0, must-revalidate
+/static/excalidraw-reader/reader.css
+  Cache-Control: public, max-age=0, must-revalidate
+/static/excalidraw-reader/reader.js
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/scenes/*
+  Cache-Control: public, max-age=0, must-revalidate
+`,
+)
+
 const transformedReport = await transformWikilinks(reportMarkdown, reportPath, true)
 addText(
   "index.md",

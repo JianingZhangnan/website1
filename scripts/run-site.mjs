@@ -10,6 +10,18 @@ if (!new Set(["main", "acoustic"]).has(profile)) {
   process.exit(2)
 }
 
+function currentGitRevision() {
+  const result = spawnSync("git", ["rev-parse", "--short=12", "HEAD"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    windowsHide: true,
+  })
+  return result.status === 0 ? result.stdout.trim() : "acoustic"
+}
+
+const assetVersion =
+  profile === "acoustic" ? process.env.QUARTZ_ASSET_VERSION?.trim() || currentGitRevision() : ""
+
 if (profile === "acoustic") {
   const buildReader = spawnSync(process.execPath, ["scripts/build-excalidraw-reader.mjs"], {
     cwd: repoRoot,
@@ -30,6 +42,7 @@ const result = spawnSync(process.execPath, quartzArgs, {
   env: {
     ...process.env,
     QUARTZ_SITE: profile,
+    QUARTZ_ASSET_VERSION: assetVersion,
   },
 })
 

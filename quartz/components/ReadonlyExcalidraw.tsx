@@ -1,6 +1,11 @@
 import { joinSegments, pathToRoot } from "../util/path"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 
+function versionedReaderAsset(resource: string): string {
+  const version = process.env.QUARTZ_ASSET_VERSION?.trim()
+  return version ? `${resource}?v=${encodeURIComponent(version)}` : resource
+}
+
 const ReadonlyExcalidraw: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
   const scene = fileData.frontmatter?.excalidrawScene
   if (typeof scene !== "string" || scene.length === 0 || !fileData.slug) {
@@ -8,12 +13,12 @@ const ReadonlyExcalidraw: QuartzComponent = ({ fileData }: QuartzComponentProps)
   }
 
   const root = pathToRoot(fileData.slug)
-  const sceneUrl = joinSegments(root, scene)
+  const sceneUrl = versionedReaderAsset(joinSegments(root, scene))
   const readerRoot = joinSegments(root, "static", "excalidraw-reader")
 
   return (
     <section class="readonly-excalidraw-section" aria-label="只读 Excalidraw 绘图">
-      <link rel="stylesheet" href={joinSegments(readerRoot, "reader.css")} />
+      <link rel="stylesheet" href={versionedReaderAsset(joinSegments(readerRoot, "reader.css"))} />
       <div
         class="readonly-excalidraw-mount"
         data-excalidraw-scene={sceneUrl}
@@ -22,7 +27,10 @@ const ReadonlyExcalidraw: QuartzComponent = ({ fileData }: QuartzComponentProps)
       >
         <p class="readonly-excalidraw-loading">正在载入只读绘图…</p>
       </div>
-      <script type="module" src={joinSegments(readerRoot, "reader.js")}></script>
+      <script
+        type="module"
+        src={versionedReaderAsset(joinSegments(readerRoot, "reader.js"))}
+      ></script>
     </section>
   )
 }

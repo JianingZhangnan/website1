@@ -53,7 +53,7 @@ npm run deploy:acoustic
 
 The apply step first builds a sibling staging directory, validates it, and then replaces exactly `sites/acoustic/content`. It never writes into FPKS. It also never stages Git changes, commits, pushes, or deploys.
 
-Embedded PDF syntax is intentionally stricter for this profile. `![[paper.pdf#page=N&rect=x1,y1,x2,y2|caption]]` is rendered at the manifest-pinned PDF++ scale into a responsive WebP crop that links to the original page. A PDF embed without a valid rectangle is a hard staging error; ordinary non-embedded PDF links remain normal links. The crop filename includes the PDF content and rendering contract, so changed papers do not reuse stale browser caches.
+Embedded PDF syntax is intentionally stricter for this profile. `![[paper.pdf#page=N&rect=x1,y1,x2,y2|caption]]` is rendered at the manifest-pinned PDF++ scale into a responsive WebP crop that links to the original page. A PDF embed without a valid rectangle is a hard staging error; ordinary non-embedded PDF links remain normal links. The crop filename includes the PDF content and rendering contract, so changed papers do not reuse stale browser caches. Mutable CSS, reader entrypoints, scene JSON, and the search index carry the acoustic build's Git revision in their URLs; the staged `_headers` file also forces those entrypoints to revalidate after each manual deployment.
 
 If REPORT links intentionally change, inspect the target note first, then edit `approvedDirectLinks` manually and rerun the preview. Never add a command that automatically refreshes this approval list.
 

@@ -16,6 +16,7 @@ The acoustic report is a narrower publication: REPORT is the primary narrative a
 4. Embedded audio remains usable at its reviewed position inside the canvas; no duplicate conventional player is added below the figure.
 5. Focus states, native media controls, keyboard links, and reduced-motion behavior remain usable.
 6. PDF++ rectangle selections appear as precise, responsive images rather than miniature PDF viewers; captions and links preserve access to the source page.
+7. Mutable style, reader, scene, and search assets are revision-versioned so a manual deployment becomes visible immediately instead of inheriting a stale browser cache.
 
 ## Constraints
 
