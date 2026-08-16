@@ -1,6 +1,9 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+const acousticSite = process.env.QUARTZ_SITE === "acoustic"
+const explorerTitle = acousticSite ? "报告目录" : "知识目录"
+
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
@@ -22,6 +25,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ReadonlyExcalidraw(),
   ],
   left: [
     Component.PageTitle(),
@@ -33,10 +37,10 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ title: "知识目录" }),
+    Component.Explorer({ title: explorerTitle }),
   ],
   right: [
-    Component.Graph(),
+    ...(acousticSite ? [] : [Component.Graph()]),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
@@ -53,7 +57,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ title: "知识目录" }),
+    Component.Explorer({ title: explorerTitle }),
   ],
   right: [],
 }

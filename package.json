@@ -13,8 +13,14 @@
   },
   "scripts": {
     "quartz": "./quartz/bootstrap-cli.mjs",
-    "dev": "npx quartz build --serve",
-    "build": "npx quartz build",
+    "build:reader": "node scripts/build-excalidraw-reader.mjs",
+    "dev": "node scripts/run-site.mjs main --serve",
+    "build": "node scripts/run-site.mjs main",
+    "stage:acoustic": "node scripts/stage-acoustic-site.mjs",
+    "dev:acoustic": "node scripts/run-site.mjs acoustic --serve",
+    "build:acoustic": "node scripts/run-site.mjs acoustic",
+    "deploy:acoustic": "npm run check:publication && npm run build:acoustic && wrangler pages deploy public-acoustic --project-name speechproject --branch publishing/manual-acoustic-site",
+    "check:publication": "node scripts/check-acoustic-publication.mjs",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
@@ -38,6 +44,7 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.11.0",
+    "@excalidraw/excalidraw": "^0.18.1",
     "@floating-ui/dom": "^1.7.4",
     "@myriaddreamin/rehype-typst": "^0.6.0",
     "@napi-rs/simple-git": "0.1.22",
@@ -58,6 +65,7 @@
     "is-absolute-url": "^5.0.0",
     "js-yaml": "^4.1.1",
     "lightningcss": "^1.31.1",
+    "lz-string": "^1.5.0",
     "mdast-util-find-and-replace": "^3.0.2",
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-string": "^4.0.0",
@@ -68,6 +76,8 @@
     "preact-render-to-string": "^6.6.5",
     "pretty-bytes": "^7.1.0",
     "pretty-time": "^1.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.3.1",
@@ -111,6 +121,7 @@
     "esbuild": "^0.27.2",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "4.123.0"
   }
 }

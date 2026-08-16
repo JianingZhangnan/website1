@@ -1,1 +1,2 @@
 * text=auto eol=lf
+sites/acoustic/content/assets/files/** filter=lfs diff=lfs merge=lfs -text

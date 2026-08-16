@@ -1,4 +1,7 @@
 public
+public-acoustic
 node_modules
 .quartz-cache
 content
+sites/acoustic/content
+quartz/static/excalidraw-reader

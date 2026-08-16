@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "mode": "manual-review",
+  "source": "声学项目/REPORT.md",
+  "selection": "direct-wikilinks-only",
+  "approvedDirectLinks": [
+    "GTCRN",
+    "LiSenNet",
+    "DeepFilterNet2",
+    "GTCRN_paper.pdf",
+    "Data note",
+    "LiSenNet_paper.pdf",
+    "DEEPFILTERNET2.pdf",
+    "LiSenNet input",
+    "BM and ERB"
+  ],
+  "includeAssetsEmbeddedByApprovedNotes": true,
+  "blockedPathSegments": ["Language", "Lauguage"],
+  "maximumAssetBytes": 25165824
+}

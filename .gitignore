@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 public/
+public-acoustic/
 prof/
 tsconfig.tsbuildinfo
 .obsidian/
@@ -15,3 +16,4 @@ replit.nix
 *.log
 *.pem
 *.key
+quartz/static/excalidraw-reader/

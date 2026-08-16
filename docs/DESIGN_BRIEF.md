@@ -4,38 +4,26 @@
 
 FPKS should feel like a calm, rigorous Chinese-language knowledge garden: scholarly without looking institutional, personal without looking like a social feed, and dense without becoming visually noisy. Reading and finding ideas matter more than decoration.
 
-The current foundation is intentionally restrained:
+The shared foundation remains restrained: Noto Serif SC headings, Noto Sans SC body text, IBM Plex Mono code, warm paper-like light mode, subdued charcoal dark mode, jade accents, and a desktop knowledge workspace with explorer, search, table of contents, and backlinks.
 
-- Noto Serif SC for headings, Noto Sans SC for body text, and IBM Plex Mono for code;
-- warm paper-like light mode and subdued charcoal dark mode;
-- jade green as the primary accent and a muted clay tone as the secondary accent;
-- a desktop knowledge workspace with explorer, search, graph, table of contents, and backlinks.
+The acoustic report is a narrower publication: REPORT is the primary narrative and the three network diagrams are research figures, not editor workspaces. The viewer should make “interactive but read-only” obvious without covering the diagram in controls.
 
-## Improvement priorities
+## Interaction priorities
 
-1. Make the home page explain the knowledge garden and expose useful entry points quickly.
-2. Strengthen hierarchy in the explorer, article header, metadata, headings, and side panels.
-3. Make long-form Chinese reading comfortable: sensible measure, rhythm, contrast, and spacing.
-4. Treat mobile as a first-class reading experience, especially navigation and long formulas.
-5. Improve discoverability without turning the site into a dashboard full of competing cards.
-6. Keep interactions subtle, fast, keyboard-accessible, and respectful of reduced-motion preferences.
+1. Long Chinese report sections, formulas, tables, PDFs, figures, and code remain readable on desktop and mobile.
+2. Excalidraw opens fitted to the available viewport, supports deliberate pan/zoom and fullscreen, and follows the surrounding light/dark theme.
+3. A compact `只读` badge and short help line set expectations; editing, saving, importing, exporting, and creation tools never appear.
+4. Embedded audio remains usable both inside the canvas and in a conventional player below it, so canvas interaction is not the only access path.
+5. Focus states, native media controls, keyboard links, and reduced-motion behavior remain usable.
 
 ## Constraints
 
-- Preserve content integrity, Obsidian-style links, LaTeX, code, tables, citations, images, and all Quartz discovery tools.
-- Meet reasonable contrast and focus-state expectations in both themes.
-- Prefer CSS and existing Quartz composition APIs. Add JavaScript only for an interaction that cannot be achieved cleanly otherwise.
-- Avoid heavy animation, generic glassmorphism, oversized marketing hero sections, decorative gradients behind every surface, and font choices that weaken Chinese coverage.
-- Do not add analytics, comments, accounts, a database, or external design dependencies without explicit approval.
+- Preserve content integrity, Obsidian-style links, LaTeX, code, tables, citations, images, and Quartz discovery tools.
+- Meet reasonable contrast and focus expectations in both themes.
+- Avoid heavy animation, generic glassmorphism, oversized marketing sections, and decorative controls.
+- Do not add analytics, comments, accounts, a database, or external design services without explicit approval.
+- Never make the private/public boundary look automatic. The UI may be polished, but publication remains a reviewed snapshot.
 
 ## Review targets
 
-Evaluate at minimum:
-
-- desktop around 1440 px;
-- laptop around 1024 px;
-- mobile around 390 px;
-- the home page, a math-heavy article, an image-heavy article, and a folder listing;
-- light mode, dark mode, keyboard focus, and reduced motion.
-
-When a visual choice is subjective, implement the smallest coherent version, show it in a branch preview, and record the tradeoff rather than inventing unconfirmed brand requirements.
+Evaluate around 1440 px, 1024 px, and 390 px; inspect REPORT, all three drawing pages, a PDF embed, regular images, light/dark mode, full screen, keyboard focus, and reduced motion. Verify that diagrams remain useful without any editor affordance.

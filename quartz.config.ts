@@ -1,16 +1,29 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+const acousticSite = process.env.QUARTZ_SITE === "acoustic"
+const acousticBaseUrl = process.env.QUARTZ_BASE_URL ?? "speechproject.zjnmcp.me"
+
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "FPKS 知识花园",
-    pageTitleSuffix: " · FPKS",
-    enableSPA: true,
+    pageTitle: acousticSite ? "语音增强研究报告" : "FPKS 知识花园",
+    pageTitleSuffix: acousticSite ? " · 声学项目" : " · FPKS",
+    enableSPA: !acousticSite,
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "notes.zjnmcp.me",
-    ignorePatterns: ["private", "templates", ".obsidian", "DRAFT", "Clippings"],
+    baseUrl: acousticSite ? acousticBaseUrl : "notes.zjnmcp.me",
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      "DRAFT",
+      "Clippings",
+      "Language/**",
+      "Lauguage/**",
+      "**/Language/**",
+      "**/Lauguage/**",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

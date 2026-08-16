@@ -1,0 +1,205 @@
+.excalidraw-reader {
+  --reader-border: color-mix(in srgb, var(--gray) 35%, transparent);
+  overflow: hidden;
+  border: 1px solid var(--reader-border);
+  border-radius: 0.8rem;
+  background: var(--light);
+  box-shadow: 0 0.45rem 1.5rem color-mix(in srgb, var(--dark) 8%, transparent);
+}
+
+.reader-toolbar,
+.reader-actions,
+.reader-heading {
+  display: flex;
+  align-items: center;
+}
+
+.reader-toolbar {
+  min-height: 3rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--reader-border);
+}
+
+.reader-heading,
+.reader-actions {
+  gap: 0.45rem;
+}
+
+.readonly-badge {
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--secondary) 14%, transparent);
+  color: var(--secondary);
+  font-size: 0.75rem;
+}
+
+.reader-actions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.reader-actions button {
+  min-height: 2rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--reader-border);
+  border-radius: 0.45rem;
+  background: var(--light);
+  color: var(--darkgray);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.reader-actions button:hover,
+.reader-actions button:focus-visible {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.reader-help {
+  padding: 0.35rem 0.75rem;
+  border-bottom: 1px solid var(--reader-border);
+  color: var(--gray);
+  font-size: 0.78rem;
+}
+
+.excalidraw-viewport {
+  width: 100%;
+  height: min(72vh, 760px);
+  min-height: 520px;
+  background: #fff;
+}
+
+.excalidraw-reader:fullscreen,
+.excalidraw-reader.reader-pseudo-fullscreen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  border: 0;
+  border-radius: 0;
+}
+
+.excalidraw-reader.reader-pseudo-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+}
+
+.excalidraw-reader:fullscreen .excalidraw-viewport,
+.excalidraw-reader.reader-pseudo-fullscreen .excalidraw-viewport {
+  height: auto;
+  min-height: 0;
+  flex: 1;
+}
+
+.published-embed-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+/* Excalidraw disables iframe/embeddable pointer events in view mode. Every
+ * embeddable in a published scene is replaced by our reviewed reader, so it is
+ * safe to restore interaction for native media controls and public links. */
+.excalidraw-reader .excalidraw__embeddable-container,
+.excalidraw-reader .excalidraw__embeddable-container__inner,
+.excalidraw-reader .excalidraw__embeddable__outer,
+.excalidraw-reader .published-embed-media,
+.excalidraw-reader .published-note-embed,
+.excalidraw-reader .published-note-embed *,
+.excalidraw-reader .published-link-embed {
+  pointer-events: auto !important;
+}
+
+.published-note-embed,
+.published-link-embed {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  overflow: auto;
+  border-radius: 0.35rem;
+  background: #fff;
+  color: #1b1b1f;
+  font:
+    14px/1.45 system-ui,
+    sans-serif;
+}
+
+.published-note-embed pre {
+  margin: 0.5rem 0;
+  overflow: auto;
+  white-space: pre-wrap;
+  font:
+    12px/1.4 ui-monospace,
+    monospace;
+}
+
+.published-link-embed {
+  display: grid;
+  place-items: center;
+}
+
+.reader-media-list {
+  padding: 0.8rem;
+  border-top: 1px solid var(--reader-border);
+}
+
+.reader-media-list h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.reader-media-item {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.35fr) minmax(12rem, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+}
+
+.reader-media-item audio,
+.reader-media-item video {
+  width: 100%;
+  max-height: 12rem;
+}
+
+.reader-loading,
+.reader-error {
+  padding: 2rem;
+  text-align: center;
+}
+
+.reader-error {
+  display: grid;
+  gap: 0.4rem;
+  color: #9c2f2f;
+}
+
+@media (max-width: 700px) {
+  .reader-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reader-actions {
+    justify-content: flex-start;
+  }
+
+  .reader-help {
+    display: none;
+  }
+
+  .excalidraw-viewport {
+    height: 68vh;
+    min-height: 420px;
+  }
+
+  .reader-media-item {
+    grid-template-columns: 1fr;
+  }
+}
