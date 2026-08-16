@@ -623,23 +623,25 @@ function addBuffer(relative, buffer) {
   outputs.set(normalized, { type: "buffer", buffer })
 }
 
+const mutableRoutes = [
+  ...[...noteOutputs.values()].map((output) =>
+    output === "index.md" ? "/" : `/${output.slice(0, -3).replaceAll(" ", "-")}`,
+  ),
+  "/index.css",
+  "/prescript.js",
+  "/postscript.js",
+  "/static/contentIndex.json",
+  "/static/excalidraw-reader/reader.css",
+  "/static/excalidraw-reader/reader.js",
+  "/assets/scenes/*",
+]
 addText(
   "_headers",
-  `# Mutable build entrypoints must revalidate after every manual deployment.
-/index.css
-  Cache-Control: public, max-age=0, must-revalidate
-/prescript.js
-  Cache-Control: public, max-age=0, must-revalidate
-/postscript.js
-  Cache-Control: public, max-age=0, must-revalidate
-/static/contentIndex.json
-  Cache-Control: public, max-age=0, must-revalidate
-/static/excalidraw-reader/reader.css
-  Cache-Control: public, max-age=0, must-revalidate
-/static/excalidraw-reader/reader.js
-  Cache-Control: public, max-age=0, must-revalidate
-/assets/scenes/*
-  Cache-Control: public, max-age=0, must-revalidate
+  `# Mutable pages and build entrypoints must revalidate after every manual deployment.
+${[...new Set(mutableRoutes)]
+  .sort((left, right) => left.localeCompare(right, "en-US"))
+  .map((route) => `${route}\n  Cache-Control: public, max-age=0, must-revalidate`)
+  .join("\n")}
 `,
 )
 

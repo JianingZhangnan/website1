@@ -217,7 +217,13 @@ if (!relativeKeys.has("_headers")) {
   failures.push("Cloudflare cache revalidation rules are missing")
 } else {
   const headers = await readFile(path.join(contentRoot, "_headers"), "utf8")
+  const pageRoutes = relativeFiles
+    .filter((relative) => relative.endsWith(".md"))
+    .map((relative) =>
+      relative === "index.md" ? "/" : `/${relative.slice(0, -3).replaceAll(" ", "-")}`,
+    )
   for (const required of [
+    ...pageRoutes,
     "/index.css",
     "/static/contentIndex.json",
     "/static/excalidraw-reader/reader.css",

@@ -1,15 +1,29 @@
-# Mutable build entrypoints must revalidate after every manual deployment.
+# Mutable pages and build entrypoints must revalidate after every manual deployment.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/scenes/*
+  Cache-Control: public, max-age=0, must-revalidate
+/BM-and-ERB
+  Cache-Control: public, max-age=0, must-revalidate
+/Data-note
+  Cache-Control: public, max-age=0, must-revalidate
+/DeepFilterNet2
+  Cache-Control: public, max-age=0, must-revalidate
+/GTCRN
+  Cache-Control: public, max-age=0, must-revalidate
 /index.css
   Cache-Control: public, max-age=0, must-revalidate
-/prescript.js
+/LiSenNet
+  Cache-Control: public, max-age=0, must-revalidate
+/LiSenNet-input
   Cache-Control: public, max-age=0, must-revalidate
 /postscript.js
+  Cache-Control: public, max-age=0, must-revalidate
+/prescript.js
   Cache-Control: public, max-age=0, must-revalidate
 /static/contentIndex.json
   Cache-Control: public, max-age=0, must-revalidate
 /static/excalidraw-reader/reader.css
   Cache-Control: public, max-age=0, must-revalidate
 /static/excalidraw-reader/reader.js
-  Cache-Control: public, max-age=0, must-revalidate
-/assets/scenes/*
   Cache-Control: public, max-age=0, must-revalidate
