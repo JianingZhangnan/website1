@@ -31,7 +31,7 @@ Laptop frontend branch ──push/review──> GitHub main ──build──> C
 Desktop private FPKS ──allowlist/safety scan/build/commit every 12 h
 ```
 
-Before each content sync, the desktop publisher requires a clean checkout, fetches `origin/main`, and performs a fast-forward-only merge. This prevents a new content commit from diverging after frontend work lands on GitHub. It then mirrors only approved directories and file types, rejects forbidden/oversized files and likely secrets, builds Quartz, and pushes any local commits.
+Before each content sync, the desktop publisher requires a clean checkout, fetches `origin/main`, and performs a fast-forward-only merge. This prevents a new content commit from diverging after frontend work lands on GitHub. It then mirrors only approved directories and file types (excluding AI instruction files such as `AGENTS.md`), removes notes whose YAML frontmatter has `draft: true` (unreviewed vault notes; Quartz would not render them, but their source must not enter the public repository either), rejects forbidden/oversized files and likely secrets, builds Quartz, and pushes any local commits.
 
 ## Laptop setup and normal workflow
 

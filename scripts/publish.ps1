@@ -25,7 +25,7 @@ $AllowedDirectories = @(
 $AllowedRootFiles = @('笔记写作规范.md')
 $AllowedMasks = @('*.md', '*.png', '*.jpg', '*.jpeg', '*.webp', '*.gif', '*.svg', '*.py', '*.tex', '*.csv', '*.txt', '*.yaml', '*.yml', '*.json', '*.css', '*.js')
 $ExcludedDirectories = @('.git', '.obsidian', '.codex', '.vscode', '.tmp_pdf_read', 'DRAFT', 'Clippings', 'node_modules')
-$ExcludedFiles = @('AGENT.md', 'CLAUDE.md', '.obsidian.vimrc', '*.pdf', '*.ttf', '*.otf', '*.log', '*.aux', '*.out', '*.toc', '*.synctex*', '*.bak*', '.env*', '*.pem', '*.key')
+$ExcludedFiles = @('AGENT.md', 'AGENTS.md', 'CLAUDE.md', '.obsidian.vimrc', '*.pdf', '*.ttf', '*.otf', '*.log', '*.aux', '*.out', '*.toc', '*.synctex*', '*.bak*', '.env*', '*.pem', '*.key')
 
 New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
 $mutex = [System.Threading.Mutex]::new($false, $MutexName)
@@ -48,6 +48,24 @@ function Invoke-Checked {
   if ($LASTEXITCODE -notin $SuccessCodes) {
     throw "$FilePath failed with exit code $LASTEXITCODE"
   }
+}
+
+# Unreviewed vault notes carry `draft: true` in YAML frontmatter.
+function Test-DraftNote {
+  param([Parameter(Mandatory)][string]$Path)
+  $lines = Get-Content -LiteralPath $Path -Encoding utf8 -TotalCount 200
+  if (-not $lines -or $lines[0].Trim() -ne '---') {
+    return $false
+  }
+  for ($i = 1; $i -lt $lines.Count; $i++) {
+    if ($lines[$i].Trim() -eq '---') {
+      return $false
+    }
+    if ($lines[$i] -match '^draft:\s*["'']?true["'']?\s*$') {
+      return $true
+    }
+  }
+  return $false
 }
 
 try {
@@ -107,6 +125,15 @@ try {
     if (Test-Path -LiteralPath $source -PathType Leaf) {
       Copy-Item -LiteralPath $source -Destination $destination -Force
     }
+  }
+
+  # Quartz skips rendering drafts, but their source must not reach the public repository either.
+  $draftNotes = @(Get-ChildItem -LiteralPath $ContentRoot -Recurse -File -Filter '*.md' | Where-Object { Test-DraftNote -Path $_.FullName })
+  foreach ($note in $draftNotes) {
+    Remove-Item -LiteralPath $note.FullName -Force
+  }
+  if ($draftNotes.Count -gt 0) {
+    Write-Log "Excluded $($draftNotes.Count) draft note(s) from public content."
   }
 
   $forbidden = Get-ChildItem -LiteralPath $ContentRoot -Recurse -File | Where-Object {
