@@ -1,6 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 import { DedupeTitle } from "./quartz/plugins/transformers/dedupeTitle"
+import { NavFont } from "./quartz/plugins/transformers/navFont"
 import { FpksMath } from "./quartz/plugins/transformers/fpksMath"
 import { FpksMathAssets } from "./quartz/plugins/transformers/fpksMath/assets"
 import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
@@ -65,6 +66,7 @@ const config: QuartzConfig = {
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
+      NavFont(),
       DedupeTitle(),
       Plugin.TableOfContents(),
       NoteRelativeLinks(),

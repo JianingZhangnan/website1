@@ -91,6 +91,7 @@ On a new computer, the first HTTPS push may open Git Credential Manager for GitH
 - `quartz/plugins/transformers/noteRelativeLinks.ts`: resolves Obsidian note-relative paths such as `![[assets/x.png]]`, which Quartz's "shortest" strategy only tries from the root.
 - `quartz/components/TopicGrid.tsx`: home page topic entries; edit its list when a top-level topic changes.
 - `quartz/components/scripts/explorer.inline.ts`: one local edit (`block: "nearest"`) stops the explorer from scrolling the whole page on load. Keep it across Quartz upgrades.
+- `quartz/plugins/transformers/navFont.ts`: loads ZCOOL KuaiLe from Google Fonts for the left rail, whose stack is `--fpks-nav-font` in `custom.scss` (Comic Sans MS for Latin text).
 - `quartz/plugins/transformers/fpksMath/`: formula rendering, see "Formulas" below.
 - `quartz/components/scripts/graph.inline.ts`: local edits add the `connectedComponent` option (used by the expanded graph) and edge clicks, which jump to the first link between the two notes. Keep them across Quartz upgrades.
 - `quartz/components/scripts/popover.inline.ts`: local edit shows only the linked heading section or block when a link has a fragment. Keep it across Quartz upgrades.
