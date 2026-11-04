@@ -35,6 +35,15 @@ export const NoteRelativeLinks: QuartzTransformerPlugin = () => ({
       existsSync(path.join(contentRoot, `${relative}.md`))
 
     return [
+      // Quartz strips `^` from cross-note block links but not from `[[#^id]]`; block ids have none.
+      () => (tree: Root) => {
+        visit(tree, "element", (node: Element) => {
+          const href = node.tagName === "a" ? node.properties?.href : undefined
+          if (typeof href === "string" && href.startsWith("#^")) {
+            node.properties.href = `#${href.slice(2)}`
+          }
+        })
+      },
       () => (tree: Root, file) => {
         const relativePath = file.data.relativePath
         if (!relativePath) return

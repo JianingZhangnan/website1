@@ -3,3 +3,5 @@ node_modules
 .quartz-cache
 content
 scripts/excalidraw-export/package-lock.json
+quartz/plugins/transformers/fpksMath/hybrid-font-data.json
+quartz/plugins/transformers/fpksMath/fontExtensions.ts

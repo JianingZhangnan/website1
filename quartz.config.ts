@@ -1,6 +1,8 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 import { DedupeTitle } from "./quartz/plugins/transformers/dedupeTitle"
+import { FpksMath } from "./quartz/plugins/transformers/fpksMath"
+import { FpksMathAssets } from "./quartz/plugins/transformers/fpksMath/assets"
 import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
 
 const config: QuartzConfig = {
@@ -68,7 +70,7 @@ const config: QuartzConfig = {
       NoteRelativeLinks(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
-      Plugin.Latex({ renderEngine: "katex" }),
+      FpksMath(),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
@@ -83,6 +85,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
+      FpksMathAssets(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
     ],

@@ -52,6 +52,8 @@ type NodeRenderData = GraphicsInfo & {
   label: Text
 }
 
+const LINK_HASH_PREFIX = "link-to--"
+
 const localStorageKey = "graph-visited"
 function getVisited(): Set<SimpleSlug> {
   return new Set(JSON.parse(localStorage.getItem(localStorageKey) ?? "[]"))
@@ -87,6 +89,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
+    connectedComponent,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -124,7 +127,18 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
   const neighbourhood = new Set<SimpleSlug>()
   const wl: (SimpleSlug | "__SENTINEL")[] = [slug, "__SENTINEL"]
-  if (depth >= 0) {
+  if (connectedComponent) {
+    const pending = [slug]
+    while (pending.length > 0) {
+      const cur = pending.pop()!
+      if (neighbourhood.has(cur)) continue
+      neighbourhood.add(cur)
+      for (const l of links) {
+        if (l.source === cur) pending.push(l.target)
+        if (l.target === cur) pending.push(l.source)
+      }
+    }
+  } else if (depth >= 0) {
     while (depth >= 0 && wl.length > 0) {
       // compute neighbours
       const cur = wl.shift()!
@@ -523,6 +537,60 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     )
   }
 
+  let hoveredLink: LinkRenderData | null = null
+
+  function linkAtPointer(event: MouseEvent): LinkRenderData | null {
+    if (hoveredNodeId) return null
+    const rect = app.canvas.getBoundingClientRect()
+    const x = (event.clientX - rect.left - currentTransform.x) / currentTransform.k - width / 2
+    const y = (event.clientY - rect.top - currentTransform.y) / currentTransform.k - height / 2
+
+    let closest: LinkRenderData | null = null
+    let closestDistance = 5 / currentTransform.k
+    for (const l of linkRenderData) {
+      const { source, target } = l.simulationData
+      const dx = target.x! - source.x!
+      const dy = target.y! - source.y!
+      const along = ((x - source.x!) * dx + (y - source.y!) * dy) / (dx * dx + dy * dy || 1)
+      const t = Math.max(0, Math.min(1, along))
+      const distance = Math.hypot(x - source.x! - t * dx, y - source.y! - t * dy)
+      if (distance < closestDistance) {
+        closest = l
+        closestDistance = distance
+      }
+    }
+    return closest
+  }
+
+  app.canvas.addEventListener("pointermove", (event) => {
+    const link = dragging ? null : linkAtPointer(event)
+    if (link === hoveredLink) return
+    hoveredLink = link
+    app.canvas.style.cursor = link ? "pointer" : ""
+    app.canvas.title = link
+      ? `${link.simulationData.source.text} → ${link.simulationData.target.text}`
+      : ""
+  })
+
+  // d3-zoom swallows the click that ends a pan, so this only fires on a real click.
+  app.canvas.addEventListener("click", (event) => {
+    const link = linkAtPointer(event)
+    if (!link) return
+    const { source, target } = link.simulationData
+    // Of two opposite links prefer the one in the open note: it needs no page change.
+    const reverse = graphData.links.some((l) => l.source === target && l.target === source)
+    const [from, to] = reverse && target.id === slug ? [target, source] : [source, target]
+    if (from.id === slug) {
+      focusLink(to.id)
+    } else {
+      const url = new URL(resolveRelative(fullSlug, from.id), window.location.toString())
+      url.hash = LINK_HASH_PREFIX + encodeURIComponent(to.id)
+      window.spaNavigate(url)
+    }
+    // A click on the overlay itself is what closes the expanded graph.
+    graph.closest<HTMLElement>(".global-graph-outer")?.click()
+  })
+
   let stopAnimation = false
   function animate(time: number) {
     if (stopAnimation) return
@@ -541,7 +609,11 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       l.gfx.moveTo(linkData.source.x! + width / 2, linkData.source.y! + height / 2)
       l.gfx
         .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
-        .stroke({ alpha: l.alpha, width: 1, color: l.color })
+        .stroke(
+          l === hoveredLink
+            ? { alpha: 1, width: 2, color: computedStyleMap["--secondary"] }
+            : { alpha: l.alpha, width: 1, color: l.color },
+        )
     }
 
     tweens.forEach((t) => t.update(time))
@@ -555,6 +627,40 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     app.destroy()
   }
 }
+
+// Scrolls to where the open note links to `target`. With several links, the first one.
+function focusLink(target: SimpleSlug) {
+  const path = new URL(resolveRelative(getFullSlug(window), target), window.location.toString())
+    .pathname
+  const samePath = (a: HTMLAnchorElement) =>
+    a.pathname.replace(/\/$/, "") === path.replace(/\/$/, "")
+  const anchors = [...document.querySelectorAll<HTMLAnchorElement>(".center a.internal")].filter(
+    samePath,
+  )
+  // Links inside transcluded text belong to another note; the embed's own link does not.
+  const own = (a: HTMLAnchorElement) =>
+    !a.closest(".transclude") || a.classList.contains("transclude-src")
+  const anchor = anchors.find(own) ?? anchors[0]
+  if (!anchor) return
+
+  let collapsed = anchor.closest(".callout.is-collapsed")
+  while (collapsed) {
+    collapsed.querySelector<HTMLElement>(":scope > .callout-title")?.click()
+    collapsed.classList.remove("is-collapsed")
+    collapsed = collapsed.parentElement?.closest(".callout.is-collapsed") ?? null
+  }
+
+  anchor.scrollIntoView({ block: "center" })
+  anchor.classList.add("graph-link-target")
+  setTimeout(() => anchor.classList.remove("graph-link-target"), 2500)
+}
+
+document.addEventListener("nav", () => {
+  const hash = window.location.hash.slice(1)
+  if (hash.startsWith(LINK_HASH_PREFIX)) {
+    focusLink(decodeURIComponent(hash.slice(LINK_HASH_PREFIX.length)) as SimpleSlug)
+  }
+})
 
 let localGraphCleanups: (() => void)[] = []
 let globalGraphCleanups: (() => void)[] = []

@@ -46,6 +46,15 @@ Source notes (frontmatter `excalidraw-plugin:`) are never published; the publish
 - Drawings are static: links inside them are not clickable, and they sit on a paper-coloured sheet in dark mode rather than being inverted.
 - The SVG exposes the drawing's text and images, and any drawing not on the list above is published by the next run. Add a new private drawing to the list before publishing.
 
+### Formulas
+
+Formulas are rendered at build time with MathJax 4.1.3 to match the vault's Obsidian plugins `mathjax4-pagella` (Pagella with selected NewCM, Asana, Modern, STIX and Termes glyphs, 1.15 scale, `cases` in display style, spaced script commas) and `auto-displaystyle-v2` (inline math in display style, full-size fraction parts). Layout rules in `custom.scss` come from the vault's `block-math-zoom.css` and `inline-math-zoom.css`.
+
+- `fontExtensions.ts` and `hybrid-font-data.json` are copies from the vault plugin. When the plugin changes, copy them again rather than editing them here. All `@mathjax/*` packages stay pinned to one exact version.
+- WOFF2 files are copied from those npm packages into `public/static/fpks-math/` during the build, so no font file is committed. The typefaces keep their own licences (GUST, SIL OFL) in the files' embedded metadata.
+- `normalizeMathFences` and `remarkDisplayMath` make `$$` parse as in Obsidian: text on the fence lines and one-line `$$x$$` are display formulas.
+- Known difference: Obsidian's bundle still runs semantic enrichment although the plugin sets `enableEnrichment: false`, which adds about 0.2em around some invisible multiplications (about 4% of formulas). The site follows the plugin's setting and leaves enrichment off.
+
 ## Laptop setup and normal workflow
 
 ```powershell
@@ -82,6 +91,9 @@ On a new computer, the first HTTPS push may open Git Credential Manager for GitH
 - `quartz/plugins/transformers/noteRelativeLinks.ts`: resolves Obsidian note-relative paths such as `![[assets/x.png]]`, which Quartz's "shortest" strategy only tries from the root.
 - `quartz/components/TopicGrid.tsx`: home page topic entries; edit its list when a top-level topic changes.
 - `quartz/components/scripts/explorer.inline.ts`: one local edit (`block: "nearest"`) stops the explorer from scrolling the whole page on load. Keep it across Quartz upgrades.
+- `quartz/plugins/transformers/fpksMath/`: formula rendering, see "Formulas" below.
+- `quartz/components/scripts/graph.inline.ts`: local edits add the `connectedComponent` option (used by the expanded graph) and edge clicks, which jump to the first link between the two notes. Keep them across Quartz upgrades.
+- `quartz/components/scripts/popover.inline.ts`: local edit shows only the linked heading section or block when a link has a fragment. Keep it across Quartz upgrades.
 - `scripts/publish.ps1`: desktop content publication and safety checks.
 - `scripts/excalidraw-export/`: renders Excalidraw drawings to SVG for the publisher.
 - `scripts/install-scheduled-task.ps1`: installs the 12-hour Windows task on the desktop.

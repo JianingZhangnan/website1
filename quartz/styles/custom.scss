@@ -9,6 +9,8 @@
   --fpks-example: #6d4aa8;
   --fpks-paper: #fffdf7;
   --fpks-measure: 44rem;
+  // Comic Sans has no CJK glyphs, so Chinese falls through to the body font.
+  --fpks-nav-font: "Comic Sans MS", "Comic Sans", var(--bodyFont);
 }
 
 :root[saved-theme="dark"] {
@@ -58,6 +60,20 @@ html {
 }
 
 @media (min-width: 801px) {
+  // The left rail sits against the window edge at every desktop and tablet width.
+  .page {
+    max-width: none;
+    margin: 0;
+  }
+
+  .page > #quartz-body {
+    padding-left: 0;
+  }
+
+  .page > #quartz-body .sidebar.left {
+    padding-left: 1rem;
+  }
+
   .page > #quartz-body .sidebar {
     padding-top: 3.25rem;
   }
@@ -95,11 +111,13 @@ html {
 // ---------------------------------------------------------------- left rail
 
 .page-title {
+  font-family: var(--fpks-nav-font);
   font-size: 1.3rem;
   margin: 0;
 
   a {
     color: var(--dark);
+    font-family: inherit;
     font-weight: 600;
     letter-spacing: 0.03em;
   }
@@ -113,13 +131,17 @@ html {
   background-color: transparent;
   border: 1px solid var(--lightgray);
   border-radius: 6px;
+
+  p {
+    font-family: var(--fpks-nav-font);
+  }
 }
 
 .explorer {
   button.desktop-explorer h2,
   button.mobile-explorer h2 {
     color: var(--gray);
-    font-family: var(--bodyFont);
+    font-family: var(--fpks-nav-font);
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -128,7 +150,7 @@ html {
   .folder-container div > a,
   .folder-container div > button span {
     color: var(--darkgray);
-    font-family: var(--bodyFont);
+    font-family: var(--fpks-nav-font);
     font-weight: 500;
   }
 
@@ -143,7 +165,7 @@ html {
 
   .explorer-content ul li > a {
     color: var(--darkgray);
-    font-family: var(--bodyFont);
+    font-family: var(--fpks-nav-font);
     font-weight: 400;
     opacity: 1;
     line-height: 1.45;
@@ -271,16 +293,6 @@ article {
     color: var(--darkgray);
   }
 
-  // Long display formulas scroll inside their own box instead of widening the page;
-  // the block padding keeps tall radicals and subscripts from being clipped.
-  .katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-block: 0.4rem;
-    margin-block: 0.8rem;
-    scrollbar-width: thin;
-  }
-
   .table-container > table {
     margin: 1.25rem 0;
     padding: 0;
@@ -318,6 +330,63 @@ article {
   hr {
     margin-block: 2.5rem;
   }
+}
+
+// ---------------------------------------------------------------- formulas
+// Reading-view rules of the vault's `block-math-zoom.css` and `inline-math-zoom.css`,
+// plus the bold rule of its theme. Size comes from MathJax's `output.scale`: do not set
+// a font-size here, it would break baselines and stretchy constructs.
+
+// Horizontal scrolling must live on the wrapper. On mjx-container it would make
+// overflow-y compute to auto and clip roots, denominators and box rules.
+.math.math-block {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-block: 0.7em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
+
+  // max-content keeps long formulas scrollable; min-width keeps short ones centred.
+  > mjx-container[display="true"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: max-content !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    padding-block: 0.16em 0.32em !important;
+
+    > mjx-math {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+// Align with the text baseline; `middle` would make enlarged formulas look low.
+span.math.math-inline > mjx-container[jax="CHTML"]:not([display="true"]) {
+  vertical-align: baseline !important;
+}
+
+strong .math,
+b .math,
+h1 .math,
+h2 .math,
+h3 .math,
+h4 .math,
+h5 .math,
+h6 .math {
+  font-weight: 400 !important;
+  font-variation-settings: normal !important;
+  font-synthesis: none !important;
 }
 
 // ---------------------------------------------------------------- callouts
@@ -422,6 +491,19 @@ ul.toc-content.overflow > li > a {
 .graph > .graph-outer {
   border-radius: 6px;
   height: 200px;
+}
+
+.graph-link-target {
+  background: var(--highlight);
+  box-shadow: 0 0 0 3px var(--highlight);
+  border-radius: 2px;
+}
+
+// The first thing in a single-block preview needs no space above it.
+.popover .popover-block > :first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 // ---------------------------------------------------------------- home page

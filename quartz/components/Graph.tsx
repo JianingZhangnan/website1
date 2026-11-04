@@ -19,6 +19,8 @@ export interface D3Config {
   showTags: boolean
   focusOnHover?: boolean
   enableRadial?: boolean
+  // Show every note reachable from the current one instead of limiting by depth.
+  connectedComponent?: boolean
 }
 
 interface GraphOptions {

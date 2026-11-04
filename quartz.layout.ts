@@ -52,7 +52,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Backlinks(),
     // Rendered drawings have no links, so their graph panel would always be empty.
     Component.ConditionalRender({
-      component: Component.Graph(),
+      // The expanded view is the current note's connected component, not the whole site.
+      component: Component.Graph({
+        globalGraph: { connectedComponent: true, showTags: false },
+      }),
       condition: (page) => !page.fileData.frontmatter?.cssclasses?.includes("drawing"),
     }),
   ],
