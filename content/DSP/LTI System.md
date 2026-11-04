@@ -1,4 +1,3 @@
-**线性时不变系统** (LTI System) 是信号处理领域研究的一个基本模型。
 >[!def] LTI system
 >算子 $\mathcal{T}$ 是线性、时不变的。即：
 >- $\mathcal{T}[\lambda_{1}x_{1}(t)+\lambda_{2}x_{2}(t)]=\lambda_{1}\mathcal{T}[x_{1}(t)]+\lambda_{2}\mathcal{T}[x_{2}(t)]$.

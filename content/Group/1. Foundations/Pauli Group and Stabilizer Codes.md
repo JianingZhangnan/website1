@@ -7,7 +7,7 @@ aliases:
 
 # Pauli 群与稳定子码
 
-来源：[[Group/Lecture notes/GT-ch02.pdf#page=10|GT-ch02，§2.7，原页码 18–22]]。前置：[[Group/1. Foundations/1. Basic Definitions and Examples#四元数群与 Pauli 矩阵|Pauli 矩阵]]、[[量子力学/基础与演化/基础公设#补充：复合系统的张量积结构|复合系统的张量积]]。本页从有限群的对易关系出发，完整计算三比特纠错和环面码两个例子。
+来源：[[Group/Lecture notes/GT-ch02.pdf#page=10|GT-ch02，§2.7，原页码 18–22]]。
 
 ## 从 Pauli 矩阵到 Pauli 群
 
@@ -19,9 +19,9 @@ aliases:
 > |1\rangle=\begin{pmatrix}0\\1\end{pmatrix}.
 > $$
 >
-> 归一化纯态为 $\alpha|0\rangle+\beta|1\rangle$，$|\alpha|^2+|\beta|^2=1$。$n$ 比特空间为 $(\mathbb C^2)^{\otimes n}$，计算基写为 $|b_1\cdots b_n\rangle$，其中每个 $b_j\in\{0,1\}$。
+> 归一化纯态为 $\alpha|0\rangle+\beta|1\rangle$，$|\alpha|^2+|\beta|^2=1$。$n$ 比特空间为[[量子力学/基础与演化/基础公设#^def-composite-tensor-space|张量积]] $(\mathbb C^2)^{\otimes n}$，计算基写为 $|b_1\cdots b_n\rangle$，其中每个 $b_j\in\{0,1\}$。
 
-采用前面给出的 $X=\sigma_1,Y=\sigma_2,Z=\sigma_3$，直接作用于两列基向量得到
+采用[[Group/1. Foundations/1. Basic Definitions and Examples#四元数群与 Pauli 矩阵|Pauli 矩阵]] $X=\sigma_1,Y=\sigma_2,Z=\sigma_3$，直接作用于两列基向量得到
 
 $$
 X|0\rangle=|1\rangle,\quad X|1\rangle=|0\rangle,\qquad

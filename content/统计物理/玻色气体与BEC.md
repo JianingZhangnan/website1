@@ -6,8 +6,6 @@
 
 ![[assets/thermal-terminal/11-bec-dimension.png]]
 
-本页整理原稿中玻色气体和 Bose-Einstein 凝聚 (BEC) 的部分。公共巨正则公式见 [[量子理想气体]]。
-
 ## 三维理想玻色气体
 
 > [!def] 热波长、自旋简并度与逸度

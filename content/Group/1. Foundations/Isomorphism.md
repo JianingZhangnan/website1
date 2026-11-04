@@ -7,12 +7,12 @@ aliases:
 
 # Isomorphism
 
-来源：[[Group/Lecture notes/GT-ch03.pdf|GT-ch03]] 中关于同构、自同构、具体同构及换基的内容。前置定义和单射判据见 [[Group/1. Foundations/2. Homomorphism]]；群的具体例子见 [[Group/1. Foundations/1. Basic Definitions and Examples]]。
+来源：[[Group/Lecture notes/GT-ch03.pdf|GT-ch03]] 中关于同构、自同构、具体同构及换基的内容。
 
 ## 同构与自同构
 
 > [!def] 同构、自同构与自同构集合（Definition 3.4）
-> 双射的群同态称为**同构**（isomorphism）。存在同构 $G\to G'$ 时记 $G\cong G'$。
+> 双射的[[Group/1. Foundations/2. Homomorphism#^group-homomorphism|群同态]]称为**同构**（isomorphism）。存在同构 $G\to G'$ 时记 $G\cong G'$。
 > 从群 $G$ 到自身的同构称为**自同构**（automorphism），所有自同构组成的集合记为 $\operatorname{Aut}(G)$。
 
 一个同构不只匹配元素，还匹配全部乘法。一个集合之间的任意双射不一定是群同构。
@@ -20,7 +20,7 @@ aliases:
 > [!done] 用核与像检验同构（Proposition 3.10）
 > 同态 $\varphi:G\to G'$ 是同构，当且仅当 $\ker\varphi=\{e\}$ 且 $\operatorname{im}\varphi=G'$。
 
-第一项由已有单射判据处理，第二项就是满射。计算时必须说明目标群：同一个公式以整个 $G'$ 为目标可能不满射，以自身的像为目标则总满射。
+第一项由[[Group/1. Foundations/2. Homomorphism#^injective-kernel|单射判据]]处理，第二项就是满射。计算时必须说明目标群：同一个公式以整个 $G'$ 为目标可能不满射，以自身的像为目标则总满射。
 
 > [!done] 同构的逆与同构关系（Proposition 3.5）
 > 同构 $\varphi:G\to G'$ 的逆映射 $\varphi^{-1}:G'\to G$ 也是同构。同构关系具有自反性、对称性、传递性，因此是等价关系。

@@ -4,8 +4,6 @@
 
 ![[assets/thermal-terminal/07-fermi-sommerfeld.png]]
 
-本页整理 [[费米气体]] 的低温修正。目标是把
-
 > [!def] 费米分布与待展开的积分
 > $$
 > I=\int_0^\infty\phi(E)f(E)\,dE,
@@ -13,7 +11,7 @@
 > f(E)=\dfrac{1}{e^{\beta(E-\mu)}+1}
 > $$
 
-展开成零温积分加温度修正。
+下面把 $I$ 展开成零温积分加温度修正。
 
 ## 分部积分
 
@@ -84,7 +82,7 @@ N=\dfrac{2}{3}A\mu^{3/2}
 $$
 
 > [!done] 固定粒子数下的低温化学势与费米温度
-> 令 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
+> 令[[费米气体#^def-zero-temperature-fermi-sphere|零温费米能]]满足 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
 >
 > $$
 > \mu(T)=E_F\left[

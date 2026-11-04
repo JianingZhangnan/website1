@@ -1,7 +1,5 @@
 # 角动量例题：$\hat L_n=\vec{\hat L}\cdot\vec n$
 
-> 通用结果见 [[角动量]]。
-
 **题目**：已知在 $(\hat L^2,\hat L_z)$ 表象下，粒子运动状态的角度部分可以用如下波函数描写
 
 $$
@@ -37,7 +35,7 @@ $$
 \hat L_x=\tfrac12(\hat L_++\hat L_-),\qquad \hat L_y=\tfrac1{2i}(\hat L_+-\hat L_-),
 $$
 
-以及 $\hat L_\pm|l,m\rangle=\sqrt{l(l+1)-m(m\pm1)}\,\hbar\,|l,m\pm1\rangle$，逐项作用：
+以及[[角动量#^prop-angular-momentum-eigenvalues|升降算符的作用]] $\hat L_\pm|l,m\rangle=\sqrt{l(l+1)-m(m\pm1)}\,\hbar\,|l,m\pm1\rangle$，逐项作用：
 
 $$
 \hat L_+|10\rangle=\sqrt2\,\hbar|11\rangle,\quad \hat L_+|00\rangle=\hat L_-|00\rangle=0,\quad \hat L_+|11\rangle=0,

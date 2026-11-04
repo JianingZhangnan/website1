@@ -5,7 +5,7 @@ tags: [数理方法, 已消化]
 
 # 勒让德多项式 (Legendre Polynomials)
 
-公式卡，按备考记忆。来源：handnote1。
+来源：handnote1。
 
 ## 前 8 个 $P_l(x)$
 
@@ -24,6 +24,7 @@ tags: [数理方法, 已消化]
 
 > [!done] 低阶幂函数的勒让德展开
 > $$1=P_0,\quad x=P_1,\quad x^2=\dfrac{2P_2+P_0}{3},\quad x^3=\dfrac{2P_3+3P_1}{5},\quad x^4=\dfrac{8P_4+20P_2+7P_0}{35}.$$
+^prop-power-legendre-expansion
 
 倒推法：每次用 $P_n$ 的最高次项定系数、把低次减掉再续。$n$ 次多项式必为 $P_0\!\sim\!P_n$ 的有限组合，故展开多项式无需积分。
 

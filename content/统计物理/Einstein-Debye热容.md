@@ -4,8 +4,6 @@
 
 ![[assets/thermal-terminal/05-einstein-debye.png]]
 
-本页整理 [[固体热容与声子]] 中的热容模型。两种模型都把固体看成声子谐振子系统，差别只在模式密度 $g(\omega)$。
-
 ## Einstein 模型
 
 > [!def] Einstein 模型
