@@ -7,8 +7,6 @@ aliases:
 
 # Isomorphism
 
-来源：[[Group/Lecture notes/GT-ch03.pdf|GT-ch03]] 中关于同构、自同构、具体同构及换基的内容。
-
 ## 同构与自同构
 
 > [!def] 同构、自同构与自同构集合（Definition 3.4）

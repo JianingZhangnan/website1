@@ -5,8 +5,6 @@ tags: [数理方法, 已消化]
 
 # 勒让德多项式 (Legendre Polynomials)
 
-来源：handnote1。
-
 ## 前 8 个 $P_l(x)$
 
 > [!def] 前八阶勒让德多项式

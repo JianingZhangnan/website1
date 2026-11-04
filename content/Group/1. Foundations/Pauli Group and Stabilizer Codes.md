@@ -7,8 +7,6 @@ aliases:
 
 # Pauli 群与稳定子码
 
-来源：[[Group/Lecture notes/GT-ch02.pdf#page=10|GT-ch02，§2.7，原页码 18–22]]。
-
 ## 从 Pauli 矩阵到 Pauli 群
 
 > [!def] 量子比特与计算基
