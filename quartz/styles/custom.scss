@@ -1,42 +1,539 @@
 @use "./base.scss";
 
+// Warm paper theme. Colour tokens live in quartz.config.ts; the values below are
+// the few semantic accents Quartz has no token for.
 :root {
-  --fpks-radius: 12px;
+  --fpks-accent: #c8643f; // decoration only: too light for body-size text on paper
+  --fpks-def: #a94f2d;
+  --fpks-done: #15803d;
+  --fpks-example: #6d4aa8;
+  --fpks-paper: #fffdf7;
+  --fpks-measure: 44rem;
 }
 
-body {
-  background-image: radial-gradient(circle at 8% 4%, rgba(55, 111, 99, 0.06), transparent 24rem);
+:root[saved-theme="dark"] {
+  --fpks-accent: #d97757;
+  --fpks-def: #d97757;
+  --fpks-done: #5fbf85;
+  --fpks-example: #b49be0;
 }
 
-.page-title a {
-  letter-spacing: 0.02em;
+html {
+  // Quartz sets `width: 100vw`, which overflows next to classic scrollbars.
+  width: 100%;
 }
 
-article h1,
-article h2,
-article h3 {
-  text-wrap: balance;
+::selection {
+  background: color-mix(in srgb, var(--fpks-accent) 28%, transparent);
+  color: var(--dark);
 }
 
-article img {
-  border-radius: var(--fpks-radius);
-  box-shadow: 0 8px 28px rgba(20, 30, 25, 0.08);
+:focus-visible {
+  outline: 2px solid var(--fpks-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-article blockquote {
-  border-radius: 0 var(--fpks-radius) var(--fpks-radius) 0;
-  background: var(--highlight);
-  padding-block: 0.35rem;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
+
+// ---------------------------------------------------------------- page frame
 
 .explorer .folder-outer,
 .backlinks,
+.toc,
 .graph {
   scrollbar-width: thin;
 }
 
+@media (min-width: 801px) {
+  .page > #quartz-body .sidebar {
+    padding-top: 3.25rem;
+  }
+
+  .page > #quartz-body .page-header {
+    margin-top: 3.25rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .page > #quartz-body .sidebar.left {
+    border-right: 1px solid var(--lightgray);
+  }
+
+  .page > #quartz-body .sidebar.right {
+    border-left: 1px solid var(--lightgray);
+  }
+
+  .page > #quartz-body .page-header,
+  .page > #quartz-body .center > article,
+  .page > #quartz-body .center > .page-footer,
+  .page > #quartz-body footer {
+    max-width: var(--fpks-measure);
+    margin-inline: auto;
+  }
+
+  // An explicit width, because auto margins let this grid item shrink to short content.
+  .page > #quartz-body .center,
+  .page > #quartz-body footer {
+    width: min(100%, var(--fpks-measure));
+    min-width: 0;
+  }
+}
+
+// ---------------------------------------------------------------- left rail
+
+.page-title {
+  font-size: 1.3rem;
+  margin: 0;
+
+  a {
+    color: var(--dark);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  a:hover {
+    color: var(--secondary);
+  }
+}
+
+.search > .search-button {
+  background-color: transparent;
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+}
+
+.explorer {
+  button.desktop-explorer h2,
+  button.mobile-explorer h2 {
+    color: var(--gray);
+    font-family: var(--bodyFont);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+
+  .folder-container div > a,
+  .folder-container div > button span {
+    color: var(--darkgray);
+    font-family: var(--bodyFont);
+    font-weight: 500;
+  }
+
+  .folder-container div > a:hover,
+  .folder-container div > button:hover span {
+    color: var(--secondary);
+  }
+
+  .folder-icon {
+    color: var(--gray);
+  }
+
+  .explorer-content ul li > a {
+    color: var(--darkgray);
+    font-family: var(--bodyFont);
+    font-weight: 400;
+    opacity: 1;
+    line-height: 1.45;
+    padding-block: 0.1rem;
+  }
+
+  .explorer-content ul li > a:hover {
+    color: var(--secondary);
+  }
+
+  .explorer-content ul li > a.active {
+    color: var(--secondary);
+    font-weight: 500;
+    box-shadow: inset 2px 0 0 var(--fpks-accent);
+    padding-left: 0.5rem;
+  }
+}
+
+// ---------------------------------------------------------------- article head
+
+.breadcrumb-container {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+
+  .breadcrumb-element a,
+  .breadcrumb-element p {
+    color: var(--gray);
+    font-weight: 400;
+    background: transparent;
+    padding: 0;
+  }
+
+  .breadcrumb-element a:hover {
+    color: var(--secondary);
+  }
+}
+
+.article-title {
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+}
+
+.content-meta,
+.content-meta * {
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.tags .tag-link {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+// ---------------------------------------------------------------- reading
+
+article {
+  font-size: 1.03rem;
+
+  p,
+  li,
+  tbody {
+    line-height: 1.85;
+  }
+
+  p {
+    margin-block: 0.95rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  > h2 {
+    font-size: 1.5rem;
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--lightgray);
+  }
+
+  > h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  > h4 {
+    margin-top: 1.5rem;
+  }
+
+  a.internal:not(.tag-link, :has(> img)),
+  a.external {
+    background: transparent;
+    padding: 0;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--secondary) 35%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    transition:
+      color 0.15s ease,
+      text-decoration-color 0.15s ease;
+  }
+
+  a.internal:not(.tag-link, :has(> img)):hover,
+  a.external:hover {
+    text-decoration-color: currentColor;
+  }
+
+  img {
+    border-radius: 4px;
+    display: block;
+    margin-inline: auto;
+  }
+
+  blockquote:not(.callout) {
+    margin-inline: 0;
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    border-left: 2px solid var(--lightgray);
+    color: var(--darkgray);
+  }
+
+  // Long display formulas scroll inside their own box instead of widening the page;
+  // the block padding keeps tall radicals and subscripts from being clipped.
+  .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-block: 0.4rem;
+    margin-block: 0.8rem;
+    scrollbar-width: thin;
+  }
+
+  .table-container > table {
+    margin: 1.25rem 0;
+    padding: 0;
+    font-size: 0.95rem;
+
+    th {
+      border-bottom: 1px solid var(--gray);
+      font-weight: 600;
+    }
+
+    tr {
+      border-bottom-color: var(--lightgray);
+    }
+
+    & > * {
+      line-height: 1.7;
+    }
+  }
+
+  pre {
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--lightgray) 28%, transparent);
+    padding-block: 0.25rem;
+  }
+
+  code {
+    background: color-mix(in srgb, var(--lightgray) 60%, transparent);
+    border-radius: 3px;
+  }
+
+  pre > code {
+    background: none;
+  }
+
+  hr {
+    margin-block: 2.5rem;
+  }
+}
+
+// ---------------------------------------------------------------- callouts
+// Square corners and a thin rule, matching the vault's Obsidian callout snippet.
+
+article .callout {
+  border-width: 0 0 0 3px;
+  border-style: solid;
+  border-radius: 0;
+  margin-block: 1.35rem;
+  padding: 0 1.1rem;
+
+  > .callout-title {
+    padding-block: 0.7rem 0.25rem;
+    font-weight: 600;
+  }
+
+  > .callout-content {
+    min-width: 0;
+    padding-bottom: 0.45rem;
+
+    > * {
+      min-width: 0;
+    }
+  }
+
+  &[data-callout="def"],
+  &[data-callout="pron"] {
+    --color: var(--fpks-def);
+    --border: var(--fpks-def);
+    --bg: color-mix(in srgb, var(--fpks-def) 7%, transparent);
+    --callout-icon: var(--callout-icon-abstract);
+  }
+
+  // Quartz canonicalises `done` to `success`.
+  &[data-callout="success"],
+  &[data-callout="claim"],
+  &[data-callout="done1"] {
+    --color: var(--fpks-done);
+    --border: var(--fpks-done);
+    --bg: color-mix(in srgb, var(--fpks-done) 7%, transparent);
+    --callout-icon: var(--callout-icon-success);
+  }
+
+  // LADR: conclusions that require finite-dimensional spaces (vault convention).
+  &[data-callout="done1"] {
+    background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--fpks-done) 5%, transparent),
+      color-mix(in srgb, #2563eb 7%, transparent)
+    );
+  }
+
+  &[data-callout="example"],
+  &[data-callout="practice"] {
+    --color: var(--fpks-example);
+    --border: var(--fpks-example);
+    --bg: color-mix(in srgb, var(--fpks-example) 6%, transparent);
+    --callout-icon: var(--callout-icon-example);
+  }
+}
+
+// ---------------------------------------------------------------- right rail
+
+.toc,
+.backlinks,
+.graph {
+  h3 {
+    color: var(--gray);
+    font-family: var(--bodyFont);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin: 0;
+  }
+}
+
+button.toc-header h3 {
+  font-size: 0.8rem;
+}
+
+ul.toc-content.overflow > li > a {
+  color: var(--darkgray);
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.72;
+
+  &.in-view {
+    color: var(--secondary);
+    font-weight: 500;
+    opacity: 1;
+  }
+}
+
+.backlinks ul.overflow a {
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding: 0;
+}
+
+.graph > .graph-outer {
+  border-radius: 6px;
+  height: 200px;
+}
+
+// ---------------------------------------------------------------- home page
+
+.topic-grid {
+  margin-top: 2.5rem;
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--lightgray);
+  }
+
+  li {
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.1rem 1rem;
+    padding: 0.85rem 0.25rem;
+    color: inherit;
+    font-weight: 400;
+    transition: background-color 0.15s ease;
+  }
+
+  a:hover {
+    background: var(--highlight);
+  }
+
+  a:hover .topic-title {
+    color: var(--secondary);
+  }
+
+  .topic-title {
+    color: var(--dark);
+    font-family: var(--headerFont);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+
+  .topic-count {
+    color: var(--gray);
+    font-size: 0.85rem;
+    align-self: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .topic-description {
+    grid-column: 1 / -1;
+    color: var(--darkgray);
+    font-size: 0.9rem;
+  }
+}
+
+// ---------------------------------------------------------------- footer
+
+footer {
+  color: var(--gray);
+  font-size: 0.82rem;
+  opacity: 1;
+
+  p {
+    color: var(--gray);
+  }
+
+  a {
+    font-weight: 400;
+  }
+}
+
+// ---------------------------------------------------------------- drawing pages
+// Rendered Excalidraw boards keep a paper-coloured sheet in both themes.
+
+article.drawing {
+  > p:has(> a > img) {
+    overflow: auto;
+    max-height: 82vh;
+    background: var(--fpks-paper);
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+    margin-block: 1rem;
+  }
+
+  > p:has(> a > img) img {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    content-visibility: visible;
+  }
+}
+
+// ---------------------------------------------------------------- small screens
+
 @media (max-width: 800px) {
-  body {
-    background-image: none;
+  .article-title {
+    font-size: 1.7rem;
+  }
+
+  article {
+    font-size: 1rem;
+  }
+
+  article .callout {
+    padding-inline: 0.8rem;
   }
 }

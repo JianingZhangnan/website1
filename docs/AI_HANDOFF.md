@@ -1,6 +1,6 @@
 # FPKS website engineering handoff
 
-Last updated: 2026-08-01
+Last updated: 2026-11-03
 
 ## Current state
 
@@ -32,6 +32,19 @@ Desktop private FPKS ──allowlist/safety scan/build/commit every 12 h
 ```
 
 Before each content sync, the desktop publisher requires a clean checkout, fetches `origin/main`, and performs a fast-forward-only merge. This prevents a new content commit from diverging after frontend work lands on GitHub. It then mirrors only approved directories and file types (excluding AI instruction files such as `AGENTS.md`), removes notes whose YAML frontmatter has `draft: true` (unreviewed vault notes; Quartz would not render them, but their source must not enter the public repository either), rejects forbidden/oversized files and likely secrets, builds Quartz, and pushes any local commits.
+
+As of 2026-11-03 the scheduled task `FPKS Website Publish` is disabled, so publishing is a deliberate manual run of `scripts/publish.ps1`.
+
+### Excalidraw drawings
+
+Source notes (frontmatter `excalidraw-plugin:`) are never published; the publisher removes them from `content/` wherever they appear. Instead, `scripts/excalidraw-export/` (desktop only, with its own `package.json`, not part of the Cloudflare build) renders them in headless Chrome with Excalidraw's own exporter and writes an SVG plus a small stub note.
+
+- A drawing is published only if every image and formula resolves. A failure skips that drawing and is logged; it never falls back to the raw note.
+- Templates, drawings named `DRAFT`, `draft: true`, empty boards, and everything listed in `scripts/excalidraw-export/private-drawings.json` are skipped. That list is the owner's decision; do not remove entries without asking.
+- `content/Excalidraw/` holds only generated output and is pruned on each run. Drawings under an `assets/` folder are moved there too, so `assets` does not appear in the explorer.
+- Renders are cached by content hash in `%LOCALAPPDATA%\FPKS-Publish\excalidraw-cache`, so unchanged drawings produce no Git changes.
+- Drawings are static: links inside them are not clickable, and they sit on a paper-coloured sheet in dark mode rather than being inverted.
+- The SVG exposes the drawing's text and images, and any drawing not on the list above is published by the next run. Add a new private drawing to the list before publishing.
 
 ## Laptop setup and normal workflow
 
@@ -65,7 +78,12 @@ On a new computer, the first HTTPS push may open Git Credential Manager for GitH
 - `quartz/styles/custom.scss`: project-owned visual refinements.
 - `quartz/components/`: reusable UI components; add code here only when layout/configuration/CSS cannot express the change.
 - `content/`: public note snapshot; protect filenames, wikilinks, math, images, and frontmatter.
+- `quartz/plugins/transformers/dedupeTitle.ts`: removes a first H1 identical to the page title.
+- `quartz/plugins/transformers/noteRelativeLinks.ts`: resolves Obsidian note-relative paths such as `![[assets/x.png]]`, which Quartz's "shortest" strategy only tries from the root.
+- `quartz/components/TopicGrid.tsx`: home page topic entries; edit its list when a top-level topic changes.
+- `quartz/components/scripts/explorer.inline.ts`: one local edit (`block: "nearest"`) stops the explorer from scrolling the whole page on load. Keep it across Quartz upgrades.
 - `scripts/publish.ps1`: desktop content publication and safety checks.
+- `scripts/excalidraw-export/`: renders Excalidraw drawings to SVG for the publisher.
 - `scripts/install-scheduled-task.ps1`: installs the 12-hour Windows task on the desktop.
 
 Quartz framework files also live under `quartz/`. Prefer project-owned configuration and custom styles over broad framework edits, because upstream upgrades otherwise become unnecessarily difficult.
@@ -99,6 +117,8 @@ Also inspect the site at desktop and mobile widths and verify:
 
 - Static Cloudflare Pages hosting is sufficient; a VPS would add maintenance without a current server-side requirement.
 - The custom domain is `notes.zjnmcp.me`.
-- Automatic knowledge publication runs every 12 hours rather than continuously.
+- Automatic knowledge publication was designed to run every 12 hours; the task is currently disabled (see above).
+- Public allowlist as of 2026-11-03: `AISE`, `assets`, `Group` (without `Group/homework`), `数理方法`, `统计物理`, `量子力学`, and `笔记写作规范.md`. `重整化群与临界指数` was taken down because it no longer exists in the vault, and `英语` (now `Language` in the vault) was taken down by the owner's decision; their history remains in Git.
+- Page dates on production are unreliable: Cloudflare's checkout makes every page report the latest commit date. Do not build features on them until this is fixed.
 - Large/private vault files stay in Baidu Netdisk and are excluded from Git and the public website.
 - GitHub is the cross-machine handoff point for frontend development; copied dependency folders and AI chat sessions are not part of the handoff.

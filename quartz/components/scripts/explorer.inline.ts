@@ -228,7 +228,8 @@ async function setupExplorer(currentSlug: FullSlug) {
       // try to scroll to the active element if it exists
       const activeElement = explorerUl.querySelector(".active")
       if (activeElement) {
-        activeElement.scrollIntoView({ behavior: "smooth" })
+        // FPKS: "nearest" scrolls only the explorer; the default also jumps the whole page down.
+        activeElement.scrollIntoView({ behavior: "smooth", block: "nearest" })
       }
     }
 

@@ -14,18 +14,19 @@ $env:GIT_SSH_COMMAND = '"C:/Program Files/Git/usr/bin/ssh.exe" -F /dev/null -o B
 $AllowedDirectories = @(
   'AISE',
   'assets',
-  'Excalidraw',
   'Group',
   '数理方法',
   '统计物理',
-  '英语',
-  '重整化群与临界指数',
   '量子力学'
 )
+# Excalidraw source notes are never published. scripts/excalidraw-export renders them to SVG.
+$DrawingDirectories = @('Excalidraw') + $AllowedDirectories
+$DrawingExporter = Join-Path $RepoRoot 'scripts\excalidraw-export'
 $AllowedRootFiles = @('笔记写作规范.md')
 $AllowedMasks = @('*.md', '*.png', '*.jpg', '*.jpeg', '*.webp', '*.gif', '*.svg', '*.py', '*.tex', '*.csv', '*.txt', '*.yaml', '*.yml', '*.json', '*.css', '*.js')
-$ExcludedDirectories = @('.git', '.obsidian', '.codex', '.vscode', '.tmp_pdf_read', 'DRAFT', 'Clippings', 'node_modules')
-$ExcludedFiles = @('AGENT.md', 'AGENTS.md', 'CLAUDE.md', '.obsidian.vimrc', '*.pdf', '*.ttf', '*.otf', '*.log', '*.aux', '*.out', '*.toc', '*.synctex*', '*.bak*', '.env*', '*.pem', '*.key')
+# A full path excludes only that folder; a bare 'homework' would match any level of the vault.
+$ExcludedDirectories = @('.git', '.obsidian', '.codex', '.vscode', '.tmp_pdf_read', 'DRAFT', 'Clippings', 'node_modules', (Join-Path $SourceRoot 'Group\homework'))
+$ExcludedFiles = @('AGENT.md', 'AGENTS.md', 'CLAUDE.md', '.obsidian.vimrc', '*.pdf', '*.ttf', '*.otf', '*.log', '*.aux', '*.out', '*.toc', '*.synctex*', '*.bak*', '.env*', '*.pem', '*.key', '*冲突文件*')
 
 New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null
 $mutex = [System.Threading.Mutex]::new($false, $MutexName)
@@ -50,18 +51,20 @@ function Invoke-Checked {
   }
 }
 
-# Unreviewed vault notes carry `draft: true` in YAML frontmatter.
-function Test-DraftNote {
+# Unreviewed vault notes carry `draft: true` in YAML frontmatter; Excalidraw source
+# notes carry `excalidraw-plugin:`. Neither may reach the public repository.
+function Test-UnpublishableNote {
   param([Parameter(Mandatory)][string]$Path)
-  $lines = Get-Content -LiteralPath $Path -Encoding utf8 -TotalCount 200
-  if (-not $lines -or $lines[0].Trim() -ne '---') {
+  # @() keeps a one-line note as an array; otherwise $lines[0] would be a single character.
+  $lines = @(Get-Content -LiteralPath $Path -Encoding utf8 -TotalCount 200)
+  if ($lines.Count -eq 0 -or $lines[0].Trim() -ne '---') {
     return $false
   }
   for ($i = 1; $i -lt $lines.Count; $i++) {
     if ($lines[$i].Trim() -eq '---') {
       return $false
     }
-    if ($lines[$i] -match '^draft:\s*["'']?true["'']?\s*$') {
+    if ($lines[$i] -match '^draft:\s*["'']?true["'']?\s*$' -or $lines[$i] -match '^excalidraw-plugin:') {
       return $true
     }
   }
@@ -128,12 +131,36 @@ try {
   }
 
   # Quartz skips rendering drafts, but their source must not reach the public repository either.
-  $draftNotes = @(Get-ChildItem -LiteralPath $ContentRoot -Recurse -File -Filter '*.md' | Where-Object { Test-DraftNote -Path $_.FullName })
-  foreach ($note in $draftNotes) {
+  $excludedNotes = @(Get-ChildItem -LiteralPath $ContentRoot -Recurse -File -Filter '*.md' | Where-Object { Test-UnpublishableNote -Path $_.FullName })
+  foreach ($note in $excludedNotes) {
     Remove-Item -LiteralPath $note.FullName -Force
   }
-  if ($draftNotes.Count -gt 0) {
-    Write-Log "Excluded $($draftNotes.Count) draft note(s) from public content."
+  if ($excludedNotes.Count -gt 0) {
+    Write-Log "Excluded $($excludedNotes.Count) draft or Excalidraw source note(s) from public content."
+  }
+
+  # Renders drawings to SVG. A drawing that cannot be rendered is skipped, so a failure here
+  # must not stop the note sync: the drawings already published simply stay as they are.
+  try {
+    Push-Location $DrawingExporter
+    try {
+      if (-not (Test-Path -LiteralPath 'node_modules' -PathType Container)) {
+        Write-Log 'Installing pinned Excalidraw exporter dependencies.'
+        Invoke-Checked -FilePath 'npm.cmd' -ArgumentList @('ci', '--prefer-offline', '--no-audit')
+      }
+      Write-Log 'Rendering Excalidraw drawings.'
+      $exporterOutput = & node.exe 'export.mjs' '--vault' $SourceRoot '--content' $ContentRoot '--dirs' ($DrawingDirectories -join ',')
+      if ($LASTEXITCODE -ne 0) {
+        throw "Exporter exited with code $LASTEXITCODE"
+      }
+      foreach ($line in @($exporterOutput | Where-Object { $_ -match '^(FAIL|exported=)' })) {
+        Write-Log $line
+      }
+    } finally {
+      Pop-Location
+    }
+  } catch {
+    Write-Log "WARNING: Excalidraw export did not complete: $($_.Exception.Message)"
   }
 
   $forbidden = Get-ChildItem -LiteralPath $ContentRoot -Recurse -File | Where-Object {
@@ -148,7 +175,7 @@ try {
   }
 
   $secretPattern = '(?i)(-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{32,}|(?:api[_-]?key|secret[_-]?key|access[_-]?token)\s*[:=]\s*["''][^"'']{12,}["''])'
-  $textFiles = Get-ChildItem -LiteralPath $ContentRoot -Recurse -File | Where-Object { $_.Extension -in @('.md', '.txt', '.yaml', '.yml', '.json', '.py', '.js', '.css', '.tex') }
+  $textFiles = Get-ChildItem -LiteralPath $ContentRoot -Recurse -File | Where-Object { $_.Extension -in @('.md', '.txt', '.yaml', '.yml', '.json', '.py', '.js', '.css', '.tex', '.svg') }
   $secretHits = $textFiles | Select-String -Pattern $secretPattern
   if ($secretHits) {
     $hitSummary = $secretHits | Select-Object -First 20 Path, LineNumber, Line
@@ -176,7 +203,7 @@ try {
     Write-Log 'Building the static site.'
     Invoke-Checked -FilePath 'npx.cmd' -ArgumentList @('quartz', 'build')
 
-    $paths = @('content/index.md', 'content/笔记写作规范.md') + ($AllowedDirectories | ForEach-Object { "content/$_" })
+    $paths = @('content/index.md', 'content/笔记写作规范.md', 'content/Excalidraw') + ($AllowedDirectories | ForEach-Object { "content/$_" })
     Invoke-Checked -FilePath 'git.exe' -ArgumentList (@('add', '--') + $paths)
     & git.exe diff --cached --quiet
     $hasChanges = $LASTEXITCODE -eq 1

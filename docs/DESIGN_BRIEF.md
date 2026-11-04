@@ -4,12 +4,13 @@
 
 FPKS should feel like a calm, rigorous Chinese-language knowledge garden: scholarly without looking institutional, personal without looking like a social feed, and dense without becoming visually noisy. Reading and finding ideas matter more than decoration.
 
-The current foundation is intentionally restrained:
+The current foundation ("warm paper", aligned with the vault's Obsidian Claude Warm theme) is intentionally restrained:
 
 - Noto Serif SC for headings, Noto Sans SC for body text, and IBM Plex Mono for code;
-- warm paper-like light mode and subdued charcoal dark mode;
-- jade green as the primary accent and a muted clay tone as the secondary accent;
-- a desktop knowledge workspace with explorer, search, graph, table of contents, and backlinks.
+- ivory paper light mode (`#f6f4ec`) and warm charcoal dark mode (`#20201f`);
+- terracotta as the only accent: `#a94f2d` / `#d97757` for text, `#c8643f` for decoration only because it is too light for body-size text on paper;
+- `def` callouts in terracotta and `done` callouts in green, with square corners and a thin left rule like the vault's callout snippet;
+- a desktop knowledge workspace with explorer, search, table of contents, backlinks, and graph, in that order of weight.
 
 ## Improvement priorities
 

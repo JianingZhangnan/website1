@@ -6,11 +6,12 @@
 
 本页整理 [[费米气体]] 的低温修正。目标是把
 
-$$
-I=\int_0^\infty\phi(E)f(E)\,dE,
-\qquad
-f(E)=\dfrac{1}{e^{\beta(E-\mu)}+1}
-$$
+> [!def] 费米分布与待展开的积分
+> $$
+> I=\int_0^\infty\phi(E)f(E)\,dE,
+> \qquad
+> f(E)=\dfrac{1}{e^{\beta(E-\mu)}+1}
+> $$
 
 展开成零温积分加温度修正。
 
@@ -65,12 +66,13 @@ $$
 x^2\dfrac{e^x}{(e^x+1)^2}\,dx=\dfrac{\pi^2}{3}.
 $$
 
-得到核心公式：
-
-$$
-I=\int_0^\mu\phi(E)\,dE
-+\dfrac{\pi^2}{6}(k_BT)^2\phi'(\mu)+\cdots.
-$$
+> [!done] Sommerfeld 低温展开
+> 得到核心公式：
+>
+> $$
+> I=\int_0^\mu\phi(E)\,dE
+> +\dfrac{\pi^2}{6}(k_BT)^2\phi'(\mu)+\cdots.
+> $$
 
 ## 固定粒子数
 
@@ -81,31 +83,33 @@ N=\dfrac{2}{3}A\mu^{3/2}
 +\dfrac{\pi^2}{12}A(k_BT)^2\mu^{-1/2}+\cdots.
 $$
 
-令 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
-
-$$
-\mu(T)=E_F\left[
-1-\dfrac{\pi^2}{12}\left(\dfrac{T}{T_F}\right)^2+\cdots
-\right],
-\qquad
-T_F=\dfrac{E_F}{k_B}.
-$$
+> [!done] 固定粒子数下的低温化学势与费米温度
+> 令 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
+>
+> $$
+> \mu(T)=E_F\left[
+> 1-\dfrac{\pi^2}{12}\left(\dfrac{T}{T_F}\right)^2+\cdots
+> \right],
+> \qquad
+> T_F=\dfrac{E_F}{k_B}.
+> $$
 
 ## 内能和热容
 
-内能积分取 $\phi_U(E)=AE^{3/2}$。把上面的 $\mu(T)$ 代回 Sommerfeld 展开，得到
-
-$$
-U=\dfrac{3}{5}NE_F\left[
-1+\dfrac{5\pi^2}{12}\left(\dfrac{T}{T_F}\right)^2+\cdots
-\right].
-$$
-
-因此
-
-$$
-C_V=\left(\dfrac{\partial U}{\partial T}\right)_{V,N}
-=\dfrac{\pi^2}{2}Nk_B\dfrac{T}{T_F}+\cdots.
-$$
+> [!done] 三维非相对论费米气体的低温内能与热容
+> 内能积分取 $\phi_U(E)=AE^{3/2}$。把上面的 $\mu(T)$ 代回 Sommerfeld 展开，得到
+>
+> $$
+> U=\dfrac{3}{5}NE_F\left[
+> 1+\dfrac{5\pi^2}{12}\left(\dfrac{T}{T_F}\right)^2+\cdots
+> \right].
+> $$
+>
+> 因此
+>
+> $$
+> C_V=\left(\dfrac{\partial U}{\partial T}\right)_{V,N}
+> =\dfrac{\pi^2}{2}Nk_B\dfrac{T}{T_F}+\cdots.
+> $$
 
 低温费米气体只有费米面附近约 $k_BT$ 宽度内的粒子能被热激发，所以 $C_V$ 与 $T$ 成正比。

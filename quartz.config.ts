@@ -1,5 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { DedupeTitle } from "./quartz/plugins/transformers/dedupeTitle"
+import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
 
 const config: QuartzConfig = {
   configuration: {
@@ -22,26 +24,26 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#fbfaf6",
-          lightgray: "#e8e4da",
-          gray: "#aaa59a",
-          darkgray: "#4b4a45",
-          dark: "#242522",
-          secondary: "#376f63",
-          tertiary: "#9a684c",
-          highlight: "rgba(55, 111, 99, 0.12)",
-          textHighlight: "#f3d77866",
+          light: "#f6f4ec",
+          lightgray: "#e4e0d3",
+          gray: "#736e60",
+          darkgray: "#3b382f",
+          dark: "#26241e",
+          secondary: "#a94f2d",
+          tertiary: "#8a5a2b",
+          highlight: "rgba(200, 100, 63, 0.1)",
+          textHighlight: "#f0c96a66",
         },
         darkMode: {
-          light: "#171a18",
-          lightgray: "#303633",
-          gray: "#737b76",
-          darkgray: "#d3d8d4",
-          dark: "#f1f2ef",
-          secondary: "#8bc1b3",
-          tertiary: "#d5a181",
-          highlight: "rgba(139, 193, 179, 0.14)",
-          textHighlight: "#8d752e88",
+          light: "#20201f",
+          lightgray: "#38372f",
+          gray: "#a09d92",
+          darkgray: "#dcdad3",
+          dark: "#f0efec",
+          secondary: "#d97757",
+          tertiary: "#e8a27f",
+          highlight: "rgba(217, 119, 87, 0.14)",
+          textHighlight: "#8d6f2e88",
         },
       },
     },
@@ -61,7 +63,9 @@ const config: QuartzConfig = {
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
+      DedupeTitle(),
       Plugin.TableOfContents(),
+      NoteRelativeLinks(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),

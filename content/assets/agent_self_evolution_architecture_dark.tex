@@ -1,0 +1,181 @@
+\documentclass[tikz,border=22pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,fit,calc,shadows,backgrounds}
+
+\begin{document}
+\sffamily
+
+% =================================================================
+% 调色板定义 (Obsidian Excalidraw 原生高质感深色模式配色)
+% =================================================================
+\definecolor{canvasBg}{RGB}{24, 24, 24}
+\definecolor{benchBorder}{RGB}{46, 180, 100}
+\definecolor{benchBg}{RGB}{30, 42, 35}
+
+\definecolor{agentBorder}{RGB}{235, 95, 90}
+\definecolor{agentBg}{RGB}{48, 28, 30}
+\definecolor{agentText}{RGB}{250, 220, 220}
+
+\definecolor{nodeBorder}{RGB}{200, 205, 210}
+\definecolor{nodeBg}{RGB}{32, 34, 38}
+\definecolor{nodeText}{RGB}{240, 243, 246}
+
+\definecolor{accentGreen}{RGB}{80, 210, 130}
+\definecolor{lineColor}{RGB}{205, 215, 225}
+
+\pagecolor{canvasBg}
+
+\begin{tikzpicture}[
+    scale=1,
+    >=Stealth,
+    % 基础节点样式
+    rectNode/.style={
+        rectangle, rounded corners=3pt, align=center,
+        draw=nodeBorder, fill=nodeBg, text=nodeText,
+        line width=1.3pt, inner sep=6pt, font=\small
+    },
+    agentStyle/.style={
+        rectangle, rounded corners=8pt, align=center,
+        draw=agentBorder, fill=agentBg, text=agentText,
+        line width=1.8pt, inner sep=8pt, font=\bfseries\small
+    },
+    diamondNode/.style={
+        diamond, aspect=1.65, align=center,
+        draw=nodeBorder, fill=nodeBg, text=nodeText,
+        line width=1.3pt, inner sep=3pt, font=\small
+    },
+    circleNode/.style={
+        circle, align=center,
+        draw=nodeBorder, fill=nodeBg, text=nodeText,
+        line width=1.3pt, inner sep=3pt, font=\small
+    },
+    % 连线与标签样式
+    flowLine/.style={
+        ->, line width=1.2pt, draw=lineColor,
+        >={Stealth[length=6.5pt, width=5pt]}
+    },
+    arcLine/.style={
+        ->, line width=1.2pt, draw=lineColor,
+        >={Stealth[length=6.5pt, width=5pt]}
+    },
+    textBadge/.style={
+        fill=canvasBg, inner sep=2pt, font=\small, text=nodeText, rounded corners=2pt
+    }
+]
+
+    % =============================================================
+    % 节点坐标布局 (完全保真还原原图的物理与逻辑拓扑)
+    % =============================================================
+
+    % --- 1. Benchmark 顶层框内节点 ---
+    \node[rectNode, minimum width=3.0cm, minimum height=1.35cm] at (-4.8, 3.8) (inst) {
+        Instruction.md\\[2pt]
+        \scriptsize (实验目标)
+    };
+
+    \node[agentStyle, minimum width=2.5cm, minimum height=1.55cm] at (-1.0, 3.8) (agent) {
+        Agent\\[2pt]
+        Loop
+    };
+
+    \node[diamondNode, minimum width=2.8cm, minimum height=1.55cm] at (2.8, 3.8) (eval) {
+        内部评分机制
+    };
+
+    \node[circleNode, minimum size=1.35cm] at (5.8, 3.8) (score) {
+        score
+    };
+
+    % Benchmark 容器框
+    \begin{scope}[on background layer]
+        \node[
+            fit=(inst)(score),
+            draw=benchBorder, dashed, line width=1.3pt, rounded corners=8pt,
+            fill=benchBg!50,
+            inner sep=14pt,
+            label={[font=\bfseries\small, text=accentGreen, yshift=-2pt]above:\textbf{Benchmark}}
+        ] (benchBox) {};
+    \end{scope}
+
+    % --- 2. 中间层：resource 与 evolve 目标 ---
+    \node[rectNode, minimum width=3.0cm, minimum height=1.35cm] at (-1.0, 0.7) (resource) {
+        \textbf{\textcolor{accentGreen}{resource}}
+    };
+
+    \node[rectNode, minimum width=2.8cm, minimum height=1.35cm] at (5.8, 1.3) (evolve) {
+        \textcolor{accentGreen}{evolve} 目标
+    };
+
+    % --- 3. 诊断与改进层 ---
+    \node[diamondNode, minimum width=3.2cm, minimum height=1.65cm] at (1.8, -1.4) (physician) {
+        AI physician
+    };
+
+    \node[rectNode, minimum width=2.8cm, minimum height=1.35cm] at (5.8, -1.4) (action) {
+        \textbf{\textcolor{accentGreen}{改进措施}}
+    };
+
+    % --- 4. 形式化验证与知识沉淀 (右翼) ---
+    \node[diamondNode, minimum width=2.0cm, minimum height=1.3cm] at (9.4, -1.4) (lean) {
+        lean
+    };
+
+    \node[rectNode, minimum width=2.5cm, minimum height=1.35cm] at (9.4, 0.7) (verifK) {
+        verified\\[2pt]
+        Knowledge
+    };
+
+    % --- 5. 技能工具沉淀 (左下翼) ---
+    \node[rectNode, minimum width=3.6cm, minimum height=1.45cm] at (-2.0, -3.4) (skill) {
+        skill / mcp /\\[2pt]
+        knowledge card
+    };
+
+    % =============================================================
+    % 连线系统 (严格保真原图逻辑流，自然优雅的贝塞尔样条曲线)
+    % =============================================================
+
+    % --- 1. Benchmark 内部主干流 ---
+    \draw[flowLine] (inst) -- (agent);
+    \draw[flowLine] (agent) -- (eval);
+    \draw[flowLine] (eval) -- (score);
+
+    % --- 2. score 驱动 evolve 目标 ---
+    \draw[flowLine] (score) -- (evolve);
+
+    % --- 3. resource 的三大汇聚输入 ---
+    % (a) Agent Loop -> resource (垂直直连)
+    \draw[flowLine] (agent.south) -- (resource.north);
+
+    % (b) Instruction.md -> resource (弧线从底部向下并向右接入 resource 左侧)
+    \draw[arcLine] (inst.south) to[out=270, in=180] (resource.west);
+
+    % (c) 内部评分机制 -> resource (弧线从底部向下并向左接入 resource 右侧)
+    \draw[arcLine] (eval.south) to[out=270, in=0] (resource.east);
+
+    % --- 4. AI physician 的两大输入 ---
+    % (a) resource -> AI physician (从 resource 底部弧线汇入 AI physician 左翼)
+    \draw[arcLine] (resource.south) to[out=290, in=155] (physician.west);
+
+    % (b) evolve 目标 -> AI physician (从 evolve 目标左侧弧线汇入 AI physician 顶部)
+    \draw[arcLine] (evolve.west) to[out=180, in=75] (physician.north);
+
+    % --- 5. AI physician -> 改进措施 ---
+    \draw[flowLine] (physician) -- node[above, font=\small\bfseries, text=accentGreen] {总结} (action);
+
+    % --- 6. 改进措施的两大分支 ---
+    % 分支 A: 改进措施 -> lean (可形式化验证的) -> verified Knowledge -> Agent Loop
+    \draw[flowLine] (action) -- node[above, font=\scriptsize, align=center, text=nodeText] {可形式化\\验证的} (lean);
+    \draw[flowLine] (lean) -- (verifK);
+    % verified Knowledge 大跨度优美弧线注入 Agent Loop
+    \draw[arcLine] (verifK.north) to[out=95, in=20] ($(agent.north)+(0.3, 0)$);
+
+    % 分支 B: 改进措施 -> skill / mcp / knowledge card (others) -> Agent Loop
+    \draw[arcLine] (action.south) to[out=220, in=0] 
+        node[textBadge, sloped, midway, above=1pt] {others} (skill.east);
+    % skill / mcp / knowledge card 从外侧绕过 resource，在空旷处与 instruction 线优雅交叉，注入 Agent Loop 底部
+    \draw[arcLine] (skill.north) to[out=135, in=270] (-3.4, 0.7) to[out=90, in=230] ($(agent.south)+(-0.35, 0)$);
+
+\end{tikzpicture}
+\end{document}

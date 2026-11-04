@@ -10,23 +10,25 @@
 
 ## 三维理想玻色气体
 
-令
+> [!def] 热波长、自旋简并度与逸度
+> 令
+>
+> $$
+> \lambda_{\rm th}=\dfrac{h}{\sqrt{2\pi mk_BT}},
+> \qquad
+> g_{\rm spin}=2s+1,
+> \qquad
+> z=e^{\beta\mu}.
+> $$
 
-$$
-\lambda_{\rm th}=\dfrac{h}{\sqrt{2\pi mk_BT}},
-\qquad
-g_{\rm spin}=2s+1,
-\qquad
-z=e^{\beta\mu}.
-$$
-
-玻色积分记为
-
-$$
-g_\nu(z)={\rm Li}_\nu(z)
-=\dfrac{1}{\Gamma(\nu)}
-\int_0^\infty\dfrac{x^{\nu-1}}{z^{-1}e^x-1}\,dx.
-$$
+> [!def] 玻色积分
+> 玻色积分记为
+>
+> $$
+> g_\nu(z)={\rm Li}_\nu(z)
+> =\dfrac{1}{\Gamma(\nu)}
+> \int_0^\infty\dfrac{x^{\nu-1}}{z^{-1}e^x-1}\,dx.
+> $$
 
 由 [[三维量子气体积分#宏观量]] 得
 
@@ -42,46 +44,48 @@ $$
 
 ## 临界温度
 
-玻色气体要求 $0<z\le1$。当 $z\to1$ 时，激发态最多能容纳
+> [!done] 三维理想玻色气体的 BEC 临界温度
+> 玻色气体要求 $0<z\le1$。当 $z\to1$ 时，激发态最多能容纳
+>
+> $$
+> N_{\rm ex}^{\max}
+> =\dfrac{g_{\rm spin}V}{\lambda_{\rm th}^3}\zeta(3/2).
+> $$
+>
+> 若总粒子数 $N$ 大于这个上限，多出的粒子进入基态。临界点由
+>
+> $$
+> N=\dfrac{g_{\rm spin}V}{\lambda_{\rm th,c}^3}\zeta(3/2)
+> $$
+>
+> 给出，因此
+>
+> $$
+> T_c=\dfrac{2\pi\hbar^2}{mk_B}
+> \left[\dfrac{n}{g_{\rm spin}\zeta(3/2)}\right]^{2/3}.
+> $$
 
-$$
-N_{\rm ex}^{\max}
-=\dfrac{g_{\rm spin}V}{\lambda_{\rm th}^3}\zeta(3/2).
-$$
-
-若总粒子数 $N$ 大于这个上限，多出的粒子进入基态。临界点由
-
-$$
-N=\dfrac{g_{\rm spin}V}{\lambda_{\rm th,c}^3}\zeta(3/2)
-$$
-
-给出，因此
-
-$$
-T_c=\dfrac{2\pi\hbar^2}{mk_B}
-\left[\dfrac{n}{g_{\rm spin}\zeta(3/2)}\right]^{2/3}.
-$$
-
-低于 $T_c$ 时 $z=1$，激发态粒子数为
-
-$$
-N_{\rm ex}=N\left(\dfrac{T}{T_c}\right)^{3/2}.
-$$
-
-所以凝聚份额是
-
-$$
-\dfrac{N_0}{N}
-=1-\left(\dfrac{T}{T_c}\right)^{3/2}.
-$$
-
-热内能为
-
-$$
-U=\left(\dfrac{3}{2}Nk_BT\right)
-\dfrac{\zeta(5/2)}{\zeta(3/2)}
-\left(\dfrac{T}{T_c}\right)^{3/2}.
-$$
+> [!done] BEC 凝聚份额与热内能
+> 低于 $T_c$ 时 $z=1$，激发态粒子数为
+>
+> $$
+> N_{\rm ex}=N\left(\dfrac{T}{T_c}\right)^{3/2}.
+> $$
+>
+> 所以凝聚份额是
+>
+> $$
+> \dfrac{N_0}{N}
+> =1-\left(\dfrac{T}{T_c}\right)^{3/2}.
+> $$
+>
+> 热内能为
+>
+> $$
+> U=\left(\dfrac{3}{2}Nk_BT\right)
+> \dfrac{\zeta(5/2)}{\zeta(3/2)}
+> \left(\dfrac{T}{T_c}\right)^{3/2}.
+> $$
 
 ## 二维为什么没有通常的 BEC
 
