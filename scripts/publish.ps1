@@ -14,6 +14,7 @@ $env:GIT_SSH_COMMAND = '"C:/Program Files/Git/usr/bin/ssh.exe" -F /dev/null -o B
 $AllowedDirectories = @(
   'AISE',
   'assets',
+  'DSP',
   'Group',
   '数理方法',
   '统计物理',
@@ -25,7 +26,7 @@ $DrawingExporter = Join-Path $RepoRoot 'scripts\excalidraw-export'
 $AllowedRootFiles = @('笔记写作规范.md')
 $AllowedMasks = @('*.md', '*.png', '*.jpg', '*.jpeg', '*.webp', '*.gif', '*.svg', '*.py', '*.tex', '*.csv', '*.txt', '*.yaml', '*.yml', '*.json', '*.css', '*.js')
 # A full path excludes only that folder; a bare 'homework' would match any level of the vault.
-$ExcludedDirectories = @('.git', '.obsidian', '.codex', '.vscode', '.tmp_pdf_read', 'DRAFT', 'Clippings', 'node_modules', (Join-Path $SourceRoot 'Group\homework'))
+$ExcludedDirectories = @('.git', '.obsidian', '.codex', '.vscode', '.tmp_pdf_read', 'DRAFT', 'Clippings', 'node_modules', (Join-Path $SourceRoot 'Group\homework'), (Join-Path $SourceRoot 'DSP\hw'), (Join-Path $SourceRoot 'DSP\slides'), (Join-Path $SourceRoot 'DSP\tmp'))
 $ExcludedFiles = @('AGENT.md', 'AGENTS.md', 'CLAUDE.md', '.obsidian.vimrc', '*.pdf', '*.ttf', '*.otf', '*.log', '*.aux', '*.out', '*.toc', '*.synctex*', '*.bak*', '.env*', '*.pem', '*.key', '*冲突文件*')
 
 New-Item -ItemType Directory -Force -Path $LogRoot | Out-Null

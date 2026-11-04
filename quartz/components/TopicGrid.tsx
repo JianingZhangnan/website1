@@ -12,6 +12,7 @@ const topics: Topic[] = [
   { folder: "量子力学", title: "量子力学", description: "Hilbert 空间、微扰与场的量子化" },
   { folder: "统计物理", title: "统计物理", description: "系综、量子气体与多体 Hilbert 空间" },
   { folder: "数理方法", title: "数理方法", description: "复变函数、特殊函数与本征值问题" },
+  { folder: "DSP", title: "数字信号处理", description: "LTI 系统、δ 函数与吉布斯现象" },
   { folder: "Group", title: "群论", description: "从基本定义到同态、商群与稳定子码" },
   { folder: "AISE", title: "AISE", description: "OverlayFS、Docker 等工程实践" },
   { folder: "Excalidraw", title: "手绘画板", description: "讲义与推导的手绘原稿" },
