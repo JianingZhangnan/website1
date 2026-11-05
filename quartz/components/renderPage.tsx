@@ -23,23 +23,28 @@ interface RenderComponents {
 }
 
 const headerRegex = new RegExp(/h[1-6]/)
+// FPKS: Pages caches JS/CSS for four hours. A deployment-specific URL prevents
+// returning readers from running an older explorer against the new page markup.
+const assetVersion = process.env.CF_PAGES_COMMIT_SHA?.slice(0, 12) ?? Date.now().toString(36)
+const versionedAsset = (base: FullSlug | RelativeURL, asset: string) =>
+  `${joinSegments(base, asset)}?v=${assetVersion}`
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
 ): StaticResources {
-  const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
+  const contentIndexPath = versionedAsset(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
 
   const resources: StaticResources = {
     css: [
       {
-        content: joinSegments(baseDir, "index.css"),
+        content: versionedAsset(baseDir, "index.css"),
       },
       ...staticResources.css,
     ],
     js: [
       {
-        src: joinSegments(baseDir, "prescript.js"),
+        src: versionedAsset(baseDir, "prescript.js"),
         loadTime: "beforeDOMReady",
         contentType: "external",
       },
@@ -55,7 +60,7 @@ export function pageResources(
   }
 
   resources.js.push({
-    src: joinSegments(baseDir, "postscript.js"),
+    src: versionedAsset(baseDir, "postscript.js"),
     loadTime: "afterDOMReady",
     moduleType: "module",
     contentType: "external",
