@@ -5,6 +5,7 @@ import { NavFont } from "./quartz/plugins/transformers/navFont"
 import { FpksMath } from "./quartz/plugins/transformers/fpksMath"
 import { FpksMathAssets } from "./quartz/plugins/transformers/fpksMath/assets"
 import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
+import { FermiVisuals } from "./quartz/plugins/transformers/fermiVisuals"
 
 const config: QuartzConfig = {
   configuration: {
@@ -72,6 +73,7 @@ const config: QuartzConfig = {
       NoteRelativeLinks(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
+      FermiVisuals(),
       FpksMath(),
     ],
     filters: [Plugin.RemoveDrafts()],

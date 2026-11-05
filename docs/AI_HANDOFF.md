@@ -33,6 +33,10 @@ Desktop private FPKS ──allowlist/safety scan/build/commit every 12 h
 
 Before each content sync, the desktop publisher requires a clean checkout, fetches `origin/main`, and performs a fast-forward-only merge. This prevents a new content commit from diverging after frontend work lands on GitHub. It then mirrors only approved directories and file types (excluding AI instruction files such as `AGENTS.md`), removes notes whose YAML frontmatter has `draft: true` (unreviewed vault notes; Quartz would not render them, but their source must not enter the public repository either), rejects forbidden/oversized files and likely secrets, builds Quartz, and pushes any local commits.
 
+The owner's explicit 2026-11-05 publication request covers the two exact Fermi-gas side notes in `scripts/publish-approved-notes.json`. `prepare-approved-notes.mjs` removes `draft: true` only from those generated public copies, preserving the private vault markers. No other draft is exempt. `publish.ps1 -NotePaths @('统计物理/费米气体.md', ...) -NoPush` copies only the named Markdown notes and skips full mirroring and drawing export; it retains draft filtering, forbidden-file and secret checks, build, and clean-main requirements. Run it from PowerShell with an actual array. Omit `-NotePaths` for the ordinary full allowlisted sync.
+
+Fermi-gas HTML widgets live in `quartz/static/interactive/fermi-dirac.html`, with three independent modes: occupation, integrals, and zero-temperature limit. `fermiVisuals.ts` inserts them only at the corresponding headings of `统计物理/费米气体`, synchronizes theme, and adjusts iframe heights. They are not stored in the vault or generated snapshot. The fixed-density mode solves the particle-number integral for the chemical potential; large- and small-fugacity reference curves are restricted to their applicable regions.
+
 As of 2026-11-03 the scheduled task `FPKS Website Publish` is disabled, so publishing is a deliberate manual run of `scripts/publish.ps1`.
 
 ### Excalidraw drawings

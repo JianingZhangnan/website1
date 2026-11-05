@@ -1,6 +1,7 @@
 ﻿[CmdletBinding()]
 param(
-  [switch]$NoPush
+  [switch]$NoPush,
+  [string[]]$NotePaths = @()
 )
 
 $ErrorActionPreference = 'Stop'
@@ -111,7 +112,36 @@ try {
 
   New-Item -ItemType Directory -Force -Path $ContentRoot | Out-Null
 
-  foreach ($directory in $AllowedDirectories) {
+  foreach ($relative in $NotePaths) {
+    $segments = $relative.Replace('\', '/').Split('/')
+    if ($segments.Count -lt 2 -or $segments[0] -notin $AllowedDirectories -or
+        $segments -contains '..' -or $segments -contains '.' -or
+        -not $relative.EndsWith('.md') -or $segments -contains 'AGENTS.md') {
+      throw "Invalid scoped note path: $relative"
+    }
+    $sourceNote = [IO.Path]::GetFullPath((Join-Path $SourceRoot $relative))
+    $destinationNote = [IO.Path]::GetFullPath((Join-Path $ContentRoot $relative))
+    foreach ($excluded in $ExcludedDirectories) {
+      if ([IO.Path]::IsPathRooted($excluded)) {
+        if ($sourceNote.StartsWith($excluded.TrimEnd('\') + '\', [StringComparison]::OrdinalIgnoreCase) -or
+            $sourceNote.StartsWith($excluded.TrimEnd('\') + '/', [StringComparison]::OrdinalIgnoreCase)) {
+          throw "Scoped note is in an excluded directory: $relative"
+        }
+      } elseif ($segments -contains $excluded) {
+        throw "Scoped note is in an excluded directory: $relative"
+      }
+    }
+    foreach ($excluded in $ExcludedFiles) {
+      if ($segments[-1] -like $excluded) { throw "Scoped note is excluded: $relative" }
+    }
+    if (-not (Test-Path -LiteralPath $sourceNote -PathType Leaf)) {
+      throw "Scoped note not found: $relative"
+    }
+    New-Item -ItemType Directory -Force -Path ([IO.Directory]::GetParent($destinationNote).FullName) | Out-Null
+    Copy-Item -LiteralPath $sourceNote -Destination $destinationNote -Force
+  }
+
+  foreach ($directory in $(if ($NotePaths.Count -eq 0) { $AllowedDirectories } else { @() })) {
     $source = Join-Path $SourceRoot $directory
     $destination = Join-Path $ContentRoot $directory
     if (-not (Test-Path -LiteralPath $source -PathType Container)) {
@@ -123,13 +153,16 @@ try {
     Invoke-Checked -FilePath 'robocopy.exe' -ArgumentList $arguments -SuccessCodes (0..7)
   }
 
-  foreach ($file in $AllowedRootFiles) {
+  foreach ($file in $(if ($NotePaths.Count -eq 0) { $AllowedRootFiles } else { @() })) {
     $source = Join-Path $SourceRoot $file
     $destination = Join-Path $ContentRoot $file
     if (Test-Path -LiteralPath $source -PathType Leaf) {
       Copy-Item -LiteralPath $source -Destination $destination -Force
     }
   }
+
+  # Exact notes explicitly approved for public copies; private draft markers stay intact.
+  Invoke-Checked -FilePath 'node.exe' -ArgumentList @((Join-Path $RepoRoot 'scripts\prepare-approved-notes.mjs'))
 
   # Quartz skips rendering drafts, but their source must not reach the public repository either.
   $excludedNotes = @(Get-ChildItem -LiteralPath $ContentRoot -Recurse -File -Filter '*.md' | Where-Object { Test-UnpublishableNote -Path $_.FullName })
@@ -142,26 +175,28 @@ try {
 
   # Renders drawings to SVG. A drawing that cannot be rendered is skipped, so a failure here
   # must not stop the note sync: the drawings already published simply stay as they are.
+  if ($NotePaths.Count -eq 0) {
   try {
-    Push-Location $DrawingExporter
-    try {
-      if (-not (Test-Path -LiteralPath 'node_modules' -PathType Container)) {
-        Write-Log 'Installing pinned Excalidraw exporter dependencies.'
-        Invoke-Checked -FilePath 'npm.cmd' -ArgumentList @('ci', '--prefer-offline', '--no-audit')
+      Push-Location $DrawingExporter
+      try {
+        if (-not (Test-Path -LiteralPath 'node_modules' -PathType Container)) {
+          Write-Log 'Installing pinned Excalidraw exporter dependencies.'
+          Invoke-Checked -FilePath 'npm.cmd' -ArgumentList @('ci', '--prefer-offline', '--no-audit')
+        }
+        Write-Log 'Rendering Excalidraw drawings.'
+        $exporterOutput = & node.exe 'export.mjs' '--vault' $SourceRoot '--content' $ContentRoot '--dirs' ($DrawingDirectories -join ',')
+        if ($LASTEXITCODE -ne 0) {
+          throw "Exporter exited with code $LASTEXITCODE"
+        }
+        foreach ($line in @($exporterOutput | Where-Object { $_ -match '^(FAIL|exported=)' })) {
+          Write-Log $line
+        }
+      } finally {
+        Pop-Location
       }
-      Write-Log 'Rendering Excalidraw drawings.'
-      $exporterOutput = & node.exe 'export.mjs' '--vault' $SourceRoot '--content' $ContentRoot '--dirs' ($DrawingDirectories -join ',')
-      if ($LASTEXITCODE -ne 0) {
-        throw "Exporter exited with code $LASTEXITCODE"
-      }
-      foreach ($line in @($exporterOutput | Where-Object { $_ -match '^(FAIL|exported=)' })) {
-        Write-Log $line
-      }
-    } finally {
-      Pop-Location
+    } catch {
+      Write-Log "WARNING: Excalidraw export did not complete: $($_.Exception.Message)"
     }
-  } catch {
-    Write-Log "WARNING: Excalidraw export did not complete: $($_.Exception.Message)"
   }
 
   $forbidden = Get-ChildItem -LiteralPath $ContentRoot -Recurse -File | Where-Object {
@@ -204,7 +239,11 @@ try {
     Write-Log 'Building the static site.'
     Invoke-Checked -FilePath 'npx.cmd' -ArgumentList @('quartz', 'build')
 
-    $paths = @('content/index.md', 'content/笔记写作规范.md', 'content/Excalidraw') + ($AllowedDirectories | ForEach-Object { "content/$_" })
+    $paths = if ($NotePaths.Count -gt 0) {
+      @($NotePaths | ForEach-Object { "content/$_" })
+    } else {
+      @('content/index.md', 'content/笔记写作规范.md', 'content/Excalidraw') + ($AllowedDirectories | ForEach-Object { "content/$_" })
+    }
     Invoke-Checked -FilePath 'git.exe' -ArgumentList (@('add', '--') + $paths)
     & git.exe diff --cached --quiet
     $hasChanges = $LASTEXITCODE -eq 1
