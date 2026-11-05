@@ -1,7 +1,7 @@
-import { loadMath } from "./math.js"
-import { mountIntegrals } from "./integrals.js"
-import { mountLimit } from "./limit.js"
-import * as numerical from "./numerics.js"
+import { loadMath } from "./math.js?v=wheel-20261105"
+import { mountIntegrals } from "./integrals.js?v=wheel-20261105"
+import { mountLimit } from "./limit.js?v=wheel-20261105"
+import * as numerical from "./numerics.js?v=wheel-20261105"
 const root = document.documentElement,
   embedded = parent !== window
 root.dataset.embedded = String(embedded)

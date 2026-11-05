@@ -1,6 +1,13 @@
-import { math, range, el, number, updateOutputs } from "./math.js"
-import { sigmoid, chemicalPotential, samples, fmt } from "./numerics.js"
-import { chartShell, connectTools, color, colorVariable, plot, trace } from "./chart.js"
+import { math, range, el, number, updateOutputs } from "./math.js?v=wheel-20261105"
+import { sigmoid, chemicalPotential, samples, fmt } from "./numerics.js?v=wheel-20261105"
+import {
+  chartShell,
+  connectTools,
+  color,
+  colorVariable,
+  plot,
+  trace,
+} from "./chart.js?v=wheel-20261105"
 export function mountLimit(app) {
   app.innerHTML = `<h1>低温极限：曲线怎样变成阶跃</h1><p class="intro">横轴是单粒子能量。降温时比较能量与化学势的位置；固定密度时化学势也随温度变化。</p><div class="formula-box">${math("occupation")}</div><div class="controls">${range("tau", math("tau"), 0, 0.6, 0.002, 0.08)}<label for="ensemble">保持什么不变<select id="ensemble"><option value="fixed-mu">固定化学势为费米能</option><option value="fixed-n">固定密度，数值求解 μ(T)</option></select></label>${range("probe", "取样能量 " + math("energy"), 0, 2, 0.005, 0.85)}</div><fieldset><legend>叠加比较</legend><div class="choice-grid">${[0.25, 0.1, 0.03].map((t, i) => `<label class="check"><input type="checkbox" data-temp="${t}" checked><span style="color:${colorVariable(i === 2 ? 3 : i)}">${math("t-" + t)}</span></label>`).join("")}<label class="check"><input id="step" type="checkbox" checked>零温阶跃 ${math("step")}</label></div></fieldset><div class="presets"><button data-preset-temp=".25">0.25</button><button data-preset-temp=".08">0.08</button><button data-preset-temp=".01">0.01</button><button data-preset-temp="0">零温极限</button></div>${chartShell()}<div id="readout" class="readout" role="status" aria-live="polite"></div><p id="explanation" class="hint"></p><div class="formula-box">${math("limit")}</div>`
   connectTools()
