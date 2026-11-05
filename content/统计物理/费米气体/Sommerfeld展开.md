@@ -3,7 +3,7 @@ aliases: ["统计物理/Sommerfeld展开"]
 ---
 # Sommerfeld展开
 
-取 [[费米气体#^def-fermi-occupation|费米占据函数]] $f(E)=1/[e^{(E-\mu)/(k_BT)}+1]$，其中 $E$ 是单粒子能量，$\mu>0$ 是化学势，$T$ 是温度，$k_B$ 是玻尔兹曼常数，$\beta=1/(k_BT)$。考虑
+取 [[统计物理/费米气体/费米气体#^def-fermi-occupation|费米占据函数]] $f(E)=1/[e^{(E-\mu)/(k_BT)}+1]$，其中 $E$ 是单粒子能量，$\mu>0$ 是化学势，$T$ 是温度，$k_B$ 是玻尔兹曼常数，$\beta=1/(k_BT)$。考虑
 
 $$
 I=\int_0^\infty\phi(E)f(E)\,dE.
@@ -77,7 +77,7 @@ $$
 
 ## 固定粒子数
 
-对三维非相对论费米气体，取 $\phi_N(E)=AE^{1/2}$，其中 $A=\dfrac{g_{\rm spin}V}{4\pi^2}(2m/\hbar^2)^{3/2}$，这里 $A$ 包含体积，与 [[热力学量与费米积分#从态求和到热力学量|主线的单位体积系数]] 相差一个 $V$。$g_{\rm spin}$ 是自旋态数，$m$ 是粒子质量。于是
+对三维非相对论费米气体，取 $\phi_N(E)=AE^{1/2}$，其中 $A=\dfrac{g_{\rm spin}V}{4\pi^2}(2m/\hbar^2)^{3/2}$，这里 $A$ 包含体积，与 [[统计物理/费米气体/热力学量与费米积分#从态求和到热力学量|主线的单位体积系数]] 相差一个 $V$。$g_{\rm spin}$ 是自旋态数，$m$ 是粒子质量。于是
 
 $$
 N=\dfrac{2}{3}A\mu^{3/2}
@@ -85,7 +85,7 @@ N=\dfrac{2}{3}A\mu^{3/2}
 $$
 
 > [!done] 固定粒子数下的低温化学势与费米温度
-> 令[[零温与低温#^def-zero-temperature-fermi-sphere|零温费米能]]满足 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
+> 令[[统计物理/费米气体/零温与低温#^def-zero-temperature-fermi-sphere|零温费米能]]满足 $N=\dfrac{2}{3}AE_F^{3/2}$，解得
 >
 > $$
 > \mu(T)=E_F\left[
@@ -147,7 +147,7 @@ $$
 
 ## 费米积分的大逸度展开
 
-[[费米积分的级数展开#^prop-fermi-fugacity-series|小逸度幂级数]] 只适用于 $z\le1$。低温固定密度时 $z=e^{\mu/(k_BT)}\gg1$，改用 $\eta=\ln z$ 作为大参数。对 $f_\nu(z)$ 的积分取 $\mu=\eta$、$k_BT=1$ 的无量纲形式，以及 $\phi(x)=x^{\nu-1}/\Gamma(\nu)$，得到
+[[统计物理/费米气体/费米积分的级数展开#^prop-fermi-fugacity-series|小逸度幂级数]] 只适用于 $z\le1$。低温固定密度时 $z=e^{\mu/(k_BT)}\gg1$，改用 $\eta=\ln z$ 作为大参数。对 $f_\nu(z)$ 的积分取 $\mu=\eta$、$k_BT=1$ 的无量纲形式，以及 $\phi(x)=x^{\nu-1}/\Gamma(\nu)$，得到
 
 > [!done] 费米积分的大逸度渐近式
 > 对固定 $\nu>0$，$\eta=\ln z\gg1$ 时，
