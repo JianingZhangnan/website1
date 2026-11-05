@@ -3,12 +3,14 @@ import path from "path"
 import { FilePath, joinSegments } from "../../../util/path"
 import { QuartzEmitterPlugin } from "../../types"
 import { MATH_ASSET_ROOT, MATH_FONT_PACKAGES, MATH_STYLESHEET, renderStylesheet } from "./engine"
+import { emitFermiAssets } from "../fermiAssets"
 
 // Writes the shared MathJax stylesheet and copies only the WOFF2 faces it references.
 // The fonts come from the pinned npm packages, so no font file enters this repository.
 export const FpksMathAssets: QuartzEmitterPlugin = () => ({
   name: "FpksMathAssets",
   async *emit({ argv }) {
+    yield* emitFermiAssets(argv.output)
     const css: string = await renderStylesheet()
 
     const stylesheet = joinSegments(argv.output, MATH_STYLESHEET) as FilePath

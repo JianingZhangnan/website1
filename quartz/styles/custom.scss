@@ -9,6 +9,7 @@
   --fpks-example: #6d4aa8;
   --fpks-paper: #fffdf7;
   --fpks-measure: 44rem;
+  --fpks-sidebar-width: 320px;
   // Comic Sans has no CJK glyphs, so Chinese falls through to ZCOOL KuaiLe, which also
   // covers Latin text on devices without Comic Sans (see transformers/navFont.ts).
   --fpks-nav-font: "Comic Sans MS", "Comic Sans", "ZCOOL KuaiLe", var(--bodyFont);
@@ -60,6 +61,23 @@ html {
   scrollbar-width: thin;
 }
 
+// Keep wheel, touch and keyboard scrolling while removing the directory's chrome.
+.explorer .explorer-content,
+.explorer .explorer-ul,
+.explorer .folder-outer {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+.fpks-sidebar-resize {
+  display: none;
+}
+
 @media (min-width: 801px) {
   // The left rail sits against the window edge at every desktop and tablet width.
   .page {
@@ -73,6 +91,7 @@ html {
 
   .page > #quartz-body .sidebar.left {
     padding-left: 1rem;
+    min-width: 0;
   }
 
   .page > #quartz-body .sidebar {
@@ -82,9 +101,51 @@ html {
   .page > #quartz-body .page-header {
     margin-top: 3.25rem;
   }
+
+  .fpks-sidebar-resize {
+    display: block;
+    position: absolute;
+    inset: 0 -5px 0 auto;
+    width: 10px;
+    cursor: col-resize;
+    touch-action: none;
+    z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 4px;
+      background: var(--lightgray);
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      background: var(--secondary);
+    }
+  }
+
+  .fpks-sidebar-resizing,
+  .fpks-sidebar-resizing * {
+    cursor: col-resize !important;
+    user-select: none !important;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  .page > #quartz-body {
+    grid-template-columns:
+      clamp(240px, var(--fpks-sidebar-width), min(640px, calc(100vw - 480px)))
+      minmax(0, 1fr);
+  }
 }
 
 @media (min-width: 1201px) {
+  .page > #quartz-body {
+    grid-template-columns:
+      clamp(240px, var(--fpks-sidebar-width), min(640px, calc(100vw - 800px)))
+      minmax(0, 1fr) 320px;
+  }
+
   .page > #quartz-body .sidebar.left {
     border-right: 1px solid var(--lightgray);
   }

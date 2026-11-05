@@ -15,7 +15,7 @@ The current foundation ("warm paper", aligned with the vault's Obsidian Claude W
 ## Improvement priorities
 
 1. Make the home page explain the knowledge garden and expose useful entry points quickly.
-2. Strengthen hierarchy in the explorer, article header, metadata, headings, and side panels.
+2. Strengthen hierarchy in the explorer, article header, metadata, headings, and side panels. Open with all directory folders collapsed; hide directory scrollbars while retaining scrolling. Let desktop readers drag the left rail to fit long titles, preserving that width separately from folder state.
 3. Make long-form Chinese reading comfortable: sensible measure, rhythm, contrast, and spacing.
 4. Treat mobile as a first-class reading experience, especially navigation and long formulas.
 5. Improve discoverability without turning the site into a dashboard full of competing cards.

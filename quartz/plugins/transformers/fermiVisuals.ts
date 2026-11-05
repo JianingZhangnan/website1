@@ -3,7 +3,6 @@ import { toString } from "hast-util-to-string"
 import { QuartzTransformerPlugin } from "../types"
 
 const panels: Record<string, [string, string]> = {
-  占据函数怎样随参数变化: ["occupation", "费米占据函数：调节温度与化学势"],
   用费米积分收拢结果: ["integrals", "费米积分：不同阶数与逸度"],
   低温为什么出现阶跃: ["limit", "零温阶跃：固定化学势与固定密度"],
 }
@@ -14,7 +13,12 @@ export const FermiVisuals: QuartzTransformerPlugin = () => ({
   htmlPlugins() {
     return [
       () => (tree: Root, file) => {
-        if (file.data.slug !== "统计物理/费米气体") return
+        if (
+          !["统计物理/费米气体/热力学量与费米积分", "统计物理/费米气体/零温与低温"].includes(
+            file.data.slug ?? "",
+          )
+        )
+          return
         tree.children = tree.children.flatMap((node) => {
           if (node.type !== "element" || node.tagName !== "h2") return [node]
           const panel = panels[toString(node).trim()]
@@ -55,7 +59,7 @@ export const FermiVisuals: QuartzTransformerPlugin = () => ({
               const frame = Array.from(document.querySelectorAll("iframe.fpks-fermi-frame"))
                 .find(frame => frame.contentWindow === event.source)
               if (frame && Number.isFinite(event.data.height)) {
-                frame.style.height = Math.max(400, Math.min(1800, event.data.height)) + "px"
+                frame.style.height = Math.max(400, Math.min(6000, event.data.height)) + "px"
               }
             })
             new MutationObserver(syncFermiTheme).observe(document.documentElement, {

@@ -1,6 +1,7 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import TopicGrid from "./quartz/components/TopicGrid"
+import SidebarResize from "./quartz/components/SidebarResize"
 
 const isHome = (slug: string | undefined) => slug === "index"
 
@@ -21,6 +22,12 @@ export const sharedPageComponents: SharedLayout = {
 }
 
 const breadcrumbs = Component.Breadcrumbs({ rootName: "首页" })
+const explorer = Component.Explorer({
+  title: "知识目录",
+  folderDefaultState: "collapsed",
+  useSavedState: false,
+  expandCurrentPath: false,
+})
 
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
@@ -45,7 +52,8 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ title: "知识目录" }),
+    explorer,
+    SidebarResize(),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
@@ -72,7 +80,8 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ title: "知识目录" }),
+    explorer,
+    SidebarResize(),
   ],
   right: [],
 }

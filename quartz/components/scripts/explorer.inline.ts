@@ -8,6 +8,7 @@ interface ParsedOptions {
   folderClickBehavior: "collapse" | "link"
   folderDefaultState: "collapsed" | "open"
   useSavedState: boolean
+  expandCurrentPath: boolean
   sortFn: (a: FileTrieNode, b: FileTrieNode) => number
   filterFn: (node: FileTrieNode) => boolean
   mapFn: (node: FileTrieNode) => void
@@ -76,7 +77,9 @@ function toggleFolder(evt: MouseEvent) {
   }
 
   const stringifiedFileTree = JSON.stringify(currentExplorerState)
-  localStorage.setItem("fileTree", stringifiedFileTree)
+  if (folderContainer.closest<HTMLElement>(".explorer")?.dataset.savestate === "true") {
+    localStorage.setItem("fileTree", stringifiedFileTree)
+  }
 }
 
 function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
@@ -140,7 +143,7 @@ function createFolderNode(
   const folderIsPrefixOfCurrentSlug =
     simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
 
-  if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
+  if (!isCollapsed || (opts.expandCurrentPath && folderIsPrefixOfCurrentSlug)) {
     folderOuter.classList.add("open")
   }
 
@@ -163,6 +166,7 @@ async function setupExplorer(currentSlug: FullSlug) {
       folderClickBehavior: (explorer.dataset.behavior || "collapse") as "collapse" | "link",
       folderDefaultState: (explorer.dataset.collapsed || "collapsed") as "collapsed" | "open",
       useSavedState: explorer.dataset.savestate === "true",
+      expandCurrentPath: explorer.dataset.expandCurrent !== "false",
       order: dataFns.order || ["filter", "map", "sort"],
       sortFn: new Function("return " + (dataFns.sortFn || "undefined"))(),
       filterFn: new Function("return " + (dataFns.filterFn || "undefined"))(),
@@ -171,7 +175,13 @@ async function setupExplorer(currentSlug: FullSlug) {
 
     // Get folder state from local storage
     const storageTree = localStorage.getItem("fileTree")
-    const serializedExplorerState = storageTree && opts.useSavedState ? JSON.parse(storageTree) : []
+    // Without persistent storage, retain manual choices only during this SPA visit.
+    // A fresh page load starts with the configured defaults, even with a legacy fileTree.
+    const serializedExplorerState = opts.useSavedState
+      ? storageTree
+        ? JSON.parse(storageTree)
+        : []
+      : (currentExplorerState ?? [])
     const oldIndex = new Map<string, boolean>(
       serializedExplorerState.map((entry: FolderState) => [entry.path, entry.collapsed]),
     )
