@@ -118,6 +118,19 @@ function installFontExtensions(MathJax) {
     )
   }
 
+  // Site-specific choice: upright nabla uses Latin Modern's exact 4.1.3 metrics.
+  // Keep this override separate from the unchanged vault font extensions.
+  const modernNabla = () => ({
+    name: "fpks-modern-nabla",
+    fontURL: fontUrl("modern"),
+    fonts: ["MJX-MM-N"],
+    chars: {
+      normal: { 0x2207: [0.683, 0.033, 0.833, { sk: 0.132, ff: "MM-N" }] },
+    },
+  })
+  fontClass.addExtension(modernNabla())
+  outputJax.addExtension(modernNabla())
+
   // Vector accents keep Asana's stretch tables; relation arrows sharing the same
   // code points use NewCM.
   const asana = hybridFontData.asana
