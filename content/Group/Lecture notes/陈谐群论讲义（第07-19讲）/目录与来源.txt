@@ -1,0 +1,72 @@
+﻿陈谐群论讲义：第 7-19 讲（不含第 6 讲）
+Caltech Physics 129a，2023 年
+课程官网：https://xiechen.caltech.edu/teaching/group-theory
+下载日期：2026-11-05
+共 13 份；按官方课程页的讲次顺序编号。
+文件主题采用官方课程页标题；各讲内容可能包含相邻主题。
+
+07. Irreducible representations
+文件：07 Irreducible representations.pdf
+页数：5
+来源：https://xiechen.caltech.edu/documents/27814/lecture1012.pdf
+
+08. Irreducible representations
+文件：08 Irreducible representations.pdf
+页数：6
+来源：https://xiechen.caltech.edu/documents/27815/lecture1019.pdf
+
+09. Application - harmonic oscillator
+文件：09 Application - harmonic oscillator.pdf
+页数：4
+来源：https://xiechen.caltech.edu/documents/27816/lecture1024.pdf
+
+10. Application - harmonic oscillator
+文件：10 Application - harmonic oscillator.pdf
+页数：5
+来源：https://xiechen.caltech.edu/documents/27817/lecture1026.pdf
+
+11. Application - electrons in atom and in lattice
+文件：11 Application - electrons in atom and in lattice.pdf
+页数：4
+来源：https://xiechen.caltech.edu/documents/27818/lecture1031.pdf
+
+12. Application - crystal tensor properties
+文件：12 Application - crystal tensor properties.pdf
+页数：4
+来源：https://xiechen.caltech.edu/documents/27819/lecture1101.pdf
+
+13. Continuous group - U(1)
+文件：13 Continuous group - U(1).pdf
+页数：5
+来源：https://xiechen.caltech.edu/documents/27820/lecture1107.pdf
+
+14. Continuous group - SO(3)
+文件：14 Continuous group - SO(3).pdf
+页数：6
+来源：https://xiechen.caltech.edu/documents/27821/lecture1109.pdf
+
+15. Continuous group - SO(3) and SU(2)
+文件：15 Continuous group - SO(3) and SU(2).pdf
+页数：4
+来源：https://xiechen.caltech.edu/documents/27822/lecture1113.pdf
+
+16. Application - CG coefficient
+文件：16 Application - CG coefficient.pdf
+页数：6
+来源：https://xiechen.caltech.edu/documents/27823/lecture1116.pdf
+
+17. Application - atomic spectrum
+文件：17 Application - atomic spectrum.pdf
+页数：5
+来源：https://xiechen.caltech.edu/documents/27824/lecture1121.pdf
+
+18. Application - special relativity
+文件：18 Application - special relativity.pdf
+页数：8
+来源：https://xiechen.caltech.edu/documents/27825/lecture_1128.pdf
+
+19. Application - standard model
+文件：19 Application - standard model.pdf
+页数：6
+来源：https://xiechen.caltech.edu/documents/27826/lecture_1130.pdf
+
