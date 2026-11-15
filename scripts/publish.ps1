@@ -15,6 +15,7 @@ $env:GIT_SSH_COMMAND = '"C:/Program Files/Git/usr/bin/ssh.exe" -F /dev/null -o B
 $AllowedDirectories = @(
   'AISE',
   'assets',
+  'Classical Mechanics',
   'DSP',
   'Group',
   '数理方法',
