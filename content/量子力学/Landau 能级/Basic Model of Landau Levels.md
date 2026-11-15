@@ -27,7 +27,7 @@
 > $$
 
 > [!done] 均匀磁场中的机械动量对易关系
-> 机械动量的两个分量不再对易。利用[[量子力学/基础与演化/动量和坐标#^prop-3d-commutators|三维对易恒等式]] $[\hat p_i,f(\hat{\mathbf r})]=-i\hbar\partial_i f$，有
+> 机械动量的两个分量不再对易。利用[[动量和坐标#^prop-3d-commutators|三维对易恒等式]] $[\hat p_i,f(\hat{\mathbf r})]=-i\hbar\partial_i f$，有
 >
 > $$
 > \begin{aligned}
@@ -355,7 +355,7 @@ $$
 
 ## 参考与配图复现
 
-1. [[量子力学/基础与演化/动量和坐标|动量和坐标]]；[[量子力学/典型体系/谐振子|谐振子]]；[[量子力学/基础与演化/系统随时间的演化|系统随时间的演化]]。
+1. [[动量和坐标|动量和坐标]]；[[量子力学/典型体系/谐振子|谐振子]]；[[量子力学/基础与演化/系统随时间的演化|系统随时间的演化]]。
 2. TU Delft, *Topology in condensed matter: tying quantum knots*, [Quantum Hall effect: pumping electrons in Landau levels](https://topocondmat.org/w3-pump-qhe/laughlinargument)，其中 “Landau levels from the Hamiltonian” 给出规范选择与谐振子约化。不同资料可能采用不同的电荷记号与坐标方向；本文统一采用 $q=-e$、$\mathbf A=(0,Bx,0)$。
 
 两组配图均由本文解析式生成，可复现代码为 [plot_landau_levels.py](assets/plot_landau_levels.py)，依赖 NumPy 与 Matplotlib；运行脚本即可在同目录生成 PNG 与 SVG。矢量图见 [图 1 SVG](assets/landau_spectrum.svg) 和 [图 2 SVG](assets/landau_guiding_centers.svg)。

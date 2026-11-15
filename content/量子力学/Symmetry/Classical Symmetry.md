@@ -8,3 +8,4 @@ $$
 
 如果我们考虑某个变换 $q\to q'=q+\epsilon \eta(q,t)$，如果变换之后作用量原理给出的方程不变，即 $\mathcal{L}(q,\dot{q},t)=\mathcal{L}(q',\dot{q}',t)+\dfrac{\mathrm{d}}{\mathrm{d}t}F$， 则称系统 **在这个变换下具有对称性**。也即是二者只差一个全导数项。
 
+
