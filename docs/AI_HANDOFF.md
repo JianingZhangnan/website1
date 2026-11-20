@@ -1,6 +1,6 @@
 # FPKS website engineering handoff
 
-Last updated: 2026-11-03
+Last updated: 2026-11-20
 
 ## Current state
 
@@ -140,7 +140,7 @@ Also inspect the site at desktop and mobile widths and verify:
 - Static Cloudflare Pages hosting is sufficient; a VPS would add maintenance without a current server-side requirement.
 - The custom domain is `notes.zjnmcp.me`.
 - Automatic knowledge publication was designed to run every 12 hours; the task is currently disabled (see above).
-- Public allowlist as of 2026-11-04: `AISE`, `assets`, `DSP` (without `DSP/hw`, which holds the owner's real name and student ID, `DSP/slides`, and `DSP/tmp`), `Group` (without `Group/homework`), `数理方法`, `统计物理`, `量子力学`, and `笔记写作规范.md`. `重整化群与临界指数` was taken down because it no longer exists in the vault, and `英语` (now `Language` in the vault) was taken down by the owner's decision; their history remains in Git.
+- Public allowlist as of 2026-11-20: `AISE`, `assets`, `Classical Mechanics`, `DSP` (without `DSP/hw`, which holds the owner's real name and student ID, `DSP/slides`, and `DSP/tmp`), `Group` (without `Group/homework`), `数理方法`, `统计物理`, `量子力学`, and `笔记写作规范.md`. The owner's 2026-11-20 request also opens `Language/每日/YYYY-MM/` from `2026-11` onward. The publisher discovers valid month folders on every run, including later years; earlier months, loose daily notes, the private Language index, and shared Language assets stay excluded. Existing draft, instruction-file, conflict-copy, and file-type filters still apply, including to scoped `-NotePaths` publication. The home page links to the public Language folder. `重整化群与临界指数` was taken down because it no longer exists in the vault; the earlier full `英语` section remains withdrawn, with its history in Git.
 - Page dates on production are unreliable: Cloudflare's checkout makes every page report the latest commit date. Do not build features on them until this is fixed.
 - Large/private vault files stay in Baidu Netdisk and are excluded from Git and the public website.
 - GitHub is the cross-machine handoff point for frontend development; copied dependency folders and AI chat sessions are not part of the handoff.

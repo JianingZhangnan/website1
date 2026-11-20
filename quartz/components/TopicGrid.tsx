@@ -15,6 +15,7 @@ const topics: Topic[] = [
   { folder: "DSP", title: "数字信号处理", description: "LTI 系统、δ 函数与吉布斯现象" },
   { folder: "Group", title: "群论", description: "从基本定义到同态、商群与稳定子码" },
   { folder: "AISE", title: "AISE", description: "OverlayFS、Docker 等工程实践" },
+  { folder: "Language", title: "英语学习", description: "六级备考词汇与英语表达积累" },
   { folder: "Excalidraw", title: "手绘画板", description: "讲义与推导的手绘原稿" },
 ]
 

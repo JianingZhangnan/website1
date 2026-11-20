@@ -22,6 +22,14 @@ $AllowedDirectories = @(
   '统计物理',
   '量子力学'
 )
+# Only dated Language folders from November 2026 onward are public.
+# Discover them on every run so later months and years inherit this boundary.
+$LanguageDailyRoot = Join-Path $SourceRoot 'Language\每日'
+if (Test-Path -LiteralPath $LanguageDailyRoot -PathType Container) {
+  $AllowedDirectories += @(Get-ChildItem -LiteralPath $LanguageDailyRoot -Directory |
+    Where-Object { $_.Name -match '^\d{4}-(0[1-9]|1[0-2])$' -and $_.Name -ge '2026-11' } |
+    ForEach-Object { "Language/每日/$($_.Name)" })
+}
 # Excalidraw source notes are never published. scripts/excalidraw-export renders them to SVG.
 $DrawingDirectories = @('Excalidraw') + $AllowedDirectories
 $DrawingExporter = Join-Path $RepoRoot 'scripts\excalidraw-export'
@@ -114,8 +122,12 @@ try {
   New-Item -ItemType Directory -Force -Path $ContentRoot | Out-Null
 
   foreach ($relative in $NotePaths) {
-    $segments = $relative.Replace('\', '/').Split('/')
-    if ($segments.Count -lt 2 -or $segments[0] -notin $AllowedDirectories -or
+    $normalized = $relative.Replace('\', '/')
+    $segments = $normalized.Split('/')
+    $isAllowed = @($AllowedDirectories | Where-Object {
+      $normalized.StartsWith($_ + '/', [StringComparison]::OrdinalIgnoreCase)
+    }).Count -gt 0
+    if ($segments.Count -lt 2 -or -not $isAllowed -or
         $segments -contains '..' -or $segments -contains '.' -or
         -not $relative.EndsWith('.md') -or $segments -contains 'AGENTS.md') {
       throw "Invalid scoped note path: $relative"
