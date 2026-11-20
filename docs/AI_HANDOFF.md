@@ -28,7 +28,7 @@ Last updated: 2026-11-20
 Laptop frontend branch ──push/review──> GitHub main ──build──> Cloudflare Pages
                                            ^
                                            |
-Desktop private FPKS ──allowlist/safety scan/build/commit every 12 h
+Desktop private FPKS ──allowlist/safety scan/build/commit every 6 h
 ```
 
 Before each content sync, the desktop publisher requires a clean checkout, fetches `origin/main`, and performs a fast-forward-only merge. This prevents a new content commit from diverging after frontend work lands on GitHub. It then mirrors only approved directories and file types (excluding AI instruction files such as `AGENTS.md`), removes notes whose YAML frontmatter has `draft: true` (unreviewed vault notes; Quartz would not render them, but their source must not enter the public repository either), rejects forbidden/oversized files and likely secrets, builds Quartz, and pushes any local commits.
@@ -39,7 +39,7 @@ Fermi-gas notes are grouped under `统计物理/费米气体/` in both the vault
 
 The widget shell is `quartz/static/interactive/fermi-dirac.html`; its adjacent `fermi-dirac/` directory separates CSS, numerical integration, plotting, theme/lifecycle, and the two views. `fermiVisuals.ts` inserts only the integral and low-temperature widgets at their respective note headings; there is no standalone occupation plot. Integral curves support single-order view or checkbox comparison; Plotly uses wheel-only zoom, drag-to-pan, and reset; rectangle zoom and the Plotly modebar are disabled. Widget entry and relative module imports share a release query token to bypass previously cached modules; update the token together when changing widget behavior. Standalone pages have explicit light/dark controls; embedded widgets follow the article. All formulas are rendered by the site's MathJax engine at build time via `fermiAssets.ts`, called before the shared stylesheet/font pass. The pinned Plotly basic bundle and its license are copied from npm into output during build; no CDN or generated assets are committed. These widgets are not stored in the vault.
 
-As of 2026-11-03 the scheduled task `FPKS Website Publish` is disabled, so publishing is a deliberate manual run of `scripts/publish.ps1`.
+The owner requested re-enabling the scheduled task `FPKS Website Publish` on 2026-11-20 with a six-hour repetition interval (`PT6H`). It runs `scripts/publish.ps1` as the signed-in desktop user, keeps the 30-minute execution limit and ignores overlapping instances. Reinstallation uses `scripts/install-scheduled-task.ps1`, with the same six-hour interval.
 
 ### Excalidraw drawings
 
@@ -106,7 +106,7 @@ On a new computer, the first HTTPS push may open Git Credential Manager for GitH
 - `quartz/components/scripts/popover.inline.ts`: local edit shows only the linked heading section or block when a link has a fragment. Keep it across Quartz upgrades.
 - `scripts/publish.ps1`: desktop content publication and safety checks.
 - `scripts/excalidraw-export/`: renders Excalidraw drawings to SVG for the publisher.
-- `scripts/install-scheduled-task.ps1`: installs the 12-hour Windows task on the desktop.
+- `scripts/install-scheduled-task.ps1`: installs the six-hour Windows task on the desktop.
 
 Quartz framework files also live under `quartz/`. Prefer project-owned configuration and custom styles over broad framework edits, because upstream upgrades otherwise become unnecessarily difficult.
 
@@ -139,7 +139,7 @@ Also inspect the site at desktop and mobile widths and verify:
 
 - Static Cloudflare Pages hosting is sufficient; a VPS would add maintenance without a current server-side requirement.
 - The custom domain is `notes.zjnmcp.me`.
-- Automatic knowledge publication was designed to run every 12 hours; the task is currently disabled (see above).
+- Automatic knowledge publication runs every six hours, restored at the owner's request on 2026-11-20 (see above).
 - Public allowlist as of 2026-11-20: `AISE`, `assets`, `Classical Mechanics`, `DSP` (without `DSP/hw`, which holds the owner's real name and student ID, `DSP/slides`, and `DSP/tmp`), `Group` (without `Group/homework`), `数理方法`, `统计物理`, `量子力学`, and `笔记写作规范.md`. The owner's 2026-11-20 request also opens `Language/每日/YYYY-MM/` from `2026-11` onward. The publisher discovers valid month folders on every run, including later years; earlier months, loose daily notes, the private Language index, and shared Language assets stay excluded. Existing draft, instruction-file, conflict-copy, and file-type filters still apply, including to scoped `-NotePaths` publication. The home page links to the public Language folder. `重整化群与临界指数` was taken down because it no longer exists in the vault; the earlier full `英语` section remains withdrawn, with its history in Git.
 - Page dates on production are unreliable: Cloudflare's checkout makes every page report the latest commit date. Do not build features on them until this is fixed.
 - Large/private vault files stay in Baidu Netdisk and are excluded from Git and the public website.

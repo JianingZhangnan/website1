@@ -14,7 +14,7 @@ $action = New-ScheduledTaskAction `
   -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$PublishScript`""
 
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) `
-  -RepetitionInterval (New-TimeSpan -Hours 12) `
+  -RepetitionInterval (New-TimeSpan -Hours 6) `
   -RepetitionDuration (New-TimeSpan -Days 3650)
 
 $settings = New-ScheduledTaskSettingsSet `

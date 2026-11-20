@@ -46,4 +46,4 @@ Do not force-push, rewrite shared history, commit generated output, or silently 
 
 ## Publishing contract
 
-The desktop publisher in `scripts/publish.ps1` is responsible for synchronizing the public content subset every 12 hours. It first fast-forwards from GitHub so frontend changes are not overwritten or stranded. Changes to its allowlist, exclusions, secret scan, Git behavior, or task interval are operational changes and require corresponding documentation and validation.
+The desktop publisher in `scripts/publish.ps1` is responsible for synchronizing the public content subset every 6 hours. It first fast-forwards from GitHub so frontend changes are not overwritten or stranded. Changes to its allowlist, exclusions, secret scan, Git behavior, or task interval are operational changes and require corresponding documentation and validation.
