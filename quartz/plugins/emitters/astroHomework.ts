@@ -72,9 +72,7 @@ function normalizeHomeworkDisplayMath(markdown: string) {
         return [line]
       }
       if (inCode) return [line]
-      const match = line.match(
-        /^(\s*(?:>\s*)*(?:(?:[-*+]|\d+\.)\s+)?)(\$\$)(.+?)(\$\$)\s*$/,
-      )
+      const match = line.match(/^(\s*(?:>\s*)*(?:(?:[-*+]|\d+\.)\s+)?)(\$\$)(.+?)(\$\$)\s*$/)
       if (!match) return [line]
       const [, prefix, , formula] = match
       return [`${prefix}$$`, `${prefix}${formula}`, `${prefix}$$`]
