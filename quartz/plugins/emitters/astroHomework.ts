@@ -14,7 +14,7 @@ import { QuartzEmitterPlugin } from "../types"
 import { FullSlug, QUARTZ, joinSegments } from "../../util/path"
 import { BuildCtx } from "../../util/ctx"
 import { write } from "./helpers"
-import { normalizeMathFences, remarkDisplayMath } from "../transformers/fpksMath"
+import { normalizeMathFences } from "../transformers/fpksMath"
 import { renderMath } from "../transformers/fpksMath/engine"
 
 type Homework = Record<string, unknown> & {
@@ -62,20 +62,36 @@ async function renderMathNodes(tree: Root) {
   }
 }
 
+function normalizeHomeworkDisplayMath(markdown: string) {
+  let inCode = false
+  return markdown
+    .split("\n")
+    .flatMap((line) => {
+      if (/^\s*(?:```|~~~)/.test(line)) {
+        inCode = !inCode
+        return [line]
+      }
+      if (inCode) return [line]
+      const match = line.match(
+        /^(\s*(?:>\s*)*(?:(?:[-*+]|\d+\.)\s+)?)(\$\$)(.+?)(\$\$)\s*$/,
+      )
+      if (!match) return [line]
+      const [, prefix, , formula] = match
+      return [`${prefix}$$`, `${prefix}${formula}`, `${prefix}$$`]
+    })
+    .join("\n")
+}
+
 async function renderMarkdown(markdown: string) {
   // GFM's bare-URL parser can consume adjacent CJK prose after a URL. Delimit plain URLs
   // explicitly before parsing while leaving existing Markdown links alone.
   const normalizedLinks = markdown.replace(
-    /(?<!\]\()(https?:\/\/[A-Za-z0-9._~:/?#\[\]@!$&'*+=%,-]+)/g,
+    /(?<![<\]\(])(https?:\/\/[A-Za-z0-9._~:/?#\[\]@!$&'*+=%,-]+)/g,
     "<$1>",
   )
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkMath)
-    .use(remarkDisplayMath)
-    .use(remarkRehype)
-  const tree = processor.runSync(processor.parse(normalizeMathFences(normalizedLinks))) as Root
+  const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath).use(remarkRehype)
+  const normalizedMath = normalizeMathFences(normalizeHomeworkDisplayMath(normalizedLinks))
+  const tree = processor.runSync(processor.parse(normalizedMath)) as Root
   await renderMathNodes(tree)
   return toHtml(tree)
 }
