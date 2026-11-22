@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="大学天文学课程 PPT 作业与解答索引" />
+    <title>大学天文学作业与解答</title>
+    <link rel="stylesheet" href="/static/fpks-math/mathjax.css" />
+    <link rel="stylesheet" href="/static/astro-homework/styles.css" />
+    <script defer src="/astro-homework/homework-data.js?v=__DATA_VERSION__"></script>
+    <script defer src="/static/astro-homework/app.js?v=__APP_VERSION__"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#reader">跳至题目正文</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <svg class="orbit" viewBox="0 0 280 56" fill="none" aria-hidden="true">
+          <ellipse cx="148" cy="30" rx="124" ry="20" transform="rotate(-5 148 30)" />
+          <ellipse
+            cx="148"
+            cy="30"
+            rx="84"
+            ry="12"
+            transform="rotate(-5 148 30)"
+            stroke-dasharray="3 4"
+          />
+          <circle cx="114" cy="30" r="2.2" fill="currentColor" />
+          <circle cx="242" cy="18" r="3" fill="var(--accent)" />
+        </svg>
+        <div class="brand">
+          <a href="/">FPKS</a><span>/</span>
+          <h1>天文学作业题解库</h1>
+        </div>
+        <div class="header-actions">
+          <span id="deck-count">5 份课件</span
+          ><button id="theme" class="icon-button" type="button" aria-label="切换深浅色">
+            主题
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="workspace">
+      <aside class="chapter-rail" aria-label="课件目录">
+        <p class="rail-label">课件章节目录</p>
+        <nav id="deck-nav"></nav>
+        <p class="rail-foot">题目均标注来源 PPT 与页码；开放任务保留原始要求。</p>
+      </aside>
+      <section class="list-pane" aria-label="题目筛选和索引">
+        <label class="search"
+          ><span class="sr-only">搜索题目</span
+          ><input id="query" type="search" placeholder="搜索题号、关键词或课件"
+        /></label>
+        <div id="course-filters" class="filter-group" aria-label="课程筛选"></div>
+        <div id="filters" class="filter-group" aria-label="题型筛选"></div>
+        <div id="summary" class="summary"></div>
+        <ol id="homework-list" class="homework-list"></ol>
+      </section>
+      <main id="reader" class="reading-pane" tabindex="-1">
+        <p class="loading">正在载入题库。</p>
+      </main>
+    </div>
+  </body>
+</html>

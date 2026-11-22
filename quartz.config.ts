@@ -6,6 +6,7 @@ import { FpksMath } from "./quartz/plugins/transformers/fpksMath"
 import { FpksMathAssets } from "./quartz/plugins/transformers/fpksMath/assets"
 import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
 import { FermiVisuals } from "./quartz/plugins/transformers/fermiVisuals"
+import { AstroHomework } from "./quartz/plugins/emitters/astroHomework"
 
 const config: QuartzConfig = {
   configuration: {
@@ -89,6 +90,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
+      AstroHomework(),
       FpksMathAssets(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),

@@ -3,7 +3,8 @@ import { resolveRelative, SimpleSlug } from "../util/path"
 import { classNames } from "../util/lang"
 
 interface Topic {
-  folder: string
+  folder?: string
+  href?: string
   title: string
   description: string
 }
@@ -17,15 +18,22 @@ const topics: Topic[] = [
   { folder: "AISE", title: "AISE", description: "OverlayFS、Docker 等工程实践" },
   { folder: "Language", title: "英语学习", description: "六级备考词汇与英语表达积累" },
   { folder: "Excalidraw", title: "手绘画板", description: "讲义与推导的手绘原稿" },
+  {
+    href: "/astro-homework/",
+    title: "大学天文学作业",
+    description: "课程 PPT 作业、定位页码与参考解答",
+  },
 ]
 
 const TopicGrid: QuartzComponent = ({ allFiles, fileData, displayClass }: QuartzComponentProps) => {
   const entries = topics
     .map((topic) => ({
       ...topic,
-      count: allFiles.filter((file) => file.slug?.startsWith(`${topic.folder}/`)).length,
+      count: topic.folder
+        ? allFiles.filter((file) => file.slug?.startsWith(`${topic.folder}/`)).length
+        : null,
     }))
-    .filter((topic) => topic.count > 0)
+    .filter((topic) => topic.count === null || topic.count > 0)
 
   return (
     <nav class={classNames(displayClass, "topic-grid")} aria-label="主题入口">
@@ -33,9 +41,13 @@ const TopicGrid: QuartzComponent = ({ allFiles, fileData, displayClass }: Quartz
       <ul>
         {entries.map((topic) => (
           <li>
-            <a href={resolveRelative(fileData.slug!, `${topic.folder}/` as SimpleSlug)}>
+            <a
+              href={topic.href ?? resolveRelative(fileData.slug!, `${topic.folder}/` as SimpleSlug)}
+            >
               <span class="topic-title">{topic.title}</span>
-              <span class="topic-count">{topic.count} 篇</span>
+              <span class="topic-count">
+                {topic.count === null ? "题解库" : `${topic.count} 篇`}
+              </span>
               <span class="topic-description">{topic.description}</span>
             </a>
           </li>
