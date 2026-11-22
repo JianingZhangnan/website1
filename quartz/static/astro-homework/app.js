@@ -117,10 +117,16 @@ function renderReader(items) {
   const tags = (item.tags || [])
     .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
     .join("")
+  const submission = `<section class="submission-panel" aria-label="作业提交">${item.submissions
+    .map(
+      (entry) =>
+        `<div class="submission-option"><a class="submission-link" href="${escapeHtml(entry.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.label)}</a><span class="submission-note">${escapeHtml(entry.note)}</span></div>`,
+    )
+    .join("")}</section>`
   const solution = open
     ? `<p class="open-note">此为开放式任务，页面保留 PPT 中的原始要求。</p>`
     : item.solutionHtml || `<p>解答正在整理。</p>`
-  reader.innerHTML = `<article class="problem-article"><header class="problem-header"><div class="problem-meta"><code>${escapeHtml(item.id)}</code><span class="badge ${open ? "open" : ""}">${open ? "开放任务" : types[item.kind] || "题目"}</span><span>${escapeHtml(item.chapter || "未分章")}</span></div><h2>${escapeHtml(item.title)}</h2><div class="source-bar"><span>来源课件：${escapeHtml(deck(item))}</span><span>页码：P${escapeHtml(source.slide || "待核对")}</span>${tags}</div></header><section class="prose"><h3>题面</h3>${item.promptHtml || ""}</section><details class="solution-panel" ${open ? "" : "open"}><summary>${open ? "查看任务要求" : "查看参考解答"}</summary><div class="solution-body prose">${solution}</div></details></article>`
+  reader.innerHTML = `<article class="problem-article"><header class="problem-header"><div class="problem-meta"><code>${escapeHtml(item.id)}</code><span class="badge ${open ? "open" : ""}">${open ? "开放任务" : types[item.kind] || "题目"}</span><span>${escapeHtml(item.chapter || "未分章")}</span></div><h2>${escapeHtml(item.title)}</h2><div class="source-bar"><span>来源课件：${escapeHtml(deck(item))}</span><span>页码：P${escapeHtml(source.slide || "待核对")}</span>${tags}</div>${submission}</header><section class="prose"><h3>题面</h3>${item.promptHtml || ""}</section><details class="solution-panel" ${open ? "" : "open"}><summary>${open ? "查看任务要求" : "查看参考解答"}</summary><div class="solution-body prose">${solution}</div></details></article>`
 }
 function render() {
   const items = matching()

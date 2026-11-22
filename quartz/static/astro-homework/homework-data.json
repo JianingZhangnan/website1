@@ -13,7 +13,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/18f6fe2b74064c9185af/",
+        "label": "提交个人目标",
+        "note": "课件指定入口：个人掌握目标",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 3
+        }
+      }
+    ]
   },
   {
     "id": "intro-10",
@@ -29,7 +41,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学", "课程长期任务"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://www.icourse163.org/course/NJU-1003604005",
+        "label": "进入慕课提交",
+        "note": "测验、讨论与课程考核在慕课平台完成",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 10
+        }
+      }
+    ]
   },
   {
     "id": "intro-11",
@@ -45,7 +69,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课程通用入口：章节课程小结",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 164
+        }
+      }
+    ]
   },
   {
     "id": "intro-12",
@@ -61,7 +97,29 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学", "课程长期任务"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/31ace7ee654e40a9bd1a/",
+        "label": "提交翻转报告",
+        "note": "课件原链接；云盘目录标注为2025.11.25",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 12
+        }
+      },
+      {
+        "url": "https://box.nju.edu.cn/u/d/8aac2c1e8bdd4afc9fe5/",
+        "label": "提交课程串讲",
+        "note": "课件原链接；云盘目录标注为2025.12.23",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 3
+        }
+      }
+    ]
   },
   {
     "id": "intro-17",
@@ -77,7 +135,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "intro-33",
@@ -93,7 +163,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 33
+        }
+      }
+    ]
   },
   {
     "id": "intro-83",
@@ -109,7 +191,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "intro-92",
@@ -125,7 +219,19 @@
     "solution": "设地球和火星公转角速度分别为 $\\omega_\\oplus = \\frac{2\\pi}{P_\\oplus}$ 和 $\\omega_{\\text{Mars}} = \\frac{2\\pi}{P_{\\text{Mars}}}$（火星为外行星，$P_{\\text{Mars}} > P_\\oplus$，故 $\\omega_\\oplus > \\omega_{\\text{Mars}}$）。\n\n两次连续冲日之间，地球相对火星恰好追上并多跑完一整圈（角度差 $2\\pi$）：\n$$(\\omega_\\oplus - \\omega_{\\text{Mars}}) S = 2\\pi \\implies \\frac{1}{S} = \\frac{1}{P_\\oplus} - \\frac{1}{P_{\\text{Mars}}}$$\n移项反解火星恒星周期：\n$$P_{\\text{Mars}} = \\frac{S\\, P_\\oplus}{S - P_\\oplus}$$\n\n- **算术理解（哥白尼追及法）**：在 $S = 780\\text{ d}$ 内，地球转了 $\\frac{780}{365.25} \\approx 2.1355$ 圈，因正好比火星多 1 圈，所以火星在 $780\\text{ d}$ 内转了 $2.1355 - 1 = 1.1355$ 圈；转满 1 圈所需时间为 $780 / 1.1355$ 天。\n- **数值代入**：取 $P_\\oplus = 365.25\\text{ d}$、$S = 780\\text{ d}$：\n  $$P_{\\text{Mars}} = \\frac{780 \\times 365.25}{780 - 365.25} \\approx 686.91\\text{ d} \\approx 1.881\\text{ yr}$$\n  （若按简化 1 年 = 365 天计算，得 $\\frac{780\\times 365}{780-365} \\approx 686.0\\text{ d} \\approx 1.88\\text{ yr}$。）",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "intro-164",
@@ -141,7 +247,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 164
+        }
+      }
+    ]
   },
   {
     "id": "intro-170",
@@ -157,7 +275,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-5",
@@ -173,7 +303,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-14",
@@ -189,7 +331,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 14
+        }
+      }
+    ]
   },
   {
     "id": "obs-15",
@@ -205,7 +359,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 15
+        }
+      }
+    ]
   },
   {
     "id": "obs-25",
@@ -221,7 +387,19 @@
     "solution": "由真空中电磁波频率 $\\nu$ 与波长 $\\lambda$ 的基本关系 $\\nu = \\frac{c}{\\lambda}$（取 $c = 2.9979\\times 10^8\\text{ m s}^{-1} \\approx 3.0\\times 10^8\\text{ m s}^{-1}$，$1\\text{ nm} = 10^{-9}\\text{ m}$）：\n- **长波红端（$\\lambda_{\\max} = 750\\text{ nm} = 7.5\\times 10^{-7}\\text{ m}$）**：\n  $$\\nu_{\\min} = \\frac{3.0\\times 10^8}{7.5\\times 10^{-7}} = 4.0\\times 10^{14}\\text{ Hz}$$\n- **短波紫端（$\\lambda_{\\min} = 390\\text{--}400\\text{ nm} \\approx 4.0\\times 10^{-7}\\text{ m}$）**：\n  $$\\nu_{\\max} = \\frac{3.0\\times 10^8}{3.9\\times 10^{-7}} \\approx 7.7\\times 10^{14}\\text{ Hz}$$\n  （若取 $400\\text{ nm}$ 则为 $7.5\\times 10^{14}\\text{ Hz}$）。\n\n因此，可见光的频率范围约为 **$4.0\\times 10^{14}\\text{ Hz} \\sim 7.7\\times 10^{14}\\text{ Hz}$**（约 $(4.0\\text{--}7.5)\\times 10^{14}\\text{ Hz}$），宽度不足一个倍频程，在整个电磁波谱中仅占极窄的一段窗口。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-36",
@@ -237,7 +415,19 @@
     "solution": "### 一、维恩位移定律的数学推导\n\n普朗克黑体辐射比强度在 cgs 制（及对应 SI 制换算）下分别为：\n$$B_\\nu(T) = \\frac{2 h \\nu^3}{c^2} \\frac{1}{e^{h\\nu/(k_B T)} - 1}\\ [\\text{erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}\\text{ sr}^{-1}], \\qquad B_\\lambda(T) = \\frac{2 h c^2}{\\lambda^5} \\frac{1}{e^{hc/(\\lambda k_B T)} - 1}\\ [\\text{erg s}^{-1}\\text{ cm}^{-2}\\text{ cm}^{-1}\\text{ sr}^{-1}]$$\n其中 $h = 6.62607\\times 10^{-27}\\text{ erg s}$，$c = 2.99792\\times 10^{10}\\text{ cm s}^{-1}$，$k_B = 1.38065\\times 10^{-16}\\text{ erg K}^{-1}$。\n\n1. **频率形式（$B_\\nu$ 极大值）**：令 $x = \\frac{h\\nu}{k_B T}$，由 $\\frac{d}{dx}\\left(\\frac{x^3}{e^x - 1}\\right) = 0$ 得 $(3 - x) e^x = 3$，解得唯一非零正根 $x_1 \\approx 2.821439$，故：\n   $$h\\nu_{\\max} \\approx 2.8214\\, k_B T \\implies \\frac{\\nu_{\\max}}{T} \\approx 5.8789\\times 10^{10}\\text{ Hz K}^{-1}$$\n2. **波长形式（$B_\\lambda$ 极大值）**：令 $y = \\frac{h c}{\\lambda k_B T}$，由 $\\frac{d}{dy}\\left(\\frac{y^5}{e^y - 1}\\right) = 0$ 得 $(5 - y) e^y = 5$，解得唯一非零正根 $y_1 \\approx 4.965114$，故：\n   $$\\lambda_{\\max} T = \\frac{h c}{y_1 k_B} \\approx 0.28978\\text{ cm K} \\approx 0.29\\text{ cm K}$$\n\n---\n\n### 二、为什么 $\\nu_{\\max} \\lambda_{\\max} \\neq c$？\n\n由上立即得 $\\nu_{\\max} \\lambda_{\\max} = \\frac{x_1}{y_1} c \\approx 0.5683\\, c \\neq c$。原因在于 $B_\\nu$ 与 $B_\\lambda$ 分别是能量在单位频率间隔 $d\\nu$ 与单位波长间隔 $d\\lambda$ 上的密度分布，两者通过雅可比因子关联：$B_\\lambda = B_\\nu \\left|\\frac{d\\nu}{d\\lambda}\\right| = B_\\nu \\frac{c}{\\lambda^2} = B_\\nu \\frac{\\nu^2}{c}$。该非线性权重 $\\nu^2/c$ 将 $B_\\lambda$ 的峰值向更高频（更短波长）方向推移。若考察对数间隔能量分布 $\\nu B_\\nu = \\lambda B_\\lambda \\propto \\frac{x^4}{e^x - 1}$，其峰值满足 $(4-x)e^x = 4$（$x_* \\approx 3.92069$），此时才严格满足 $\\nu_{\\text{peak}}\\lambda_{\\text{peak}} = c$。\n\n---\n\n### 三、Python 绘图代码与峰值数值表（统一 cgs 制，附 SI 换算）\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import brentq\n\nh = 6.62607015e-27   # erg s\nc = 2.99792458e10    # cm s^-1\nkB = 1.380649e-16    # erg K^-1\n\nx_nu = brentq(lambda x: (3 - x) * np.exp(x) - 3, 1.0, 5.0)\ny_lam = brentq(lambda y: (5 - y) * np.exp(y) - 5, 1.0, 6.0)\n\ndef B_nu_cgs(nu, T):\n    x = np.clip(h * nu / (kB * T), 1e-12, 700.0)\n    return (2 * h * nu**3 / c**2) / np.expm1(x)\n\ndef B_lam_cgs(lam_cm, T):\n    y = np.clip(h * c / (lam_cm * kB * T), 1e-12, 700.0)\n    return (2 * h * c**2 / lam_cm**5) / np.expm1(y)\n\ntemps = [300, 1000, 4000, 7000]\nnu_grid = np.logspace(10, 16, 1000)\nlam_cm_grid = np.logspace(-6, -1, 1000)\n\nprint(f\"{'T(K)':>6} | {'nu_max(Hz)':>12} | {'lam_max(um)':>11} | {'B_nu_max(cgs)':>14} | {'B_lam_max(cgs)':>14}\")\nprint(\"-\" * 70)\nfor T in temps:\n    nu_m = x_nu * kB * T / h\n    lam_m_cm = h * c / (y_lam * kB * T)\n    print(f\"{T:6d} | {nu_m:12.4e} | {lam_m_cm*1e4:11.4f} | {B_nu_cgs(nu_m, T):14.4e} | {B_lam_cgs(lam_m_cm, T):14.4e}\")\n\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))\nfor T in temps:\n    ax1.loglog(nu_grid, B_nu_cgs(nu_grid, T), label=f\"T = {T} K\")\n    ax2.loglog(lam_cm_grid * 1e4, B_lam_cgs(lam_cm_grid, T), label=f\"T = {T} K\")\n\nax1.set_xlabel(r\"Frequency $\\nu$ (Hz)\")\nax1.set_ylabel(r\"$B_\\nu(T)$ ($\\mathrm{erg\\,s^{-1}\\,cm^{-2}\\,Hz^{-1}\\,sr^{-1}}$)\")\nax1.set_ylim(1e-18, 1e-2)\nax1.legend(); ax1.grid(True, which=\"both\", alpha=0.3)\n\nax2.set_xlabel(r\"Wavelength $\\lambda$ ($\\mu\\mathrm{m}$)\")\nax2.set_ylabel(r\"$B_\\lambda(T)$ ($\\mathrm{erg\\,s^{-1}\\,cm^{-2}\\,cm^{-1}\\,sr^{-1}}$)\")\nax2.set_ylim(1e0, 1e16)\nax2.legend(); ax2.grid(True, which=\"both\", alpha=0.3)\nplt.tight_layout(); plt.show()\n```\n\n**四个指定温度下的黑体谱精确峰值表（全部使用严格 cgs 单位）：**\n\n| $T\\ (\\text{K})$ | $\\nu_{\\max}\\ (\\text{Hz})$ | $\\lambda_{\\max}\\ (\\mu\\text{m})$ | $B_{\\nu,\\max}\\ (\\text{erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}\\text{ sr}^{-1})$ | $B_{\\lambda,\\max}\\ (\\text{erg s}^{-1}\\text{ cm}^{-2}\\text{ cm}^{-1}\\text{ sr}^{-1})$ |\n| :--- | :--- | :--- | :--- | :--- |\n| $300$ | $1.7637\\times 10^{13}$ | $9.6592$ | $5.1194\\times 10^{-9}$ | $9.9525\\times 10^{7}$ |\n| $1000$ | $5.8789\\times 10^{13}$ | $2.8978$ | $1.8961\\times 10^{-7}$ | $4.0957\\times 10^{10}$ |\n| $4000$ | $2.3516\\times 10^{14}$ | $0.7244$ | $1.2135\\times 10^{-5}$ | $4.1940\\times 10^{13}$ |\n| $7000$ | $4.1152\\times 10^{14}$ | $0.4140$ | $6.5035\\times 10^{-5}$ | $6.8836\\times 10^{14}$ |\n\n*(单位换算说明：$1\\text{ erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}\\text{ sr}^{-1} = 10^{-3}\\text{ W m}^{-2}\\text{ Hz}^{-1}\\text{ sr}^{-1}$；$1\\text{ erg s}^{-1}\\text{ cm}^{-2}\\text{ cm}^{-1}\\text{ sr}^{-1} = 10^{-1}\\text{ W m}^{-2}\\text{ m}^{-1}\\text{ sr}^{-1}$。注意 $B_{\\nu,\\max} \\propto T^3$、$B_{\\lambda,\\max} \\propto T^5$，从 $300\\text{ K}$ 升至 $1000\\text{ K}$ 时两者分别增长 $(10/3)^3 \\approx 37.04$ 倍与 $(10/3)^5 \\approx 411.5$ 倍，数值完全自洽。)*\n\n### 计算图形\n\n![频率谱密度，SI单位](figures/planck-frequency.png)\n\n![波长谱密度，SI单位](figures/planck-wavelength.png)\n\n图中谱辐射强度采用SI单位；若表采用cgs，$B_\\nu$ 数值由SI乘 $10^3$ 转换，按每厘米波长计的 $B_\\lambda$ 数值由每米SI乘 $10$ 转换。\n\n[复现黑体与观测数据图的Python程序](downloads/make_observational_figures.py)。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-39",
@@ -253,7 +443,19 @@
     "solution": "### 1. 辐射通量的立体角与频率积分\n\n温度为 $T$ 的黑体表面比强度为各向同性的普朗克函数 $B_\\nu(T)$：\n$$B_\\nu(T) = \\frac{2 h \\nu^3}{c^2} \\frac{1}{e^{h\\nu/(k_B T)} - 1}$$\n黑体表面向外部半球空间（天顶角 $\\theta \\in [0, \\pi/2]$，方位角 $\\phi \\in [0, 2\\pi]$）辐射的单位面积单色流量（出射度）为法向投影对上半球立体角 $d\\Omega = \\sin\\theta\\, d\\theta\\, d\\phi$ 的积分：\n$$F_\\nu(T) = \\int_0^{2\\pi} d\\phi \\int_0^{\\pi/2} B_\\nu(T) \\cos\\theta \\sin\\theta\\, d\\theta = 2\\pi B_\\nu(T) \\left[\\frac{\\sin^2\\theta}{2}\\right]_0^{\\pi/2} = \\pi B_\\nu(T)$$\n\n单位面积总辐射功率（全波段辐射通量）$F$ 为 $F_\\nu$ 对全频率的积分（等价地也可以从 $B_\\lambda$ 对 $\\lambda$ 从 $0$ 到 $\\infty$ 积分）：\n$$F = \\int_0^\\infty F_\\nu(T)\\, d\\nu = \\pi \\int_0^\\infty \\frac{2 h \\nu^3}{c^2} \\frac{1}{e^{h\\nu/(k_B T)} - 1}\\, d\\nu$$\n\n---\n\n### 2. 无量纲定积分与 $\\sigma_{\\text{SB}}$ 的精确计算\n\n作无量纲变量代换 $x = \\frac{h\\nu}{k_B T}$，则 $\\nu = \\frac{k_B T}{h} x$，$d\\nu = \\frac{k_B T}{h} dx$：\n$$F = \\frac{2\\pi k_B^4}{c^2 h^3} T^4 \\int_0^\\infty \\frac{x^3}{e^x - 1}\\, dx$$\n\n利用几何级数展开（对 $x > 0$，$e^{-x} < 1$）：\n$$\\frac{1}{e^x - 1} = \\frac{e^{-x}}{1 - e^{-x}} = \\sum_{n=1}^\\infty e^{-n x}$$\n逐项积分得：\n$$\\int_0^\\infty \\frac{x^3}{e^x - 1}\\, dx = \\sum_{n=1}^\\infty \\int_0^\\infty x^3 e^{-n x}\\, dx = \\sum_{n=1}^\\infty \\frac{3!}{n^4} = 6\\,\\zeta(4)$$\n其中黎曼 $\\zeta$ 函数值 $\\zeta(4) = \\sum_{n=1}^\\infty \\frac{1}{n^4} = \\frac{\\pi^4}{90}$，因此：\n$$\\int_0^\\infty \\frac{x^3}{e^x - 1}\\, dx = 6 \\times \\frac{\\pi^4}{90} = \\frac{\\pi^4}{15}$$\n\n代回总通量表达式，即得斯特藩—玻尔兹曼定律：\n$$F = \\sigma_{\\text{SB}} T^4, \\qquad \\sigma_{\\text{SB}} = \\frac{2\\pi^5 k_B^4}{15 c^2 h^3}$$\n\n代入基本物理常数（$k_B = 1.380649\\times 10^{-16}\\text{ erg K}^{-1}$，$c = 2.99792458\\times 10^{10}\\text{ cm s}^{-1}$，$h = 6.62607015\\times 10^{-27}\\text{ erg s}$）：\n$$\\sigma_{\\text{SB}} \\approx 5.67037\\times 10^{-5}\\text{ erg cm}^{-2}\\text{ s}^{-1}\\text{ K}^{-4} = 5.67037\\times 10^{-8}\\text{ W m}^{-2}\\text{ K}^{-4}$$\n同时辐射能量密度常数 $a = \\frac{4\\sigma_{\\text{SB}}}{c} = \\frac{8\\pi^5 k_B^4}{15 c^3 h^3} \\approx 7.5657\\times 10^{-15}\\text{ erg cm}^{-3}\\text{ K}^{-4}$。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-45",
@@ -269,7 +471,19 @@
     "solution": "### 1. 量纲分析的核心思想与白金汉 $\\pi$ 定理\n\n量纲分析的核心物理信念是**物理规律不依赖于人为选取的单位制**（量纲齐次性原理：任何有物理意义的方程中，等号两边及相加减的每一项必须具有相同的量纲）。\n\n**白金汉 $\\pi$ 定理（Buckingham $\\pi$ Theorem）**：\n设某个物理过程涉及 $n$ 个有量纲物理量 $q_1, q_2, \\dots, q_n$，其物理关系可写为 $F(q_1, q_2, \\dots, q_n) = 0$。若这 $n$ 个物理量中相互独立的基本量纲数目为 $k$（即量纲矩阵的秩为 $k$，力学与热学问题中通常有质量 $[M]$、长度 $[L]$、时间 $[T]$、温度 $[\\Theta]$ 四个基本量纲），则该关系式必可等价地化简为由 $p = n - k$ 个相互独立的无量纲组合（称为 $\\pi$ 群，$\\pi_1, \\pi_2, \\dots, \\pi_{n-k}$）构成的无量纲函数关系：\n$$\\Phi(\\pi_1, \\pi_2, \\dots, \\pi_{n-k}) = 0$$\n\n---\n\n### 2. 示例分析：霍金辐射温度 $T_H = f(M, G, \\hbar, c, k_B)$\n\n考虑的物理量共有 $n = 6$ 个：$T_H, M, G, \\hbar, c, k_B$。它们在 $[M, L, T, \\Theta]$ 四个基本量纲下的表达式为：\n- $[T_H] = \\Theta$，$[M] = M$，$[G] = M^{-1} L^3 T^{-2}$，$[\\hbar] = M L^2 T^{-1}$，$[c] = L T^{-1}$，$[k_B] = M L^2 T^{-2} \\Theta^{-1}$。\n\n这 6 个变量涵盖全部 $k = 4$ 个独立基本量纲，因此根据白金汉 $\\pi$ 定理，存在 $p = 6 - 4 = 2$ 个独立的无量纲 $\\pi$ 群（课件中尝试设 $T_H \\propto M^a G^b \\hbar^d c^e k_B^f$ 求解 4 个量纲方程、5 个未知指数，正对应少 1 个约束、即多出 1 个自由无量纲组合）：\n$$\\pi_1 = \\frac{k_B T_H}{\\hbar c^3 / (G M)}, \\qquad \\pi_2 = \\frac{M}{M_P} = \\frac{M}{\\sqrt{\\hbar c / G}}$$\n其中 $M_P = \\sqrt{\\hbar c / G} \\approx 2.176\\times 10^{-5}\\text{ g}$ 为普朗克质量。若无量纲关系可局部解为 $\\pi_1=\\psi(\\pi_2)$，其中 $\\psi$ 是由具体物理机制决定的无量纲函数，则量纲齐次性给出：\n$$T_H = \\frac{\\hbar c^3}{G M k_B}\\, \\psi\\!\\left(\\frac{M}{M_P}\\right)$$\n\n---\n\n### 3. 量纲分析的“能与不能”（适用范围与局限性）\n\n1. **量纲分析之“能”**：\n   - 在缺乏完整解析解时快速确定物理量之间的**幂律标度关系**（如引力波光度、金斯质量、爱丁顿光度、脉动时标等）；\n   - 检验理论推导方程与数值程序结果的量纲自洽性；\n   - 通过组合基本常数构造特征尺度（如普朗克尺度、史瓦西半径 $R_s \\sim GM/c^2$）。\n\n2. **量纲分析之“不能”（局限性）**：\n   - **无法确定无量纲常数因子**：量纲分析对纯数字系数（如霍金温度中的 $\\frac{1}{8\\pi}$、史瓦西半径中的 $2$）完全盲目；\n   - **面对多个无量纲组合（$n - k > 1$）时无法唯一确定函数形式**：如上例中存在 $\\pi_2 = M/M_P$，单靠量纲匹配无法排除 $T_H \\propto M^{-1}$ 或 $T_H \\propto M^0 \\sqrt{\\hbar c^5 / G}/k_B$ 等其他组合。必须补充**物理图像与机制约束**（例如：利用量子效应 $T_H \\propto \\hbar^1$ 或由黑洞表面引力 $\\kappa = \\frac{c^4}{4GM}$ 与昂鲁效应 $k_B T = \\frac{\\hbar \\kappa}{2\\pi c}$ 锁定关系），最终经由弯曲时空量子场论严格计算确定 $T_H = \\frac{\\hbar c^3}{8\\pi G M k_B}$；\n   - **高度依赖初始变量选取**：若遗漏关键物理量或引入无关常数，会得到错误或退化的标度律。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-62",
@@ -285,7 +499,19 @@
     "solution": "### 1. 分子三类能级跃迁的物理尺度对比\n\n设分子内电子质量为 $m_e$，原子核质量尺度为 $M_N$（由于质子/中子质量 $m_p \\approx 1836\\,m_e$，典型双原子分子约化质量 $\\mu_{\\text{mol}} \\sim M_N \\sim 10^4 m_e$），分子特征键长为玻尔半径尺度（高斯制 Gaussian cgs 表达式 $a_0 = \\frac{\\hbar^2}{m_e e^2} \\approx 0.529\\text{ \\AA}$，实际分子键长多在 $1\\text{--}2\\text{ \\AA}$）。\n\n1. **电子态跃迁能量 $\\Delta E_{\\text{el}}$（紫外—可见光波段）**：\n   束缚价电子的特征动能与库仑势能为里德伯尺度：\n   $$\\Delta E_{\\text{el}} \\sim \\frac{\\hbar^2}{m_e a_0^2} \\sim 1\\text{--}10\\text{ eV}$$\n   对应光子波长 $\\lambda = \\frac{hc}{\\Delta E_{\\text{el}}} \\sim 100\\text{--}1000\\text{ nm}$（紫外至可见光）。\n\n2. **分子振动跃迁能量 $\\Delta E_{\\text{vib}}$（红外波段）**：\n   原子核在分子势阱中作简谐振动，势阱在平衡键长附近弯曲的弹性系数 $k_{\\text{sp}}$ 由电子云键能决定：$\\frac{1}{2} k_{\\text{sp}} a_0^2 \\sim \\Delta E_{\\text{el}} \\implies k_{\\text{sp}} \\sim \\frac{\\Delta E_{\\text{el}}}{a_0^2}$。振动频率 $\\omega_{\\text{vib}} = \\sqrt{k_{\\text{sp}}/M_N}$，故振动态能级间隔为：\n   $$\\Delta E_{\\text{vib}} \\sim \\hbar\\omega_{\\text{vib}} \\sim \\sqrt{\\frac{m_e}{M_N}}\\,\\Delta E_{\\text{el}} \\sim 10^{-2}\\,\\Delta E_{\\text{el}} \\sim 0.05\\text{--}0.5\\text{ eV}$$\n   对应波长 $\\lambda_{\\text{vib}} \\sim 2\\text{--}25\\,\\mu\\text{m}$，正好落在**红外（IR）波段**。\n\n3. **分子转动跃迁能量 $\\Delta E_{\\text{rot}}$（射电/毫米波段）**：\n   将分子近似为转动惯量 $I \\sim M_N a_0^2$ 的刚性转子，量子化转动能级 $E_J = \\frac{\\hbar^2}{2I}J(J+1)$（$J = 0, 1, 2, \\dots$）。转动跃迁能量间隔为：\n   $$\\Delta E_{\\text{rot}} \\sim \\frac{\\hbar^2}{I} \\sim \\frac{m_e}{M_N}\\,\\Delta E_{\\text{el}} \\sim 10^{-4}\\,\\Delta E_{\\text{el}} \\sim 10^{-4}\\text{--}10^{-3}\\text{ eV}$$\n   例如 $\\text{CO}$ 分子（$r_0 \\approx 1.13\\text{ \\AA}$）的电偶极跃迁 $J = 1 \\to 0$ 对应 $\\Delta E_{1\\to 0} \\approx 4.77\\times 10^{-4}\\text{ eV}$，频率 $\\nu = 115.27\\text{ GHz}$、波长 $\\lambda = 2.6\\text{ mm}$，落在**射电/毫米波段**。\n\n---\n\n### 2. 转动选择定则与分子类型限制（关键补充）\n\n- **电偶极转动跃迁（$\\Delta J = \\pm 1$）要求永久电偶极矩**：上述强射电/毫米波转动谱线遵循选择定则 $\\Delta J = \\pm 1$，这**仅针对具有永久电偶极矩的极性分子**（如 $\\text{CO}$、$\\text{HCN}$、$\\text{NH}_3$、$\\text{CS}$ 等）。\n- **同核对称分子（如 $\\text{H}_2$）的特殊性**：分子云中丰度最高的氢分子 $\\text{H}_2$ 为完全对称的同核双原子分子，**永久电偶极矩严格为零**，因此 $\\Delta J = \\pm 1$ 电偶极转动跃迁禁戒，无法在冷分子云（$T \\sim 10\\text{ K}$）中产生射电辐射！$\\text{H}_2$ 只能发生极其微弱的**电四极转动跃迁（$\\Delta J = \\pm 2$）**（且由于 $\\text{H}_2$ 质量极轻、转动惯量极小，最低四极跃迁 $J=2\\to 0$ 波长处于中红外 $28.2\\,\\mu\\text{m}$，需要 $> 100\\text{ K}$ 的高温激波区或光致离解区才能激发），这正是射电天文学使用 $\\text{CO}$ 等极性分子作为 $\\text{H}_2$ 示踪剂的根本物理原因。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-71",
@@ -301,7 +527,19 @@
     "solution": "### 1. 多普勒频移公式与地球轨道运动效应\n\n设光源静止波长为 $\\lambda_0$，观测波长为 $\\lambda$，红移定义为 $z \\equiv \\frac{\\lambda - \\lambda_0}{\\lambda_0}$。设视向速度为 $v_r$（远离观测者为正，接近为负）：\n- **低速经典极限（$|v_r| \\ll c$）**：$z \\approx \\frac{v_r}{c}$，$z > 0$ 为红移，$z < 0$ 为蓝移；\n- **狭义相对论精确公式**（含横向多普勒/时间膨胀）：$1 + z = \\gamma\\left(1 + \\frac{v_r}{c}\\right)$；纯径向退行时，$1 + z = \\sqrt{\\frac{1 + v_r/c}{1 - v_r/c}}$。\n\n**地球公转运动的影响**：地球绕太阳公转线速度约为 $v_\\oplus \\approx 29.78\\text{ km s}^{-1}$，在一年不同季节会在视线方向上叠加最大 $\\pm 29.78\\cos\\beta\\text{ km s}^{-1}$（$\\beta$ 为黄纬）的周期性蓝移或红移。精密测速中必须将测得的日地视向速度还原为**日心（或太阳系质心）视向速度**。\n\n---\n\n### 2. Vesto Slipher 的历史性观测工作（1912–1925）\n\n20 世纪初，天文学界尚未确定“螺旋星云”究竟属于银河系内部气体云，还是银河系之外独立的“岛宇宙”。自 1912 年起，美国亚利桑那州洛厄尔天文台（Lowell Observatory）的 **Vesto Melvin Slipher** 利用 24 英寸折射望远镜配合高速摄谱仪，克服了星云面亮度极低的困难（单次曝光常需数十小时），首次系统测定了螺旋星云的光谱多普勒位移：\n1. **1912 年突破**：首次测得仙女座星云（M31）具有约 $-300\\text{ km s}^{-1}$ 的高速蓝移（正在高速接近太阳系）；\n2. **1914–1917 年系统发现**：测量了约 25 个螺旋星云（到 1925 年扩充至 40 余个），惊人地发现**绝大多数螺旋星云都呈现剧烈红移**，退行速度高达 $+300$ 至 $+1100\\text{ km s}^{-1}$（少数甚至达 $+1800\\text{ km s}^{-1}$），远超银河系内恒星通常只有几十 $\\text{km s}^{-1}$ 的随机速度。\n\n---\n\n### 3. 科学史启示与深远影响\n\n1. **打破“银河系即全宇宙”的认知**：系统性的高速运动为星云本质之争提供了重要线索；哈勃随后利用造父变星建立距离尺度，确立 M31 的河外星系身份。视向速度证据与距离证据共同构成认识链条；\n2. **宇宙膨胀的直接观测先声**：1929 年哈勃（Edwin Hubble）发表著名的哈勃定律（$v = H_0 d$）时，所用的星系退行速度数据几乎全部直接引用自 Slipher 的光谱测量表。Slipher 的观测实际上是人类第一次捕捉到**河外星系系统性退行（宇宙膨胀）**的观测信号。\n\n原始文献：[Slipher（1913），The Radial Velocity of the Andromeda Nebula](<https://www2.lowell.edu/workshops/slipher/Slipher1913LowOB2_56S.pdf>)。1912年观测、1913年发表的结果给出 M31 相对太阳系约 $-300\\,\\mathrm{km\\,s^{-1}}$。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-75",
@@ -317,7 +555,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-81",
@@ -333,7 +583,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-107",
@@ -349,7 +611,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 107
+        }
+      }
+    ]
   },
   {
     "id": "obs-115",
@@ -365,7 +639,19 @@
     "solution": "### 1. 视星等 $m$（Apparent Magnitude）\n\n视星等是天体在地球处观测到的辐射流量 $F$ 的对数度量。现代 Pogson 标度规定星等相差 5 等对应流量相差精确的 100 倍（每相差 1 等，亮度差 $100^{1/5} = 10^{0.4} \\approx 2.512$ 倍），且星等数值越小越亮：\n$$m_1 - m_2 = -2.5\\log_{10}\\left(\\frac{F_1}{F_2}\\right), \\qquad m = -2.5\\log_{10}\\left(\\frac{F}{F_0}\\right)$$\n其中 $F_0$ 为选定测光波段的参考零点流量。\n\n---\n\n### 2. 绝对星等 $M$（Absolute Magnitude）与光度关系\n\n**绝对星等 $M$** 定义为天体置于标准距离 $d_0 = 10\\text{ pc}$（且无星际消光）处的视星等。\n\n**通带光度 $L_X$ 与全波段热光度 $L$ 的严格区分**：\n星等—光度公式 $M_1 - M_2 = -2.5\\log_{10}(L_1 / L_2)$ **仅在比较同一测光通带（如同为 $V$ 波段 $L_V$ 或某个波段 $X$ 的通带光度 $L_X$）时，或当两者均采用全波段热星等 $M_{\\text{bol}}$ 与全波段总光度 $L$ 时才严格成立**：\n- **同通带公式**：$M_X - M_{X,\\odot} = -2.5\\log_{10}(L_X / L_{X,\\odot})$（反映该通带内的单色/通带积分光度比 $L_X$，不可直接等同于全波段总光度 $L$）；\n- **全波段热光度公式**：$M_{\\text{bol}} - M_{\\text{bol},\\odot} = -2.5\\log_{10}(L / L_\\odot)$，其中全波段热星等通过热改正（Bolometric Correction）与 $V$ 星等关联：$M_{\\text{bol}} = M_V + \\text{BC}_V$（太阳名义值 $M_{\\text{bol},\\odot} = 4.74$，$L_\\odot = 3.828\\times 10^{33}\\text{ erg s}^{-1}$；课件取 $4.75$ 与 $3.86\\times 10^{33}\\text{ erg s}^{-1}$）。\n\n---\n\n### 3. 距离模数（Distance Modulus）与星际消光 $A$\n\n在同通带下由流量平方反比律 $\\frac{F(d)}{F(10\\text{ pc})} = \\left(\\frac{10\\text{ pc}}{d}\\right)^2 e^{-\\tau}$ 导出距离模数 $\\mu \\equiv m - M$：\n- 无消光：$m - M = 5\\log_{10}\\left(\\frac{d}{\\text{pc}}\\right) - 5 \\iff d = 10^{(m - M + 5)/5}\\text{ pc}$；\n- 计及该波段以星等表示的星际尘埃消光 $A \\ge 0$：$m - M = 5\\log_{10}\\left(\\frac{d}{\\text{pc}}\\right) - 5 + A \\iff d = 10^{(m - M - A + 5)/5}\\text{ pc}$。\n\n---\n\n### 4. 视星等的种类与 AB 零点定标\n\n1. **按测量手段与波段划分**：目视星等（$m_v$）、照相星等（$m_{\\text{pg}}$）、光电/CCD 宽带测光星等（如 Johnson-Cousins $UBVRI$、Gaia $G, G_{\\text{BP}}, G_{\\text{RP}}$、SDSS $ugriz$），以及覆盖全电磁波段的热星等（$m_{\\text{bol}}$）。\n2. **按零点定标体系划分**：\n   - **Vega 星等系统**：以织女星（Vega）在各波段视星等近似为 $0$ 作为零点基准；\n   - **AB 星等系统**（Oke & Gunn 1983）：完全基于物理单色流量密度定标，**以恒定谱流量密度 $f_{\\nu,0} = 3631\\text{ Jy} = 3.631\\times 10^{-20}\\text{ erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}$ 作为所有频率通带的统一零点**（$1\\text{ Jy} = 10^{-23}\\text{ erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}$），定义式为：\n     $$m_{\\text{AB}} = -2.5\\log_{10}\\left(\\frac{f_\\nu}{3631\\text{ Jy}}\\right) = -2.5\\log_{10}\\left(\\frac{f_\\nu}{\\text{erg s}^{-1}\\text{ cm}^{-2}\\text{ Hz}^{-1}}\\right) - 48.60$$",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-117",
@@ -381,7 +667,19 @@
     "solution": "### 1. 距离比与亮度衰减倍数\n\n假定金星表面辐射/反射的内禀总功率保持不变，地球观测到的视流量 $F$ 与距离 $d$ 满足平方反比定律 $F \\propto d^{-2}$。\n\n已知：\n- 初始距离 $d_1 = 1\\text{ AU}$；\n- 目标距离 $d_2 = 1\\text{ pc} = 206264.8\\text{ AU}$（由 $1\\text{ pc}$ 的定义：$\\frac{1\\text{ AU}}{\\tan 1''} \\approx \\frac{180\\times 3600}{\\pi}\\text{ AU} \\approx 2.06265\\times 10^5\\text{ AU}$）。\n\n亮度（流量）衰减倍数为：\n$$\\frac{F_1}{F_2} = \\left(\\frac{d_2}{d_1}\\right)^2 = (206264.8)^2 \\approx 4.2545\\times 10^{10}$$\n即从 $1\\text{ pc}$ 处观察，它会比在 $1\\text{ AU}$ 处**暗约 $4.25\\times 10^{10}$ 倍**。\n\n---\n\n### 2. 视星等计算\n\n由 Pogson 星等公式，视星等变化量为：\n$$\\Delta m = m_2 - m_1 = -2.5\\log_{10}\\left(\\frac{F_2}{F_1}\\right) = 5\\log_{10}\\left(\\frac{d_2}{d_1}\\right) = 5\\log_{10}(206264.8) \\approx +26.572\\text{ mag}$$\n\n因此，在 $1\\text{ pc}$ 处金星的视星等为：\n$$m_2 = -4 + 26.572 \\approx +22.57\\text{ mag}$$\n（这一亮度远暗于肉眼极限 $m \\approx 6$，需使用大型专业光学望远镜才能探测到。注：若考虑真实物理情景下金星随远离太阳而失去反射阳光，其可见光反射亮度还会再按日心距平方衰减，仅余极微弱自身热辐射，此处按题设仅作 $1\\text{ AU} \\to 1\\text{ pc}$ 几何距离稀释计算。）",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-119",
@@ -397,7 +695,19 @@
     "solution": "### 1. 距离单位换算与绝对星等计算\n\n由 $1\\text{ pc} = 3.26156\\text{ ly}$（工程近似常取 $3.26\\text{ ly}$），天狼星距离为：\n$$d = \\frac{8.6}{3.26156}\\text{ pc} \\approx 2.6368\\text{ pc}$$\n\n利用无消光距离模数公式（天狼星极近，星际消光可忽略，$A \\approx 0$）：\n$$M = m + 5 - 5\\log_{10}\\left(\\frac{d}{\\text{pc}}\\right) = -1.46 + 5 - 5\\log_{10}(2.6368) \\approx 3.54 - 2.1054 = +1.435 \\approx +1.43\\text{ mag}$$\n（若取 $1\\text{ pc} = 3.26\\text{ ly}$，得 $d = 2.6380\\text{ pc}$，$M \\approx +1.434\\text{ mag}$，结果一致。）\n\n---\n\n### 2. 按课件约定的光度计算\n\n直接代入课件给出的关系 $M - M_\\odot = -2.5\\log_{10}(L/L_\\odot)$ 及课件参考值 $M_\\odot = 4.75$：\n$$\\frac{L}{L_\\odot} = 10^{-0.4(M - M_\\odot)} = 10^{-0.4(1.4346 - 4.75)} = 10^{1.3262} \\approx 21.19 \\approx 21.2$$\n取课件太阳光度 $L_\\odot = 3.86\\times 10^{33}\\text{ erg s}^{-1}$，得：\n$$L \\approx 21.19 \\times 3.86\\times 10^{33}\\text{ erg s}^{-1} \\approx 8.18\\times 10^{34}\\text{ erg s}^{-1}$$\n\n---\n\n### 3. 重要物理辨析：同波段光度比 vs 全波段总光度（热光度）\n\n上述按课件约定直接算出的 $L/L_\\odot \\approx 21.2$ 存在波段口径上的细微混用，严格物理上需作如下区分：\n1. **观测星等的波段归属**：题中所给天狼星视星等 $m = -1.46$ 实际上是**可见光 $V$ 波段**视星等 $m_V = -1.46$，故算出的 $M = +1.43$ 是 $V$ 波段绝对星等 $M_V$。而课件给出的 $M_\\odot = 4.75$ 接近太阳的**全波段热绝对星等** $M_{\\text{bol},\\odot} \\approx 4.74$（太阳 $V$ 波段绝对星等为 $M_{V,\\odot} \\approx 4.83$）。\n2. **同波段（$V$ 波段）光度比**：若严格在 $V$ 波段内比较，$M_V - M_{V,\\odot} = 1.435 - 4.83 = -3.395$，给出 $V$ 波段单色/通带光度比为：\n   $$\\frac{L_V}{L_{V,\\odot}} = 10^{0.4\\times 3.395} \\approx 22.8$$\n3. **全波段总光度（热光度 $L_{\\text{bol}}$）**：不同有效温度的恒星在不同波段的能量占比不同，必须引入**热改正（Bolometric Correction, $\\text{BC}_V$）**：$M_{\\text{bol}} = M_V + \\text{BC}_V$。天狼星 A 为 A1V 型主序星，有效温度 $T_{\\text{eff}} \\approx 9940\\text{ K}$，远高于太阳（$5778\\text{ K}$），其紫外波段辐射份额显著大于太阳，故 $|\\text{BC}_V(\\text{Sirius})| \\approx 0.20$ 大于 $|\\text{BC}_V(\\odot)| \\approx 0.08$：\n   $$M_{\\text{bol}}(\\text{Sirius}) \\approx 1.435 - 0.20 = 1.235 \\implies \\frac{L_{\\text{bol}}}{L_\\odot} = 10^{-0.4(1.235 - 4.74)} \\approx 25.2\\text{--}25.4$$\n综上，按课件给定 $M_\\odot = 4.75$ 约定算得 $M \\approx +1.43$、$L \\approx 21.2\\, L_\\odot$，而天狼星 A 的真实全波段热光度约为 $25.4\\, L_\\odot$。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-127",
@@ -413,7 +723,19 @@
     "solution": "简单无大气快速自转黑体平衡温度模型假设行星吸收的太阳截面积能量全部均匀以黑体辐射向全空间 $4\\pi R_p^2$ 发射：\n$$\\pi R_p^2 (1 - A)\\frac{L_\\odot}{4\\pi d^2} = 4\\pi R_p^2 \\sigma_{\\text{SB}} T_{\\text{eq}}^4 \\implies T_{\\text{eq}} = T_\\odot (1 - A)^{1/4}\\sqrt{\\frac{R_\\odot}{2 d}}$$\n实测值与 $T_{\\text{eq}}$ 的系统性偏差揭示了以下被简化模型忽略的物理机制：\n\n1. **大气温室效应（金星与地球偏高）**：地球（$288\\text{ K}$ vs 无温室 $255\\text{ K}$）与金星（实测 $737\\text{ K}$ 远高于平衡预测 $230\\text{--}328\\text{ K}$）存在大气层（$\\text{H}_2\\text{O}$、$\\text{CO}_2$ 等），其对可见光透明但强烈吸收地表发出的长波红外辐射并逆辐射回地表。金星稠密的 $96\\%\\ \\text{CO}_2$ 大气（表面气压 $92\\text{ bar}$）产生了失控温室效应，使表面温度升逾 $460^\\circ\\text{C}$。\n2. **缺乏大气与极慢自转（水星昼夜极端温差）**：水星几乎无大气保温与热量再分配，且呈 $3:2$ 自转轨道共振（一个太阳日长达 176 地球日），向阳面长期暴晒升温至 $725\\text{ K}$，背阳面辐射冷却跌至 $100\\text{ K}$，不能用单一全球均温近似。\n3. **行星内部余热与引力收缩放能（气态巨行星偏高）**：木星、土星、海王星实测有效温度略高于太阳照射平衡温度（尤其木星辐射功率约为吸收太阳功率的 1.7 倍），说明巨行星内部尚存形成初期的原始热能与持续 Kelvin-Helmholtz 引力收缩/氦雨分异释放的热量。\n4. **反照率 $A$ 与红外发射率变化**：冰雪/云层反照率随气象和轨道变化，进一步修正实际有效平衡温度。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-134",
@@ -429,7 +751,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-135",
@@ -445,7 +779,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 135
+        }
+      }
+    ]
   },
   {
     "id": "obs-144",
@@ -461,7 +807,19 @@
     "solution": "绿色恒星在物理上不可能作为单独的黑体辐射颜色出现，原因在于**普朗克黑体谱的宽广性**与**人眼三色视觉混合机制**：\n\n1. **黑体谱峰值在绿光区时的宽谱混合**：\n   取太阳表面温度 $T \\approx 5800\\text{ K}$，由维恩位移定律 $\\lambda_{\\max} = 0.2898 / 5800 \\approx 500\\text{ nm}$，辐射峰值恰好落在可见光绿—蓝绿波段。然而普朗克函数 $B_\\lambda(T)$ 在峰值两侧并非尖锐单色线，而是非常宽阔的连续分布：在可见光范围内，红光（$650\\text{ nm}$）、黄光（$580\\text{ nm}$）和蓝紫光（$450\\text{ nm}$）的辐射强度均与绿光处于同一量级（相差不到 $20\\%$）。人眼视网膜的红、绿、蓝（L、M、S）三种视锥细胞几乎被均等激发，大脑将其综合感知为**纯白或略微偏黄白色**（太阳在大气外呈纯白，经大气瑞利散射扣去部分蓝光后地面看来略黄）。\n2. **温度偏离时的普朗克轨迹走向**：\n   - 当 $T$ 升高（$> 10^4\\text{ K}$）：短波紫蓝端指数上升快于绿红端，色感直接转向**蓝白色/蓝紫色**；\n   - 当 $T$ 降低（$< 4500\\text{ K}$）：短波端被指数抑制，长波红橙光占优，色感直接转向**橙色/红色**。\n   因此黑体在 CIE 色度图上的轨迹（普朗克轨迹）从红 $\\to$ 橙 $\\to$ 黄白 $\\to$ 蓝白平滑穿过白区，**彻底绕开了纯绿区域**。\n\n*(注：民间或部分文献提及某些星如氐宿四 $\\beta\\text{ Lib}$ 或双星伴星呈现淡绿色，本质上是人眼与周围亮红/橙恒星形成的同时色彩对比心理错觉，或观测条件引起的大气色散效应，并非恒星内禀发光呈现纯绿色。)*",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-150",
@@ -477,7 +835,19 @@
     "solution": "### 1. 物理公式与参数\n\n当恒星物理直径 $D = 2 R_\\odot$ 远小于观测距离 $d$ 时，小角近似下角直径为：\n$$\\theta\\ (\\text{rad}) = \\frac{2 R_\\odot}{d}$$\n利用 $1\\text{ rad} = \\frac{180\\times 3600}{\\pi}\\text{ arcsec} \\approx 206264.8\\text{ arcsec}$（恰等于 $1\\text{ pc} / 1\\text{ AU}$ 的数值），且 $R_\\odot = 6.9598\\times 10^{10}\\text{ cm}$，$1\\text{ pc} = 3.08568\\times 10^{18}\\text{ cm}$：\n\n---\n\n### 2. 数值计算\n\n1. **在 $d = 1\\text{ pc}$ 处**：\n   $$\\theta(1\\text{ pc}) = \\frac{2\\times 6.9598\\times 10^{10}\\text{ cm}}{3.08568\\times 10^{18}\\text{ cm}} = 4.5110\\times 10^{-8}\\text{ rad}$$\n   换算为角秒和毫角秒（$\\text{mas}$）：\n   $$\\theta(1\\text{ pc}) = 4.5110\\times 10^{-8} \\times 206264.8'' \\approx 9.305\\times 10^{-3}\\text{ arcsec} = 9.30\\text{ mas}$$\n   （注：直观速算法为 $2 R_\\odot \\approx 0.00930\\text{ AU}$，而 $1\\text{ AU}$ 在 $1\\text{ pc}$ 处张角恰好为 $1''$，故直接得 $0.00930''$。）\n\n2. **在 $d = 10\\text{ pc}$ 处**：\n   $$\\theta(10\\text{ pc}) = \\frac{\\theta(1\\text{ pc})}{10} \\approx 4.511\\times 10^{-9}\\text{ rad} \\approx 9.30\\times 10^{-4}\\text{ arcsec} \\approx 0.93\\text{ mas}$$\n   （约 $10^{-3}\\text{ arcsec}$ 量级，这说明即使是像太阳这样放在 $10\\text{ pc}$ 处的近邻主序星，其视圆面也远小于地面单台光学望远镜的衍射与视宁度极限，需要长基线光学干涉仪才能直接分辨其角直径。）",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-153",
@@ -493,7 +863,19 @@
     "solution": "### 1. 公式推导\n\n将恒星光球近似为有效温度 $T_{\\text{eff}}$ 的球形黑体辐射源，其表面积 $A = 4\\pi R^2$，单位面积辐射功率 $F = \\sigma_{\\text{SB}} T_{\\text{eff}}^4$，故总光度为：\n$$L = 4\\pi R^2 \\sigma_{\\text{SB}} T_{\\text{eff}}^4 \\implies R = \\sqrt{\\frac{L}{4\\pi \\sigma_{\\text{SB}} T_{\\text{eff}}^4}}$$\n\n---\n\n### 2. 数值代入（cgs 单位）\n\n取 $L_\\odot = 3.86\\times 10^{33}\\text{ erg s}^{-1}$，$T_{\\text{eff},\\odot} = 5800\\text{ K}$，$\\sigma_{\\text{SB}} = 5.67037\\times 10^{-5}\\text{ erg cm}^{-2}\\text{ s}^{-1}\\text{ K}^{-4}$：\n$$4\\pi \\sigma_{\\text{SB}} T_{\\text{eff},\\odot}^4 = 4\\pi \\times 5.67037\\times 10^{-5} \\times (5800)^4 \\approx 8.0625\\times 10^{11}\\text{ erg cm}^{-2}\\text{ s}^{-1}$$\n$$R_\\odot \\approx \\sqrt{\\frac{3.86\\times 10^{33}}{8.0625\\times 10^{11}}} = \\sqrt{4.7876\\times 10^{21}} \\approx 6.919\\times 10^{10}\\text{ cm} \\approx 6.92\\times 10^5\\text{ km}$$\n\n与太阳光球精确半径 $R_{\\text{true}} = 6.9598\\times 10^{10}\\text{ cm}$ 相比，相对偏差仅约 $-0.59\\%$（误差主要来源于太阳实际有效温度取 $5772\\text{ K}$、$L_\\odot = 3.828\\times 10^{33}\\text{ erg s}^{-1}$ 时两者完全一致）。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-171",
@@ -509,7 +891,19 @@
     "solution": "### 1. 为什么要绘制赫罗图？\n\n1. **用大样本空间分布替代时间演化（克服寿命差异）**：单颗恒星的核燃烧演化时标（$10^6\\text{--}10^{10}\\text{ yr}$）远超人类文明与观测史。在同一个瞬时“快照”下统计大量不同年龄、不同质量的恒星在基本内禀参数平面上的分布，可以反演恒星从诞生到终结的演化轨迹与各阶段停留时标比例。\n2. **连接最基本且可直接测定的内禀物理量**：通过测光/光谱确定有效温度 $T_{\\text{eff}}$（或光谱型 OBAFGKM、色指数 $B-V$），结合距离确定光度 $L$（或绝对星等 $M_V$），由 $L = 4\\pi R^2 \\sigma_{\\text{SB}} T_{\\text{eff}}^4$ 即可在图上直接读出恒星半径 $R$：\n   $$\\log_{10}\\left(\\frac{L}{L_\\odot}\\right) = 2\\log_{10}\\left(\\frac{R}{R_\\odot}\\right) + 4\\log_{10}\\left(\\frac{T_{\\text{eff}}}{T_{\\text{eff},\\odot}}\\right)$$\n3. **揭示物理规律而非随机散落**：赫罗图首次表明恒星并非随机分布在 $(T_{\\text{eff}}, L)$ 平面上，而是高度聚集于主序带（约 90% 近邻恒星）、巨星支、超巨星区与白矮星区，直接反映静力学平衡与核燃烧物理规律（质光关系等）。\n4. **实用测距工具（分光视差法）**：由光谱确定恒星在赫罗图上的归属即可读取绝对星等 $M$，再结合视星等 $m$ 测定极远天体的距离。\n\n---\n\n### 2. Python 绘图代码（含主要恒星群与等半径线）\n\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(8, 7))\nT_sun = 5772.0\n\n# 等半径线: L/L_sun = (R/R_sun)^2 * (T/T_sun)^4\nT_grid = np.logspace(np.log10(2500), np.log10(40000), 300)\nfor R_ratio in [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]:\n    L_line = (R_ratio**2) * (T_grid / T_sun)**4\n    ax.loglog(T_grid, L_line, \"--\", color=\"gray\", alpha=0.5, lw=1)\n    idx = 60 if R_ratio >= 1 else 210\n    if 1e-5 < L_line[idx] < 1e6:\n        ax.text(T_grid[idx], L_line[idx]*1.15, rf\"$R={R_ratio:g}R_\\odot$\",\n                fontsize=8, color=\"dimgray\", rotation=-22)\n\n# 主序带代表点 (温度 K, 光度 L/L_sun)\nms_T = np.array([35000, 20000, 10000, 7500, 5772, 4500, 3200])\nms_L = np.array([1e5, 3e3, 40, 6, 1.0, 0.15, 3e-3])\nax.loglog(ms_T, ms_L, \"o-\", color=\"navy\", lw=3, label=\"Main Sequence (V)\")\n\n# 红巨星支 (III)\nrgb_T = np.array([5000, 4500, 3800, 3300])\nrgb_L = np.array([20, 60, 300, 1500])\nax.loglog(rgb_T, rgb_L, \"s-\", color=\"darkorange\", lw=2.5, label=\"Red Giants (III)\")\n\n# 超巨星 (I)\nsg_T = np.array([25000, 12000, 6500, 3600])\nsg_L = np.array([2e5, 8e4, 4e4, 5e4])\nax.loglog(sg_T, sg_L, \"^-\", color=\"crimson\", lw=2.5, label=\"Supergiants (I)\")\n\n# 白矮星区 (WD)\nwd_T = np.array([30000, 15000, 8000, 5000])\nwd_L = np.array([0.05, 5e-3, 5e-4, 8e-5])\nax.loglog(wd_T, wd_L, \"D-\", color=\"teal\", lw=2.5, label=\"White Dwarfs\")\n\nax.scatter([5772], [1.0], color=\"gold\", edgecolor=\"black\", s=120, zorder=5, label=\"Sun\")\n\nax.set_xlim(42000, 2500)  # 天文惯例: 温度左高右低\nax.set_ylim(1e-5, 1e6)\nax.set_xlabel(r\"Effective Temperature $T_{\\mathrm{eff}}$ (K)\")\nax.set_ylabel(r\"Luminosity $L / L_\\odot$\")\nax.set_title(\"Schematic Hertzsprung-Russell Diagram\")\nax.legend(loc=\"lower left\")\nax.grid(True, which=\"both\", alpha=0.25)\nplt.tight_layout()\nplt.show()\n```",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-177",
@@ -525,7 +919,19 @@
     "solution": "### 1. 实测数据格式、筛选与样本统计\n\n本地课程实测星表 `Gaia_EDR3_HR/Gaia_EDR3_HR.txt` 共包含 **$N = 226,635$** 条恒星记录，文件以 `#` 开头的注释行后紧接表头字段：\n`BP-RP`（$G_{\\text{BP}}-G_{\\text{RP}}$ 色指数）、`MG`（$G$ 波段绝对星等 $M_G$）、`logT`（$\\log_{10}(T_{\\text{eff}}/\\text{K})$）、`logL`（$\\log_{10}(L/L_\\odot)$）与 `par`（视差 $\\varpi$，单位 $\\text{mas}$）。\n\n**筛选条件与缺测处理**：\n1. **太阳邻域与高精度视差筛选**（由星表文件头注释已预筛选）：$\\varpi > 10\\text{ mas}$（即距离 $d < 100\\text{ pc}$ 以内邻域恒星）、视差相对误差 $\\sigma_\\varpi/\\varpi < 0.01$（高信噪比，减小直接倒数视差的测量偏差）以及视星等极限 $m_G < 18\\text{ mag}$。\n2. **色—星等图（CMD，$M_G$ vs $BP-RP$）**：全部 **$226,635$** 行均有有效测光与视差数据，直接用于绘制太阳邻域实测 CMD，清晰呈现主序带（以低光度红矮星为显著组成）、白矮星冷却序列（左下支）以及少数演化离开主序的红巨星/亚巨星。\n3. **物理赫罗图（$\\log L$ vs $\\log T_{\\text{eff}}$）**：原表中共有 **$553$** 行在 `logT` 或 `logL` 字段以哨兵值 `-99.9` 标记缺测；剔除这些缺测行后，保留 **$226,082$** 颗有效恒星绘制物理 H-R 图。\n\n---\n\n### 2. 匹配真实文件格式的 Python 读取、过滤与绘图代码\n\n```python\nfrom pathlib import Path\nimport io\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndef load_gaia_table(path=\"Gaia_EDR3_HR/Gaia_EDR3_HR.txt\"):\n    lines = [s for s in Path(path).read_text(encoding=\"utf-8-sig\").splitlines()\n             if s.strip() and not s.lstrip().startswith(\"#\")]\n    return np.genfromtxt(io.StringIO(\"\\n\".join(lines)), names=True)\n\ngaia = load_gaia_table()\nhr_ok = ((gaia[\"logT\"] != -99.9) & (gaia[\"logL\"] != -99.9)\n         & np.isfinite(gaia[\"logT\"]) & np.isfinite(gaia[\"logL\"]))\nprint(f\"CMD total N = {len(gaia)}, Physical HR N = {hr_ok.sum()}, Excluded missing = {(~hr_ok).sum()}\")\n\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5), layout=\"constrained\")\nax1.scatter(gaia[\"BPRP\"], gaia[\"MG\"], s=1, c=\"#0072b2\", alpha=0.28, rasterized=True)\nax1.invert_yaxis()\nax1.set(xlabel=\"BP - RP (mag)\", ylabel=r\"$M_G$ (mag)\",\n        title=f\"Gaia EDR3 CMD (N={len(gaia):,})\")\n\nax2.scatter(gaia[\"logT\"][hr_ok], gaia[\"logL\"][hr_ok], s=1, c=\"#0072b2\", alpha=0.28, rasterized=True)\nax2.invert_xaxis()\nax2.set(xlabel=r\"$\\log_{10}(T_{\\mathrm{eff}}/\\mathrm{K})$\", ylabel=r\"$\\log_{10}(L/L_\\odot)$\",\n        title=f\"Gaia EDR3 Physical H-R (N={hr_ok.sum():,})\")\nplt.show()\n```\n\n---\n\n### 3. 选择效应\n\n这是同时具有视差范围、视差精度和亮度截断的近邻样本。$d=100\\,\\mathrm{pc}$ 处的 $m_G<18$ 对应 $M_G<13$，因此最暗的一部分M矮星、褐矮星和冷白矮星会遗漏。颜色、双星和 Gaia 的天体测量选择函数也影响样本。高视差信噪比减小直接取距离倒数的随机误差，样本选择偏差仍须结合选择函数分析。两张图采用课程表提供的量，温度—光度图额外排除 $-99.9$ 缺测码；课程表未提供的 RUWE、光度超额和逐星消光量保留在外部星表分析步骤中，不额外假设这些筛选已完成。\n\n### 计算图形\n\n![Gaia EDR3真实色—星等图](figures/gaia-colour-magnitude.png)\n\n![Gaia EDR3温度—光度图，排除缺测](figures/gaia-hr.png)",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-184",
@@ -541,7 +947,19 @@
     "solution": "### 表面重力与压力致宽\n\n表面重力为 $g=GM/R^2$，其中 $M,R$ 为恒星质量和半径。相同光谱型的有效温度相近，而巨星半径较大，表面重力和光球层压强通常较低。由静力平衡 $dP/dr=-\\rho g$ 与光学深度定义 $d\\tau=-\\kappa\\rho\\,dr$ 可得 $dP/d\\tau=g/\\kappa$；$\\kappa$ 为单位质量的不透明度。因此，在不透明度相近时，矮星光球层的压强较高，碰撞致宽较强，巨星的相应谱线较窄。线强和电离平衡也会随电子压改变。\n\n### 三种基本致宽与实际谱线轮廓\n\n自然致宽来自激发态有限寿命，弱碰撞近似下为洛伦兹轮廓。热运动的视向速度近似服从高斯分布，形成多普勒线心，宽度随 $\\sqrt{T/m_a}$ 增长，$m_a$ 为原子质量。碰撞和微电场扰动产生压力致宽；其强度依赖粒子密度和具体跃迁。氢的斯塔克宽翼须采用相应的展宽理论。高斯和洛伦兹轮廓的卷积称为 Voigt 轮廓。\n\n自转、大尺度湍动、脉动和星风还会改变线型；自转轮廓需另与本征谱线及仪器响应卷积。温度相同并不保证所有电离、激发比例相同，电子压和化学组成也参与决定这些比例。\n\n### 观测区分\n\n联合拟合多条对温度、重力和元素丰度敏感程度不同的线，并使用高分辨率、高信噪比光谱、已知仪器响应和恒星大气模型。较轻、较重原子的热宽度不同，可帮助区分热运动与湍动；不同电离态的线强比约束电子压。线翼有助于约束压力致宽，整个轮廓及其傅里叶特征则约束自转。\n\n半高全宽 FWHM 指线型在峰值一半处的全宽；$\\log g$ 通常指 $\\log_{10}[g/(\\mathrm{cm\\,s^{-2}})]$。增长曲线使用等值宽度 $W_\\lambda=\\int(1-F_\\lambda/F_c)d\\lambda$，其中 $F_c$ 为连续谱；$gf$ 为能级统计权重 $g$ 与振子强度 $f$ 的乘积。多普勒参数 $b$ 描述热运动与微湍动速度宽度，$N$ 为吸收粒子柱密度，$\\Gamma$ 为阻尼率。热运动、湍动、自转、重力与丰度之间的简并通过多线联合建模逐步约束，单个 FWHM 只提供一项宽度信息。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-195",
@@ -557,7 +975,19 @@
     "solution": "### 1. 物理公式\n\n两体问题中，双星相对轨道半长轴 $a = a_1 + a_2$ 与轨道周期 $P$ 满足开普勒第三定律：\n$$G (M_1 + M_2) P^2 = 4\\pi^2 a^3 \\implies a = \\left[\\frac{G M_{\\text{tot}} P^2}{4\\pi^2}\\right]^{1/3}$$\n（也可采用太阳—地球单位制：$\\left(\\frac{a}{\\text{AU}}\\right)^3 = \\left(\\frac{M_{\\text{tot}}}{M_\\odot}\\right)\\left(\\frac{P}{\\text{yr}}\\right)^2$。）\n\n取标准物理常数：$G = 6.67430\\times 10^{-8}\\text{ cm}^3\\text{ g}^{-1}\\text{ s}^{-2}$，$M_\\odot = 1.98847\\times 10^{33}\\text{ g}$，$R_\\odot = 6.957\\times 10^{10}\\text{ cm}$。\n\n---\n\n### 2. 数值计算\n\n1. **当 $P = 1\\text{ day} = 86400\\text{ s}$ 时**：\n   $$a^3 = \\frac{6.67430\\times 10^{-8} \\times 1.98847\\times 10^{33} \\times (86400)^2}{4\\pi^2} \\approx 2.5094\\times 10^{34}\\text{ cm}^3$$\n   $$a \\approx 2.9277\\times 10^{11}\\text{ cm} \\approx 2.93\\times 10^6\\text{ km}$$\n   合 $a \\approx 4.21\\, R_\\odot \\approx 0.0196\\text{ AU}$。\n\n2. **当 $P = 1\\text{ hour} = 3600\\text{ s}$ 时**：\n   由标度关系 $a \\propto P^{2/3}$，直接乘以 $(1/24)^{2/3} \\approx 0.12019$：\n   $$a \\approx 3.5188\\times 10^{10}\\text{ cm} \\approx 3.52\\times 10^5\\text{ km}$$\n   合 $a \\approx 0.506\\, R_\\odot \\approx 0.00235\\text{ AU}$。\n\n---\n\n### 3. 物理意义\n由于 $P = 1\\text{ hour}$ 对应的轨道间距（约 $0.51\\, R_\\odot$）已经小于两颗太阳尺度主序星的半径之和，因此周期在小时量级、总质量约 $1 M_\\odot$ 的双星系统不可能由普通主序星组成，必然是由**白矮星、中子星或极低质量致密伴星**构成的极密近双星（如 AM CVn 型双白矮星系统或紧致 X 射线双星）。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-205",
@@ -573,7 +1003,19 @@
     "solution": "### 1. 关键物理条件审查与纠错\n\n- **审题要点 1（相对速度 vs 各自速度）**：题目明确指出 $v = 100\\text{ km s}^{-1}$ 是 *Star 1 relative to Star 2* 的速度，即**两星的相对轨道速率** $v_{\\text{rel}} = v_1 + v_2 = 100\\text{ km s}^{-1}$，切勿误当作单颗子星的速度 $v_1$（若误作 $v_1 = 100\\text{ km s}^{-1}$ 会导致总质量高估 $(3/2)^3 = 3.375$ 倍）。\n- **审题要点 2（食双星倾角条件）**：系统为食双星（eclipsing binary），表明轨道倾角 $i \\approx 90^\\circ$（$\\sin i \\approx 1$），因此观测到的多普勒视向速度半振幅 $K_1, K_2$ 近似等于真实圆轨道线速度 $v_1, v_2$。（若倾角略小于 $90^\\circ$，以下结果严格对应 $M \\sin^3 i$ 下限。）\n\n---\n\n### 2. 速度分配与质心关系\n\n圆轨道中，两颗子星绕公共质心运动，轨道半径 $a_1, a_2$ 与轨道速度 $v_1, v_2$ 满足质心平衡：\n$$M_1 a_1 = M_2 a_2, \\qquad v_1 = \\frac{2\\pi a_1}{P}, \\quad v_2 = \\frac{2\\pi a_2}{P} \\implies \\frac{v_1}{v_2} = \\frac{a_1}{a_2} = \\frac{M_2}{M_1}$$\n由题设“子星 1 谱线移动幅度是子星 2 的 2 倍”，即：\n$$\\frac{v_1}{v_2} = 2 \\implies M_2 = 2 M_1$$\n结合相对速度 $v_{\\text{rel}} = v_1 + v_2 = 100\\text{ km s}^{-1}$：\n$$v_1 = \\frac{2}{3} v_{\\text{rel}} \\approx 66.67\\text{ km s}^{-1}, \\qquad v_2 = \\frac{1}{3} v_{\\text{rel}} \\approx 33.33\\text{ km s}^{-1}$$\n\n---\n\n### 3. 轨道半长轴与子星质量计算\n\n相对圆轨道半径（间距）为：\n$$a = a_1 + a_2 = \\frac{v_{\\text{rel}} P}{2\\pi} = \\frac{1.0\\times 10^7\\text{ cm s}^{-1} \\times 6.3\\times 10^7\\text{ s}}{2\\pi} \\approx 1.0027\\times 10^{14}\\text{ cm} \\approx 6.70\\text{ AU}$$\n\n由开普勒第三定律：\n$$M_1 + M_2 = \\frac{4\\pi^2 a^3}{G P^2} = \\frac{v_{\\text{rel}}^3 P}{2\\pi G}$$\n代入 $v_{\\text{rel}} = 1.0\\times 10^7\\text{ cm s}^{-1}$，$P = 6.3\\times 10^7\\text{ s}$，$G = 6.6743\\times 10^{-8}\\text{ cm}^3\\text{ g}^{-1}\\text{ s}^{-2}$，$M_\\odot = 1.98847\\times 10^{33}\\text{ g}$：\n$$M_{\\text{tot}} = M_1 + M_2 = \\frac{(10^7)^3 \\times 6.3\\times 10^7}{2\\pi \\times 6.6743\\times 10^{-8}} \\approx 1.5023\\times 10^{35}\\text{ g} \\approx 75.55\\, M_\\odot$$\n\n结合 $M_2 = 2 M_1$，求得两颗子星的个别质量为：\n$$M_1 = \\frac{1}{3} M_{\\text{tot}} \\approx 25.2\\, M_\\odot, \\qquad M_2 = \\frac{2}{3} M_{\\text{tot}} \\approx 50.4\\, M_\\odot$$\n（注：两星质量均属大质量 O 型早型恒星量级。若轨道倾角 $i < 90^\\circ$，实际质量为 $M_{1,2} / \\sin^3 i$。）",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-225",
@@ -589,7 +1031,19 @@
     "solution": "### 1. 实测数据格式、物理量构造与方法说明\n\n实测数据文件 `MainSequence_MLR.txt`（源自 Eker et al. 2018, *MNRAS*, 479, 5491）经 `#` 注释行后，首行表头为 9 个字段：\n`ID logM errM logR errR logg errg logL errL`（共 **$N = 442$** 行有限实测数据，质量、半径、光度为以太阳为单位的 $\\log_{10}$ 对数值，`logg` 保留原表的 cgs 单位 $\\log_{10}(g/\\text{cm s}^{-2})$）。\n\n- **有效温度构造与坐标轴相关性说明**：本星表未直接列出 $T_{\\text{eff}}$ 列，而是利用斯特藩—玻尔兹曼定律与太阳名义有效温度 $T_{\\text{eff},\\odot} = 5772\\text{ K}$ 反推：\n  $$\\log_{10}\\left(\\frac{T_{\\text{eff}}}{\\text{K}}\\right) = \\log_{10}(5772) + \\frac{1}{4}\\left(\\log_{10}\\frac{L}{L_\\odot} - 2\\log_{10}\\frac{R}{R_\\odot}\\right)$$\n  注意：由此构造出的 $\\log_{10} L$ 与 $\\log_{10} T_{\\text{eff}}$ 两个拟合坐标轴**共享了观测量 $\\log_{10} L$**，因而误差在两轴之间存在相关，拟合斜率不可简单视作独立变量回归。\n- **分段依据辨析**：题目以 $M = 1.1\\,M_\\odot$（即 $\\log_{10}(M/M_\\odot) \\approx 0.0414$）划分上、下主序（分别包含 $N = 105$ 与 $N = 337$ 颗星）。需注意 **$1.1\\,M_\\odot$ 只是本题设定的统计分界，并非严格的普适 pp 链 / CNO 循环物理跃迁阈值**（实际恒星内部 CNO 循环主导并出现对流核的物理转折约在 $1.2\\text{--}1.3\\,M_\\odot$ 附近平滑发生，Eker et al. 2018 原文实际划分为 6 个质量分段）。\n\n---\n\n### 2. 真实样本无权重普通最小二乘（OLS）拟合结果汇总\n\n对 442 颗主序星不剔除离群点进行基底为 10 的对数线性回归 $y = \\text{slope}\\cdot x + \\text{intercept}$，所得真实拟合参数如下：\n\n| 样本分组 | 样本数 $N$ | 关系式 | 斜率（slope） | 截距（intercept） | 斜率 OLS 标准误 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **全部主序星** | $442$ | $\\log L$ vs $\\log M$ | $3.9692$ | $+0.0242$ | $\\pm 0.0244$ |\n| | | $\\log R$ vs $\\log M$ | $0.7401$ | $+0.0451$ | $\\pm 0.0139$ |\n| | | $\\log L$ vs $\\log T_{\\text{eff}}$ | $6.2016$ | $-23.1731$ | $\\pm 0.0576$ |\n| **$M \\le 1.1\\,M_\\odot$** | $105$ | $\\log L$ vs $\\log M$ | $3.8801$ | $-0.1096$ | $\\pm 0.0932$ |\n| | | $\\log R$ vs $\\log M$ | $1.0218$ | $+0.0179$ | $\\pm 0.0191$ |\n| | | $\\log L$ vs $\\log T_{\\text{eff}}$ | $7.8487$ | $-29.3943$ | $\\pm 0.1590$ |\n| **$M > 1.1\\,M_\\odot$** | $337$ | $\\log L$ vs $\\log M$ | $3.7711$ | $+0.1344$ | $\\pm 0.0287$ |\n| | | $\\log R$ vs $\\log M$ | $0.5696$ | $+0.1321$ | $\\pm 0.0163$ |\n| | | $\\log L$ vs $\\log T_{\\text{eff}}$ | $5.5718$ | $-20.6034$ | $\\pm 0.0601$ |\n\n**物理分析**：质径关系在两组间呈现最显著的斜率转折——$M \\le 1.1\\,M_\\odot$ 区间 $R \\propto M^{1.02}$（接近线性），而 $M > 1.1\\,M_\\odot$ 区间转为更平缓的 $R \\propto M^{0.57}$（与大质量恒星 CNO 核反应核心温度对质量不敏感、辐射压占比上升导致半径随质量增长变慢的恒星结构规律相符）；两段质光斜率均接近 $3.8\\text{--}3.9$，全样本 $L \\propto M^{3.97}$ 与理论主序 $\\nu \\approx 3.5\\text{--}4.0$ 一致。\n\n---\n\n### 3. 完整读取与拟合 Python 代码\n\n```python\nfrom pathlib import Path\nimport io\nimport numpy as np\n\nlines = [s for s in Path(\"MainSequence_MLR.txt\").read_text(encoding=\"utf-8-sig\").splitlines()\n         if s.strip() and not s.lstrip().startswith(\"#\")]\na = np.genfromtxt(io.StringIO(\"\\n\".join(lines)), names=True)\n\nlogM, logR, logL = a[\"logM\"], a[\"logR\"], a[\"logL\"]\nlogT = np.log10(5772.0) + (logL - 2.0 * logR) / 4.0\n\ngroups = [\n    (\"All\", np.ones(len(a), dtype=bool)),\n    (\"M <= 1.1\", logM <= np.log10(1.1)),\n    (\"M > 1.1\", logM > np.log10(1.1)),\n]\nfor gname, mask in groups:\n    print(f\"\\n=== {gname} (N={mask.sum()}) ===\")\n    for rname, xx, yy in [(\"L vs M\", logM, logL), (\"R vs M\", logM, logR), (\"L vs Teff\", logT, logL)]:\n        coef, cov = np.polyfit(xx[mask], yy[mask], 1, cov=True)\n        se = np.sqrt(cov[0, 0])\n        print(f\"  {rname:9s}: slope = {coef[0]:.4f} +/- {se:.4f}, intercept = {coef[1]:.4f}\")\n```\n\n### 计算图形\n\n![课堂Eker样本质光关系与分段OLS拟合](figures/eker-mass-luminosity.png)\n\n![课堂Eker样本质径关系与分段OLS拟合](figures/eker-mass-radius.png)\n\n![由光度和半径反推温度后的关系](figures/eker-temperature-luminosity.png)",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-234",
@@ -605,7 +1059,19 @@
     "solution": "经逐项核查原图（`obs-234.png`）英文段落，发现以下**两处错误与一处参数精度差异**：\n\n1. **明确印刷/记号错误（混用 $g$ 与 $\\log g$）**：\n   原文写道：*\"for late-type giants $20 \\lesssim \\log g \\lesssim 10^3$\"*。这是严重的记号笔误！在 cgs 单位（$\\text{cm s}^{-2}$）下，晚型巨星的表面重力加速度本身约为 $g \\approx 20\\text{--}10^3\\text{ cm s}^{-2}$，取以 10 为底的对数应为 **$\\log_{10}(g/\\text{cm s}^{-2}) \\approx 1.3\\text{--}3.0$**。原文却将 $g$ 误写成了 $\\log g$（若真有 $\\log g \\sim 10^3$ 则完全违背物理）。\n2. **太阳 $g_\\odot$ 数值精度差异**：\n   利用太阳名义质量 $M_\\odot = 1.9885\\times 10^{33}\\text{ g}$、半径 $R_\\odot = 6.957\\times 10^{10}\\text{ cm}$ 与 $G = 6.6743\\times 10^{-8}\\text{ cgs}$，精确计算的太阳表面重力为：\n   $$g_\\odot = \\frac{G M_\\odot}{R_\\odot^2} \\approx 2.742\\times 10^4\\text{ cm s}^{-2} \\implies \\log_{10} g_\\odot \\approx 4.438$$\n   原文写 $g_\\odot = 2.65\\times 10^4\\text{ cm s}^{-2}$ 略偏小（对应旧半径/常数取近似，而 $\\log g = 4.44$ 反倒对应精确的 $2.74\\times 10^4$）。\n\n**纠正后的各类恒星典型值（cgs 制）**：\n- 主序星（V）：$g \\sim 10^4\\text{ cm s}^{-2}$（$\\log g \\approx 4.0\\text{--}4.7$）；\n- 早型巨星（III）：$g \\sim 2\\times 10^3\\text{ cm s}^{-2}$（$\\log g \\approx 3.3$）；晚型巨星（III）：$g \\approx 20\\text{--}10^3\\text{ cm s}^{-2}$（$\\log g \\approx 1.3\\text{--}3.0$）；\n- 早型超巨星（I）：$g \\sim 10^2\\text{--}2\\times 10^3\\text{ cm s}^{-2}$（$\\log g \\approx 2.0\\text{--}3.3$）；晚型超巨星（I）：$g \\sim 1\\text{--}30\\text{ cm s}^{-2}$（$\\log g \\approx 0.0\\text{--}1.5$）；\n- 白矮星：$g \\sim 10^8\\text{ cm s}^{-2}$（$\\log g \\approx 8.0$，基本准确）。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-240",
@@ -621,7 +1087,19 @@
     "solution": "造父变星是处于赫罗图不稳定带内的周期性径向脉动恒星（典型周期 $1\\text{--}100\\text{ d}$），是连接银河系几何测距与河外星系哈勃定律的核心一级/二级标准烛光。\n\n1. **脉动驱动机制（$\\kappa$-机制与 $\\gamma$-机制）**：\n   造父变星外包层恰处于氦二次电离区（$\\text{He}^+ \\rightleftharpoons \\text{He}^{++} + e^-$，$T \\approx 4\\times 10^4\\text{ K}$）。当星体被压缩时，温度升高不仅使不透明度 $\\kappa$ 反常增大（$\\kappa$-机制，截留向外辐射流从而推动膨胀），部分电离增大比热并降低绝热响应，有助于储存和释放热量。脉动获得净正功还要求热交换与压缩的相位关系恰当，需由非绝热周期功积分判断驱动与阻尼。\n\n2. **周光关系（Leavitt 定律）**：\n   1908–1912 年 Henrietta Leavitt 发现造父变星光变周期 $P$ 与平均光度存在紧致单调关系（物理根源在于 $P \\propto \\bar{\\rho}^{-1/2} \\propto R^{3/2} M^{-1/2}$，结合不稳定带窄温度区间及演化质光关系即锁定 $P$ 与 $L$）：\n   $$M_V = a \\log_{10}\\left(\\frac{P}{\\text{day}}\\right) + b$$\n   （典型斜率 $a \\approx -2.8$，$b \\approx -1.4$）。测出脉动周期 $P$ 即可直接确定其绝对星等 $M$，再由视星等 $m$ 与距离模数 $m - M - A = 5\\log_{10}(d/\\text{pc}) - 5$ 测定星团乃至数千万秒差距外河外星系的距离。\n\n3. **误差控制与标定**：\n   实际观测需严格区分富金属年轻的经典 I 型造父变星（$\\delta\\text{ Cep}$ 型）与贫金属年老的 II 型造父变星（W Vir 型，同周期下暗约 1.5 等），利用近红外（如 HST/JWST 的 $H$ 波段或 Wesenheit 无消光星等）减小尘埃消光与金属丰度弥散，并用 Gaia 几何视差定标零点，进而标定 Ia 型超新星亮度以测定哈勃常数 $H_0$。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "obs-265",
@@ -637,7 +1115,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+        "label": "提交章节小结／出题",
+        "note": "课程通用入口：章节课程小结",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+          "slide": 164
+        }
+      }
+    ]
   },
   {
     "id": "compact-24",
@@ -653,7 +1143,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-34",
@@ -669,7 +1171,19 @@
     "solution": "### 1. 经典统计失效条件与符号定义\n\n设白矮星内部质量密度为 $\\rho$，温度为 $T$，每电子平均核子数（无量纲电子平均分子量）为 $\\mu_e$（对纯氦或碳氧白矮星，$\\mu_e \\approx 2$），原子质量单位为 $m_u \\approx 1.6605\\times 10^{-24}\\text{ g}$，电子质量为 $m_e \\approx 9.1094\\times 10^{-28}\\text{ g}$。自由电子数密度为\n$$n_e = \\frac{\\rho}{\\mu_e m_u}$$\n\n电子热德布罗意波长为 $\\lambda_{\\text{th}} = \\frac{h}{\\sqrt{2\\pi m_e k_B T}}$，其中 $h$ 为普朗克常数，$k_B$ 为玻尔兹曼常数。经典 Maxwell-Boltzmann（M-B）统计成立的条件是平均占有数远小于 1，即 $n_e \\lambda_{\\text{th}}^3 \\ll 1$（或用临界量子数密度 $n_Q = 2\\left(\\frac{2\\pi m_e k_B T}{h^2}\\right)^{3/2}$，要求 $n_e \\ll n_Q$）。\n\n代入白矮星典型参数（$\\rho \\sim 10^6\\text{ g cm}^{-3}$，$\\mu_e = 2$，$T \\sim 10^7\\text{ K}$）：\n$$n_e \\approx \\frac{10^6}{2\\times 1.66\\times 10^{-24}} \\approx 3.0\\times 10^{29}\\text{ cm}^{-3}, \\qquad n_Q \\approx 2\\left(\\frac{2\\pi m_e k_B T}{h^2}\\right)^{3/2} \\approx 1.5\\times 10^{26}\\text{ cm}^{-3}$$\n可见 $n_e \\gg n_Q$（相差逾三个数量级），即费米温度 $T_F \\gg T$，电子处于**强简并（甚至近似零温完全简并）**状态，经典 M-B 统计与理想气体状态方程失效。\n\n---\n\n### 2. 物态方程推导（两种方法）\n\n#### 方法一：动量空间严格积分（$T \\to 0$ 完全简并极限）\n\n电子为自旋 $1/2$ 的费米子，自旋简并度 $g_s = 2$。在完全简并极限下，动量低于费米动量 $p_F$ 的所有量子态被填满（占有数 $f(p) = 1$，$p \\le p_F$；$f(p) = 0$，$p > p_F$）：\n$$n_e = \\int_0^{p_F} \\frac{g_s}{h^3} 4\\pi p^2\\, dp = \\frac{8\\pi}{3 h^3} p_F^3 \\implies p_F = h\\left(\\frac{3 n_e}{8\\pi}\\right)^{1/3}$$\n\n各向同性气体的压强由动量通量积分给出：\n$$P_e = \\frac{1}{3} \\int_0^{p_F} p v(p) \\frac{8\\pi p^2}{h^3}\\, dp, \\qquad v(p) = \\frac{\\partial \\varepsilon}{\\partial p} = \\frac{p c^2}{\\sqrt{p^2 c^2 + m_e^2 c^4}}$$\n\n1. **非相对论极限（NR，$p_F \\ll m_e c$）**：此时 $v \\approx p/m_e$，积分得\n$$P_{e,\\text{NR}} = \\frac{8\\pi}{3 m_e h^3} \\int_0^{p_F} p^4\\, dp = \\frac{8\\pi}{15 m_e h^3} p_F^5 = \\frac{h^2}{5 m_e}\\left(\\frac{3}{8\\pi}\\right)^{2/3} n_e^{5/3}$$\n代入 $n_e = \\rho / (\\mu_e m_u)$：\n$$P_{e,\\text{NR}} = K_{\\text{NR}} \\left(\\frac{\\rho}{\\mu_e}\\right)^{5/3}, \\qquad K_{\\text{NR}} = \\frac{h^2}{20 m_e}\\left(\\frac{3}{\\pi}\\right)^{2/3} m_u^{-5/3} \\approx 1.004\\times 10^{13}\\text{ dyn cm}^{-2}\\text{ (g cm}^{-3}\\text{)}^{-5/3}$$\n\n2. **极端相对论极限（UR，$p_F \\gg m_e c$）**：此时 $v \\approx c$，积分得\n$$P_{e,\\text{UR}} = \\frac{8\\pi c}{3 h^3} \\int_0^{p_F} p^3\\, dp = \\frac{2\\pi c}{3 h^3} p_F^4 = \\frac{h c}{4}\\left(\\frac{3}{8\\pi}\\right)^{1/3} n_e^{4/3}$$\n代入 $n_e = \\rho / (\\mu_e m_u)$：\n$$P_{e,\\text{UR}} = K_{\\text{UR}} \\left(\\frac{\\rho}{\\mu_e}\\right)^{4/3}, \\qquad K_{\\text{UR}} = \\frac{h c}{8}\\left(\\frac{3}{\\pi}\\right)^{1/3} m_u^{-4/3} \\approx 1.244\\times 10^{15}\\text{ dyn cm}^{-2}\\text{ (g cm}^{-3}\\text{)}^{-4/3}$$\n\n#### 方法二：测不准原理与冲量定理量级估算\n\n由泡利不相容原理，每个相格体积 $h^3$ 内至多容纳 2 个自旋相反的电子，故每个电子占据的空间尺度 $\\Delta q \\sim n_e^{-1/3}$。由海森堡不确定性关系，电子费米动量量级为 $p \\sim \\Delta p \\sim h / \\Delta q \\sim h n_e^{1/3}$。由冲量定理 $P_e \\sim n_e v p$：\n- 当 $v \\approx p/m_e$（NR）：$P_e \\sim \\frac{h^2}{m_e} n_e^{5/3} \\propto \\rho^{5/3}$；\n- 当 $v \\approx c$（UR）：$P_e \\sim h c\\, n_e^{4/3} \\propto \\rho^{4/3}$。\n\n两种极限下压强均不显含温度 $T$，仅取决于物质密度 $\\rho$ 与化学成分 $\\mu_e$，这正是白矮星能抵抗自引力而不因冷却塌缩的根本物理原因。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-38",
@@ -685,7 +1199,19 @@
     "solution": "白矮星力学平衡由 Lane-Emden 多方结构关系 $R = r_n \\xi_1$ 与 $M = 4\\pi r_n^3 \\rho_c \\omega_n$ 决定，其中 $r_n = \\left[\\frac{(n+1)K_{\\text{eff}}\\rho_c^{1/n - 1}}{4\\pi G}\\right]^{1/2}$，$K_{\\text{eff}} = K \\mu_e^{-(1+1/n)}$，$\\omega_n \\equiv \\left(-\\xi^2\\frac{d\\theta}{d\\xi}\\right)_{\\xi_1}$。\n\n1. **低密白矮星（非相对论，$n = 3/2$）**：\n   $\\xi_1 = 3.65375$，$\\omega_{3/2} = 2.71406$，$K_{\\text{NR}} \\approx 1.0036\\times 10^{13}\\text{ cgs}$（对应课件 SI 系数 $0.99\\times 10^7$）。代入给出：\n   $$R \\propto \\rho_c^{-1/6}, \\qquad M \\propto \\rho_c^{1/2} \\implies R \\propto M^{-1/3}$$\n   取 $\\rho_6 \\equiv \\rho_c / (10^6\\text{ g cm}^{-3})$，代入常数得：\n   $$R \\approx 1.122\\times 10^4\\,\\rho_6^{-1/6}\\left(\\frac{\\mu_e}{2}\\right)^{-5/6}\\text{ km}, \\qquad M \\approx 0.496\\,\\rho_6^{1/2}\\left(\\frac{\\mu_e}{2}\\right)^{-5/2} M_\\odot \\approx 0.701\\left(\\frac{R}{10^4\\text{ km}}\\right)^{-3}\\left(\\frac{\\mu_e}{2}\\right)^{-5} M_\\odot$$\n   可见质量越大，白矮星半径越小，平均密度标度为 $\\bar{\\rho} = \\frac{3M}{4\\pi R^3} \\propto R^{-6}$。\n\n2. **高密白矮星（极端相对论，$n = 3$）**：\n   $\\xi_1 = 6.89685$，$\\omega_3 = 2.01824$，$K_{\\text{UR}} \\approx 1.2435\\times 10^{15}\\text{ cgs}$。此时指数 $\\frac{3-n}{2n} = 0$，总质量趋于与 $\\rho_c$ 无关的钱德拉塞卡极限，而半径随中心密度继续收缩：\n   $$R \\approx 3.346\\times 10^4\\,\\rho_6^{-1/3}\\left(\\frac{\\mu_e}{2}\\right)^{-2/3}\\text{ km}, \\qquad M_{\\text{Ch}} \\approx 1.456\\left(\\frac{2}{\\mu_e}\\right)^2 M_\\odot = \\frac{5.825}{\\mu_e^2} M_\\odot$$",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-63",
@@ -701,7 +1227,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-64",
@@ -717,7 +1255,19 @@
     "solution": "### 一、物理机制分析\n\n1. **为什么白矮星内部可以近似为等温结构**\n   白矮星核心由高密度（$\\rho \\sim 10^5\\text{--}10^8\\text{ g cm}^{-3}$）完全简并的电子气和浸没其中的非简并原子核（离子）组成。由于电子费米能远大于热能（$\\varepsilon_F \\gg k_B T$），费米面以下的量子态几乎被全部填满，受泡利不相容原理限制，绝大多数电子无法发生弹性散射，导致简并电子的平均自由程极大、**电子热传导系数极高**。热量在简并核心内部传递的时标远小于整体辐射冷却时标，因此简并核内部的温度梯度极小，可高精度地近似为**等温核心**（记中心及核区温度为 $T_c$）。温度剧烈下降仅发生在表面极薄的**非简并理想气体辐射包层**内。\n\n2. **白矮星冷却过程中的主要能量来源**\n   白矮星内部无热核聚变产能，也几乎不再进行引力收缩（简并压与温度无关，$R$ 基本不变，引力能释放可忽略）。简并电子的比热容因简并度极大而受到 $\\sim \\frac{k_B T}{\\varepsilon_F} \\ll 1$ 的量子压制，因此储存在简并电子中的热能微乎其微。冷却辐射出的能量主要来自**非简并原子核（离子）的热运动内能**。\n\n---\n\n### 二、数学推导（梅斯特尔冷却律与 $t^{-7/5}$ 渐近标度）\n\n#### 1. 非简并包层模型与核心温度—光度关系\n在表面薄包层（质量可忽略，$m(r)\\approx M$，光度 $l(r)\\approx L_{\\text{wd}}$）中，力学平衡与辐射传能方程分别为：\n$$\\frac{dP}{dr} = -\\frac{G M \\rho}{r^2}, \\qquad \\frac{dT}{dr} = -\\frac{3\\kappa \\rho L_{\\text{wd}}}{16\\pi a c r^2 T^3}$$\n两式相除消去 $r$：\n$$\\frac{dP}{dT} = \\frac{16\\pi a c G M}{3 L_{\\text{wd}}} \\frac{T^3}{\\kappa}$$\n采用光球外包层的 **Kramers 自由-自由 / 束缚-自由不透明度**幂律近似：$\\kappa = \\kappa_0 \\rho T^{-3.5}$。结合理想气体状态方程 $P = \\frac{\\mathfrak{R}}{\\mu}\\rho T$（其中 $\\mathfrak{R} = k_B/m_u$ 为普适气体常量，$\\mu$ 为包层平均分子量），消去 $\\rho = \\frac{\\mu P}{\\mathfrak{R} T}$ 得：\n$$P\\, dP = \\frac{16\\pi a c G M \\mathfrak{R}}{3 \\kappa_0 \\mu L_{\\text{wd}}} T^{7.5}\\, dT$$\n从表面边界（$T\\approx 0, P\\approx 0$，辐射零边界条件）向内积分到核心-包层过渡边界（压强 $P_*$、密度 $\\rho_*$、温度 $T_c$）：\n$$\\frac{P_*^2}{2} = \\frac{2}{17} \\frac{16\\pi a c G M \\mathfrak{R}}{3 \\kappa_0 \\mu L_{\\text{wd}}} T_c^{8.5} \\implies \\rho_* \\propto \\left(\\frac{M}{L_{\\text{wd}}}\\right)^{1/2} T_c^{3.25}$$\n在简并核心与非简并包层交界处，非简并电子压与非相对论简并电子压相等：$P_{e,\\text{id}} \\approx P_{e,\\text{deg}}$，即\n$$\\frac{\\mathfrak{R}}{\\mu_e}\\rho_* T_c = K_{\\text{NR}}\\left(\\frac{\\rho_*}{\\mu_e}\\right)^{5/3} \\implies \\rho_* \\propto T_c^{3/2}$$\n将 $\\rho_* \\propto T_c^{3/2}$ 代入包层关系消去 $\\rho_*$：\n$$T_c^3 \\propto \\frac{M}{L_{\\text{wd}}} T_c^{6.5} \\implies L_{\\text{wd}} = C M T_c^{7/2}$$\n其中常数 $C$ 取决于包层化学成分（$Z, X, Y$）与不透明度常数 $\\kappa_0$。在标准太阳金属丰度近似下，$L_{\\text{wd}} / L_\\odot \\approx 1.7\\times 10^{-3} (M/M_\\odot)(T_c / 10^7\\text{ K})^{7/2}$。\n\n#### 2. 能量守恒积分\n忽略电子热容与结晶潜热，白矮星总热内能由单原子理想离子气体贡献：\n$$U = \\frac{3}{2} N_{\\text{ion}} k_B T_c = \\frac{3}{2} \\frac{M}{\\mu_i m_u} k_B T_c \\equiv C_V T_c$$\n其中 $\\mu_i$ 为平均离子质量数（如碳氧白矮星 $\\mu_i \\approx 14$），$C_V = \\frac{3 M k_B}{2 \\mu_i m_u}$ 为总定容热容。由能量守恒：\n$$-\\frac{dU}{dt} = L_{\\text{wd}} \\implies -C_V \\frac{dT_c}{dt} = C M T_c^{7/2}$$\n分离变量并从 $t=0$（初始核心温度 $T_0$，对应初始光度 $L_0 = C M T_0^{7/2}$）积分至任意时刻 $t$：\n$$\\int_{T_0}^{T_c} T^{-7/2}\\, dT = -\\frac{C M}{C_V} t \\implies -\\frac{2}{5}\\left(T_c^{-5/2} - T_0^{-5/2}\\right) = -\\frac{C M}{C_V} t$$\n整理为无量纲比值：\n$$\\left(\\frac{T_c}{T_0}\\right)^{-5/2} = 1 + \\frac{5}{2} \\frac{C M T_0^{7/2}}{C_V T_0} t = 1 + \\frac{5}{2} \\frac{t}{\\tau_0}$$\n其中特征时标 $\\tau_0 \\equiv \\frac{U_0}{L_0} = \\frac{C_V T_0}{L_0}$（对应课件记号 $\\tau_{\\text{WD}} = \\frac{2}{5}\\tau_0 \\approx 10^7 (M/M_\\odot)^{5/7}(L_0/L_\\odot)^{-5/7}\\text{ yr}$）。\n利用 $L_{\\text{wd}}/L_0 = (T_c/T_0)^{7/2}$ 代回上式，即得**梅斯特尔冷却律**：\n$$L_{\\text{wd}}(t) = L_0 \\left(1 + \\frac{5}{2}\\frac{t}{\\tau_0}\\right)^{-7/5}$$\n当冷却时间远大于初始特征时标（$t \\gg \\tau_0$）时，得到经典的幂律衰减渐近行为：\n$$L_{\\text{wd}}(t) \\propto t^{-7/5}$$\n\n---\n\n### 三、质量效应分析\n\n不同质量的白矮星在两个方面导致冷却轨迹显著不同：\n1. **初始光度与特征冷却时标（Mestel 阶段）**：由 $L_{\\text{wd}} = C M T_c^{7/2}$，在相同光度 $L_0$ 下，$T_0 \\propto (L_0/M)^{2/7}$，而总热能储存 $U_0 \\propto M T_0 \\propto M^{5/7} L_0^{2/7}$，因此 $\\tau_0 = U_0 / L_0 \\propto (M/L_0)^{5/7}$。在给定光度或初始核心温度下，**质量更大的白矮星单位质量热库更大而表面半径更小（$R \\propto M^{-1/3}$），表面包层传热相对较慢，因此在纯 Mestel 阶段冷却更慢**。\n2. **晚期物理效应与化学成分差异**：\n   - 大质量白矮星中心密度更高（$\\rho_c \\propto M^2$），更早达到库仑耦合参数 $\\Gamma_{\\text{Coul}} \\approx 175$ 的**液—固结晶相变点**（释放潜热暂时延缓冷却），随后更早进入**德拜（Debye）晶体量子冷却期**（$C_V \\propto T^3$），导致极晚期反过来比低质量白矮星冷却更快；\n   - 不同质量前身星遗留的白矮星成分不同（低质量 $\\text{He}$ 核 $\\mu_i=4$，中等质量 $\\text{C/O}$ 核 $\\mu_i \\approx 14$，大质量 $\\text{O/Ne}$ 核 $\\mu_i \\approx 17$），且氢/氦表面包层厚度与不透明度差异会改变系数 $C$。\n\n---\n\n### 四、天体物理学应用价值（宇宙年代学与星团测龄）\n\n1. **球状星团与疏散星团测龄（白矮星冷却序列截断法）**：星团内恒星同时形成，最暗的白矮星对应最早形成并冷却至今的白矮星。观测星团赫罗图上白矮星冷却序列在最暗端的**光度截断位置** $L_{\\text{cutoff}}$，由 $t \\propto L_{\\text{wd}}^{-5/7}$ 可独立给出星团年龄（不受主序拐点核反应与对流超射不确定性影响）。\n2. **银河系盘与晕的年龄下限**：利用太阳邻域白矮星光度函数（WDLF）在 $\\log(L/L_\\odot) \\approx -4.5$ 处的急剧截断，可测定银河系银盘的年龄（约 $8\\text{--}10\\text{ Gyr}$），为宇宙早期恒星形成史提供“宇宙化石钟”。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+          "slide": 64
+        }
+      }
+    ]
   },
   {
     "id": "compact-81",
@@ -733,7 +1283,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-91",
@@ -749,7 +1311,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-97",
@@ -765,7 +1339,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-106",
@@ -781,7 +1367,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-135",
@@ -797,7 +1395,19 @@
     "solution": "均匀密度球体的质量—半径关系为 $M = \\frac{4\\pi}{3} R^3 \\rho$，即 $R = \\left(\\frac{3 M}{4\\pi \\rho}\\right)^{1/3}$（课件近似 $\\frac{4\\pi}{3} \\approx 4$ 取 $R \\approx (M/(4\\rho))^{1/3}$）。\n\n不致塌缩为黑洞的几何下限要求 $R \\ge R_g = \\frac{2GM}{c^2}$，联立得：\n$$\\left(\\frac{3 M}{4\\pi \\rho}\\right)^{1/3} \\ge \\frac{2GM}{c^2} \\implies M \\le \\left(\\frac{3}{32\\pi}\\right)^{1/2}\\frac{c^3}{G^{3/2}\\rho^{1/2}}$$\n（若按课件近似式 $4\\pi/3 \\approx 4$，则给出 $M_{\\max} = \\frac{c^3}{4\\sqrt{2}\\,G^{3/2}\\rho^{1/2}}$。）\n\n代入核饱和密度 $\\rho_{\\text{nuc}} \\approx 2.8\\times 10^{14}\\text{ g cm}^{-3}$（$G = 6.674\\times 10^{-8}\\text{ cgs}$，$c = 2.998\\times 10^{10}\\text{ cm s}^{-1}$），得严格几何上限 $M_{\\max} \\approx 8.1\\, M_\\odot$（课件近似为 $8.3\\, M_\\odot$；若取高密核心 $\\rho \\sim 4\\text{--}6\\times 10^{14}\\text{ g cm}^{-3}$，则降至 $5.5\\text{--}6.8\\, M_\\odot$）。若进一步考虑广义相对论静力学 Buchdahl 极限 $R > \\frac{9}{8} R_g$，系数减小为 $(8/9)^{3/2}\\approx0.838$ 倍，给出更紧致的均匀球上限对核饱和密度约 $6.8\\,M_\\odot$；对上述较高密度范围约 $4.6\\text{--}5.7\\,M_\\odot$（与课件中 $\\sim 5\\, M_\\odot$ 的量级估计相符）。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-145",
@@ -813,7 +1423,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-161",
@@ -829,7 +1451,19 @@
     "solution": "### 一、三种周期性机制的定量周期下限分析\n\n设致密天体质量为 $M$、半径为 $R$、平均密度为 $\\bar{\\rho} = \\frac{3M}{4\\pi R^3}$。典型参数取：白矮星 $M_{\\text{WD}} \\approx 1 M_\\odot$、$R_{\\text{WD}} \\approx 7\\times 10^8\\text{ cm}$（$\\bar{\\rho}_{\\text{WD}} \\sim 10^6\\text{ g cm}^{-3}$）；中子星 $M_{\\text{NS}} \\approx 1.4 M_\\odot$、$R_{\\text{NS}} \\approx 1.2\\times 10^6\\text{ cm}$（$\\bar{\\rho}_{\\text{NS}} \\sim 4\\times 10^{14}\\text{ g cm}^{-3}$）。\n\n1. **双星轨道运动（$P_{\\text{pulse}} = P_{\\text{orb}}$）**\n   由开普勒第三定律，两星轨道间距 $a$ 满足 $P_{\\text{orb}} = 2\\pi \\sqrt{\\frac{a^3}{G(M_1+M_2)}}$。要求两星不相撞（$a > 2R$）：\n   - 对白矮星双星（$a > 2 R_{\\text{WD}} \\approx 1.4\\times 10^9\\text{ cm}$），$P_{\\text{orb}} \\gtrsim 6\\text{ s}$，无法解释毫秒脉冲星；\n   - 对中子星双星，虽然紧致轨道在并合前瞬间可达毫秒级，但双星引力波辐射功率巨大，轨道周期快速减小：\n     $$\\frac{\\dot{P}_{\\text{orb}}}{P_{\\text{orb}}} = -\\frac{96 G^3 M_1 M_2 (M_1+M_2)}{5 c^5 a^4}$$\n     毫秒级轨道会在毫秒量级时间内并合并发，无法维持长年稳定、且绝大多数脉冲星长期表现出缓慢自转减慢（$\\dot{P} > 0$）的特征。\n\n2. **整体径向/非径向脉动（$P_{\\text{pulse}} = P_{\\text{pulsat}}$）**\n   由动力学时标（或位力定理），恒星基模径向脉动周期量级为\n   $$P_{\\text{pulsat}} \\sim \\frac{1}{\\sqrt{G\\bar{\\rho}}}$$\n   更精确的致密星数值给出 $\\tau_{\\min} \\approx 0.6 \\left(\\frac{M_*}{M}\\right)^{1/2}\\text{ ms}$ 量级（或取决于状态方程）。\n   - 对白矮星，$\\bar{\\rho} \\sim 10^6\\text{ g cm}^{-3}$，得 $P_{\\text{pulsat}} \\gtrsim 2\\text{--}10\\text{ s}$，无法覆盖 $1\\text{ ms}\\sim 1\\text{ s}$ 区间；\n   - 对中子星，$\\bar{\\rho} \\sim 4\\times 10^{14}\\text{ g cm}^{-3}$，基模脉动周期约为 $0.2\\text{--}1\\text{ ms}$（高阶模或非径向模可达 $1\\text{--}10\\text{ ms}$），难以自然覆盖 $10\\text{ ms}\\sim 10\\text{ s}$ 的宽广观测周期带，且星震阻尼较快，难以长期维持高度相干的灯塔辐射。\n\n3. **刚体自转（$P_{\\text{pulse}} = P_{\\text{spin}}$）**\n   天体赤道物质不被离心力甩出（质量脱落 / Keplerian breakup 极限）的条件为 $\\Omega^2 R \\le \\frac{GM}{R^2}$，即最小自转周期为：\n   $$P_{\\text{spin}} \\ge P_{\\min} = 2\\pi \\sqrt{\\frac{R^3}{GM}} = \\sqrt{\\frac{3\\pi}{G\\bar{\\rho}}}$$\n   - 对白矮星（$\\bar{\\rho} \\sim 10^6\\text{ g cm}^{-3}$）：$P_{\\min,\\text{WD}} \\approx 12\\text{ s}$（极限超高密大质量白矮星也只能接近 $\\sim 1\\text{ s}$），被毫秒至亚秒级脉冲星彻底排除；\n   - 对中子星（$M=1.4 M_\\odot, R=10\\text{--}12\\text{ km}$）：\n     $$P_{\\min,\\text{NS}} \\approx 0.5\\text{--}1\\text{ ms}$$\n     并且自转磁偶极辐射耗散转动能，自然预言了周期随时间缓慢增加（$\\dot{P} > 0$），完整覆盖观测到的 $1\\text{ ms}\\sim 10\\text{ s}$ 全部区间。\n\n---\n\n### 二、为什么不认为脉冲来自恒星级黑洞的自转？\n\n1. **无毛定理与磁场缺失**：根据广义相对论黑洞无毛定理，孤立静态或稳态克尔（Kerr）黑洞仅由质量 $M$、角动量 $J$ 和电荷 $Q$ 描述，**无法维持稳恒的偏轴内禀磁偶极场**（黑洞事件视界不是固态壳层，无法锚定形成倾斜磁偶极“灯塔”所需的电流系统与磁极热点）。\n2. **辐射与同步稳定机制缺失**：中子星的脉冲来自磁轴与自转轴不重合的强磁层（$B \\sim 10^8\\text{--}10^{13}\\text{ G}$）曲率/同步加速辐射。黑洞无表面发射区，即便吸积盘产生准周期振荡（QPO），其相干度也远低于脉冲星极高精度的原子钟级周期稳定性（$\\dot{P}/P \\sim 10^{-15}\\text{ s}^{-1}$）。\n\n---\n\n### 三、若发现周期为 $0.1\\text{ ms}$ 的脉冲星意味着什么？\n\n若观测到稳定的自转周期 $P = 0.1\\text{ ms} = 10^{-4}\\text{ s}$（自转频率 $\\nu = 10\\text{ kHz}$），由抗离心瓦解条件 $\\bar{\\rho} \\ge \\frac{3\\pi}{G P^2}$ 得所需的最低平均密度为：\n$$\\bar{\\rho}_{\\min} = \\frac{3\\pi}{6.674\\times 10^{-8} \\times (10^{-4})^2} \\approx 1.41\\times 10^{16}\\text{ g cm}^{-3}$$\n这一数值约为核饱和密度（$\\rho_0 \\approx 2.8\\times 10^{14}\\text{ g cm}^{-3}$）的 **50 倍**！在现有核物理与广义相对论框架下，普通强子物质组成的中子星无法被压缩到如此高的平均密度而不塌缩成黑洞（一般中子星开普勒极限频率在 $\\sim 1.2\\text{--}1.8\\text{ kHz}$，即 $P_{\\min} \\sim 0.55\\text{--}0.8\\text{ ms}$；已知最快自转脉冲星 PSR J1748-2446ad 为 $716\\text{ Hz}$，周期 $1.396\\text{ ms}$）。\n\n因此，一旦证实 $0.1\\text{ ms}$ 脉冲星存在，意味着以下至少一种重大物理突破：\n1. **全新超致密物态**：该天体并非传统中子星，而是自束缚的**奇异夸克星（Strange Quark Star）**或含极高密度超子/解禁闭夸克相的奇异致密星（因为夸克星靠强相互作用而非引力束缚，允许更高的平均密度和更短的自转周期）；\n2. **非自转周期机制**：该 $0.1\\text{ ms}$ 信号并非基频自转，而是极高阶脉动模、多极辐射谐波（如多极磁层结构导致的脉冲分裂）或黑洞/致密星周边极端吸积流几何调制。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-169",
@@ -845,7 +1479,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+          "slide": 169
+        }
+      }
+    ]
   },
   {
     "id": "compact-172",
@@ -861,7 +1507,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-181",
@@ -877,7 +1535,19 @@
     "solution": "设中子星转动惯量 $I \\sim 10^{45}\\text{ g cm}^2$、半径 $R \\sim 10^6\\text{ cm}$、表面极区磁场 $B_s$、磁倾角 $\\alpha$、自转角速度 $\\Omega = 2\\pi / P$。倾斜磁偶极子（磁矩 $m = \\frac{1}{2} B_s R^3$）的拉莫尔辐射功率全部由自转动能 $E_{\\text{rot}} = \\frac{1}{2} I \\Omega^2$ 供给：\n$$-\\frac{dE_{\\text{rot}}}{dt} = -I\\Omega\\dot{\\Omega} = \\frac{2 (m\\sin\\alpha)^2 \\Omega^4}{3 c^3} = \\frac{B_s^2 R^6 \\Omega^4 \\sin^2\\alpha}{6 c^3}$$\n由 $\\dot{\\Omega} \\propto -\\Omega^3$（制动指数 $n = 3$），换作周期 $P$ 与 $\\dot{P}$ 得 $P\\dot{P} = \\frac{2\\pi^2 R^6 \\sin^2\\alpha}{3 I c^3} B_s^2$。\n\n由此在 $\\log P\\text{--}\\log \\dot{P}$ 平面导出三条核心特征线（取 $\\sin\\alpha = 1$）：\n1. **等磁场线**：$B_s \\approx \\left(\\frac{3 I c^3}{2\\pi^2 R^6} P \\dot{P}\\right)^{1/2} \\approx 6.4\\times 10^{19}\\sqrt{P\\dot{P}}\\text{ G}$，在双对数图上为斜率 $-1$ 的平行直线（$\\log\\dot{P} = -\\log P + \\text{const}$）。\n2. **等特征年龄线**：假定初周期 $P_0 \\ll P$ 且 $B_s$ 恒定，积分得特征年龄 $\\tau_c \\equiv \\frac{P}{2\\dot{P}}$，在图上为斜率 $+1$ 的直线（$\\dot{P} = \\frac{P}{2\\tau_c}$）。\n3. **死亡线（Death Line）**：磁层对产生熄灭条件 $B_s / P^2 \\approx \\text{const} \\implies \\dot{P} \\propto P^3$（斜率 $+3$ 直线）。\n\n**$P\\text{--}\\dot{P}$ 图分区**：绝大多数正常射电脉冲星聚集在 $P \\sim 0.1\\text{--}3\\text{ s},\\ \\dot{P} \\sim 10^{-16}\\text{--}10^{-13},\\ B_s \\sim 10^{12}\\text{ G}$；左下方为再循环毫秒脉冲星（$P \\sim 1\\text{--}10\\text{ ms},\\ B_s \\sim 10^8\\text{--}10^9\\text{ G},\\ \\tau_c \\sim 10^9\\text{ yr}$）；右上方为高磁场磁星（AXP/SGR，$P \\sim 2\\text{--}12\\text{ s},\\ B_s \\sim 10^{14}\\text{--}10^{15}\\text{ G}$）。\n\n这里 $B_s$ 采用极区磁场；赤道场 $B_{\\rm eq}=B_s/2$，其常用估算系数为 $3.2\\times10^{19}$。死亡线的 $B/P^2$ 常量取决于磁层加速和对产生模型，给出的斜率是该简化模型的标度。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-192",
@@ -893,7 +1563,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-215",
@@ -909,7 +1591,19 @@
     "solution": "设惯性系 $S'$ 相对静止系 $S$ 以速度 $v$ 沿 $x$ 轴正方向运动。一根沿 $x'$ 轴放置的刚杆在 $S'$ 系中静止，固有长度为 $L_0$，在 $S$ 系中同时测得其长度为 $L$。\n\n在杆左端 $A$ 放置光源、右端 $B$ 放置反射镜，令一光脉冲从 $A$ 发出经 $B$ 反射回到 $A$：\n1. **在 $S'$ 系（杆静止系）中**：光往返路程为 $2 L_0$，固有往返时间 $\\Delta t_0 = \\frac{2 L_0}{c}$。\n2. **在 $S$ 系中**：由光速不变原理，光速仍为 $c$。去程中镜子 $B$ 以速度 $v$ 前进，故 $c\\,\\Delta t_1 = L + v\\,\\Delta t_1 \\implies \\Delta t_1 = \\frac{L}{c - v}$；回程中端点 $A$ 迎光而来，故 $c\\,\\Delta t_2 = L - v\\,\\Delta t_2 \\implies \\Delta t_2 = \\frac{L}{c + v}$。总耗时：\n   $$\\Delta t = \\Delta t_1 + \\Delta t_2 = \\frac{2 L c}{c^2 - v^2} = \\frac{2 L / c}{1 - v^2 / c^2}$$\n3. **结合运动时钟延缓关系**：对于同一地点的往返事件，$S$ 系时间间隔与固有时间满足 $\\Delta t = \\gamma\\,\\Delta t_0$，其中 $\\gamma = (1 - v^2/c^2)^{-1/2}$（此关系本身亦仅由横向光钟与光速不变导出）。代入 $\\Delta t_0 = 2 L_0 / c$ 得：\n   $$\\frac{2 L / c}{1 - v^2/c^2} = \\frac{2 L_0 / c}{\\sqrt{1 - v^2/c^2}} \\implies L = L_0 \\sqrt{1 - \\frac{v^2}{c^2}} = \\frac{L_0}{\\gamma}$$\n\n**尺缩的相互性**：由相对性原理，所有惯性系平权。若把上述测量反过来——$S$ 系中静止着固有长度 $L_0$ 的杆，$S'$ 系用**在 $S'$ 系中同步的时钟**同时测量该杆两端位置，由于同时性的相对性，两系对“同时”的定义不同，故 $S'$ 系同样测得 $S$ 系的杆缩短为 $L_0/\\gamma$，不存在绝对静止系与单向绝对收缩。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+          "slide": 215
+        }
+      }
+    ]
   },
   {
     "id": "compact-216",
@@ -925,7 +1619,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-230",
@@ -941,7 +1647,19 @@
     "solution": "根据爱因斯坦等效原理，局部均匀引力场（引力加速度 $g$ 向下）在动力学与光学效应上完全等价于自由空间中以加速度 $a = g$ 向上作匀加速运动的参考系（电梯）。\n\n1. **引力红移推导**：\n   设电梯高度为 $h$，底部光源在 $t = 0$ 向上发射频率为 $\\nu_0$ 的光子，经过时间 $\\Delta t \\approx h / c$ 到达顶部接收器。在此期间，电梯（及顶部接收器）向上加速获得额外速度 $\\Delta v = a\\,\\Delta t = \\frac{g h}{c}$（方向背离光源）。由经典一阶多普勒频移，接收器测得光子频率变低（红移）：\n   $$\\frac{\\Delta\\nu}{\\nu_0} = \\frac{\\nu - \\nu_0}{\\nu_0} \\approx -\\frac{\\Delta v}{c} = -\\frac{g h}{c^2} = -\\frac{\\Delta \\Phi}{c^2}$$\n   推广到弱场球对称天体（引力势 $\\Phi(r) = -GM/r$），光子从 $r$ 逃逸至无穷远处的频率红移量为 $\\frac{\\Delta\\nu}{\\nu} \\approx -\\frac{GM}{c^2 r}$（波长变长 $z \\approx \\frac{GM}{c^2 r}$）。\n\n2. **光线偏折理解与偏转角差异**：\n   设光束沿水平方向从电梯左侧射入、右侧射出（电梯宽 $L$，穿行时间 $\\Delta t \\approx L / c$）。在此期间电梯向上加速上升 $\\Delta y = \\frac{1}{2} g (\\Delta t)^2$，故在电梯参考系看来，光线轨迹向下弯曲，出射偏转角量级为 $\\Delta\\theta \\sim \\frac{g L}{c^2}$。\n   对太阳边缘（瞄准距 $b \\approx R_\\odot$），重力加速度垂直分量为 $g_\\perp = \\frac{GM b}{(x^2+b^2)^{3/2}}$，沿直线路径积分给出纯等效原理（与牛顿光子微粒下落相同）的偏折角：\n   $$\\Delta\\theta_{\\text{EP}} = \\int_{-\\infty}^\\infty \\frac{g_\\perp}{c^2}\\, dx = \\frac{2 G M}{c^2 b} \\approx 0.875''$$\n   而完整广义相对论不仅包含时间分量 $g_{00}$ 的等效（等效原理部分），还包含大质量天体周围**空间几何弯曲**（$g_{rr}$ 分量贡献了相等的偏折），使总偏折角加倍：$\\Delta\\theta_{\\text{GR}} = \\frac{4 G M}{c^2 b} \\approx 1.75''$。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+          "slide": 230
+        }
+      }
+    ]
   },
   {
     "id": "compact-250",
@@ -957,7 +1675,19 @@
     "solution": "设地球质量为 $M_\\oplus$、半径为 $R_\\oplus$，高处观测者位于 $r_2 = R_\\oplus + h$（$h \\ll R_\\oplus$），海平面观测者位于 $r_1 = R_\\oplus$。两者均相对地球静止（$dr = d\\theta = d\\phi = 0$），在相同坐标时间间隔 $\\Delta t$ 内经历的固有时分别为：\n$$\\tau_1 = \\Delta t\\left(1 - \\frac{2 G M_\\oplus}{c^2 R_\\oplus}\\right)^{1/2}, \\qquad \\tau_2 = \\Delta t\\left(1 - \\frac{2 G M_\\oplus}{c^2 (R_\\oplus + h)}\\right)^{1/2}$$\n在地表弱场条件下，$\\frac{G M_\\oplus}{c^2 R_\\oplus} \\approx 6.95\\times 10^{-10} \\ll 1$，且 $h \\ll R_\\oplus$，利用一阶泰勒展开 $(1 - \\epsilon)^{1/2} \\approx 1 - \\frac{\\epsilon}{2}$：\n$$\\frac{\\tau_2}{\\tau_1} = \\left(\\frac{1 - \\frac{2 G M_\\oplus}{c^2 (R_\\oplus + h)}}{1 - \\frac{2 G M_\\oplus}{c^2 R_\\oplus}}\\right)^{1/2} \\approx 1 + \\frac{G M_\\oplus}{c^2}\\left(\\frac{1}{R_\\oplus} - \\frac{1}{R_\\oplus + h}\\right) \\approx 1 + \\frac{G M_\\oplus h}{c^2 R_\\oplus^2}$$\n利用地表重力加速度定义 $g = \\frac{G M_\\oplus}{R_\\oplus^2} \\approx 9.81\\text{ m s}^{-2}$，记时间差 $\\Delta\\tau = \\tau_2 - \\tau_1$ 与时间间隔 $\\tau \\approx \\tau_1$，即证：\n$$\\frac{\\Delta\\tau}{\\tau} \\approx \\frac{g h}{c^2}$$\n\n**数值算例（科罗拉多博尔德海拔 $h = 1600\\text{ m}$ vs 海平面）**：\n一天 $\\tau = 86400\\text{ s}$ 内的累积时间差为：\n$$\\Delta\\tau \\approx \\frac{9.81 \\times 1600}{(2.9979\\times 10^8)^2} \\times 86400\\text{ s} \\approx 1.508\\times 10^{-8}\\text{ s} \\approx 15.1\\text{ ns/day}$$\n高处时钟每天比海平面快约 $15\\text{ ns}$，与实验测定完全吻合。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-252",
@@ -973,7 +1703,19 @@
     "solution": "取地球引力参数 $GM_\\oplus = 3.9860\\times 10^{14}\\text{ m}^3\\text{ s}^{-2}$、地球平均半径 $R_\\oplus = 6371\\text{ km}$、光速 $c = 2.9979\\times 10^8\\text{ m s}^{-1}$、恒星日 $T_{\\text{sid}} = 86164.1\\text{ s}$。\n\n- **（a）轨道周期设计原因与轨道半径**：\n  选择 $P = T_{\\text{sid}}/2 = 43082.05\\text{ s}$（约 $11\\text{ h } 58\\text{ min}$），使卫星每绕地两圈恰好等于地球自转一圈，地面星下点轨迹每天精确重复（有利于地面站每日重访跟踪与轨道预报），同时提供全球中圆轨道（MEO）多星几何覆盖。由开普勒第三定律：\n  $$a = \\left(\\frac{G M_\\oplus P^2}{4\\pi^2}\\right)^{1/3} = \\left(\\frac{3.9860\\times 10^{14}\\times (43082.05)^2}{4\\pi^2}\\right)^{1/3} \\approx 2.6562\\times 10^7\\text{ m} \\approx 26562\\text{ km}$$\n  离地高度 $h = a - R_\\oplus \\approx 20191\\text{ km}$（约 $2.02\\times 10^4\\text{ km}$）。\n\n- **（b）轨道速度**：\n  $$v = \\frac{2\\pi a}{P} = \\sqrt{\\frac{G M_\\oplus}{a}} \\approx 3.874\\text{ km s}^{-1}$$\n\n- **（c）狭义相对论偏差**：\n  由动钟延缓 $\\Delta\\tau_{\\text{SR}} / \\Delta t = \\sqrt{1 - v^2/c^2} \\approx 1 - \\frac{v^2}{2c^2}$，卫星钟比非旋转地心静止钟每恒星日慢：\n  $$\\Delta t_{\\text{SR}} \\approx -\\frac{v^2}{2c^2} T_{\\text{sid}} = -\\frac{(3874)^2}{2(2.9979\\times 10^8)^2}\\times 86164.1 \\approx -7.19\\,\\mu\\text{s/day}$$\n  （若计入赤道地面随地球自转速度 $v_\\oplus \\approx 465\\text{ m s}^{-1}$，地面钟自身慢约 $-0.10\\,\\mu\\text{s/day}$，相对差仍为 $\\approx -7.1\\,\\mu\\text{s/day}$。）\n\n- **（d）广义相对论偏差**：\n  卫星处引力势更弱，时钟走得更快：\n  $$\\Delta t_{\\text{GR}} \\approx \\frac{G M_\\oplus}{c^2}\\left(\\frac{1}{R_\\oplus} - \\frac{1}{a}\\right) T_{\\text{sid}} \\approx +45.59\\,\\mu\\text{s/day}$$\n  （计及地球扁率 $J_2$ 与大地水准面有效势后约 $+45.9\\,\\mu\\text{s/day}$。）\n\n- **（e）净偏差与时钟校准（含北斗系统）**：\n  两项效应叠加后，卫星钟每天净快 $\\Delta t_{\\text{net}} \\approx +45.6 - 7.2 \\approx +38.4\\text{--}38.7\\,\\mu\\text{s/day}$（对应相对频偏 $\\Delta f/f \\approx +4.46\\times 10^{-10}$）。GPS 在发射前将星载原子钟基准频率 $10.23\\text{ MHz}$ 预先调慢 $4.46\\times 10^{-10}$（调至 $10.22999999543\\text{ MHz}$）以抵消平均净偏移，并由导航电文实时改正椭圆轨道偏心率引起的周期性相对论项 $\\Delta t_e = -\\frac{2\\sqrt{G M_\\oplus a}}{c^2} e \\sin E$。对于北斗系统（MEO、GEO $a\\approx 42164\\text{ km}$ 与 IGSO 倾斜同步轨道），由于 GEO/IGSO 轨道更高（引力势更浅、速度更慢），其净相对论快漂更大（约 $+46.5\\,\\mu\\text{s/day}$），必须按各轨道类型分别设置频率偏置并结合地面星钟同步与偏心率谐波改正。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课件指定入口",
+        "basis": "ppt",
+        "source": {
+          "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+          "slide": 252
+        }
+      }
+    ]
   },
   {
     "id": "compact-314",
@@ -989,7 +1731,19 @@
     "solution": "在史瓦西度规中，球对称静态时空存在能量守恒 $E$ 与比角动量守恒 $L = r^2 \\frac{d\\phi}{d\\tau}$。对径向坐标代入四维速度归一化条件，得类似牛顿力学的能量方程（几何单位 $G=c=1$ 记 $r_s = 2GM/c^2$）：\n$$\\frac{1}{2}\\left(\\frac{dr}{d\\tau}\\right)^2 + V_{\\text{eff}}(r) = \\text{const}, \\qquad V_{\\text{eff}}(r) = -\\frac{GM}{r} + \\frac{L^2}{2r^2} - \\frac{G M L^2}{c^2 r^3}$$\n最后一项 $-\\frac{G M L^2}{c^2 r^3}$ 即广义相对论新增势阱修正。令 $u \\equiv 1/r$ 并利用 $\\frac{d}{d\\tau} = L u^2 \\frac{d}{d\\phi}$ 消去固有时 $\\tau$，求导得比内（Binet）轨道方程：\n$$\\frac{d^2 u}{d\\phi^2} + u = \\frac{G M}{L^2} + \\frac{3 G M}{c^2} u^2$$\n\n在弱场微扰（$\\epsilon \\equiv \\frac{3 (GM)^2}{c^2 L^2} \\ll 1$）下，零阶解为牛顿椭圆轨道 $u_0(\\phi) = \\frac{GM}{L^2}(1 + e\\cos\\phi)$。将 $u = u_0 + u_1$ 代入上式，保留线性微扰并提取导致轨道共振（非封闭）的 $\\cos\\phi$ 久期驱动项：\n$$\\frac{d^2 u_1}{d\\phi^2} + u_1 \\approx \\frac{6 (GM)^3}{c^2 L^4} e \\cos\\phi \\implies u_1(\\phi) \\approx \\frac{3 (GM)^3}{c^2 L^4} e\\,\\phi\\sin\\phi$$\n叠加后 $u(\\phi) \\approx \\frac{GM}{L^2}\\left[1 + e\\cos\\!\\left((1 - \\epsilon)\\phi\\right)\\right]$，故轨道完成一次径向周期（$\\cos$ 相位增加 $2\\pi$）时方位角进动：\n$$\\Delta\\phi = 2\\pi \\epsilon = \\frac{6\\pi G M}{c^2 a (1 - e^2)}$$\n（利用椭圆半通径 $p = L^2/(GM) = a(1-e^2)$。）\n\n代入太阳质量 $M_\\odot = 1.9885\\times 10^{33}\\text{ g}$、水星半长轴 $a = 5.791\\times 10^{12}\\text{ cm}$、偏心率 $e = 0.2056$、公转周期 $T = 87.97\\text{ d}$：每圈进动 $\\Delta\\phi \\approx 5.019\\times 10^{-7}\\text{ rad} \\approx 0.1035''$；每百年绕日约 $415.2$ 圈，累计进动为 **$42.98''/\\text{century} \\approx 43''/\\text{century}$**，精确解释了观测剩余进动。",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-315",
@@ -1005,7 +1759,19 @@
     "solution": "对无静止质量光子（类光零测地线 $ds^2 = 0$），有效势无牛顿 $-GM/r$ 中心吸引项，仅余相对论离心与引力耦合项，令 $u = 1/r$ 得光子轨道微分方程：\n$$\\frac{d^2 u}{d\\phi^2} + u = \\frac{3 G M}{c^2} u^2$$\n\n在太阳边缘弱场条件下，无量纲小参数 $\\alpha \\equiv \\frac{GM_\\odot}{c^2 b} \\sim 2.12\\times 10^{-6} \\ll 1$（$b$ 为最近瞄准距）。\n1. **零阶直行解**（$\\alpha = 0$）：方程退化为 $u_0'' + u_0 = 0$，取直线轨迹 $r\\sin\\phi = b \\implies u_0(\\phi) = \\frac{\\sin\\phi}{b}$（$\\phi$ 从 $0$ 变到 $\\pi$）。\n2. **一阶微扰解**：将 $u = u_0 + u_1$ 代入右侧微扰项得：\n   $$\\frac{d^2 u_1}{d\\phi^2} + u_1 = \\frac{3 G M}{c^2 b^2}\\sin^2\\phi = \\frac{3 G M}{2 c^2 b^2}(1 - \\cos 2\\phi)$$\n   求得特解 $u_1(\\phi) = \\frac{G M}{c^2 b^2}\\left(\\frac{3}{2} + \\frac{1}{2}\\cos 2\\phi\\right) = \\frac{GM}{c^2 b^2}(1 + \\cos^2\\phi)$（可叠加齐次解调整入射方向；等价地取对称特解 $u_1 = \\frac{GM}{c^2 b^2}(2 - \\sin^2\\phi)$，使最接近点在 $\\phi = \\pi/2$）。\n3. **计算渐近偏转角**：当 $r \\to \\infty$（$u \\to 0$）时，$\\phi \\to -\\delta_1$ 与 $\\phi \\to \\pi + \\delta_2$。取微小偏角 $\\sin\\phi \\approx -\\delta_1,\\ \\cos^2\\phi \\approx 1$（或由 $u(0) \\approx \\frac{\\phi}{b} + \\frac{2GM}{c^2 b^2} = 0$）：\n   $$\\delta_1 = \\delta_2 \\approx \\frac{2 G M}{c^2 b} \\implies \\Delta\\theta = \\delta_1 + \\delta_2 = \\frac{4 G M}{c^2 b}$$\n\n代入太阳掠日条件 $b = R_\\odot = 6.957\\times 10^{10}\\text{ cm}$、$\\frac{GM_\\odot}{c^2} = 1.4766\\times 10^5\\text{ cm}$：\n$$\\Delta\\theta = \\frac{4 \\times 1.4766\\times 10^5}{6.957\\times 10^{10}}\\text{ rad} \\approx 8.490\\times 10^{-6}\\text{ rad} \\times 206264.8''/\\text{rad} \\approx 1.751''$$",
     "status": "solved",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-352",
@@ -1021,7 +1787,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-353",
@@ -1037,7 +1815,19 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   },
   {
     "id": "compact-380",
@@ -1053,6 +1843,18 @@
     "solution": "",
     "status": "open",
     "tags": ["大学天文学"],
-    "course": "main"
+    "course": "main",
+    "submissions": [
+      {
+        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+        "label": "提交作业",
+        "note": "课程通用入口：选做作业",
+        "basis": "course-general",
+        "source": {
+          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+          "slide": 36
+        }
+      }
+    ]
   }
 ]

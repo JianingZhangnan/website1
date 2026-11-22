@@ -104,6 +104,14 @@ export const AstroHomework: QuartzEmitterPlugin = () => ({
     const source = joinSegments(QUARTZ, "static", "astro-homework", "homework-data.json")
     const rawData = await fs.promises.readFile(source, "utf8")
     const data = JSON.parse(rawData) as Homework[]
+    const missingSubmission = data.filter(
+      (item) => !Array.isArray(item.submissions) || item.submissions.length === 0,
+    )
+    if (missingSubmission.length) {
+      throw new Error(
+        `Homework submission links missing: ${missingSubmission.map((item) => item.id).join(", ")}`,
+      )
+    }
     const rendered = await Promise.all(
       data.map(async (item) => ({
         ...item,
@@ -127,6 +135,10 @@ export const AstroHomework: QuartzEmitterPlugin = () => ({
       joinSegments(QUARTZ, "static", "astro-homework", "app.js"),
       "utf8",
     )
+    const styles = await fs.promises.readFile(
+      joinSegments(QUARTZ, "static", "astro-homework", "styles.css"),
+      "utf8",
+    )
     const shell = (
       await fs.promises.readFile(
         joinSegments(QUARTZ, "static", "astro-homework", "index.html"),
@@ -135,6 +147,7 @@ export const AstroHomework: QuartzEmitterPlugin = () => ({
     )
       .replace("__DATA_VERSION__", createHash("sha256").update(rawData).digest("hex").slice(0, 12))
       .replace("__APP_VERSION__", createHash("sha256").update(app).digest("hex").slice(0, 12))
+      .replace("__STYLE_VERSION__", createHash("sha256").update(styles).digest("hex").slice(0, 12))
     yield write({
       ctx: { argv } as BuildCtx,
       slug: "astro-homework/index" as FullSlug,
