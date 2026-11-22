@@ -1,5 +1,5 @@
-const records = window.__ASTRO_HOMEWORK__ || []
-const sectionOrder = { intro: 0, obs: 1, compact: 2, structure: 3, transport: 4 }
+const records = (window.__ASTRO_HOMEWORK__ || []).filter((item) => item.course === "main")
+const sectionOrder = { intro: 0, obs: 1, compact: 2 }
 records.sort((a, b) => {
   const left = sectionOrder[String(a.id).split("-")[0]] ?? 9
   const right = sectionOrder[String(b.id).split("-")[0]] ?? 9
@@ -12,13 +12,11 @@ const types = {
   research: "调研",
   open: "开放任务",
 }
-const courses = { all: "全部课程", main: "大学天文学", sister: "恒星结构与演化" }
 const deepId =
   new URLSearchParams(location.search).get("id") || decodeURIComponent(location.hash.slice(1))
 const state = {
   query: "",
   kind: "all",
-  course: "all",
   deck: "all",
   selected: records.some((item) => item.id === deepId) ? deepId : records[0]?.id,
 }
@@ -35,25 +33,10 @@ const deckLabels = {
   "2026.大学天文.0.Introduction_2026.09.08.pptx": "绪论",
   "2026.大学天文1.chapter1_2026.09.29.pptx": "天文观测与恒星参数",
   "2026.Chapter4_2026.11.17.s.pptx": "致密天体",
-  "2026.chapter_2_1_2026.10.21_s.pptx": "恒星结构与物态",
-  "2026.chapter_2_3_2026.11.16_s.pptx": "能量输运",
 }
 const deckLabel = (name) => deckLabels[name] || name
-const courseOf = (item) => {
-  if (item.course) return item.course
-  return /chapter_2_[13]|chapter_2_3/i.test(deck(item)) ? "sister" : "main"
-}
 const searchText = (item) =>
-  [
-    item.id,
-    courseOf(item),
-    item.chapter,
-    item.title,
-    item.prompt,
-    item.solution,
-    deck(item),
-    ...(item.tags || []),
-  ]
+  [item.id, item.chapter, item.title, item.prompt, item.solution, deck(item), ...(item.tags || [])]
     .filter(Boolean)
     .join(" ")
     .toLowerCase()
@@ -62,7 +45,6 @@ function matching() {
   return records.filter(
     (item) =>
       (state.kind === "all" || item.kind === state.kind) &&
-      (state.course === "all" || courseOf(item) === state.course) &&
       (state.deck === "all" || deck(item) === state.deck) &&
       (!query || searchText(item).includes(query)),
   )
@@ -99,19 +81,6 @@ function renderFilters() {
   root.querySelectorAll("button").forEach((button) =>
     button.addEventListener("click", () => {
       state.kind = button.dataset.kind
-      render()
-    }),
-  )
-  const courseRoot = document.querySelector("#course-filters")
-  courseRoot.innerHTML = Object.entries(courses)
-    .map(
-      ([key, label]) =>
-        `<button class="filter ${state.course === key ? "active" : ""}" data-course="${key}" type="button">${label}</button>`,
-    )
-    .join("")
-  courseRoot.querySelectorAll("button").forEach((button) =>
-    button.addEventListener("click", () => {
-      state.course = button.dataset.course
       render()
     }),
   )
@@ -156,10 +125,7 @@ function renderReader(items) {
 function render() {
   const items = matching()
   if (!items.some((item) => item.id === state.selected)) state.selected = items[0]?.id
-  const labels = [
-    state.course !== "all" && courses[state.course],
-    state.kind !== "all" && types[state.kind],
-  ].filter(Boolean)
+  const labels = [state.kind !== "all" && types[state.kind]].filter(Boolean)
   summary.innerHTML = `<strong>${items.length}</strong> / ${records.length} 项${labels.length ? ` · ${labels.join(" / ")}` : ""}`
   renderDecks()
   renderFilters()
