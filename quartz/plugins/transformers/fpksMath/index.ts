@@ -95,7 +95,7 @@ const mathBlock = (value: string) => ({
 })
 
 // remark-math parses `$$x$$` inside a paragraph as inline math; Obsidian shows it as a block.
-function remarkDisplayMath() {
+export function remarkDisplayMath() {
   return (tree: any, file: VFile) => {
     const source = String(file.value)
     const isDouble = (node: any) =>

@@ -14,7 +14,7 @@ import { QuartzEmitterPlugin } from "../types"
 import { FullSlug, QUARTZ, joinSegments } from "../../util/path"
 import { BuildCtx } from "../../util/ctx"
 import { write } from "./helpers"
-import { normalizeMathFences } from "../transformers/fpksMath"
+import { normalizeMathFences, remarkDisplayMath } from "../transformers/fpksMath"
 import { renderMath } from "../transformers/fpksMath/engine"
 
 type Homework = Record<string, unknown> & {
@@ -69,7 +69,12 @@ async function renderMarkdown(markdown: string) {
     /(?<!\]\()(https?:\/\/[A-Za-z0-9._~:/?#\[\]@!$&'*+=%,-]+)/g,
     "<$1>",
   )
-  const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath).use(remarkRehype)
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkMath)
+    .use(remarkDisplayMath)
+    .use(remarkRehype)
   const tree = processor.runSync(processor.parse(normalizeMathFences(normalizedLinks))) as Root
   await renderMathNodes(tree)
   return toHtml(tree)
