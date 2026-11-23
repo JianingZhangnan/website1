@@ -10,8 +10,8 @@
   --accent-soft: rgba(169, 79, 45, 0.1);
   --open: #7a5116;
   --open-bg: rgba(182, 129, 52, 0.12);
-  --rail: 14.75rem;
-  --list: 22rem;
+  --rail: 12rem;
+  --list: 34rem;
   --serif: "Noto Serif SC", "Source Han Serif SC", STSong, SimSun, serif;
   --sans: "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
   --mono: "IBM Plex Mono", Consolas, monospace;
@@ -200,11 +200,13 @@ a {
   overflow-wrap: anywhere;
 }
 .list-pane {
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 3.75rem;
   align-self: start;
   height: calc(100dvh - 3.75rem);
-  overflow-y: auto;
+  overflow: hidden;
   background: var(--subtle);
 }
 .search {
@@ -251,6 +253,54 @@ a {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.index-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  flex: 1;
+  min-height: 0;
+}
+.index-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+.index-column + .index-column {
+  border-left: 1px solid var(--line);
+}
+.column-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+.column-heading h2 {
+  margin: 0;
+  font: 600 1.125rem var(--serif);
+}
+.column-heading span {
+  font: 0.875rem var(--mono);
+  color: var(--accent);
+}
+.column-note {
+  margin: 0;
+  min-height: 4.25rem;
+  padding: 0.6rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.index-column .homework-list {
+  overflow-y: auto;
+  flex: 1;
+}
+.classification-note {
+  color: var(--muted);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
 }
 .problem-row {
   display: block;
@@ -350,6 +400,38 @@ a {
 }
 .prose {
   font-size: 1.0625rem;
+  overflow-wrap: anywhere;
+}
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.prose pre,
+.prose table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.prose table {
+  display: block;
+  border-collapse: collapse;
+}
+.prose th,
+.prose td {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+.math-inline {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+}
+.prose table .math-inline {
+  display: inline;
+  overflow: visible;
 }
 .prose h3 {
   margin: 2rem 0 0.8rem;
@@ -409,8 +491,7 @@ a {
     border-bottom: 1px solid var(--line);
   }
   .homework-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 24rem;
   }
   .problem-row {
     height: 100%;
@@ -451,6 +532,16 @@ a {
   }
 }
 @media (max-width: 480px) {
+  .index-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .index-column + .index-column {
+    border-left: 0;
+    margin-top: 1rem;
+  }
+  .column-note {
+    min-height: 0;
+  }
   .header-inner {
     padding: 0 0.8rem;
   }

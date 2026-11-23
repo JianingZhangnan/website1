@@ -1,4 +1,9 @@
-const records = (window.__ASTRO_HOMEWORK__ || []).filter((item) => item.course === "main")
+const records = (window.__ASTRO_HOMEWORK__ || []).filter(
+  (item) =>
+    item.course === "main" && ["homework", "question"].includes(item.classification?.category),
+)
+const category = (item) => item.classification.category
+const categoryLabel = (item) => (category(item) === "homework" ? "作业" : "课堂问题")
 const sectionOrder = { intro: 0, obs: 1, compact: 2 }
 records.sort((a, b) => {
   const left = sectionOrder[String(a.id).split("-")[0]] ?? 9
@@ -10,7 +15,7 @@ const types = {
   calculation: "计算",
   derivation: "推导",
   research: "调研",
-  open: "开放任务",
+  open: "开放题",
 }
 const deepId =
   new URLSearchParams(location.search).get("id") || decodeURIComponent(location.hash.slice(1))
@@ -20,7 +25,6 @@ const state = {
   deck: "all",
   selected: records.some((item) => item.id === deepId) ? deepId : records[0]?.id,
 }
-const list = document.querySelector("#homework-list")
 const reader = document.querySelector("#reader")
 const summary = document.querySelector("#summary")
 const escapeHtml = (text) =>
@@ -55,7 +59,7 @@ function renderDecks() {
     decks.map((name) => [name, records.filter((item) => deck(item) === name).length]),
   )
   document.querySelector("#deck-count").textContent =
-    `${decks.length} 份课件 · ${records.length} 项作业`
+    `${decks.length} 份课件 · ${records.filter((item) => category(item) === "homework").length} 项作业 · ${records.filter((item) => category(item) === "question").length} 个问题`
   document.querySelector("#deck-nav").innerHTML = [
     `<button class="deck ${state.deck === "all" ? "active" : ""}" data-deck="all"><span>全部课件题目</span><b>${records.length}</b></button>`,
     ...decks.map(
@@ -85,9 +89,13 @@ function renderFilters() {
     }),
   )
 }
-function renderList(items) {
+function renderList(items, group) {
+  const list = document.querySelector(`#${group}-list`)
+  const grouped = items.filter((item) => category(item) === group)
+  document.querySelector(`#${group}-count`).textContent =
+    `${grouped.length} / ${records.filter((item) => category(item) === group).length}`
   list.innerHTML =
-    items
+    grouped
       .map((item) => {
         const open = item.status === "open" || item.kind === "open"
         const source = item.source || {}
@@ -117,16 +125,23 @@ function renderReader(items) {
   const tags = (item.tags || [])
     .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
     .join("")
-  const submission = `<section class="submission-panel" aria-label="作业提交">${item.submissions
+  const submission = `<section class="submission-panel" aria-label="${category(item) === "homework" ? "作业提交" : "课程通用提交入口"}">${item.submissions
     .map(
       (entry) =>
         `<div class="submission-option"><a class="submission-link" href="${escapeHtml(entry.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.label)}</a><span class="submission-note">${escapeHtml(entry.note)}</span></div>`,
     )
     .join("")}</section>`
+  const evidence = item.classification.evidence
+    .map((entry) => {
+      const quote = String(entry.quote)
+      const excerpt = quote.length > 48 ? `${quote.slice(0, 48)}…` : quote
+      return `P${escapeHtml(entry.source.slide)} ${entry.type === "submission-link" ? "明示提交入口" : `原文「${escapeHtml(excerpt)}」`}`
+    })
+    .join("；")
   const solution = open
-    ? `<p class="open-note">此为开放式任务，页面保留 PPT 中的原始要求。</p>`
+    ? `<p class="open-note">此为开放式${category(item) === "homework" ? "任务" : "问题"}，页面保留 PPT 中的原始要求。</p>`
     : item.solutionHtml || `<p>解答正在整理。</p>`
-  reader.innerHTML = `<article class="problem-article"><header class="problem-header"><div class="problem-meta"><code>${escapeHtml(item.id)}</code><span class="badge ${open ? "open" : ""}">${open ? "开放任务" : types[item.kind] || "题目"}</span><span>${escapeHtml(item.chapter || "未分章")}</span></div><h2>${escapeHtml(item.title)}</h2><div class="source-bar"><span>来源课件：${escapeHtml(deck(item))}</span><span>页码：P${escapeHtml(source.slide || "待核对")}</span>${tags}</div>${submission}</header><section class="prose"><h3>题面</h3>${item.promptHtml || ""}</section><details class="solution-panel" ${open ? "" : "open"}><summary>${open ? "查看任务要求" : "查看参考解答"}</summary><div class="solution-body prose">${solution}</div></details></article>`
+  reader.innerHTML = `<article class="problem-article" data-category="${category(item)}"><header class="problem-header"><div class="problem-meta"><code>${escapeHtml(item.id)}</code><span class="badge">${categoryLabel(item)}</span><span class="badge ${open ? "open" : ""}">${open ? "开放题" : types[item.kind] || "题目"}</span><span>${escapeHtml(item.chapter || "未分章")}</span></div><h2>${escapeHtml(item.title)}</h2><div class="source-bar"><span>来源课件：${escapeHtml(deck(item))}</span><span>页码：P${escapeHtml(source.slide || "待核对")}</span>${tags}</div><p class="classification-note">${category(item) === "homework" ? "作业依据" : "课堂提问"}：${evidence}</p>${submission}</header><section class="prose"><h3>题面</h3>${item.promptHtml || ""}</section><details class="solution-panel" ${open ? "" : "open"}><summary>${open ? "查看任务要求" : "查看参考解答"}</summary><div class="solution-body prose">${solution}</div></details></article>`
 }
 function render() {
   const items = matching()
@@ -135,7 +150,8 @@ function render() {
   summary.innerHTML = `<strong>${items.length}</strong> / ${records.length} 项${labels.length ? ` · ${labels.join(" / ")}` : ""}`
   renderDecks()
   renderFilters()
-  renderList(items)
+  renderList(items, "homework")
+  renderList(items, "question")
   renderReader(items)
 }
 document.querySelector("#query").addEventListener("input", (event) => {

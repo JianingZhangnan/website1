@@ -22,6 +22,15 @@ type Homework = Record<string, unknown> & {
   solution?: string
   kind?: string
   status?: string
+  submissions?: { url: string; basis: string }[]
+  classification?: {
+    category: "homework" | "question"
+    evidence: {
+      type: "submission-link" | "homework-label" | "question"
+      quote: string
+      source: { slideDeck: string; slide: number }
+    }[]
+  }
 }
 
 const isMathCode = (node: ElementContent): node is Element =>
@@ -104,6 +113,34 @@ export const AstroHomework: QuartzEmitterPlugin = () => ({
     const source = joinSegments(QUARTZ, "static", "astro-homework", "homework-data.json")
     const rawData = await fs.promises.readFile(source, "utf8")
     const data = JSON.parse(rawData) as Homework[]
+    for (const item of data) {
+      const classification = item.classification
+      if (
+        item.course !== "main" ||
+        !classification ||
+        !["homework", "question"].includes(classification.category) ||
+        !classification.evidence.length ||
+        classification.evidence.some(
+          (entry) => !entry.quote || !entry.source.slideDeck || !(entry.source.slide > 0),
+        )
+      ) {
+        throw new Error(`Astronomy classification evidence missing or invalid: ${item.id}`)
+      }
+      const explicitHomework = classification.evidence.some(
+        (entry) =>
+          (entry.type === "homework-label" && entry.quote.includes("作业")) ||
+          (entry.type === "submission-link" &&
+            /^https:\/\/box\.nju\.edu\.cn\/u\/d\/[a-z0-9]+\/$/.test(entry.quote) &&
+            item.submissions?.some((sub) => sub.basis === "ppt" && sub.url === entry.quote)),
+      )
+      if (
+        (classification.category === "homework" && !explicitHomework) ||
+        (classification.category === "question" &&
+          classification.evidence.some((entry) => entry.type !== "question"))
+      ) {
+        throw new Error(`Astronomy classification does not match PPT evidence: ${item.id}`)
+      }
+    }
     const missingSubmission = data.filter(
       (item) => !Array.isArray(item.submissions) || item.submissions.length === 0,
     )

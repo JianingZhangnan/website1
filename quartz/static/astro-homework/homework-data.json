@@ -25,63 +25,28 @@
           "slide": 3
         }
       }
-    ]
-  },
-  {
-    "id": "intro-10",
-    "chapter": "绪论与课程任务",
-    "source": {
-      "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-      "slide": 10,
-      "alsoSlides": [9, 11]
-    },
-    "title": "在线慕课学习",
-    "prompt": "完成《趣谈天体物理》慕课学习及课程要求的测验、讨论和期末考核。课程入口：<https://www.icourse163.org/course/NJU-1003604005> 。具体考核安排见绪论第9—11页。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学", "课程长期任务"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://www.icourse163.org/course/NJU-1003604005",
-        "label": "进入慕课提交",
-        "note": "测验、讨论与课程考核在慕课平台完成",
-        "basis": "ppt",
-        "source": {
-          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-          "slide": 10
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/18f6fe2b74064c9185af/",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 3
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "2026.08.25 -09.01 作业 ：",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 3
+          }
         }
-      }
-    ]
-  },
-  {
-    "id": "intro-11",
-    "chapter": "绪论与课程任务",
-    "source": {
-      "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-      "slide": 11,
-      "alsoSlides": []
-    },
-    "title": "直觉修正与一页纸四层对照",
-    "prompt": "（元学习过程性作业）按课程评价方案完成以下两项持续性学习任务：\n1. **“直觉·修正”**：任选至少 2 个课程核心主题，课前写下自己基于直觉的判断与物理预判，课后结合观测证据与课堂推导完成修正反思；\n2. **“一页纸笔记（四层对照）”**：任选课程主题，撰写一页纸专题笔记，包含四个对照层次：在线慕课说法、AI 回答说法、查阅前沿论文给出的适用边界、以及基于物理逻辑作出的个人独立判断（并试着发现课件中存在的错误）。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
-        "label": "提交章节小结／出题",
-        "note": "课程通用入口：章节课程小结",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-          "slide": 164
-        }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "intro-12",
@@ -119,7 +84,28 @@
           "slide": 3
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/31ace7ee654e40a9bd1a/",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 12
+          }
+        },
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/8aac2c1e8bdd4afc9fe5/",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 3
+          }
+        }
+      ]
+    }
   },
   {
     "id": "intro-17",
@@ -139,15 +125,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "问题一：满月那天上午10点，月亮在你头顶哪一边？",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 17
+          }
+        }
+      ]
+    }
   },
   {
     "id": "intro-33",
@@ -175,7 +174,28 @@
           "slide": 33
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 33
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "选做作业：章节课程小节（始终开放）",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 33
+          }
+        }
+      ]
+    }
   },
   {
     "id": "intro-83",
@@ -195,15 +215,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "托勒密地心体系有哪些关键术语，为何要引入？",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 83
+          }
+        }
+      ]
+    }
   },
   {
     "id": "intro-92",
@@ -223,15 +256,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "问题：如果把太阳系行星公转轨道比作环形操场，地球绕太阳跑完整一圈是 1 年（365 天）。地球轨道比火星更靠内、跑得更快，每追上火星一次，就会出现一次火星冲日，此时地球刚好比火星多跑完一整圈。观测发现，两次火星冲日间隔 780 天，请问火星绕太阳完整公转一圈需要多少年？",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 92
+          }
+        }
+      ]
+    }
   },
   {
     "id": "intro-164",
@@ -259,35 +305,28 @@
           "slide": 164
         }
       }
-    ]
-  },
-  {
-    "id": "intro-170",
-    "chapter": "绪论与课程任务",
-    "source": {
-      "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-      "slide": 170,
-      "alsoSlides": []
-    },
-    "title": "课后观星",
-    "prompt": "课后抬头观察星空，将观测体验与课程内容联系起来。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 164
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "作业：合理使用AI帮助学习理解",
+          "source": {
+            "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
+            "slide": 164
+          }
         }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "obs-5",
@@ -307,15 +346,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "感兴趣的问题？",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 5
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-14",
@@ -343,7 +395,28 @@
           "slide": 14
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 14
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "作业",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 14
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-15",
@@ -371,7 +444,28 @@
           "slide": 15
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 15
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "作业",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 15
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-25",
@@ -391,15 +485,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "问：请估算可见光频率范围（~ ？Hz） 。",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 25
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-36",
@@ -427,7 +534,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 36
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-39",
@@ -447,15 +567,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "选做习题 ：推导Stefan-Boltzmann 公式。",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 39
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-45",
@@ -475,15 +608,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "课后思考：",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 45
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-62",
@@ -503,15 +649,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "为什么，课后请思考。（提示：从能量的角度）",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 62
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-71",
@@ -539,35 +698,20 @@
           "slide": 36
         }
       }
-    ]
-  },
-  {
-    "id": "obs-75",
-    "chapter": "天文观测与恒星参数",
-    "source": {
-      "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-      "slide": 75,
-      "alsoSlides": []
-    },
-    "title": "塞曼效应与偏振专题自学",
-    "prompt": "自行补充学习塞曼效应与偏振在天文观测中的应用。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "补充作业：",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 71
+          }
         }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "obs-81",
@@ -587,15 +731,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "何谓 IAU 2015 名义值（Nominal Values）?",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 81
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-107",
@@ -623,7 +780,28 @@
           "slide": 107
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 107
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "选做作业： 高阶挑战（单页 PPT  Flash Presentation，限时 2-3 分钟）",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 107
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-115",
@@ -643,15 +821,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "问题：",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 115
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-117",
@@ -671,15 +862,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "课后可尝试：天空中最亮的行星是金星，当它在离地球约1 AU时，有时视星等可达-4。若在1秒差距的距离来看，它会暗多少倍？此时它的视星等为多少？",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 117
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-119",
@@ -707,7 +911,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "课后选做作业:  计算天狼星的绝对星等，光度 (Sirius: Apparent Magnitude is -1.46, Distance from Earth is 8.6 ly)。",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 119
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-127",
@@ -727,15 +944,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "偏差的原因？请分析（由理论与观测的偏差来反推新的模型没有考虑的物理机制）",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 127
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-134",
@@ -755,15 +985,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "费米悖论: 如果地外文明广泛存在，他们都在哪里？",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 134
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-135",
@@ -791,7 +1034,28 @@
           "slide": 135
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 135
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "选做作业： 高阶挑战（单页 PPT  Flash Presentation，限时 2-3 分钟）",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 135
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-144",
@@ -811,15 +1075,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "请思考:为何没有看到过绿色的恒星?",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 144
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-150",
@@ -839,15 +1116,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "Radii of ~ 600 stars measured with techniques such as interferometry and eclipsing binaries.   （？）",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 150
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-153",
@@ -867,15 +1157,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "课后尝试：结合太阳的光度3.861033 erg s-1，5800  K有效温度计算太阳半径。",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 153
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-171",
@@ -895,15 +1198,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "课后，能否用手机（电脑）或手绘一幅 赫罗图?",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 171
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-177",
@@ -931,7 +1247,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "选做作业：",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 177
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-184",
@@ -951,15 +1280,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "没有外界因素影响时，原子谱线的宽度非常窄,为什么同一温度（相同光谱型）、不同光度级线宽不同？",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 184
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-195",
@@ -987,7 +1329,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "课后选做作业: 双星系统总质量为1个太阳质量，轨道周期分别为1天或1小时，对应的轨道半长径分别为多少公里?",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 195
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-205",
@@ -1015,7 +1370,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "选做作业：The spectral lines of two stars in an eclipsing binary system with a circular orbit shift back and forth with a period of 2 years (p = 6.3  107 seconds). The lines of one star (Star 1) shift twice as far as the lines of the other (Star 2). The Doppler shift indicates an orbital speed of v = 100,000 m/s for Star 1 relative to Star 2. What are the masses of the two stars?",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 205
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-225",
@@ -1043,7 +1411,20 @@
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "homework-label",
+          "quote": "课后选做作业:",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 225
+          }
+        }
+      ]
+    }
   },
   {
     "id": "obs-234",
@@ -1063,71 +1444,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
-  },
-  {
-    "id": "obs-240",
-    "chapter": "天文观测与恒星参数",
-    "source": {
-      "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-      "slide": 240,
-      "alsoSlides": []
-    },
-    "title": "造父变星作为量天尺",
-    "prompt": "补充整理造父变星（Cepheid Variables）作为“宇宙量天尺”（标准烛光）的物理机制、周光关系（Period-Luminosity Relation）以及在宇宙距离阶梯中的应用与系统误差控制。",
-    "kind": "derivation",
-    "solution": "造父变星是处于赫罗图不稳定带内的周期性径向脉动恒星（典型周期 $1\\text{--}100\\text{ d}$），是连接银河系几何测距与河外星系哈勃定律的核心一级/二级标准烛光。\n\n1. **脉动驱动机制（$\\kappa$-机制与 $\\gamma$-机制）**：\n   造父变星外包层恰处于氦二次电离区（$\\text{He}^+ \\rightleftharpoons \\text{He}^{++} + e^-$，$T \\approx 4\\times 10^4\\text{ K}$）。当星体被压缩时，温度升高不仅使不透明度 $\\kappa$ 反常增大（$\\kappa$-机制，截留向外辐射流从而推动膨胀），部分电离增大比热并降低绝热响应，有助于储存和释放热量。脉动获得净正功还要求热交换与压缩的相位关系恰当，需由非绝热周期功积分判断驱动与阻尼。\n\n2. **周光关系（Leavitt 定律）**：\n   1908–1912 年 Henrietta Leavitt 发现造父变星光变周期 $P$ 与平均光度存在紧致单调关系（物理根源在于 $P \\propto \\bar{\\rho}^{-1/2} \\propto R^{3/2} M^{-1/2}$，结合不稳定带窄温度区间及演化质光关系即锁定 $P$ 与 $L$）：\n   $$M_V = a \\log_{10}\\left(\\frac{P}{\\text{day}}\\right) + b$$\n   （典型斜率 $a \\approx -2.8$，$b \\approx -1.4$）。测出脉动周期 $P$ 即可直接确定其绝对星等 $M$，再由视星等 $m$ 与距离模数 $m - M - A = 5\\log_{10}(d/\\text{pc}) - 5$ 测定星团乃至数千万秒差距外河外星系的距离。\n\n3. **误差控制与标定**：\n   实际观测需严格区分富金属年轻的经典 I 型造父变星（$\\delta\\text{ Cep}$ 型）与贫金属年老的 II 型造父变星（W Vir 型，同周期下暗约 1.5 等），利用近红外（如 HST/JWST 的 $H$ 波段或 Wesenheit 无消光星等）减小尘埃消光与金属丰度弥散，并用 Gaia 几何视差定标零点，进而标定 Ia 型超新星亮度以测定哈勃常数 $H_0$。",
-    "status": "solved",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "请结合AI 检查 此处是否有误？",
+          "source": {
+            "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
+            "slide": 234
+          }
         }
-      }
-    ]
-  },
-  {
-    "id": "obs-265",
-    "chapter": "天文观测与恒星参数",
-    "source": {
-      "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-      "slide": 265,
-      "alsoSlides": []
-    },
-    "title": "恒星层次知识精简",
-    "prompt": "围绕恒星层次的课程知识做精简，浓缩核心概念与联系。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/d7e2190386ac4a148b27/",
-        "label": "提交章节小结／出题",
-        "note": "课程通用入口：章节课程小结",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文.0.Introduction_2026.09.08.pptx",
-          "slide": 164
-        }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-24",
@@ -1147,15 +1485,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "What’s keeping it from collapse?",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 24
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-34",
@@ -1175,43 +1526,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
-  },
-  {
-    "id": "compact-38",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 38,
-      "alsoSlides": []
-    },
-    "title": "白矮星多方结构与质量半径关系（历史Homework）",
-    "prompt": "利用完全简并电子气体的物态方程（低密非相对论极限 $P_{e,\\text{NR}} = K_{\\text{NR}}(\\rho/\\mu_e)^{5/3}$ 与高密极端相对论极限 $P_{e,\\text{UR}} = K_{\\text{UR}}(\\rho/\\mu_e)^{4/3}$）求解白矮星的多方球内部结构，导出总质量 $M$、半径 $R$ 对中心密度 $\\rho_c$ 的依赖关系及质量—半径关系，并计算典型数值系数。",
-    "kind": "derivation",
-    "solution": "白矮星力学平衡由 Lane-Emden 多方结构关系 $R = r_n \\xi_1$ 与 $M = 4\\pi r_n^3 \\rho_c \\omega_n$ 决定，其中 $r_n = \\left[\\frac{(n+1)K_{\\text{eff}}\\rho_c^{1/n - 1}}{4\\pi G}\\right]^{1/2}$，$K_{\\text{eff}} = K \\mu_e^{-(1+1/n)}$，$\\omega_n \\equiv \\left(-\\xi^2\\frac{d\\theta}{d\\xi}\\right)_{\\xi_1}$。\n\n1. **低密白矮星（非相对论，$n = 3/2$）**：\n   $\\xi_1 = 3.65375$，$\\omega_{3/2} = 2.71406$，$K_{\\text{NR}} \\approx 1.0036\\times 10^{13}\\text{ cgs}$（对应课件 SI 系数 $0.99\\times 10^7$）。代入给出：\n   $$R \\propto \\rho_c^{-1/6}, \\qquad M \\propto \\rho_c^{1/2} \\implies R \\propto M^{-1/3}$$\n   取 $\\rho_6 \\equiv \\rho_c / (10^6\\text{ g cm}^{-3})$，代入常数得：\n   $$R \\approx 1.122\\times 10^4\\,\\rho_6^{-1/6}\\left(\\frac{\\mu_e}{2}\\right)^{-5/6}\\text{ km}, \\qquad M \\approx 0.496\\,\\rho_6^{1/2}\\left(\\frac{\\mu_e}{2}\\right)^{-5/2} M_\\odot \\approx 0.701\\left(\\frac{R}{10^4\\text{ km}}\\right)^{-3}\\left(\\frac{\\mu_e}{2}\\right)^{-5} M_\\odot$$\n   可见质量越大，白矮星半径越小，平均密度标度为 $\\bar{\\rho} = \\frac{3M}{4\\pi R^3} \\propto R^{-6}$。\n\n2. **高密白矮星（极端相对论，$n = 3$）**：\n   $\\xi_1 = 6.89685$，$\\omega_3 = 2.01824$，$K_{\\text{UR}} \\approx 1.2435\\times 10^{15}\\text{ cgs}$。此时指数 $\\frac{3-n}{2n} = 0$，总质量趋于与 $\\rho_c$ 无关的钱德拉塞卡极限，而半径随中心密度继续收缩：\n   $$R \\approx 3.346\\times 10^4\\,\\rho_6^{-1/3}\\left(\\frac{\\mu_e}{2}\\right)^{-2/3}\\text{ km}, \\qquad M_{\\text{Ch}} \\approx 1.456\\left(\\frac{2}{\\mu_e}\\right)^2 M_\\odot = \\frac{5.825}{\\mu_e^2} M_\\odot$$",
-    "status": "solved",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "自己课后可完成证明",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 34
+          }
         }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-63",
@@ -1231,15 +1567,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "What’s keeping it from collapse?",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 63
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-64",
@@ -1267,7 +1616,28 @@
           "slide": 64
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 64
+          }
+        },
+        {
+          "type": "homework-label",
+          "quote": "选做作业：白矮星冷却过程分析题",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 64
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-81",
@@ -1287,15 +1657,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "185 ?",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 81
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-91",
@@ -1315,71 +1698,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
-  },
-  {
-    "id": "compact-97",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 97,
-      "alsoSlides": []
-    },
-    "title": "超新星遗迹研究现状课程论文（历史选做，SKIP）",
-    "prompt": "（历史选做课程论文，课件标注 SKIP）调研超新星遗迹（Supernova Remnants, SNRs）的研究现状，整理其演化阶段（自由膨胀期、Sedov-Taylor 绝热膨胀期、辐射冷却期与消散期）、多波段辐射机制以及历史超新星遗迹证认（如历史“客星”与年轻脉冲星/伽马射线源的关联）等核心进展。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "不同的白矮星起源的超新星爆发图样 (课后结合AI来解读)",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 91
+          }
         }
-      }
-    ]
-  },
-  {
-    "id": "compact-106",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 106,
-      "alsoSlides": []
-    },
-    "title": "SN1987A光变曲线在线绘制（历史选题）",
-    "prompt": "使用 AAVSO 在线光变曲线工具，尝试重现或分析 SN1987A 的光变曲线。工具：<http://www.aavso.org/data/lcg/> 。课件标记 Don’t care，保留为历史选题。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-135",
@@ -1399,43 +1739,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
-  },
-  {
-    "id": "compact-145",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 145,
-      "alsoSlides": []
-    },
-    "title": "自选致密星内部结构计算",
-    "prompt": "自选一种致密星，完成其内部结构的计算。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "自己完成推导",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 135
+          }
         }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-161",
@@ -1455,15 +1780,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "为什么不认为脉冲来自恒星级黑洞的自转？",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 161
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-169",
@@ -1491,91 +1829,20 @@
           "slide": 169
         }
       }
-    ]
-  },
-  {
-    "id": "compact-172",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 172,
-      "alsoSlides": []
-    },
-    "title": "双星猛烈爆发后保持束缚（历史选做）",
-    "prompt": "（历史选做论文）探讨双星系统在其中一颗子星经历猛烈超新星爆发（包含瞬间质量损失与新生致密星获得的反冲速度 kick）后，双星系统不被瓦解、仍保持引力束缚的动力学条件（参考 *Science*, Vol. 303, Issue 5661, pp. 1153–1157, 2004 与 *Science*, Vol. 303, Issue 5655, p. 153, 2004）。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 169
+          }
         }
-      }
-    ]
-  },
-  {
-    "id": "compact-181",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 181,
-      "alsoSlides": []
-    },
-    "title": "磁偶极辐射与脉冲星周期图",
-    "prompt": "建立磁偶极辐射消耗脉冲星自转能的物理模型，推导脉冲星在周期—周期变化率（$P\\text{--}\\dot{P}$）图上的特征线（等表面磁场线、等特征年龄线与死亡线），并说明正常脉冲星、毫秒脉冲星与磁星在 $P\\text{--}\\dot{P}$ 图上的分布性质（附脉冲星实测星表数据参考地址 `http://www.astroscu.unam.mx/neutrones/NS-Data/data_good.dat`）。",
-    "kind": "derivation",
-    "solution": "设中子星转动惯量 $I \\sim 10^{45}\\text{ g cm}^2$、半径 $R \\sim 10^6\\text{ cm}$、表面极区磁场 $B_s$、磁倾角 $\\alpha$、自转角速度 $\\Omega = 2\\pi / P$。倾斜磁偶极子（磁矩 $m = \\frac{1}{2} B_s R^3$）的拉莫尔辐射功率全部由自转动能 $E_{\\text{rot}} = \\frac{1}{2} I \\Omega^2$ 供给：\n$$-\\frac{dE_{\\text{rot}}}{dt} = -I\\Omega\\dot{\\Omega} = \\frac{2 (m\\sin\\alpha)^2 \\Omega^4}{3 c^3} = \\frac{B_s^2 R^6 \\Omega^4 \\sin^2\\alpha}{6 c^3}$$\n由 $\\dot{\\Omega} \\propto -\\Omega^3$（制动指数 $n = 3$），换作周期 $P$ 与 $\\dot{P}$ 得 $P\\dot{P} = \\frac{2\\pi^2 R^6 \\sin^2\\alpha}{3 I c^3} B_s^2$。\n\n由此在 $\\log P\\text{--}\\log \\dot{P}$ 平面导出三条核心特征线（取 $\\sin\\alpha = 1$）：\n1. **等磁场线**：$B_s \\approx \\left(\\frac{3 I c^3}{2\\pi^2 R^6} P \\dot{P}\\right)^{1/2} \\approx 6.4\\times 10^{19}\\sqrt{P\\dot{P}}\\text{ G}$，在双对数图上为斜率 $-1$ 的平行直线（$\\log\\dot{P} = -\\log P + \\text{const}$）。\n2. **等特征年龄线**：假定初周期 $P_0 \\ll P$ 且 $B_s$ 恒定，积分得特征年龄 $\\tau_c \\equiv \\frac{P}{2\\dot{P}}$，在图上为斜率 $+1$ 的直线（$\\dot{P} = \\frac{P}{2\\tau_c}$）。\n3. **死亡线（Death Line）**：磁层对产生熄灭条件 $B_s / P^2 \\approx \\text{const} \\implies \\dot{P} \\propto P^3$（斜率 $+3$ 直线）。\n\n**$P\\text{--}\\dot{P}$ 图分区**：绝大多数正常射电脉冲星聚集在 $P \\sim 0.1\\text{--}3\\text{ s},\\ \\dot{P} \\sim 10^{-16}\\text{--}10^{-13},\\ B_s \\sim 10^{12}\\text{ G}$；左下方为再循环毫秒脉冲星（$P \\sim 1\\text{--}10\\text{ ms},\\ B_s \\sim 10^8\\text{--}10^9\\text{ G},\\ \\tau_c \\sim 10^9\\text{ yr}$）；右上方为高磁场磁星（AXP/SGR，$P \\sim 2\\text{--}12\\text{ s},\\ B_s \\sim 10^{14}\\text{--}10^{15}\\text{ G}$）。\n\n这里 $B_s$ 采用极区磁场；赤道场 $B_{\\rm eq}=B_s/2$，其常用估算系数为 $3.2\\times10^{19}$。死亡线的 $B/P^2$ 常量取决于磁层加速和对产生模型，给出的斜率是该简化模型的标度。",
-    "status": "solved",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
-  },
-  {
-    "id": "compact-192",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 192,
-      "alsoSlides": []
-    },
-    "title": "X射线双星课程论文",
-    "prompt": "参考往年课件及X射线双星课程，围绕X射线双星的分类、观测特征或物理机制撰写课程论文。课件作为自选参考题保留。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-215",
@@ -1603,35 +1870,20 @@
           "slide": 215
         }
       }
-    ]
-  },
-  {
-    "id": "compact-216",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 216,
-      "alsoSlides": []
-    },
-    "title": "狭义相对论的天文学应用（历史选做）",
-    "prompt": "（历史选做课程论文）梳理狭义相对论中的关键效应——洛伦兹变换（Lorentz Transformations）、相对论多普勒效应（Relativistic Doppler Effect）与头灯效应/相对论集束（Headlight / Relativistic Beaming Effect）——并调研它们在天体物理（如相对论性喷流、脉冲星与活动星系核观测等）中的具体应用。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 215
+          }
         }
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "compact-230",
@@ -1659,7 +1911,20 @@
           "slide": 230
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 230
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-250",
@@ -1679,15 +1944,28 @@
     "submissions": [
       {
         "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
+        "label": "课程通用提交入口（选交）",
+        "note": "此问题未指定提交要求；链接为课程通用目录。",
         "basis": "course-general",
         "source": {
           "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
           "slide": 36
         }
       }
-    ]
+    ],
+    "classification": {
+      "category": "question",
+      "evidence": [
+        {
+          "type": "question",
+          "quote": "请证明，在地球表面引力时间膨胀（高度差引起）为",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 250
+          }
+        }
+      ]
+    }
   },
   {
     "id": "compact-252",
@@ -1715,146 +1993,19 @@
           "slide": 252
         }
       }
-    ]
-  },
-  {
-    "id": "compact-314",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 314,
-      "alsoSlides": []
-    },
-    "title": "水星近日点进动课程论文",
-    "prompt": "利用史瓦西（Schwarzschild）时空中大质量试验粒子的一维径向有效势与轨道微扰方程，推导水星近日点进动公式，并计算水星每世纪的广义相对论进动角度（约 $43''/\\text{century}$）。",
-    "kind": "derivation",
-    "solution": "在史瓦西度规中，球对称静态时空存在能量守恒 $E$ 与比角动量守恒 $L = r^2 \\frac{d\\phi}{d\\tau}$。对径向坐标代入四维速度归一化条件，得类似牛顿力学的能量方程（几何单位 $G=c=1$ 记 $r_s = 2GM/c^2$）：\n$$\\frac{1}{2}\\left(\\frac{dr}{d\\tau}\\right)^2 + V_{\\text{eff}}(r) = \\text{const}, \\qquad V_{\\text{eff}}(r) = -\\frac{GM}{r} + \\frac{L^2}{2r^2} - \\frac{G M L^2}{c^2 r^3}$$\n最后一项 $-\\frac{G M L^2}{c^2 r^3}$ 即广义相对论新增势阱修正。令 $u \\equiv 1/r$ 并利用 $\\frac{d}{d\\tau} = L u^2 \\frac{d}{d\\phi}$ 消去固有时 $\\tau$，求导得比内（Binet）轨道方程：\n$$\\frac{d^2 u}{d\\phi^2} + u = \\frac{G M}{L^2} + \\frac{3 G M}{c^2} u^2$$\n\n在弱场微扰（$\\epsilon \\equiv \\frac{3 (GM)^2}{c^2 L^2} \\ll 1$）下，零阶解为牛顿椭圆轨道 $u_0(\\phi) = \\frac{GM}{L^2}(1 + e\\cos\\phi)$。将 $u = u_0 + u_1$ 代入上式，保留线性微扰并提取导致轨道共振（非封闭）的 $\\cos\\phi$ 久期驱动项：\n$$\\frac{d^2 u_1}{d\\phi^2} + u_1 \\approx \\frac{6 (GM)^3}{c^2 L^4} e \\cos\\phi \\implies u_1(\\phi) \\approx \\frac{3 (GM)^3}{c^2 L^4} e\\,\\phi\\sin\\phi$$\n叠加后 $u(\\phi) \\approx \\frac{GM}{L^2}\\left[1 + e\\cos\\!\\left((1 - \\epsilon)\\phi\\right)\\right]$，故轨道完成一次径向周期（$\\cos$ 相位增加 $2\\pi$）时方位角进动：\n$$\\Delta\\phi = 2\\pi \\epsilon = \\frac{6\\pi G M}{c^2 a (1 - e^2)}$$\n（利用椭圆半通径 $p = L^2/(GM) = a(1-e^2)$。）\n\n代入太阳质量 $M_\\odot = 1.9885\\times 10^{33}\\text{ g}$、水星半长轴 $a = 5.791\\times 10^{12}\\text{ cm}$、偏心率 $e = 0.2056$、公转周期 $T = 87.97\\text{ d}$：每圈进动 $\\Delta\\phi \\approx 5.019\\times 10^{-7}\\text{ rad} \\approx 0.1035''$；每百年绕日约 $415.2$ 圈，累计进动为 **$42.98''/\\text{century} \\approx 43''/\\text{century}$**，精确解释了观测剩余进动。",
-    "status": "solved",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
+    ],
+    "classification": {
+      "category": "homework",
+      "evidence": [
+        {
+          "type": "submission-link",
+          "quote": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
+          "source": {
+            "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
+            "slide": 252
+          }
         }
-      }
-    ]
-  },
-  {
-    "id": "compact-315",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 315,
-      "alsoSlides": []
-    },
-    "title": "太阳附近光线偏折课程论文",
-    "prompt": "利用史瓦西时空中光子（零测地线）的轨道微分方程，采用微扰法推导经过太阳表面附近星光的光线偏折角公式 $\\Delta\\theta = \\frac{4 G M_\\odot}{c^2 R_\\odot}$，并计算数值（约 $1.75''$）。",
-    "kind": "derivation",
-    "solution": "对无静止质量光子（类光零测地线 $ds^2 = 0$），有效势无牛顿 $-GM/r$ 中心吸引项，仅余相对论离心与引力耦合项，令 $u = 1/r$ 得光子轨道微分方程：\n$$\\frac{d^2 u}{d\\phi^2} + u = \\frac{3 G M}{c^2} u^2$$\n\n在太阳边缘弱场条件下，无量纲小参数 $\\alpha \\equiv \\frac{GM_\\odot}{c^2 b} \\sim 2.12\\times 10^{-6} \\ll 1$（$b$ 为最近瞄准距）。\n1. **零阶直行解**（$\\alpha = 0$）：方程退化为 $u_0'' + u_0 = 0$，取直线轨迹 $r\\sin\\phi = b \\implies u_0(\\phi) = \\frac{\\sin\\phi}{b}$（$\\phi$ 从 $0$ 变到 $\\pi$）。\n2. **一阶微扰解**：将 $u = u_0 + u_1$ 代入右侧微扰项得：\n   $$\\frac{d^2 u_1}{d\\phi^2} + u_1 = \\frac{3 G M}{c^2 b^2}\\sin^2\\phi = \\frac{3 G M}{2 c^2 b^2}(1 - \\cos 2\\phi)$$\n   求得特解 $u_1(\\phi) = \\frac{G M}{c^2 b^2}\\left(\\frac{3}{2} + \\frac{1}{2}\\cos 2\\phi\\right) = \\frac{GM}{c^2 b^2}(1 + \\cos^2\\phi)$（可叠加齐次解调整入射方向；等价地取对称特解 $u_1 = \\frac{GM}{c^2 b^2}(2 - \\sin^2\\phi)$，使最接近点在 $\\phi = \\pi/2$）。\n3. **计算渐近偏转角**：当 $r \\to \\infty$（$u \\to 0$）时，$\\phi \\to -\\delta_1$ 与 $\\phi \\to \\pi + \\delta_2$。取微小偏角 $\\sin\\phi \\approx -\\delta_1,\\ \\cos^2\\phi \\approx 1$（或由 $u(0) \\approx \\frac{\\phi}{b} + \\frac{2GM}{c^2 b^2} = 0$）：\n   $$\\delta_1 = \\delta_2 \\approx \\frac{2 G M}{c^2 b} \\implies \\Delta\\theta = \\delta_1 + \\delta_2 = \\frac{4 G M}{c^2 b}$$\n\n代入太阳掠日条件 $b = R_\\odot = 6.957\\times 10^{10}\\text{ cm}$、$\\frac{GM_\\odot}{c^2} = 1.4766\\times 10^5\\text{ cm}$：\n$$\\Delta\\theta = \\frac{4 \\times 1.4766\\times 10^5}{6.957\\times 10^{10}}\\text{ rad} \\approx 8.490\\times 10^{-6}\\text{ rad} \\times 206264.8''/\\text{rad} \\approx 1.751''$$",
-    "status": "solved",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
-  },
-  {
-    "id": "compact-352",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 352,
-      "alsoSlides": []
-    },
-    "title": "伽马暴专题补充（历史选做，SKIP）",
-    "prompt": "（历史选做课程论文，课件标注 skip）查阅文献资料，补充整理伽马射线暴（Gamma-Ray Bursts, GRBs）与黑洞（或活动星系核 AGN 标准模型）的物理关联，包括长暴/短暴分类、前身星模型（大质量恒星塌缩与致密双星并合）以及中心引擎与喷流辐射机制。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
-  },
-  {
-    "id": "compact-353",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 353,
-      "alsoSlides": []
-    },
-    "title": "活动星系核标准模型课程论文（历史选题）",
-    "prompt": "围绕活动星系核（AGN）的标准模型及其与黑洞的关系，查找资料并补充课程内容。课件标记 skip，保留历史选题属性。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
-  },
-  {
-    "id": "compact-380",
-    "chapter": "致密天体",
-    "source": {
-      "slideDeck": "2026.Chapter4_2026.11.17.s.pptx",
-      "slide": 380,
-      "alsoSlides": []
-    },
-    "title": "黑洞纪录片课后观看",
-    "prompt": "课后观看纪录片 BBC《宇宙无限》（CD3）中有关黑洞的内容，结合课程第 4.4 节提纲（黑洞历史回顾、相对论基础、黑洞分类与基本性质、黑洞附近引力效应、观测证据与探测方法）进行自主延伸学习与整理。",
-    "kind": "open",
-    "solution": "",
-    "status": "open",
-    "tags": ["大学天文学"],
-    "course": "main",
-    "submissions": [
-      {
-        "url": "https://box.nju.edu.cn/u/d/cf38286803744436be0d/",
-        "label": "提交作业",
-        "note": "课程通用入口：选做作业",
-        "basis": "course-general",
-        "source": {
-          "slideDeck": "2026.大学天文1.chapter1_2026.09.29.pptx",
-          "slide": 36
-        }
-      }
-    ]
+      ]
+    }
   }
 ]

@@ -89,6 +89,8 @@ On a new computer, the first HTTPS push may open Git Credential Manager for GitH
 
 ## Change map
 
+The `/astro-homework/` page separates explicit assignments from classroom questions in two columns. Its source is `quartz/static/astro-homework/homework-data.json`, limited to College Astronomy. As of 2026-11-23 it contains 20 assignments and 27 questions. An assignment needs a PPT-linked NJU Box upload endpoint (`/u/d/`) or an original slide quotation containing “作业”; course homepage links and inferred course-general upload links do not establish assignment status. Each record's `classification.evidence` stores the exact quotation or upload URL and source slide. The emitter validates that evidence. Historical reference topics and general self-study suggestions are excluded from the public dataset. Keep question submission buttons explicitly labeled as optional course-general destinations.
+
 - `quartz.config.ts`: title, canonical domain, locale, plugins, typography, and color tokens.
 - `quartz.layout.ts`: left/right rails, navigation, search, graph, table of contents, and footer.
 - `quartz/styles/custom.scss`: project-owned visual refinements.
