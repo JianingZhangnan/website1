@@ -23,6 +23,11 @@ const topics: Topic[] = [
     title: "大学天文学作业",
     description: "课程 PPT 作业、定位页码与参考解答",
   },
+  {
+    href: "/astro-final/",
+    title: "大学天文学期末题库",
+    description: "15 份历年试卷、561 道题与课件位置",
+  },
 ]
 
 const TopicGrid: QuartzComponent = ({ allFiles, fileData, displayClass }: QuartzComponentProps) => {
