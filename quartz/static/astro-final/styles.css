@@ -261,6 +261,9 @@ summary {
 .exam-fragment {
   margin: 0 0 20px;
 }
+.image-hint {
+  display: none;
+}
 .exam-fragment > a {
   display: block;
   padding: 10px;
@@ -383,6 +386,18 @@ dialog::backdrop {
   }
 }
 @media (max-width: 800px) {
+  .image-hint {
+    display: block;
+    margin: 6px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .exam-fragment > a {
+    overflow-x: auto;
+  }
+  .exam-fragment img {
+    min-width: 760px;
+  }
   .site-header {
     height: auto;
     min-height: 84px;

@@ -84,9 +84,10 @@ function renderQuestion(items) {
   const fragments = q.fragments
     .map(
       (f, i) => `<figure class="exam-fragment">
+        <p class="image-hint">题面可横向滑动，点击可放大。</p>
         <a href="${base + f.asset}" target="_blank" rel="noopener" aria-label="放大第${q.number}题${q.fragments.length > 1 ? `，第${i + 1}部分` : ""}">
           <img src="${base + f.asset}" width="${f.imageWidth}" height="${f.imageHeight}" alt="原卷题面：${escapeHtml(q.title)}${q.fragments.length > 1 ? `（第${i + 1}部分）` : ""}" />
-        </a><figcaption>原卷PDF第${f.page}页${q.fragments.length > 1 ? ` · 第${i + 1}部分` : ""} · <a href="${base + f.original}" target="_blank" rel="noopener">查看完整原卷页${f.side === 1 ? "右半页" : ""}</a></figcaption>
+        </a><figcaption>原卷PDF第${f.page}页${q.fragments.length > 1 ? ` · 第${i + 1}部分` : ""} · <a href="${base + f.original}" target="_blank" rel="noopener">查看原卷页${data.panels.some((p) => p.file === q.sourceFile && p.page === f.page && p.side === 1) ? (f.side === 1 ? "右半页" : "左半页") : ""}</a></figcaption>
       </figure>`,
     )
     .join("")
