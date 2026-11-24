@@ -1,3 +1,5 @@
+# 1. Notations
+
 > [!def] Pauli 算符与自旋算符
 > $$
 > \hat{\boldsymbol{S}} = \dfrac{\hbar}{2} \hat{\boldsymbol{\sigma}} \Longleftrightarrow \hat{S}_{i}=\dfrac{\hbar}{2}\hat{\sigma}_{i}
@@ -25,6 +27,10 @@
 > \end{pmatrix}
 > $$
 
+# 2. Properties
+
+
+## 2.1 Pauli Algebra
 
 > [!done] Pauli 算符的对易与平方关系
 > $$
@@ -34,10 +40,47 @@
 > \hat{\boldsymbol{S}}^{2} = \dfrac{3}{4}\hbar^{2}\boldsymbol{I} \implies  \hat{\boldsymbol{\sigma}}^{2}=3\boldsymbol{I},\ \ \hat{\sigma}^{2}_{i} =\boldsymbol{I}
 > $$
 
-
 > [!done] Pauli 代数的等价关系
 > 数学上，这三条性质可以互相导出（1->2,3 | 3->1,2 | 2不可单独）：
 > 1. $[A_{i},A_{j}]=2\mathrm{i}\epsilon_{ijk}A_{k}\ ,\ A_{i}^{2}=I$
 > 2. $\{ A_{i},A_{j} \}=2\delta_{ij}\boldsymbol{I}$
 > 3. $A_{i}A_{j} = \delta_{ij}\boldsymbol{I}+\mathrm{i}\epsilon_{ijk}A_{k}$
+
+## 2.2 Projection Form
+
+由于每个 pauli metrix 都有 $\sigma_{j}^{2}=\mathbb{1}_{2}$，所以其本征值只能为 $\pm1$. 我们构造投影算符
+$$
+P_{\pm,j}:= \dfrac{1}{2}(\mathbb{1}_{2}\pm \sigma_{j})
+$$
+可以验证他们分别投影到本征值为 $\pm 1$ 的本征子空间。
+>[!note]- 如何想到这样构建投影算符的
+>构建投影算符事实上是进行直和分解。对于Pauli operators 来说，
+
+
+
+## 2.3 Exponential Form
+
+$$
+\mathrm{e}^{ -\mathrm{i}\theta\sigma_{j} } = \cos\theta\,\mathbb{1}_{2}-\mathrm{i} \sin \theta\, \sigma_{j}
+$$
+**Proof**.
+### a. 直接级数展开
+
+### b. 利用投影算符
+
+任何解析函数的算符求值，都严格等价于在各个本征值上分别计算标量函数值，再以对应的投影算符加权求和。
+
+# 3. Group $SU(2)$ and Pauli Metrices
+
+$SU(2)$ is a kind of matrix group belike:
+$$
+\begin{pmatrix}
+z, & w \\
+-w^{*}, & z^{*}
+\end{pmatrix} ,\quad \lvert z \rvert ^{2}+\lvert w \rvert ^{2}=1
+$$
+We can see that 
+
+
+
 
