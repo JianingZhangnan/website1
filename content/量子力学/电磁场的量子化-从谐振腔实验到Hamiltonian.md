@@ -226,3 +226,4 @@ Jordan 在 1925—1926 年还没有这样的实验手段。他面对的是一组
 - M. Born、W. Heisenberg、P. Jordan，*Zur Quantenmechanik II*，*Zeitschrift für Physik* **35**, 557–615 (1926)。包含 Jordan 对场的量子化及涨落问题的研究。
 - A. Duncan、M. Janssen，[*Pascual Jordan's resolution of the conundrum of the wave-particle duality of light*](https://experts.umn.edu/en/publications/pascual-jordans-resolution-of-the-conundrum-of-the-wave-particle-/)，*Studies in History and Philosophy of Modern Physics* **39**, 634–666 (2008)。现代历史研究与推导重建。
 - [Otto Lummer 的黑体辐射实验史料](https://www.otto-lummer.de/waermestrahlung.html)。介绍当年的空腔装置与辐射光谱测量。
+
