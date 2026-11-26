@@ -1,13 +1,10 @@
 \documentclass[11pt,a4paper]{article}
 
-% ============================================================================
-% Typography, Mathematics, and Layout
-% ============================================================================
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{newpxtext,newpxmath}
 \usepackage{microtype}
-\usepackage[a4paper, left=2.35cm, right=2.35cm, top=2.45cm, bottom=2.55cm, headheight=17pt]{geometry}
+\usepackage[a4paper, left=2.35cm, right=2.35cm, top=2.4cm, bottom=2.45cm, headheight=17pt]{geometry}
 
 \usepackage{amsmath,mathtools}
 \usepackage{braket}
@@ -20,31 +17,24 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{tocloft}
-\setlength{\cftbeforesecskip}{4pt}
-\setlength{\cftbeforesubsecskip}{0.5pt}
-\renewcommand{\cftaftertoctitle}{\par\vspace{4pt}}
 \usepackage[most]{tcolorbox}
 \usepackage[
     colorlinks=true,
     linkcolor=pathBlue,
     citecolor=accentTeal,
     urlcolor=pathBlue,
-    pdfauthor={FPKS Physics Lecture Notes},
-    pdftitle={From Classical Trajectories to Quantum Path Integrals}
+    pdftitle={Path Integrals in Quantum Mechanics}
 ]{hyperref}
 
 \allowdisplaybreaks
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.55em}
-\linespread{1.08}
+\setlength{\parskip}{0.48em}
+\linespread{1.06}
 
-% ============================================================================
-% Palette (Harmonized with All Embedded TikZ Figures)
-% ============================================================================
+% Palette
 \definecolor{inkDark}{HTML}{1E293B}
 \definecolor{slateSub}{HTML}{334155}
 \definecolor{pathBlue}{HTML}{005A9C}
-\definecolor{accentRed}{HTML}{B91C1C}
 \definecolor{accentTeal}{HTML}{0E6251}
 \definecolor{accentAmber}{HTML}{B45309}
 \definecolor{tintBlue}{HTML}{F0F7FF}
@@ -54,100 +44,75 @@
 
 \color{inkDark}
 
-% ============================================================================
-% Section Headings, Captions, and Running Headers
-% ============================================================================
+% Headings & ToC
 \titleformat{\section}
     {\Large\bfseries\color{inkDark}}
-    {\color{pathBlue}\thesection}{0.75em}{}
-    [\vspace{2pt}{\color{ruleGray}\titlerule[0.8pt]}]
-\titlespacing*{\section}{0pt}{1.6em}{0.7em}
+    {\color{pathBlue}\thesection}{0.7em}{}
+    [\vspace{2pt}{\color{ruleGray}\titlerule[0.7pt]}]
+\titlespacing*{\section}{0pt}{1.4em}{0.55em}
 
 \titleformat{\subsection}
     {\large\bfseries\color{pathBlue}}
-    {\thesubsection}{0.65em}{}
-\titlespacing*{\subsection}{0pt}{1.2em}{0.45em}
+    {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{1.05em}{0.35em}
+
+\setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftbeforesubsecskip}{0.5pt}
+\renewcommand{\cftaftertoctitle}{\par\vspace{2pt}}
 
 \captionsetup{
     font={small,color=slateSub},
     labelfont={bf,color=inkDark},
     width=0.94\textwidth,
-    skip=8pt
+    skip=6pt
 }
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{slateSub}\textsc{Quantum Mechanics Lecture Notes}}
+\fancyhead[L]{\small\color{slateSub}\textsc{Path Integrals in Quantum Mechanics}}
 \fancyhead[R]{\small\color{slateSub}\nouppercase{\leftmark}}
 \fancyfoot[C]{\small\color{slateSub}\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{ruleGray}\leaders\hrule height \headrulewidth\hfill}}
 
-% ============================================================================
-% Structured Pedagogical Boxes
-% ============================================================================
+% Boxes
 \tcbset{
     notebox/.style={
         enhanced,
         boxrule=0pt,
-        leftrule=3.2pt,
+        leftrule=3pt,
         arc=2pt,
         outer arc=2pt,
-        top=7pt,
-        bottom=7pt,
-        left=10pt,
-        right=10pt,
-        before skip=0.9em,
-        after skip=0.9em,
+        top=6pt,
+        bottom=6pt,
+        left=9pt,
+        right=9pt,
+        before skip=0.75em,
+        after skip=0.75em,
         fonttitle=\bfseries\normalsize,
-        attach title to upper={\par\vspace{3pt}},
+        attach title to upper={\par\vspace{2pt}},
         coltext=inkDark
     }
 }
 
 \newtcolorbox{definitionbox}[1][]{
-    notebox,
-    colback=tintBlue,
-    colframe=pathBlue,
-    coltitle=pathBlue,
+    notebox, colback=tintBlue, colframe=pathBlue, coltitle=pathBlue,
     title={Definition\ifstrempty{#1}{}{ --- #1}}
 }
-
 \newtcolorbox{theorembox}[1][]{
-    notebox,
-    colback=tintTeal,
-    colframe=accentTeal,
-    coltitle=accentTeal,
+    notebox, colback=tintTeal, colframe=accentTeal, coltitle=accentTeal,
     title={Theorem\ifstrempty{#1}{}{ --- #1}}
 }
-
 \newtcolorbox{propositionbox}[1][]{
-    notebox,
-    colback=tintTeal,
-    colframe=accentTeal,
-    coltitle=accentTeal,
+    notebox, colback=tintTeal, colframe=accentTeal, coltitle=accentTeal,
     title={Proposition\ifstrempty{#1}{}{ --- #1}}
 }
-
-\newtcolorbox{historicalbox}[1][]{
-    notebox,
-    colback=tintAmber,
-    colframe=accentAmber,
-    coltitle=accentAmber,
-    title={Historical Note\ifstrempty{#1}{}{ --- #1}}
-}
-
 \newtcolorbox{remarkbox}[1][]{
-    notebox,
-    colback=tintAmber,
-    colframe=accentAmber,
-    coltitle=accentAmber,
+    notebox, colback=tintAmber, colframe=accentAmber, coltitle=accentAmber,
     title={Remark\ifstrempty{#1}{}{ --- #1}}
 }
 
-% ============================================================================
-% Convenient Math Macros
-% ============================================================================
+% Macros
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\ee}{\mathrm{e}}
@@ -156,141 +121,86 @@
 \newcommand{\xcl}{x_{\mathrm{cl}}}
 \newcommand{\Scl}{S_{\mathrm{cl}}}
 \newcommand{\order}{\mathcal{O}}
-\newcommand{\abs}[1]{\left|#1\right|}
 
-% ============================================================================
 \begin{document}
-% ============================================================================
 
-% Custom Clean Title Block
 \thispagestyle{plain}
 \begin{center}
-    {\color{pathBlue}\rule{\textwidth}{1.8pt}}\\[0.9em]
-    {\LARGE\bfseries\color{inkDark} From Classical Trajectories to Quantum Path Integrals}\\[0.45em]
-    {\large\color{slateSub} Historical Origins (Feynman 1941--1942), Modern Operator Proof,\\[0.15em]
-    Free-Particle Dynamics, and the Semiclassical Limit}\\[0.85em]
-    {\small\color{slateSub} Quantum Mechanics \& Analytical Mechanics Lecture Notes \quad$\cdot$\quad 1D Non-Relativistic Particle}\\[0.55em]
-    {\color{ruleGray}\rule{\textwidth}{0.8pt}}
+    {\color{pathBlue}\rule{\textwidth}{1.5pt}}\\[0.75em]
+    {\LARGE\bfseries From Classical Paths to Quantum Path Integrals}\\[0.35em]
+    {\normalsize\color{slateSub} Feynman's Historical Construction, the Operator Proof, and the Free Particle}\\[0.55em]
+    {\color{ruleGray}\rule{\textwidth}{0.7pt}}
 \end{center}
 
-\vspace{0.2em}
-\begin{tcolorbox}[
-    enhanced, boxrule=0.6pt, colback=white, colframe=ruleGray,
-    arc=3pt, top=8pt, bottom=8pt, left=12pt, right=12pt
-]
-\textbf{Overview.}\;
-Does quantizing a classical particle simply fatten its trajectory into a ``tube''?
-We answer this question along two complementary roads.
-In \textbf{Part~I} (Section~\ref{sec:historical}), we step directly into Richard Feynman's 1941--1942 shoes: facing a physical theory that possessed an action $S$ but \emph{no Hamiltonian}, he turned a cryptic remark of Dirac into an explicit short-time kernel and derived the Schr\"odinger equation directly from the Lagrangian.
-In \textbf{Part~II} (Section~\ref{sec:modern}), we reverse the arrow in the style of modern textbooks: starting from unitary operator evolution $\hat U(t_f,t_i)=\ee^{-\ii\hat H(t_f-t_i)/\hbar}$, we prove the path-integral formula rigorously via the Lie--Trotter product formula, explain why inserting momentum completeness executes a \emph{quantum Legendre transform}, and track the delicate $\Delta x \sim \sqrt{\varepsilon}$ scaling of quantum paths.
-Finally, we evaluate the \textbf{free-particle propagator} explicitly from $N$-slice induction (Section~\ref{sec:free}), compute the exact spreading of a Gaussian wave packet, and return to the opening ``tube'' question by deriving a quantitative semiclassical corridor width from stationary-phase interference (Section~\ref{sec:semiclassical}).
-\end{tcolorbox}
-
-\vspace{0.1em}
-{\small\setlength{\parskip}{0.18em}\tableofcontents}
-\newpage
+{\small\setlength{\parskip}{0.12em}\tableofcontents}
+\vspace{0.4em}
 
 % ============================================================================
-\section[The Guiding Question]{The Guiding Question: Does a Classical Trajectory Become a ``Tube''?}
+\section[Classical Paths vs.\ Quantum Amplitudes]{Classical Paths vs.\ Quantum Amplitudes}
 \label{sec:guiding}
 % ============================================================================
 
-In classical analytical mechanics, the motion of a one-dimensional particle between fixed spacetime endpoints $(t_i, x_i)$ and $(t_f, x_f)$ is represented by a smooth curve $x(t):[t_i,t_f]\to\mathbb{R}$. Given the Lagrangian $\Lag(x,\dot x,t)=T-V$, one assigns to every trial curve the \emph{action functional}
+In classical mechanics, a one-dimensional particle moving from $(t_i, x_i)$ to $(t_f, x_f)$ follows a curve $x(t):[t_i,t_f]\to\mathbb{R}$. For a Lagrangian $\Lag(x,\dot x,t)=T-V$, the action functional is
 \begin{equation}
     S[x(t)] := \int_{t_i}^{t_f} \Lag\bigl(x(t),\dot x(t),t\bigr)\,\dd t.
 \end{equation}
-Hamilton's principle of stationary action selects a \emph{single} physical trajectory $\xcl(t)$ satisfying $\delta S[\xcl]=0$, which is equivalent to the Euler--Lagrange equation
+The physical trajectory $\xcl(t)$ makes the action stationary, $\delta S[\xcl]=0$, which yields the Euler--Lagrange equation
 \begin{equation}
     \frac{\dd}{\dd t}\!\left(\frac{\partial\Lag}{\partial\dot x}\right) = \frac{\partial\Lag}{\partial x}.
     \label{eq:euler-lagrange}
 \end{equation}
 
-When we pass to quantum mechanics, a natural geometric intuition immediately suggests itself: \emph{perhaps quantum uncertainty simply thickens the classical one-dimensional curve $\xcl(t)$ into a finite-width ``tube''?}
-
-This intuition captures an important limiting truth, yet misses the true physical mechanism. The precise answer splits cleanly into two parts:
-\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
-    \item \textbf{In the semiclassical regime ($S\gg\hbar$), a ``tube'' really does emerge.}
-    Both in Feynman's path-integral picture and in wave-packet dynamics, the dominant quantum support concentrates inside a narrow corridor around $\xcl(t)$.
-    \item \textbf{Fundamentally, however, quantum mechanics does \emph{not} restrict a particle to any tube.}
-    In the path integral, \emph{every} path connecting $(t_i,x_i)$ to $(t_f,x_f)$---no matter how wild, crooked, or far from $\xcl(t)$---contributes with \emph{equal modulus} and a complex phase $\ee^{\ii S[x]/\hbar}$ (Figure~\ref{fig:classical-vs-quantum}). The apparent corridor around $\xcl(t)$ is an \emph{emergent interference effect}, not an imposed boundary.
+How does this single path become quantum? A common guess is that quantum uncertainty thickens $\xcl(t)$ into a narrow ``tube.'' That picture works as a semiclassical approximation when $S \gg \hbar$, but it is not the underlying rule:
+\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Sum over paths.} A quantum particle is not confined to a tube. Every path connecting $(t_i,x_i)$ to $(t_f,x_f)$ contributes to the transition amplitude with equal magnitude and phase $\ee^{\ii S[x]/\hbar}$ (Figure~\ref{fig:classical-vs-quantum}). When $S\gg\hbar$, phases vary rapidly away from $\xcl(t)$ and cancel out, leaving an effective constructive region $|S[x]-S[\xcl]|\lesssim\hbar$.
+    \item \textbf{Wave-packet evolution.} In Hilbert space, a state $\ket{\psi(t)}$ has position density $|\psi(x,t)|^2$ with finite width. By Ehrenfest's theorem,
+    \begin{equation}
+        m\frac{\dd^2\langle\hat x\rangle}{\dd t^2} = -\langle V'(\hat x)\rangle.
+    \end{equation}
+    If $V(x)$ is at most quadratic or varies slowly across the packet, $\langle\hat x\rangle(t)$ follows $\xcl(t)$ while $|\psi(x,t)|^2$ traces a band around it (Section~\ref{sec:free-packet}).
 \end{enumerate}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.98\textwidth]{assets/fig1_classical_vs_quantum.pdf}
-    \caption{\textbf{From a single classical path to the sum over all histories.}
-    \textbf{(a)} Classical mechanics selects the unique stationary trajectory $\xcl(t)$ satisfying $\delta S[\xcl]=0$.
-    \textbf{(b)} Quantum mechanics sums the complex phase $\ee^{\ii S[x]/\hbar}$ over \emph{all} paths joining $(t_i,x_i)$ and $(t_f,x_f)$. When $S\gg\hbar$, paths far from $\xcl(t)$ (red dashed) have rapidly varying phases and cancel by destructive interference, leaving an effective constructive corridor $|S[x]-S[\xcl]|\lesssim\hbar$ (blue shading).}
+    \includegraphics[width=0.96\textwidth]{assets/fig1_classical_vs_quantum.pdf}
+    \caption{\textbf{(a)} Classical mechanics picks the stationary path $\xcl(t)$ ($\delta S=0$). \textbf{(b)} Quantum mechanics sums $\ee^{\ii S[x]/\hbar}$ over all paths; for $S\gg\hbar$, constructive interference concentrates inside $|S[x]-S[\xcl]|\lesssim\hbar$.}
     \label{fig:classical-vs-quantum}
 \end{figure}
 
-It is equally instructive to view the same question from the canonical (Hilbert-space) perspective. Replacing the classical phase-space point $(x(t),p(t))$ by a state vector $\ket{\psi(t)}$ spreads the particle's position into a wave packet $|\psi(x,t)|^2$ bounded below in phase-space area by Heisenberg's uncertainty relation. By Ehrenfest's theorem,
-\begin{equation}
-    m\frac{\dd^2\langle\hat x\rangle}{\dd t^2} = -\langle V'(\hat x)\rangle,
-\end{equation}
-so whenever the potential is at most quadratic (or varies slowly across the packet width), the mean position tracks $\xcl(t)$ while $|\psi(x,t)|^2$ sweeps out a broadening spacetime swath around it (analyzed quantitatively in Section~\ref{sec:free-packet}).
-
-\begin{remarkbox}[Three Regimes Where the ``Tube'' Metaphor Breaks Down]
-A simple thickened-tube picture fails decisively whenever quantum coherence dominates:
-\begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
-    \item \textbf{Strong quantum regime ($S\sim\hbar$).} The constructive corridor swells across the entire apparatus or splits into macroscopically disconnected channels (as in double-slit diffraction, where no single narrow classical tube encloses both slits).
-    \item \textbf{Complex-amplitude interference vs.\ classical random tubes.} A classical Brownian particle diffusing inside a tube adds \emph{non-negative probabilities}; a quantum particle adds \emph{complex amplitudes} $\ee^{\ii S/\hbar}$, allowing distinct paths to cancel completely (dark interference fringes, Aharonov--Bohm effect).
-    \item \textbf{Quantum tunneling.} Inside a classically forbidden barrier ($E < V(x)$), no real classical trajectory exists to serve as the center of a tube, yet the quantum transition amplitude remains nonzero.
-\end{enumerate}
-\end{remarkbox}
-
-To understand \emph{why} each path carries the exact phase $\ee^{\ii S[x]/\hbar}$, we first reconstruct how Feynman actually discovered it.
+The ``tube'' picture fails in three standard situations:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{When $S \sim \hbar$:} the constructive region spreads over the whole setup or splits into separate channels, as in double-slit interference.
+    \item \textbf{Destructive interference:} a classical random walk inside a tube adds positive probabilities, whereas quantum paths add complex amplitudes $\ee^{\ii S/\hbar}$ and can cancel to zero.
+    \item \textbf{Tunneling ($E < V$):} no real classical trajectory exists inside the barrier, yet the quantum amplitude is nonzero.
+\end{itemize}
 
 % ============================================================================
-\section[Part I: Historical Route (Feynman 1941--1942)]{Part I --- The Historical Route: Thinking Like Feynman (1941--1942)}
+\section[Historical Route: From Lagrangian to Schr\"odinger]{Historical Route: From the Lagrangian to the Schr\"odinger Equation}
 \label{sec:historical}
 % ============================================================================
 
-Most modern textbooks derive the path integral by starting from the Hamiltonian operator $\hat H$ and slicing $\ee^{-\ii\hat H T/\hbar}$. Historically, that arrow ran completely backward. Understanding Feynman's original reasoning clarifies why the Lagrangian $\Lag$ enters the exponent at all.
+Textbooks usually start from $\hat U(T) = \ee^{-\ii\hat H T/\hbar}$ and derive the path integral. Feynman originally worked in the opposite direction: he started from the Lagrangian $\Lag$ and derived the Schr\"odinger equation.
 
-\subsection{The Impasse: How Do You Quantize Without a Hamiltonian?}
+\subsection{Why Feynman Needed a Formulation Without a Hamiltonian}
 
-In 1940--1942, as a doctoral student under John Archibald Wheeler at Princeton, Feynman was studying \emph{action-at-a-distance electrodynamics} (the Wheeler--Feynman absorber theory). To eliminate the divergent classical self-energy of a point electron, they removed the electromagnetic field as an independent dynamical entity and replaced it with direct interactions between charged particles propagating along both retarded ($t - r/c$) and advanced ($t + r/c$) light cones.
+In 1941--1942, Feynman and Wheeler studied action-at-a-distance electrodynamics, in which charges interact directly at retarded and advanced times $t \mp r/c$ without an independent electromagnetic field. One can write an action $S$ for the particle worldlines, but because different times are coupled directly, there is no single-time Hamiltonian $H$. Standard canonical quantization ($\hat H$, $[\hat x,\hat p]=\ii\hbar$) could not be applied, so Feynman needed a way to quantize directly from $\Lag$ and $S$.
 
-This theory possessed a clean, Lorentz-invariant \emph{action functional} $S[\{\boldsymbol{q}_a(t)\}]$ coupling different particles at different times. Precisely because of that cross-time coupling, however, the system had \emph{no instantaneous state} and \emph{no standard Hamiltonian $H$}. Every quantization method known in 1941 required writing $H(q,p)$, promoting $(q,p)$ to operators satisfying $[\hat q,\hat p]=\ii\hbar$, and solving $\ii\hbar\partial_t\psi=\hat H\psi$. Without $H$, Feynman was completely stuck.
+Herbert Jehle pointed Feynman to Dirac's 1933 paper \emph{``The Lagrangian in Quantum Mechanics,''} where Dirac noted from Hamilton--Jacobi theory that the short-time kernel $\braket{x_{t+\varepsilon}|x_t}$ is ``analogous to'' $\exp(\ii\varepsilon\Lag/\hbar)$. Feynman tested whether ``analogous to'' meant strictly proportional on a 1D particle with $\Lag(x,\dot x) = \frac{1}{2}m\dot x^2 - V(x)$.
 
-His guiding question therefore became:
-\begin{quote}
-\emph{Can quantum mechanics be formulated directly from the Lagrangian $\Lag$ and the action $S$, without ever mentioning a Hamiltonian?}
-\end{quote}
-
-\subsection{Dirac's 1933 Clue and Feynman's Bold Ansatz}
-
-\begin{historicalbox}[The Beer-Hall Conversation with Herbert Jehle (1941)]
-A visiting European physicist, Herbert Jehle, pointed Feynman to an obscure 1933 paper by Paul Dirac titled \emph{``The Lagrangian in Quantum Mechanics''} (\emph{Phys.\ Z.\ Sowjetunion} \textbf{3}, 64). Motivated by the classical Hamilton--Jacobi theory---where the short-time action $S(x_{t+\varepsilon},x_t)$ serves as the generating function of a canonical transformation---Dirac wrote that the quantum transformation kernel $\braket{x_{t+\varepsilon}|x_t}$ is ``\emph{analogous to}'' $\exp\bigl(\frac{\ii}{\hbar}\varepsilon\Lag\bigr)$.
-
-Feynman asked Jehle what ``analogous to'' meant: did Dirac mean \emph{strictly proportional}? Neither knew. Feynman immediately went to the blackboard to test proportionality on an ordinary one-dimensional particle whose exact quantum equation---the Schr\"odinger equation---was already known.
-\end{historicalbox}
-
-Consider a particle of mass $m$ in a scalar potential $V(x)$ with classical Lagrangian
+By linearity, the wave function at time $t+\varepsilon$ ($\varepsilon > 0$ small) is given by an integral kernel:
 \begin{equation}
-    \Lag(x,\dot x) = \frac{1}{2}m\dot x^2 - V(x).
-\end{equation}
-By the linearity of quantum superposition, the wave function at time $t+\varepsilon$ ($\varepsilon > 0$ small) should be obtained by integrating the wave function at time $t$ against a short-time propagation kernel $K_\varepsilon(x,y)$:
-\begin{equation}
-    \psi(x,t+\varepsilon) = \int_{-\infty}^{\infty} K_\varepsilon(x,y)\,\psi(y,t)\,\dd y.
-    \label{eq:short-time-integral}
-\end{equation}
-Taking Dirac's clue literally, Feynman postulated that $K_\varepsilon(x,y)$ is proportional to $\exp\bigl(\frac{\ii}{\hbar}\Delta S\bigr)$ along the straight segment joining $(t,y)$ to $(t+\varepsilon,x)$:
-\begin{equation}
-    K_\varepsilon(x,y) = \frac{1}{A(\varepsilon)}
+    \psi(x,t+\varepsilon) = \frac{1}{A(\varepsilon)}\int_{-\infty}^{\infty}
     \exp\!\left\{\frac{\ii\varepsilon}{\hbar}\left[
         \frac{m}{2}\!\left(\frac{x-y}{\varepsilon}\right)^2
         - V\!\left(\frac{x+y}{2}\right)
-    \right]\right\},
+    \right]\right\}\psi(y,t)\,\dd y,
     \label{eq:feynman-ansatz}
 \end{equation}
-where $A(\varepsilon)$ is an unknown normalization constant to be determined by self-consistency, and $V$ is evaluated at the midpoint $\frac{x+y}{2}$ (we will check below that evaluating at $x$ or $y$ gives the same result to $\order(\varepsilon)$ for scalar potentials). Notice that \emph{not a single operator, commutator, or Hamiltonian appears anywhere in~\eqref{eq:feynman-ansatz}.}
+where $A(\varepsilon)$ is a normalization constant to be fixed. No operators or commutators are assumed in~\eqref{eq:feynman-ansatz}.
 
-\subsection{Deriving the Schr\"odinger Equation Directly from the Lagrangian}
-\label{sec:feynman-derivation}
+\subsection{Deriving the Schr\"odinger Equation}
 
-Substitute the ansatz~\eqref{eq:feynman-ansatz} into~\eqref{eq:short-time-integral} and change the integration variable to the relative displacement $\eta := y - x$ (so $y = x+\eta$, $\dd y = \dd\eta$, and $\frac{x+y}{2}=x+\frac{\eta}{2}$):
+Let $\eta := y - x$ (so $y = x+\eta$ and $\dd y = \dd\eta$). Equation~\eqref{eq:feynman-ansatz} becomes
 \begin{equation}
     \psi(x,t+\varepsilon) = \frac{1}{A(\varepsilon)}\int_{-\infty}^{\infty}
     \exp\!\left(\frac{\ii m\eta^2}{2\hbar\varepsilon}\right)
@@ -299,46 +209,32 @@ Substitute the ansatz~\eqref{eq:feynman-ansatz} into~\eqref{eq:short-time-integr
     \label{eq:eta-integral}
 \end{equation}
 
-\paragraph{The Crucial Scaling Insight.}
-Examine the first exponential factor $\exp\bigl(\frac{\ii m\eta^2}{2\hbar\varepsilon}\bigr)$ as $\varepsilon \to 0^+$. Define the characteristic Fresnel length scale
-\begin{equation}
-    \sigma_\varepsilon := \sqrt{\frac{\hbar\varepsilon}{m}} = \order(\varepsilon^{1/2}).
-\end{equation}
-Whenever $|\eta| \gg \sigma_\varepsilon$, the phase $\frac{m\eta^2}{2\hbar\varepsilon} = \frac{1}{2}(\eta/\sigma_\varepsilon)^2$ oscillates violently as $\eta$ varies, so adjacent positive and negative lobes cancel in the integral (Figure~\ref{fig:fresnel-scaling}). Almost the entire value of the integral comes from the central stationary lobe $|\eta| \lesssim \sqrt{\pi}\,\sigma_\varepsilon = \order(\varepsilon^{1/2})$.
+Define $\sigma_\varepsilon := \sqrt{\hbar\varepsilon/m}$. For $|\eta| \gg \sigma_\varepsilon$, the factor $\exp\bigl(\frac{\ii m\eta^2}{2\hbar\varepsilon}\bigr)$ oscillates rapidly and cancels in the integral (Figure~\ref{fig:fresnel-scaling}). The integral is therefore dominated by $|\eta| \sim \sigma_\varepsilon = \order(\varepsilon^{1/2})$.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.96\textwidth]{assets/fig2_fresnel_scaling.pdf}
-    \caption{\textbf{Oscillatory Fresnel kernel and the $\eta\sim\sqrt{\varepsilon}$ scaling.}
-    Plot of $\operatorname{Re}\exp\bigl(\frac{\ii m\eta^2}{2\hbar\varepsilon}\bigr)=\cos\bigl(\frac{1}{2}(\eta/\sigma_\varepsilon)^2\bigr)$ with $\sigma_\varepsilon:=\sqrt{\hbar\varepsilon/m}$.
-    In the central lobe $|\eta|\le\sqrt{\pi}\,\sigma_\varepsilon$ (shaded), the phase varies slowly and dominates the integral; outside, rapid sign changes cancel out. Because $\eta^2\sim\sigma_\varepsilon^2=\order(\varepsilon)$, expanding~\eqref{eq:eta-integral} to $\order(\varepsilon)$ forces us to retain $\psi(x+\eta,t)$ through second order in $\eta$.}
+    \includegraphics[width=0.94\textwidth]{assets/fig2_fresnel_scaling.pdf}
+    \caption{Real part of the kinetic kernel $\exp\bigl(\frac{\ii m\eta^2}{2\hbar\varepsilon}\bigr)$ with $\sigma_\varepsilon=\sqrt{\hbar\varepsilon/m}$. Contributions concentrate in $|\eta|\lesssim\sigma_\varepsilon=\order(\varepsilon^{1/2})$, so $\eta^2$ is of order $\varepsilon$.}
     \label{fig:fresnel-scaling}
 \end{figure}
 
-This scaling dictates our Taylor expansion order with surgical precision: to evaluate the right-hand side of~\eqref{eq:eta-integral} accurately to $\order(\varepsilon)$, we must keep $\eta^2 = \order(\varepsilon)$! Specifically:
+Because $\eta^2 \sim \order(\varepsilon)$, keeping all terms up to $\order(\varepsilon)$ requires expanding $\psi(x+\eta,t)$ to second order in $\eta$:
 \begin{align}
-    \psi(x+\eta,t) &= \psi(x,t) + \eta\,\partial_x\psi(x,t) + \frac{1}{2}\eta^2\,\partial_x^2\psi(x,t) + \order(\eta^3), \\[4pt]
+    \psi(x+\eta,t) &= \psi(x,t) + \eta\,\partial_x\psi(x,t) + \frac{1}{2}\eta^2\,\partial_x^2\psi(x,t) + \order(\eta^3), \\
     \exp\!\left[-\frac{\ii\varepsilon}{\hbar}V\!\left(x+\frac{\eta}{2}\right)\right]
-    &= 1 - \frac{\ii\varepsilon}{\hbar}\!\left[V(x) + \frac{\eta}{2}V'(x) + \order(\eta^2)\right] + \order(\varepsilon^2) \nonumber\\
-    &= 1 - \frac{\ii\varepsilon}{\hbar}V(x) + \order(\varepsilon^{3/2}).
+    &= 1 - \frac{\ii\varepsilon}{\hbar}V(x) - \frac{\ii\varepsilon}{2\hbar}\eta V'(x) + \order(\varepsilon^2).
 \end{align}
-Note why replacing $V(x+\eta/2)$ by $V(x)$ (or $V(y)$) makes no difference to $\order(\varepsilon)$: the shift introduces $-\frac{\ii\varepsilon}{2\hbar}\eta V'(x)$, which is odd in $\eta$ (vanishes upon symmetric integration) and of order $\varepsilon\cdot\varepsilon^{1/2}=\order(\varepsilon^{3/2})$, while the next term $-\frac{\ii\varepsilon}{8\hbar}\eta^2 V''(x)$ is $\order(\varepsilon^2)$.
+Here the $-\frac{\ii\varepsilon}{2\hbar}\eta V'(x)$ term is $\order(\varepsilon^{3/2})$ and odd in $\eta$, so evaluating $V$ at $x$, $y$, or $\frac{1}{2}(x+y)$ gives the same result to $\order(\varepsilon)$.
 
 \begin{propositionbox}[Fresnel--Gaussian Moments]
-Let $\alpha\in\mathbb{C}$ with $\operatorname{Re}\alpha > 0$. The standard Gaussian integral and its first two moments are
+For $\alpha\in\mathbb{C}$ with $\operatorname{Re}\alpha > 0$ (principal root $\operatorname{Re}\sqrt{\alpha}>0$),
 \begin{equation}
     \int_{-\infty}^{\infty} \ee^{-\alpha\eta^2}\,\dd\eta = \sqrt{\frac{\pi}{\alpha}}, \qquad
     \int_{-\infty}^{\infty} \eta\,\ee^{-\alpha\eta^2}\,\dd\eta = 0, \qquad
-    \int_{-\infty}^{\infty} \eta^2\,\ee^{-\alpha\eta^2}\,\dd\eta = \frac{1}{2\alpha}\sqrt{\frac{\pi}{\alpha}},
+    \int_{-\infty}^{\infty} \eta^2\,\ee^{-\alpha\eta^2}\,\dd\eta = \frac{1}{2\alpha}\sqrt{\frac{\pi}{\alpha}}.
     \label{eq:gaussian-moments}
 \end{equation}
-where the principal square root ($\operatorname{Re}\sqrt{\alpha} > 0$) is chosen. For our oscillatory Fresnel kernel, regularizing convergence by $\varepsilon \to \varepsilon - \ii 0^+$ sets
-\begin{equation}
-    \alpha = -\frac{\ii m}{2\hbar\varepsilon} + 0^+ = \frac{m}{2\ii\hbar\varepsilon} + 0^+
-    \quad\Longrightarrow\quad
-    \frac{1}{2\alpha} = \frac{\ii\hbar\varepsilon}{m},
-\end{equation}
-which yields the exact moments
+With the convergence prescription $\varepsilon \to \varepsilon - \ii 0^+$, setting $\alpha = \frac{m}{2\ii\hbar\varepsilon} + 0^+$ gives
 \begin{equation}
     I_0 := \int_{-\infty}^{\infty}\ee^{\frac{\ii m\eta^2}{2\hbar\varepsilon}}\,\dd\eta
     = \sqrt{\frac{2\pi\ii\hbar\varepsilon}{m}}, \qquad
@@ -347,68 +243,40 @@ which yields the exact moments
     = \frac{\ii\hbar\varepsilon}{m}\,I_0,
     \label{eq:fresnel-moments}
 \end{equation}
-with $\sqrt{\ii} = \ee^{\ii\pi/4}$.
+where $\sqrt{\ii} = \ee^{\ii\pi/4}$.
 \end{propositionbox}
 
-\textit{Verification of~\eqref{eq:gaussian-moments}.}\;
-For $\alpha > 0$, $\bigl(\int \ee^{-\alpha\eta^2}\,\dd\eta\bigr)^2 = \int_0^{2\pi}\dd\theta\int_0^\infty r\,\ee^{-\alpha r^2}\,\dd r = \pi/\alpha$; analytic continuation extends the identity to the entire open right half-plane $\operatorname{Re}\alpha > 0$. Differentiating both sides with respect to $-\alpha$ yields $\int \eta^2\ee^{-\alpha\eta^2}\,\dd\eta = -\frac{\dd}{\dd\alpha}(\pi^{1/2}\alpha^{-1/2}) = \frac{1}{2\alpha}\sqrt{\pi/\alpha}$. The odd moment $I_1$ vanishes by parity $\eta\mapsto-\eta$. \hfill$\square$
+\textit{Proof.}\;
+The first integral holds for $\alpha > 0$ via polar coordinates and extends to $\operatorname{Re}\alpha > 0$ by analytic continuation. Differentiating with respect to $-\alpha$ gives the $\eta^2$ moment; the $\eta$ moment vanishes by parity. \hfill$\square$
 
-Now substitute the expansions and the moments~\eqref{eq:fresnel-moments} directly into~\eqref{eq:eta-integral}:
-\begin{align}
+Substituting the expansions and~\eqref{eq:fresnel-moments} into~\eqref{eq:eta-integral} (the $\eta^3$ term also drops out by parity) gives
+\begin{equation}
     \psi(x,t+\varepsilon)
-    &= \frac{1}{A(\varepsilon)}\int_{-\infty}^{\infty} \ee^{\frac{\ii m\eta^2}{2\hbar\varepsilon}}
-       \left[
-           \left(1 - \frac{\ii\varepsilon}{\hbar}V(x)\right)\psi(x,t)
-           + \eta\,\partial_x\psi(x,t)
-           + \frac{1}{2}\eta^2\,\partial_x^2\psi(x,t)
-           + \order(\varepsilon^{3/2})
-       \right]\dd\eta \nonumber\\[4pt]
-    &= \frac{I_0}{A(\varepsilon)}\left[
-           \psi(x,t)
-           - \frac{\ii\varepsilon}{\hbar}V(x)\psi(x,t)
-           + \frac{1}{2}\!\left(\frac{\ii\hbar\varepsilon}{m}\right)\partial_x^2\psi(x,t)
-           + \order(\varepsilon^2)
-       \right],
+    = \frac{I_0}{A(\varepsilon)}\left[
+        \psi(x,t)
+        - \frac{\ii\varepsilon}{\hbar}V(x)\psi(x,t)
+        + \frac{\ii\hbar\varepsilon}{2m}\,\partial_x^2\psi(x,t)
+        + \order(\varepsilon^2)
+    \right].
     \label{eq:feynman-expanded}
-\end{align}
-where the $\order(\eta^3)=\order(\varepsilon^{3/2})$ term vanished identically because it is odd in $\eta$, leaving an $\order(\varepsilon^2)$ remainder!
-
-Comparing both sides of~\eqref{eq:feynman-expanded} order by order in $\varepsilon$:
-\begin{itemize}[leftmargin=1.5em, itemsep=3pt]
-    \item \textbf{At $\order(\varepsilon^0)$:} Requiring $\lim_{\varepsilon\to 0^+}\psi(x,t+\varepsilon)=\psi(x,t)$ uniquely fixes the normalization constant to be
+\end{equation}
+Matching orders of $\varepsilon$:
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item At $\order(\varepsilon^0)$, $\lim_{\varepsilon\to 0^+}\psi(x,t+\varepsilon) = \psi(x,t)$ requires
     \begin{equation}
         A(\varepsilon) = I_0 = \sqrt{\frac{2\pi\ii\hbar\varepsilon}{m}}.
         \label{eq:A-fixed}
     \end{equation}
-    \item \textbf{At $\order(\varepsilon^1)$:} Setting $I_0/A(\varepsilon)=1$, subtracting $\psi(x,t)$, dividing by $\varepsilon$, and taking $\varepsilon\to 0^+$ produces
+    \item At $\order(\varepsilon^1)$, subtracting $\psi(x,t)$, dividing by $\varepsilon$, taking $\varepsilon\to 0^+$, and multiplying by $\ii\hbar$ yields the Schr\"odinger equation:
     \begin{equation}
-        \frac{\partial\psi}{\partial t} = \frac{\ii\hbar}{2m}\frac{\partial^2\psi}{\partial x^2} - \frac{\ii}{\hbar}V(x)\psi.
+        \ii\hbar\frac{\partial\psi}{\partial t}
+        = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi.
     \end{equation}
 \end{itemize}
-Multiplying both sides by $\ii\hbar$ gives the exact time-dependent Schr\"odinger equation:
 
-\begin{theorembox}[Feynman's Equivalence (1942)]
-With $A(\varepsilon) = \sqrt{2\pi\ii\hbar\varepsilon/m}$, the short-time Lagrangian propagation law
-\begin{equation}
-    \psi(x,t+\varepsilon) = \sqrt{\frac{m}{2\pi\ii\hbar\varepsilon}}\int_{-\infty}^{\infty}
-    \exp\!\left[\frac{\ii\varepsilon}{\hbar}\Lag\!\left(\frac{x+y}{2},\frac{x-y}{\varepsilon}\right)\right]
-    \psi(y,t)\,\dd y
-\end{equation}
-is equivalent, in the limit $\varepsilon \to 0^+$, to the time-dependent Schr\"odinger equation
-\begin{equation}
-    \ii\hbar\frac{\partial\psi(x,t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\right]\psi(x,t).
-\end{equation}
-\end{theorembox}
+\subsection{Time Slicing and the Path Integral}
 
-Dirac's tentative ``analogous to'' had turned out to be an exact proportionality!
-
-\subsection{Iterating Infinitesimal Steps: Birth of the Path Integral}
-
-Once the single-step propagation rule is established for an infinitesimal interval $\varepsilon$, evolving over any finite interval $T = t_f - t_i > 0$ requires nothing more than repeating the integral $N$ times. Divide $[t_i,t_f]$ into $N$ equal slices of width $\varepsilon = T/N$:
-\begin{equation}
-    t_k := t_i + k\varepsilon, \qquad k = 0,1,\dots,N, \qquad t_0 = t_i,\; t_N = t_f.
-\end{equation}
-Applying~\eqref{eq:short-time-integral} step by step from $t_0$ to $t_N$ with intermediate coordinates $x_1,x_2,\dots,x_{N-1}$ (and fixed endpoints $x_0 = x_i$, $x_N = x_f$) yields $\psi(x_f,t_f) = \int K(x_f,t_f;\,x_i,t_i)\,\psi(x_i,t_i)\,\dd x_i$, where the finite-time \emph{propagator} is
+For a finite time interval $T = t_f - t_i > 0$, divide $[t_i,t_f]$ into $N$ steps of length $\varepsilon = T/N$, with $t_k = t_i + k\varepsilon$, $x_0 = x_i$, and $x_N = x_f$. Iterating~\eqref{eq:feynman-ansatz} $N$ times gives $\psi(x_f,t_f) = \int K(x_f,t_f;\,x_i,t_i)\psi(x_i,t_i)\,\dd x_i$, where
 \begin{equation}
     K(x_f,t_f;\,x_i,t_i)
     = \lim_{N\to\infty}\left(\frac{m}{2\pi\ii\hbar\varepsilon}\right)^{N/2}
@@ -417,173 +285,139 @@ Applying~\eqref{eq:short-time-integral} step by step from $t_0$ to $t_N$ with in
       \Lag\!\left(\bar x_k,\frac{x_{k+1}-x_k}{\varepsilon}\right)\right\},
     \label{eq:discretized-pi}
 \end{equation}
-with $\bar x_k := \frac{1}{2}(x_k+x_{k+1})$ and $\Delta x_k := x_{k+1}-x_k$.
+with $\bar x_k := \frac{1}{2}(x_k+x_{k+1})$.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.96\textwidth]{assets/fig3_time_slicing.pdf}
-    \caption{\textbf{Time-slicing discretization and polygonal paths.}
-    Dividing $[t_i,t_f]$ into $N$ intervals of duration $\varepsilon=(t_f-t_i)/N$ turns every choice of intermediate coordinates $(x_1,\dots,x_{N-1})$ into a piecewise-linear (polygonal) path joining $(t_i,x_i)$ to $(t_f,x_f)$. Integrating over all vertical slices sums over all such paths, while the product of single-step phases builds $\exp\bigl(\frac{\ii}{\hbar}\sum_k\varepsilon\Lag_k\bigr) \to \exp\bigl(\frac{\ii}{\hbar}S[x(t)]\bigr)$.}
+    \includegraphics[width=0.94\textwidth]{assets/fig3_time_slicing.pdf}
+    \caption{Time-slicing discretization: each choice of $(x_1,\dots,x_{N-1})$ defines a polygonal path from $(t_i,x_i)$ to $(t_f,x_f)$, and the single-step phases add up to the Riemann sum of $S[x]/\hbar$.}
     \label{fig:time-slicing}
 \end{figure}
 
-Every tuple $(x_1,\dots,x_{N-1})\in\mathbb{R}^{N-1}$ defines a piecewise-linear path connecting $(t_i,x_i)$ to $(t_f,x_f)$ (Figure~\ref{fig:time-slicing}). Because exponents add when amplitudes multiply, the sum in the exponent is precisely the Riemann sum of the classical action along that polygonal path:
+As $N\to\infty$, the sum in the exponent approaches the action $S[x(t)] = \int_{t_i}^{t_f}\Lag(x,\dot x)\,\dd t$ along the path (Figure~\ref{fig:time-slicing}). Writing $\Dpath x(t)$ for the formal limit of the normalized integration measure gives the path-integral expression:
+
+\begin{definitionbox}[Feynman Path Integral]
 \begin{equation}
-    S_N(x_0,x_1,\dots,x_N) := \sum_{k=0}^{N-1}\varepsilon\,\Lag\!\left(\bar x_k,\frac{x_{k+1}-x_k}{\varepsilon}\right)
-    \;\xrightarrow{\;N\to\infty\;}\;
-    \int_{t_i}^{t_f}\Lag\bigl(x(t),\dot x(t)\bigr)\,\dd t = S[x(t)].
-\end{equation}
-Denoting the formal limit of the normalized multiple integral by the functional measure
-\begin{equation}
-    \int_{x(t_i)=x_i}^{x(t_f)=x_f}\Dpath x(t)\,(\cdots)
-    := \lim_{N\to\infty}\left(\frac{m}{2\pi\ii\hbar\varepsilon}\right)^{N/2}
-       \int_{-\infty}^{\infty}\dd x_1\cdots\int_{-\infty}^{\infty}\dd x_{N-1}\,(\cdots),
-\end{equation}
-we arrive at \textbf{Feynman's path integral}:
-\begin{definitionbox}[Feynman Path Integral for the Propagator]
-The quantum transition amplitude (propagator) for a particle to travel from $(t_i,x_i)$ to $(t_f,x_f)$ is the functional sum over all paths sharing those endpoints, weighted by the classical action phase:
-\begin{equation}
-    K(x_f,t_f;\,x_i,t_i) = \int_{x(t_i)=x_i}^{x(t_f)=x_f} \Dpath x(t)\,\exp\!\left(\frac{\ii}{\hbar}S[x(t)]\right).
+    K(x_f,t_f;\,x_i,t_i)
+    = \int_{x(t_i)=x_i}^{x(t_f)=x_f} \Dpath x(t)\,\exp\!\left(\frac{\ii}{\hbar}S[x(t)]\right).
     \label{eq:feynman-pi}
 \end{equation}
 \end{definitionbox}
 
-And looking back at Feynman's 1941 impasse, the breakthrough was complete: \emph{even for a Wheeler--Feynman cross-time action with no Hamiltonian, $\ee^{\ii S/\hbar}$ is immediately well-defined!}
-
 % ============================================================================
-\section[Part II: Modern Operator Proof]{Part II --- The Modern Textbook Proof: From Operator Evolution to Path Integrals}
+\section[Modern Operator Proof]{Modern Operator Proof: From $\hat U(t_f,t_i)$ to the Path Integral}
 \label{sec:modern}
 % ============================================================================
 
-Part~I showed how Feynman guessed~\eqref{eq:feynman-ansatz} and verified that it reproduces the Schr\"odinger equation. Now we reverse the logical direction completely (Figure~\ref{fig:two-routes}): starting from the standard Hilbert-space axioms of canonical quantum mechanics, we give a complete, deductive proof of the path integral \emph{without making any ansatz}. Along the way, we will see precisely \emph{why} modern textbooks insert the momentum completeness relation at every time slice.
+We now prove~\eqref{eq:discretized-pi}--\eqref{eq:feynman-pi} deductively from standard operator quantum mechanics without guessing the short-time kernel (Figure~\ref{fig:two-routes}).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.98\textwidth]{assets/fig4_two_routes.pdf}
-    \caption{\textbf{Two equivalent routes to the path integral.}
-    \textbf{Part~I (top):} Feynman's 1941--1942 discovery starts from Dirac's Lagrangian ansatz, uses Fresnel scaling to recover the Schr\"odinger equation and fix $A(\varepsilon)$, and iterates $N$ steps.
-    \textbf{Part~II (bottom):} The modern textbook proof begins from canonical unitary evolution $\hat U(T)=\ee^{-\ii\hat H T/\hbar}$, applies Lie--Trotter slicing, inserts momentum completeness to obtain the phase-space integral, and integrates out $p_k$ (a quantum Legendre transform) to derive the exact same Lagrangian path integral.}
+    \includegraphics[width=0.96\textwidth]{assets/fig4_two_routes.pdf}
+    \caption{Comparison of the two derivations: Feynman's historical route from $\Lag$ to the Schr\"odinger equation (top) and the modern operator derivation from $\hat H$ to the path integral (bottom).}
     \label{fig:two-routes}
 \end{figure}
 
-\subsection{The Propagator as the Position-Space Kernel of \texorpdfstring{$\hat U(t_f,t_i)$}{U(t\_f, t\_i)}}
+\subsection{Propagator as the Position Kernel of \texorpdfstring{$\hat U(t_f,t_i)$}{U(t\_f, t\_i)}}
 
-Let a one-dimensional quantum system have a time-independent Hermitian Hamiltonian
+Consider $\hat H = \hat T + \hat V = \frac{\hat p^2}{2m} + V(\hat x)$, with position and momentum eigenstates satisfying
 \begin{equation}
-    \hat H = \hat T + \hat V = \frac{\hat p^2}{2m} + V(\hat x),
-\end{equation}
-with position eigenstates $\hat x\ket{x}=x\ket{x}$ and momentum eigenstates $\hat p\ket{p}=p\ket{p}$ normalized by
-\begin{equation}
-    \braket{x'|x} = \delta(x'-x), \qquad
-    \braket{p'|p} = \delta(p'-p), \qquad
-    \int_{-\infty}^{\infty}\ket{x}\bra{x}\,\dd x = \hat I, \qquad
+    \braket{x'|x} = \delta(x'-x), \quad
+    \braket{p'|p} = \delta(p'-p), \quad
+    \int_{-\infty}^{\infty}\ket{x}\bra{x}\,\dd x = \hat I, \quad
     \int_{-\infty}^{\infty}\ket{p}\bra{p}\,\dd p = \hat I,
-    \label{eq:completeness}
 \end{equation}
-and linked by the Fourier transformation kernel
+and transformation kernel
 \begin{equation}
     \braket{x|p} = \frac{1}{\sqrt{2\pi\hbar}}\,\ee^{\frac{\ii}{\hbar}px}, \qquad
-    \braket{p|x} = \braket{x|p}^* = \frac{1}{\sqrt{2\pi\hbar}}\,\ee^{-\frac{\ii}{\hbar}px}.
+    \braket{p|x} = \frac{1}{\sqrt{2\pi\hbar}}\,\ee^{-\frac{\ii}{\hbar}px}.
     \label{eq:xp-overlap}
 \end{equation}
 
-The unitary time-evolution operator $\hat U(t_f,t_i) = \ee^{-\ii\hat H(t_f-t_i)/\hbar}$ evolves any state via $\ket{\psi(t_f)} = \hat U(t_f,t_i)\ket{\psi(t_i)}$. Inserting the position completeness relation on the right of $\hat U$ gives
-\begin{equation}
-    \psi(x_f,t_f) = \braket{x_f|\hat U(t_f,t_i)|\psi(t_i)}
-    = \int_{-\infty}^{\infty} \underbrace{\braket{x_f|\hat U(t_f,t_i)|x_i}}_{=: \, K(x_f,t_f;\,x_i,t_i)} \psi(x_i,t_i)\,\dd x_i.
-\end{equation}
-
-\begin{definitionbox}[Operator Definition of the Propagator]
-For $t_f > t_i$, the \emph{propagator} $K(x_f,t_f;\,x_i,t_i)$ is the continuous position-space matrix element (kernel) of the time-evolution operator:
+\begin{definitionbox}[Propagator]
+For $t_f > t_i$ and $\hat U(t_f,t_i) = \ee^{-\ii\hat H(t_f-t_i)/\hbar}$, the propagator is the position-space kernel of $\hat U$:
 \begin{equation}
     K(x_f,t_f;\,x_i,t_i) := \braket{x_f|\hat U(t_f,t_i)|x_i}
     = \braket{x_f|\ee^{-\frac{\ii}{\hbar}\hat H(t_f-t_i)}|x_i}.
 \end{equation}
 \end{definitionbox}
 
-Three structural identities follow immediately from the group properties of $\hat U$:
+Inserting $\int\ket{x_i}\bra{x_i}\,\dd x_i = \hat I$ into $\braket{x_f|\psi(t_f)} = \braket{x_f|\hat U(t_f,t_i)|\psi(t_i)}$ gives
+\begin{equation}
+    \psi(x_f,t_f) = \int_{-\infty}^{\infty} K(x_f,t_f;\,x_i,t_i)\,\psi(x_i,t_i)\,\dd x_i.
+\end{equation}
+Three properties follow directly from $\hat U$:
 \begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
-    \item \textbf{Initial condition:} $\lim_{t_f\to t_i^+} K(x_f,t_f;\,x_i,t_i) = \braket{x_f|\hat I|x_i} = \delta(x_f-x_i)$.
-    \item \textbf{Schr\"odinger equation:} Since $\ii\hbar\partial_{t_f}\hat U = \hat H\hat U$, the kernel satisfies $\bigl(\ii\hbar\partial_{t_f} - \hat H_{x_f}\bigr)K(x_f,t_f;\,x_i,t_i) = 0$ for $t_f > t_i$.
-    \item \textbf{Composition law:} From $\hat U(t_f,t_i) = \hat U(t_f,t_1)\hat U(t_1,t_i)$ and $\int\ket{x_1}\bra{x_1}\,\dd x_1=\hat I$,
+    \item \textbf{Initial limit:} $\lim_{t_f\to t_i^+} K(x_f,t_f;\,x_i,t_i) = \braket{x_f|\hat I|x_i} = \delta(x_f-x_i)$.
+    \item \textbf{Differential equation:} $\bigl(\ii\hbar\partial_{t_f} - \hat H_{x_f}\bigr)K(x_f,t_f;\,x_i,t_i) = 0$ for $t_f > t_i$.
+    \item \textbf{Composition:} From $\hat U(t_f,t_i) = \hat U(t_f,t_1)\hat U(t_1,t_i)$ and $\int\ket{x_1}\bra{x_1}\,\dd x_1 = \hat I$,
     \begin{equation}
         K(x_f,t_f;\,x_i,t_i) = \int_{-\infty}^{\infty} K(x_f,t_f;\,x_1,t_1)\,K(x_1,t_1;\,x_i,t_i)\,\dd x_1.
         \label{eq:composition-law}
     \end{equation}
 \end{enumerate}
 
-\subsection{Time Slicing and the Lie--Trotter Product Formula}
+\subsection{Time Slicing and the Lie--Trotter Formula}
 
-Set $T := t_f - t_i > 0$ and $\varepsilon := T/N$. Because $\hat U(T) = [\hat U(\varepsilon)]^N$, applying the composition law~\eqref{eq:composition-law} $(N-1)$ times inserts $(N-1)$ position completeness relations:
+With $T = t_f - t_i$ and $\varepsilon = T/N$, writing $\hat U(T) = [\hat U(\varepsilon)]^N$ and inserting $(N-1)$ position resolutions gives
 \begin{equation}
     K(x_f,t_f;\,x_i,t_i) = \int_{-\infty}^{\infty}\dd x_1\cdots\int_{-\infty}^{\infty}\dd x_{N-1}\,
-    \prod_{k=0}^{N-1}\braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}|x_k},
-    \label{eq:exact-sliced-U}
+    \prod_{k=0}^{N-1}\braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}|x_k}.
 \end{equation}
-with $x_0 = x_i$ and $x_N = x_f$.
-
-The obstacle is that $[\hat T,\hat V]\neq 0$, so $\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)} \neq \ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\ee^{-\frac{\ii\varepsilon}{\hbar}\hat V}$. However, by the Baker--Campbell--Hausdorff (BCH) expansion $\ee^A\ee^B = \exp\bigl(A + B + \frac{1}{2}[A,B] + \frac{1}{12}[A,[A,B]] - \frac{1}{12}[B,[A,B]] + \cdots\bigr)$, we have two standard short-time factorizations:
+Since $[\hat T,\hat V]\neq 0$, $\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}$ does not factor exactly, but the Baker--Campbell--Hausdorff expansion gives
 \begin{align}
-    \text{Asymmetric (1st order):}\quad
-    &\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}
-    = \ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\,\ee^{-\frac{\ii\varepsilon}{\hbar}\hat V} + \order(\varepsilon^2),
-    \label{eq:trotter-1} \\[4pt]
-    \text{Symmetric Strang (2nd order):}\quad
-    &\ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}
-    = \ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V}\,\ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\,\ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V} + \order(\varepsilon^3).
+    \ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}
+    &= \ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\,\ee^{-\frac{\ii\varepsilon}{\hbar}\hat V} + \order(\varepsilon^2),
+    \label{eq:trotter-1} \\
+    \ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}
+    &= \ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V}\,\ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\,\ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V} + \order(\varepsilon^3).
     \label{eq:trotter-2}
 \end{align}
-Why is a local error of $\order(\varepsilon^2)$ (or $\order(\varepsilon^3)$) harmless when we multiply $N = T/\varepsilon$ such factors together?
 
-\begin{propositionbox}[Global Error Bound (Lie--Trotter Product Formula)]
-Let $\hat A_\varepsilon := \ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}$ and $\hat B_\varepsilon := \ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V}\ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\ee^{-\frac{\ii\varepsilon}{2\hbar}\hat V}$ (or $\ee^{-\frac{\ii\varepsilon}{\hbar}\hat T}\ee^{-\frac{\ii\varepsilon}{\hbar}\hat V}$). Both $\hat A_\varepsilon$ and $\hat B_\varepsilon$ are unitary operators ($\|\hat A_\varepsilon\|=\|\hat B_\varepsilon\|=1$). By the telescoping identity
+\begin{propositionbox}[Global Error Bound (Lie--Trotter)]
+Let $\hat A_\varepsilon := \ee^{-\frac{\ii\varepsilon}{\hbar}(\hat T+\hat V)}$ and let $\hat B_\varepsilon$ denote the product in~\eqref{eq:trotter-1} ($r=2$) or~\eqref{eq:trotter-2} ($r=3$). Since $\|\hat A_\varepsilon\|=\|\hat B_\varepsilon\|=1$, the telescoping identity
 \begin{equation}
     \hat A_\varepsilon^N - \hat B_\varepsilon^N
-    = \sum_{j=0}^{N-1} \hat A_\varepsilon^{N-1-j}\,(\hat A_\varepsilon - \hat B_\varepsilon)\,\hat B_\varepsilon^{j},
+    = \sum_{j=0}^{N-1} \hat A_\varepsilon^{N-1-j}\,(\hat A_\varepsilon - \hat B_\varepsilon)\,\hat B_\varepsilon^{j}
 \end{equation}
-taking the operator norm on a common domain of smooth states $\ket{\psi}$ gives
+implies that on smooth states $\ket{\psi}$,
 \begin{equation}
     \bigl\|(\hat A_\varepsilon^N - \hat B_\varepsilon^N)\ket{\psi}\bigr\|
     \le \sum_{j=0}^{N-1}\bigl\|(\hat A_\varepsilon - \hat B_\varepsilon)\hat B_\varepsilon^j\ket{\psi}\bigr\|
-    = N\cdot\order(\varepsilon^r) = T\cdot\order(\varepsilon^{r-1}) \;\xrightarrow{\;N\to\infty\;}\; 0,
+    = N\cdot\order(\varepsilon^r) = T\cdot\order(\varepsilon^{r-1}) \;\xrightarrow{\;N\to\infty\;}\; 0.
 \end{equation}
-where $r=2$ for the asymmetric splitting~\eqref{eq:trotter-1} and $r=3$ for the symmetric Strang splitting~\eqref{eq:trotter-2}. Rigorously, for any self-adjoint $\hat T$ and $\hat V$ such that $\hat T+\hat V$ is essentially self-adjoint (Trotter 1959; Kato 1978), $\hat B_{T/N}^N \to \ee^{-\ii(\hat T+\hat V)T/\hbar}$ strongly as $N\to\infty$.
+More generally, if $\hat T+\hat V$ is essentially self-adjoint, $\hat B_{T/N}^N \to \ee^{-\ii(\hat T+\hat V)T/\hbar}$ strongly as $N\to\infty$.
 \end{propositionbox}
 
-Notice how crucial unitarity is in that proof: each factor has norm $1$, so the local errors add linearly rather than exponentially, and $N\cdot\varepsilon^2 = T\varepsilon \to 0$!
+\subsection{Momentum Completeness and the Legendre Transform}
 
-\subsection{Inserting Momentum Completeness: Diagonalization and the Quantum Legendre Transform}
-
-Now evaluate a single symmetric-split matrix element $\braket{x_{k+1}|\hat B_\varepsilon|x_k}$:
-\begin{align}
-    \braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{2\hbar}V(\hat x)}\ee^{-\frac{\ii\varepsilon}{\hbar}\frac{\hat p^2}{2m}}\ee^{-\frac{\ii\varepsilon}{2\hbar}V(\hat x)}|x_k}
-    &= \ee^{-\frac{\ii\varepsilon}{2\hbar}\bigl[V(x_{k+1})+V(x_k)\bigr]}
-       \braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{\hbar}\frac{\hat p^2}{2m}}|x_k}.
+Using the symmetric splitting~\eqref{eq:trotter-2}, the potential operators act on $\bra{x_{k+1}}$ and $\ket{x_k}$ as numbers:
+\begin{equation}
+    \braket{x_{k+1}|\hat B_\varepsilon|x_k}
+    = \ee^{-\frac{\ii\varepsilon}{2\hbar}\bigl[V(x_{k+1})+V(x_k)\bigr]}
+      \braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{\hbar}\frac{\hat p^2}{2m}}|x_k}.
     \label{eq:pot-factored}
-\end{align}
-Because $V(\hat x)$ is diagonal in the position basis, both potential operators immediately collapsed to ordinary numbers!
+\end{equation}
 
-\noindent\textbf{Why insert the momentum completeness relation?}\par\nopagebreak
-The remaining matrix element $\braket{x_{k+1}|\ee^{-\ii\varepsilon\hat p^2/(2m\hbar)}|x_k}$ cannot be evaluated directly in the position basis because $\hat p = -\ii\hbar\partial_x$ acts as a differential operator, turning the exponential into an infinite series of derivatives acting on $\delta(x_{k+1}-x_k)$.
-
-Inserting the momentum completeness relation $\int_{-\infty}^{\infty}\ket{p_k}\bra{p_k}\,\dd p_k = \hat I$ achieves \textbf{two things simultaneously}:
+Why insert a momentum completeness relation $\int\ket{p_k}\bra{p_k}\,\dd p_k = \hat I$ into the remaining factor?
 \begin{enumerate}[leftmargin=1.5em, itemsep=2pt]
-    \item \textbf{Algebraic diagonalization (local Fourier transform):} It switches temporarily to the basis where $\hat T = \hat p^2/(2m)$ is diagonal, converting the operator exponential into the ordinary $c$-number $\ee^{-\frac{\ii\varepsilon p_k^2}{2m\hbar}}$.
-    \item \textbf{Quantum Legendre transform:} Integrating out $p_k$ transforms the Hamiltonian exponent $p_k\dot x_k - H(p_k,x_k)$ directly into the Lagrangian exponent $\Lag(x_k,\dot x_k)$.
+    \item \textbf{Diagonalizing $\hat T$:} In the position basis, $\hat p = -\ii\hbar\partial_x$ is a differential operator. Switching to $\ket{p_k}$ turns the operator $\ee^{-\ii\varepsilon\hat p^2/(2m\hbar)}$ into the number $\ee^{-\ii\varepsilon p_k^2/(2m\hbar)}$.
+    \item \textbf{Legendre transform:} Integrating out $p_k$ replaces $p_k\dot x_k - H(p_k,x_k)$ in the exponent with $\Lag(x_k,\dot x_k)$.
 \end{enumerate}
 
-Let us execute both steps explicitly. Inserting $\int\ket{p_k}\bra{p_k}\,\dd p_k=\hat I$ and applying~\eqref{eq:xp-overlap}:
-\begin{align}
+Inserting $\int\ket{p_k}\bra{p_k}\,\dd p_k = \hat I$ and using~\eqref{eq:xp-overlap} gives
+\begin{equation}
+\begin{aligned}
     \braket{x_{k+1}|\ee^{-\frac{\ii\varepsilon}{\hbar}\frac{\hat p^2}{2m}}|x_k}
-    &= \int_{-\infty}^{\infty} \braket{x_{k+1}|p_k}\,\ee^{-\frac{\ii\varepsilon p_k^2}{2m\hbar}}\,\braket{p_k|x_k}\,\dd p_k \nonumber\\[4pt]
-    &= \int_{-\infty}^{\infty} \frac{\dd p_k}{2\pi\hbar}\,
-       \exp\!\left[\frac{\ii}{\hbar}p_k(x_{k+1}-x_k) - \frac{\ii\varepsilon}{\hbar}\frac{p_k^2}{2m}\right].
-    \label{eq:mom-inserted}
-\end{align}
-Before evaluating this integral over $p_k$, pause and combine~\eqref{eq:pot-factored} and~\eqref{eq:mom-inserted} across all $N$ slices! Writing $\overline{V}_k := \frac{1}{2}[V(x_k)+V(x_{k+1})]$ and $H(p_k,\bar x_k) := \frac{p_k^2}{2m} + \overline{V}_k$, we obtain a profound intermediate representation:
+    &= \int_{-\infty}^{\infty}\braket{x_{k+1}|p_k}\,\ee^{-\frac{\ii\varepsilon p_k^2}{2m\hbar}}\,\braket{p_k|x_k}\,\dd p_k \\
+    &= \int_{-\infty}^{\infty}\frac{\dd p_k}{2\pi\hbar}\,
+      \exp\!\left[\frac{\ii}{\hbar}p_k(x_{k+1}-x_k) - \frac{\ii\varepsilon}{\hbar}\frac{p_k^2}{2m}\right].
+\end{aligned}
+\label{eq:mom-inserted}
+\end{equation}
+Combining~\eqref{eq:pot-factored} and~\eqref{eq:mom-inserted} across all $N$ slices (with $H(p_k,\bar x_k) := \frac{p_k^2}{2m} + \frac{1}{2}[V(x_k)+V(x_{k+1})]$) before integrating over $p_k$ gives the Hamiltonian form of the path integral:
 
-\begin{theorembox}[Phase-Space (Hamiltonian) Path Integral]
-For any Hamiltonian $\hat H = \frac{\hat p^2}{2m} + V(\hat x)$ (and more generally any Weyl-ordered $H(p,x)$), the propagator admits the phase-space path integral
+\begin{theorembox}[Phase-Space Path Integral]
 \begin{equation}
 \begin{aligned}
     K(x_f,t_f;\,x_i,t_i)
@@ -592,23 +426,21 @@ For any Hamiltonian $\hat H = \frac{\hat p^2}{2m} + V(\hat x)$ (and more general
 \end{aligned}
 \label{eq:phase-space-pi}
 \end{equation}
-Notice that the measure carries one factor of $\dd x\,\dd p/(2\pi\hbar) = \dd x\,\dd p/h$ per phase-space cell (with one extra $p$-integral because the two endpoints $x_0,x_N$ are fixed), and requires \emph{no mass-dependent prefactor}.
 \end{theorembox}
 
-Now perform the Gaussian integral over $p_k$ in~\eqref{eq:mom-inserted} by completing the square in the exponent:
-\begin{align}
+Now complete the square in $p_k$ inside~\eqref{eq:mom-inserted}, writing $\Delta x_k := x_{k+1}-x_k$:
+\begin{equation}
     -\frac{\ii\varepsilon}{2m\hbar}p_k^2 + \frac{\ii}{\hbar}p_k\Delta x_k
-    &= -\frac{\ii\varepsilon}{2m\hbar}\!\left(p_k - m\frac{\Delta x_k}{\varepsilon}\right)^2
-       + \frac{\ii\varepsilon}{\hbar}\cdot\frac{m}{2}\!\left(\frac{\Delta x_k}{\varepsilon}\right)^2.
-\end{align}
-Shifting the integration variable to $u := p_k - m\Delta x_k/\varepsilon$ and applying the Fresnel--Gaussian formula~\eqref{eq:gaussian-moments} with $\alpha = \frac{\ii\varepsilon}{2m\hbar} + 0^+$:
+    = -\frac{\ii\varepsilon}{2m\hbar}\!\left(p_k - m\frac{\Delta x_k}{\varepsilon}\right)^2
+      + \frac{\ii\varepsilon}{\hbar}\cdot\frac{m}{2}\!\left(\frac{\Delta x_k}{\varepsilon}\right)^2.
+\end{equation}
+Evaluating the Gaussian integral over $u = p_k - m\Delta x_k/\varepsilon$ via~\eqref{eq:gaussian-moments} ($\alpha = \frac{\ii\varepsilon}{2m\hbar}+0^+$) gives
 \begin{equation}
     \int_{-\infty}^{\infty}\frac{\dd u}{2\pi\hbar}\,\ee^{-\frac{\ii\varepsilon}{2m\hbar}u^2}
     = \frac{1}{2\pi\hbar}\sqrt{\frac{2\pi m\hbar}{\ii\varepsilon}}
     = \sqrt{\frac{m}{2\pi\ii\hbar\varepsilon}}.
-    \label{eq:p-gauss-done}
 \end{equation}
-Multiplying back the potential factor $\ee^{-\frac{\ii\varepsilon}{\hbar}\overline{V}_k}$ gives the \emph{short-time propagator} accurate through $\order(\varepsilon^2)$:
+Restoring the potential factor yields the short-time propagator:
 \begin{equation}
     K(x_{k+1},t_{k+1};\,x_k,t_k)
     = \sqrt{\frac{m}{2\pi\ii\hbar\varepsilon}}
@@ -618,66 +450,39 @@ Multiplying back the potential factor $\ee^{-\frac{\ii\varepsilon}{\hbar}\overli
       \right]\right\} + \order(\varepsilon^3).
     \label{eq:infinitesimal-propagator}
 \end{equation}
+At the stationary momentum $p_k^* = m\Delta x_k/\varepsilon = m\dot x_k$, the exponent $p_k^*\dot x_k - H(p_k^*,\bar x_k)$ becomes $\Lag(\bar x_k,\dot x_k)$, and the Gaussian integral supplies the prefactor $\sqrt{m/(2\pi\ii\hbar\varepsilon)}$ that had to be matched manually in~\eqref{eq:A-fixed}. Taking the product over $k=0,\dots,N-1$ and $N\to\infty$ recovers~\eqref{eq:discretized-pi}--\eqref{eq:feynman-pi}. \hfill$\square$
 
-Look at what just happened mathematically:
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Completing the square located the stationary momentum $p_k^* = m\Delta x_k/\varepsilon = m\dot x_k$ and evaluated
-    \[
-        p_k^*\dot x_k - H(p_k^*,\bar x_k) = \frac{m}{2}\dot x_k^2 - V(\bar x_k) = \Lag(\bar x_k,\dot x_k),
-    \]
-    which is literally the \textbf{Legendre transform} from $H$ to $\Lag$!
-    \item The normalization prefactor $\sqrt{m/(2\pi\ii\hbar\varepsilon)}$ that Feynman had to deduce by matching $\order(\varepsilon^0)$ in~\eqref{eq:A-fixed} dropped out \emph{automatically} from the momentum Gaussian integral~\eqref{eq:p-gauss-done}.
-\end{itemize}
+\subsection{Path Roughness and Midpoint Ordering}
 
-Multiplying~\eqref{eq:infinitesimal-propagator} over $k=0,1,\dots,N-1$ and taking $N\to\infty$ proves~\eqref{eq:discretized-pi}--\eqref{eq:feynman-pi} directly from canonical quantum mechanics. \hfill$\square$
-
-\subsection{Technical Subtleties: Rough Paths, Operator Ordering, and the Midpoint Rule}
-
-Two subtle consequences of the scaling $|\Delta x_k|\sim\sqrt{\hbar\varepsilon/m}$ deserve special attention:
-
-\begin{remarkbox}[Continuous Yet Nowhere Differentiable Paths]
-In~\eqref{eq:infinitesimal-propagator}, typical contributing steps have magnitude $|\Delta x_k|\sim\sqrt{\hbar\varepsilon/m}\to 0$ as $\varepsilon\to 0$, so typical quantum paths are \emph{continuous}. However, their discrete velocity scales as
-\begin{equation}
-    \left|\frac{\Delta x_k}{\varepsilon}\right| \sim \sqrt{\frac{\hbar}{m\varepsilon}} \;\xrightarrow{\;\varepsilon\to 0\;}\; \infty!
-\end{equation}
-Thus the support of the path-integral measure consists almost entirely of \emph{continuous, nowhere-differentiable} paths (the exact counterpart of Brownian sample paths under Wick rotation $t = -\ii\tau$, where $\ee^{\ii S/\hbar}$ becomes the real Wiener measure $\ee^{-S_E/\hbar}$). Smooth curves like $\xcl(t)$ form a set of measure zero, yet still organize the interference phase in the semiclassical limit.
-\end{remarkbox}
-
-\begin{remarkbox}[Why Midpoint Discretization Matters for Magnetic Fields]
-For a pure scalar potential $V(x)$, replacing $\frac{1}{2}[V(x_k)+V(x_{k+1})]$ by $V(x_k)$ or $V(\bar x_k)$ shifts the exponent by $\order(\varepsilon\Delta x_k) = \order(\varepsilon^{3/2})$, which vanishes in the $N\to\infty$ limit.
-By contrast, when a charged particle couples to a magnetic vector potential $A(x)$, the Lagrangian acquires a velocity-linear term $q A(x)\dot x$, whose discrete step is $q A(\tilde x_k)\Delta x_k$. Because shifting $\tilde x_k$ from $x_k$ to $\bar x_k = x_k + \frac{1}{2}\Delta x_k$ changes the phase by
-\begin{equation}
-    \frac{\ii q}{\hbar}A'(x_k)\cdot\frac{1}{2}(\Delta x_k)^2 \sim \order(\varepsilon),
-\end{equation}
-the choice of evaluation point produces a finite $\order(1)$ difference after summing over $N=T/\varepsilon$ steps!
-Only the \textbf{midpoint prescription} $\tilde x_k = \bar x_k = \frac{1}{2}(x_k+x_{k+1})$ (Stratonovich discretization) reproduces the Hermitian Weyl-ordered operator $\frac{1}{2}[\hat p A(\hat x) + A(\hat x)\hat p]$ and preserves electromagnetic gauge invariance.
+\begin{remarkbox}[Nowhere-Differentiable Paths and Magnetic Vector Potentials]
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \textbf{Roughness:} Dominant steps satisfy $|\Delta x_k|\sim\sqrt{\hbar\varepsilon/m}$, so typical paths are continuous ($\Delta x_k\to 0$) but have divergent velocity $|\Delta x_k/\varepsilon|\sim\varepsilon^{-1/2}\to\infty$, analogous to Brownian paths under $t = -\ii\tau$.
+    \item \textbf{Midpoint rule:} For a scalar potential $V(x)$, shifting the evaluation point changes the exponent by $\order(\varepsilon\Delta x_k) = \order(\varepsilon^{3/2})$, which vanishes after $N=T/\varepsilon$ steps. For a magnetic vector potential term $q A(x)\dot x$, the discrete step is $q A(\tilde x_k)\Delta x_k$; shifting $\tilde x_k$ from $x_k$ to $\bar x_k = \frac{1}{2}(x_k+x_{k+1})$ changes the exponent by $\frac{\ii q}{2\hbar}A'(x_k)(\Delta x_k)^2 \sim \order(\varepsilon)$, leaving a finite $\order(1)$ difference as $N\to\infty$. Midpoint evaluation matches the Hermitian Weyl ordering $\frac{1}{2}[\hat p A(\hat x)+A(\hat x)\hat p]$ and preserves gauge invariance.
+\end{enumerate}
 \end{remarkbox}
 
 % ============================================================================
-\section[Worked Example: Free Particle]{Complete Worked Example: The Free-Particle Propagator}
+\section[Worked Example: The Free Particle]{Worked Example: The Free Particle}
 \label{sec:free}
 % ============================================================================
 
-To make the path integral concrete, let us compute the propagator $K_0(x_f,T;\,x_i,0)$ of a free particle ($V(x)=0$, $T=t_f-t_i>0$) \emph{directly from the $N$-slice definition~\eqref{eq:discretized-pi}} without taking shortcuts, and then use it to evolve a Gaussian wave packet.
+\subsection{\texorpdfstring{$N$}{N}-Slice Gaussian Integration}
 
-\subsection{Exact Evaluation via \texorpdfstring{$N$}{N}-Slice Gaussian Induction}
-
-Setting $V=0$ in~\eqref{eq:discretized-pi} gives
+For a free particle ($V=0$, $T=t_f-t_i>0$), equation~\eqref{eq:discretized-pi} reads
 \begin{equation}
     K_0(x_f,T;\,x_i,0) = \lim_{N\to\infty} \left(\frac{m}{2\pi\ii\hbar\varepsilon}\right)^{N/2}
     \int_{-\infty}^{\infty}\dd x_1\cdots\int_{-\infty}^{\infty}\dd x_{N-1}\,
     \exp\!\left[\frac{\ii m}{2\hbar\varepsilon}\sum_{k=0}^{N-1}(x_{k+1}-x_k)^2\right].
     \label{eq:free-N-slice}
 \end{equation}
-To evaluate these $(N-1)$ coupled Gaussian integrals cleanly, let us first prove a general two-step convolution lemma.
 
-\begin{propositionbox}[Gaussian Propagator Convolution Lemma]
-For any two positive intervals $\varepsilon_1, \varepsilon_2 > 0$,
+\begin{propositionbox}[Two-Step Gaussian Convolution]
+For any $\varepsilon_1, \varepsilon_2 > 0$,
 \begin{equation}
 \begin{aligned}
     &\sqrt{\frac{m}{2\pi\ii\hbar\varepsilon_1}}\sqrt{\frac{m}{2\pi\ii\hbar\varepsilon_2}}
     \int_{-\infty}^{\infty}
-    \exp\!\left[\frac{\ii m}{2\hbar}\!\left(\frac{(x_2-x_1)^2}{\varepsilon_2}+\frac{(x_1-x_0)^2}{\varepsilon_1}\right)\right]\dd x_1 \\[4pt]
+    \exp\!\left[\frac{\ii m}{2\hbar}\!\left(\frac{(x_2-x_1)^2}{\varepsilon_2}+\frac{(x_1-x_0)^2}{\varepsilon_1}\right)\right]\dd x_1 \\[3pt]
     &\qquad\qquad = \sqrt{\frac{m}{2\pi\ii\hbar(\varepsilon_1+\varepsilon_2)}}
       \exp\!\left[\frac{\ii m(x_2-x_0)^2}{2\hbar(\varepsilon_1+\varepsilon_2)}\right].
 \end{aligned}
@@ -686,111 +491,63 @@ For any two positive intervals $\varepsilon_1, \varepsilon_2 > 0$,
 \end{propositionbox}
 
 \textit{Proof.}\;
-Complete the square in $x_1$ inside the exponent. Let $a := \frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} = \frac{\varepsilon_1+\varepsilon_2}{\varepsilon_1\varepsilon_2}$:
+Set $a := \frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} = \frac{\varepsilon_1+\varepsilon_2}{\varepsilon_1\varepsilon_2}$ and complete the square in $x_1$:
 \begin{align}
     \frac{(x_2-x_1)^2}{\varepsilon_2} + \frac{(x_1-x_0)^2}{\varepsilon_1}
-    &= a\,x_1^2 - 2\!\left(\frac{x_2}{\varepsilon_2} + \frac{x_0}{\varepsilon_1}\right)x_1
-       + \frac{x_2^2}{\varepsilon_2} + \frac{x_0^2}{\varepsilon_1} \nonumber\\[4pt]
     &= a\!\left(x_1 - \frac{\varepsilon_1 x_2 + \varepsilon_2 x_0}{\varepsilon_1+\varepsilon_2}\right)^2
        + \frac{x_2^2}{\varepsilon_2} + \frac{x_0^2}{\varepsilon_1}
-       - \frac{\varepsilon_1\varepsilon_2}{\varepsilon_1+\varepsilon_2}\!\left(\frac{x_2}{\varepsilon_2}+\frac{x_0}{\varepsilon_1}\right)^2.
+       - \frac{(\varepsilon_1 x_2 + \varepsilon_2 x_0)^2}{\varepsilon_1\varepsilon_2(\varepsilon_1+\varepsilon_2)} \nonumber\\[3pt]
+    &= a\!\left(x_1 - \frac{\varepsilon_1 x_2 + \varepsilon_2 x_0}{\varepsilon_1+\varepsilon_2}\right)^2
+       + \frac{(x_2 - x_0)^2}{\varepsilon_1 + \varepsilon_2}.
 \end{align}
-Simplifying the $x_1$-independent remainder by putting all terms over the common denominator $\varepsilon_1\varepsilon_2(\varepsilon_1+\varepsilon_2)$:
-\begin{align}
-    \frac{\varepsilon_1(\varepsilon_1+\varepsilon_2)x_2^2 + \varepsilon_2(\varepsilon_1+\varepsilon_2)x_0^2 - (\varepsilon_1 x_2 + \varepsilon_2 x_0)^2}{\varepsilon_1\varepsilon_2(\varepsilon_1+\varepsilon_2)}
-    &= \frac{\varepsilon_1\varepsilon_2 x_2^2 + \varepsilon_1\varepsilon_2 x_0^2 - 2\varepsilon_1\varepsilon_2 x_2 x_0}{\varepsilon_1\varepsilon_2(\varepsilon_1+\varepsilon_2)}
-     = \frac{(x_2 - x_0)^2}{\varepsilon_1 + \varepsilon_2}.
-\end{align}
-Now perform the Fresnel--Gaussian integral over the shifted variable $u = x_1 - \frac{\varepsilon_1 x_2 + \varepsilon_2 x_0}{\varepsilon_1+\varepsilon_2}$ using~\eqref{eq:gaussian-moments} with $\alpha = -\frac{\ii m a}{2\hbar} + 0^+$:
-\begin{equation}
-    \int_{-\infty}^{\infty}\exp\!\left(\frac{\ii m a}{2\hbar}u^2\right)\dd u
-    = \sqrt{\frac{2\pi\ii\hbar}{m a}}
-    = \sqrt{\frac{2\pi\ii\hbar\,\varepsilon_1\varepsilon_2}{m(\varepsilon_1+\varepsilon_2)}}.
-\end{equation}
-Multiplying by the two prefactors cancels $\varepsilon_1\varepsilon_2$ cleanly:
-\begin{equation}
-    \frac{m}{2\pi\ii\hbar\sqrt{\varepsilon_1\varepsilon_2}}
-    \cdot \sqrt{\frac{2\pi\ii\hbar\,\varepsilon_1\varepsilon_2}{m(\varepsilon_1+\varepsilon_2)}}
-    = \sqrt{\frac{m}{2\pi\ii\hbar(\varepsilon_1+\varepsilon_2)}},
-\end{equation}
-which establishes~\eqref{eq:gauss-conv-lemma}. \hfill$\square$
+Integrating over $u = x_1 - \frac{\varepsilon_1 x_2 + \varepsilon_2 x_0}{\varepsilon_1+\varepsilon_2}$ via~\eqref{eq:gaussian-moments} gives $\sqrt{\frac{2\pi\ii\hbar}{ma}} = \sqrt{\frac{2\pi\ii\hbar\,\varepsilon_1\varepsilon_2}{m(\varepsilon_1+\varepsilon_2)}}$, which combines with the prefactors to give~\eqref{eq:gauss-conv-lemma}. \hfill$\square$
 
-Applying~\eqref{eq:gauss-conv-lemma} sequentially to integrate out $x_1, x_2, \dots, x_{N-1}$ in~\eqref{eq:free-N-slice}:
-\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item Integrating over $x_1$ merges $(\varepsilon, \varepsilon) \to 2\varepsilon$ between $x_0$ and $x_2$;
-    \item Integrating over $x_2$ merges $(2\varepsilon, \varepsilon) \to 3\varepsilon$ between $x_0$ and $x_3$;
-    \item By induction, after integrating out $x_1,\dots,x_{N-1}$, the total duration is $N\varepsilon = T$, independent of $N$!
-\end{itemize}
-Taking $N\to\infty$ is therefore trivial and yields the exact free-particle propagator:
+Applying~\eqref{eq:gauss-conv-lemma} to $x_1, x_2, \dots, x_{N-1}$ in turn replaces $(\varepsilon,\dots,\varepsilon)$ by $N\varepsilon = T$ at every finite $N$:
 
-\begin{theorembox}[Exact Free-Particle Propagator]
-For a free particle of mass $m$ evolving over $T = t_f - t_i > 0$,
+\begin{theorembox}[Free-Particle Propagator]
 \begin{equation}
     K_0(x_f,T;\,x_i,0)
     = \sqrt{\frac{m}{2\pi\ii\hbar T}}\exp\!\left[\frac{\ii m(x_f - x_i)^2}{2\hbar T}\right]
     = \sqrt{\frac{m}{2\pi\ii\hbar T}}\exp\!\left(\frac{\ii}{\hbar}\Scl(x_f,T;\,x_i,0)\right),
     \label{eq:free-propagator}
 \end{equation}
-where $\Scl(x_f,T;\,x_i,0) = \int_0^T \frac{1}{2}m\dot x_{\mathrm{cl}}^2\,\dd t = \frac{m(x_f-x_i)^2}{2T}$ is the classical action of the uniform-velocity trajectory $\xcl(t) = x_i + \frac{x_f-x_i}{T}t$.
+where $\Scl = \frac{m(x_f-x_i)^2}{2T}$ is the classical action of $\xcl(t) = x_i + \frac{x_f-x_i}{T}t$.
 \end{theorembox}
 
-\subsection{Three Consistency Checks}
+\subsection{Consistency Checks}
 
-Before applying~\eqref{eq:free-propagator}, let us verify it against three independent requirements:
-\begin{enumerate}[leftmargin=1.5em, itemsep=4pt]
-    \item \textbf{Direct momentum-space cross-check:} Since $\hat H_0 = \hat p^2/(2m)$ commutes with itself at all times, inserting momentum completeness once on the full interval $T$ immediately yields
+\begin{enumerate}[leftmargin=1.5em, itemsep=3pt]
+    \item \textbf{Momentum basis:} Inserting $\int\ket{p}\bra{p}\,\dd p = \hat I$ once on the full interval $T$ gives
     \[
         \braket{x_f|\ee^{-\frac{\ii T}{\hbar}\frac{\hat p^2}{2m}}|x_i}
         = \int_{-\infty}^{\infty}\frac{\dd p}{2\pi\hbar}\,\ee^{\frac{\ii}{\hbar}p(x_f-x_i)-\frac{\ii p^2 T}{2m\hbar}}
-        = \sqrt{\frac{m}{2\pi\ii\hbar T}}\exp\!\left[\frac{\ii m(x_f-x_i)^2}{2\hbar T}\right],
+        = \sqrt{\frac{m}{2\pi\ii\hbar T}}\exp\!\left[\frac{\ii m(x_f-x_i)^2}{2\hbar T}\right].
     \]
-    matching~\eqref{eq:free-propagator} identically.
-    \item \textbf{Free Schr\"odinger equation:} Differentiating~\eqref{eq:free-propagator} with respect to $T$ and $x_f$ gives
-    \begin{align*}
-        \ii\hbar\frac{\partial K_0}{\partial T}
-        &= \left[-\frac{\ii\hbar}{2T} + \frac{m(x_f-x_i)^2}{2T^2}\right]K_0, \\
-        -\frac{\hbar^2}{2m}\frac{\partial^2 K_0}{\partial x_f^2}
-        &= -\frac{\hbar^2}{2m}\left[\frac{\ii m}{\hbar T} - \frac{m^2(x_f-x_i)^2}{\hbar^2 T^2}\right]K_0
-         = \left[-\frac{\ii\hbar}{2T} + \frac{m(x_f-x_i)^2}{2T^2}\right]K_0.
-    \end{align*}
-    \item \textbf{Delta-function initial limit:} Integrating $K_0(x_f,T;\,x_i,0)$ against any smooth test function $f(x_i)$ and changing variables to $u = (x_i - x_f)/\sqrt{\hbar T/m}$ yields $\int K_0 f\,\dd x_i = \frac{1}{\sqrt{2\pi\ii}}\int \ee^{\ii u^2/2}f(x_f + u\sqrt{\hbar T/m})\,\dd u \to f(x_f)$ as $T\to 0^+$. Thus $\lim_{T\to 0^+}K_0(x_f,T;\,x_i,0) = \delta(x_f-x_i)$.
+    \item \textbf{Schr\"odinger equation:} Direct differentiation gives $\ii\hbar\partial_T K_0 = -\frac{\hbar^2}{2m}\partial_{x_f}^2 K_0 = \bigl[-\frac{\ii\hbar}{2T} + \frac{m(x_f-x_i)^2}{2T^2}\bigr]K_0$.
+    \item \textbf{Initial condition:} Setting $u = (x_i-x_f)/\sqrt{\hbar T/m}$ gives
+    \[
+        \int_{-\infty}^{\infty} K_0(x_f,T;\,x_i,0)f(x_i)\,\dd x_i
+        = \frac{1}{\sqrt{2\pi\ii}}\int_{-\infty}^{\infty} \ee^{\ii u^2/2}f\bigl(x_f + u\sqrt{\hbar T/m}\bigr)\,\dd u
+        \;\xrightarrow{\;T\to 0^+\;}\; f(x_f),
+    \]
+    so $\lim_{T\to 0^+}K_0(x_f,T;\,x_i,0) = \delta(x_f-x_i)$.
 \end{enumerate}
 
-\subsection{Evolving a Gaussian Wave Packet: Quantifying the Spreading ``Tube''}
+\subsection{Spreading of a Gaussian Wave Packet}
 \label{sec:free-packet}
 
-Let us now tie the exact propagator~\eqref{eq:free-propagator} back to the ``thickened tube'' question from Section~\ref{sec:guiding}. Prepare a normalized initial minimum-uncertainty Gaussian wave packet centered at $x=0$ with initial width $\sigma_0$ and mean momentum $p_0 = m v_0$:
+Take the initial Gaussian state with position width $\sigma_0$ and mean momentum $p_0 = m v_0$:
 \begin{equation}
     \psi(y,0) = \frac{1}{(2\pi\sigma_0^2)^{1/4}}
     \exp\!\left(-\frac{y^2}{4\sigma_0^2} + \frac{\ii p_0 y}{\hbar}\right).
 \end{equation}
-Propagating forward to time $T > 0$ via $\psi(x,T) = \int_{-\infty}^{\infty}K_0(x,T;\,y,0)\psi(y,0)\,\dd y$:
+By~\eqref{eq:free-propagator}, $\psi(x,T) = \int_{-\infty}^{\infty}K_0(x,T;\,y,0)\psi(y,0)\,\dd y$ reduces to the Gaussian integral $\int \ee^{-\gamma y^2 + \beta y}\,\dd y = \sqrt{\pi/\gamma}\,\ee^{\beta^2/(4\gamma)}$, where
 \begin{equation}
-    \psi(x,T) = \frac{1}{(2\pi\sigma_0^2)^{1/4}}\sqrt{\frac{m}{2\pi\ii\hbar T}}
-    \int_{-\infty}^{\infty}\exp\!\left[
-        \frac{\ii m(x-y)^2}{2\hbar T} - \frac{y^2}{4\sigma_0^2} + \frac{\ii p_0 y}{\hbar}
-    \right]\dd y.
-\end{equation}
-Collecting powers of $y$ in the exponent yields $-\gamma y^2 + \beta y + \frac{\ii m x^2}{2\hbar T}$, where
-\begin{equation}
-    \gamma := \frac{1}{4\sigma_0^2} - \frac{\ii m}{2\hbar T} = \frac{m}{2\ii\hbar T}\!\left(1 + \frac{\ii\hbar T}{2m\sigma_0^2}\right),
-    \qquad
-    \beta := \frac{\ii}{\hbar}\!\left(p_0 - \frac{m x}{T}\right).
-\end{equation}
-Notice that $\operatorname{Re}\gamma = \frac{1}{4\sigma_0^2} > 0$, so the Gaussian integral $\int \ee^{-\gamma y^2 + \beta y}\,\dd y = \sqrt{\pi/\gamma}\,\ee^{\beta^2/(4\gamma)}$ converges absolutely without regularization. Define the characteristic dispersion timescale
-\begin{equation}
+    \gamma = \frac{1}{4\sigma_0^2} - \frac{\ii m}{2\hbar T} = \frac{m}{2\ii\hbar T}\!\left(1 + \frac{\ii T}{\tau_0}\right), \qquad
+    \beta = \frac{\ii}{\hbar}\!\left(p_0 - \frac{m x}{T}\right), \qquad
     \tau_0 := \frac{2m\sigma_0^2}{\hbar}.
 \end{equation}
-Evaluating the prefactor and simplifying the exponent $\frac{\ii m x^2}{2\hbar T} + \frac{\beta^2}{4\gamma}$ produces
-\begin{equation}
-    \psi(x,T)
-    = \frac{1}{(2\pi\sigma_0^2)^{1/4}\sqrt{1 + \ii T/\tau_0}}
-      \exp\!\left[
-          -\frac{(x - v_0 T)^2}{4\sigma_0^2(1 + \ii T/\tau_0)}
-          + \frac{\ii}{\hbar}\!\left(p_0 x - \frac{p_0^2}{2m}T\right)
-      \right].
-\end{equation}
-Taking the modulus squared isolates the real part of $(1+\ii T/\tau_0)^{-1} = \frac{1 - \ii T/\tau_0}{1 + (T/\tau_0)^2}$, yielding the exact probability density:
+Evaluating the integral and taking the modulus squared gives
 \begin{equation}
     |\psi(x,T)|^2 = \frac{1}{\sqrt{2\pi}\,\sigma(T)}
     \exp\!\left[-\frac{(x - v_0 T)^2}{2\sigma(T)^2}\right],
@@ -799,45 +556,30 @@ Taking the modulus squared isolates the real part of $(1+\ii T/\tau_0)^{-1} = \f
               = \sqrt{\sigma_0^2 + \left(\frac{\hbar T}{2m\sigma_0}\right)^2}.
     \label{eq:wavepacket-spreading}
 \end{equation}
+An initial spread $\Delta x_0 = \sigma_0$ implies $\Delta p_0 = \hbar/(2\sigma_0)$, or $\Delta v_0 = \hbar/(2m\sigma_0)$. Thus the probability band follows $x_{\mathrm{cl}}(T) = v_0 T$ while widening as $\sigma(T) \approx (\Delta v_0)\,T$ for $T \gg \tau_0$ (Figure~\ref{fig:free-wavepacket}).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.98\textwidth]{assets/fig5_free_wavepacket.pdf}
-    \caption{\textbf{Free-particle wave-packet propagation and dispersive spreading.}
-    Exact evolution from~\eqref{eq:wavepacket-spreading} in dimensionless units ($\sigma_0=1$, $\tau_0 = 2m\sigma_0^2/\hbar = 1$, $v_0 = 2\sigma_0/\tau_0$).
-    \textbf{(a)} The expectation value $\langle\hat x\rangle = v_0 t$ tracks the classical line while the $\pm\sigma(t)$ envelope flares out linearly at late times ($\sigma(t)\sim \frac{\hbar}{2m\sigma_0}t$).
-    \textbf{(b)} Snapshots of $|\psi(x,t)|^2$ at $t=0$, $1.2\,\tau_0$, and $2.5\,\tau_0$ illustrate probability conservation (unit area) accompanied by dispersive broadening.}
+    \includegraphics[width=0.96\textwidth]{assets/fig5_free_wavepacket.pdf}
+    \caption{Gaussian wave-packet evolution from~\eqref{eq:wavepacket-spreading} ($\sigma_0=1$, $\tau_0=1$, $v_0=2\sigma_0/\tau_0$). \textbf{(a)} Mean trajectory $\langle\hat x\rangle=v_0 t$ and $\pm\sigma(t)$ envelope. \textbf{(b)} Density profiles $|\psi(x,t)|^2$ at three times.}
     \label{fig:free-wavepacket}
 \end{figure}
 
-The physics of~\eqref{eq:wavepacket-spreading} is transparent (Figure~\ref{fig:free-wavepacket}): an initial position uncertainty $\Delta x_0 = \sigma_0$ enforces a momentum spread $\Delta p_0 = \hbar/(2\sigma_0)$, i.e., a velocity spread $\Delta v_0 = \hbar/(2m\sigma_0)$. Consequently, even for a completely free particle, the spacetime ``tube'' cannot keep constant thickness---it flares out asymptotically as $\sigma(T) \approx (\Delta v_0)\,T$.
-
 % ============================================================================
-\section[Stationary Phase \& Classical Corridor]{Returning to the Opening Question: Stationary Phase and the Classical Corridor}
+\section[Stationary Phase \& Corridor Width]{Stationary Phase and the Width of the Classical Corridor}
 \label{sec:semiclassical}
 % ============================================================================
 
-We can now close the loop on Section~\ref{sec:guiding} quantitatively. How does the principle of stationary action $\delta S=0$ emerge from Feynman's sum over all paths~\eqref{eq:feynman-pi}, and precisely how wide is the semiclassical ``tube''?
+\subsection{Expansion Around the Classical Path}
 
-\subsection{Second-Order Fluctuation Expansion and Phasor Interference}
-
-Write any path $x(t)$ joining $(t_i,x_i)$ to $(t_f,x_f)$ as a deviation around the classical solution $\xcl(t)$:
-\begin{equation}
-    x(t) = \xcl(t) + y(t), \qquad y(t_i) = y(t_f) = 0.
-\end{equation}
-Expanding the action functional $S[\xcl + y]$ functionally in powers of $y(t)$ and integrating the first-order term by parts (using $y(t_i)=y(t_f)=0$):
+Write any path from $(t_i,x_i)$ to $(t_f,x_f)$ as $x(t) = \xcl(t) + y(t)$ with $y(t_i)=y(t_f)=0$. Expanding $S[\xcl+y]$ in $y(t)$ and integrating the linear term by parts gives
 \begin{equation}
     S[\xcl + y]
     = S[\xcl]
     + \underbrace{\int_{t_i}^{t_f} \left[\frac{\partial\Lag}{\partial x} - \frac{\dd}{\dd t}\frac{\partial\Lag}{\partial\dot x}\right]_{\xcl} y(t)\,\dd t}_{=\,0\;\text{(Euler--Lagrange)}}
     \;+\; \frac{1}{2}\delta^2 S[y] + \order(y^3),
-    \label{eq:action-expansion}
 \end{equation}
-where the quadratic fluctuation functional is
-\begin{equation}
-    \frac{1}{2}\delta^2 S[y] = \int_{t_i}^{t_f}\left[\frac{1}{2}m\dot y^2 - \frac{1}{2}V''\bigl(\xcl(t)\bigr)y^2\right]\dd t.
-\end{equation}
-Changing path-integration variables from $x(t)$ to $y(t)$ (a shift with unit Jacobian) factors out the classical phase:
+where $\frac{1}{2}\delta^2 S[y] = \int_{t_i}^{t_f}\bigl[\frac{1}{2}m\dot y^2 - \frac{1}{2}V''(\xcl(t))y^2\bigr]\dd t$. Shifting integration variables from $x(t)$ to $y(t)$ factors out $\ee^{\ii S[\xcl]/\hbar}$:
 \begin{equation}
     K(x_f,t_f;\,x_i,t_i)
     = \ee^{\frac{\ii}{\hbar}S[\xcl]}
@@ -845,95 +587,56 @@ Changing path-integration variables from $x(t)$ to $y(t)$ (a shift with unit Jac
       \exp\!\left(\frac{\ii}{2\hbar}\delta^2 S[y] + \frac{\ii}{\hbar}\order(y^3)\right).
     \label{eq:fluctuation-pi}
 \end{equation}
+When $V(x)$ is at most quadratic, $\order(y^3)=0$ and the $y$-integral depends only on $t_f, t_i$, so $K$ has the exact form $F(T)\,\ee^{\ii\Scl/\hbar}$ as seen in~\eqref{eq:free-propagator}.
 
-\emph{(Remark: Whenever $V(x)$ is at most quadratic---free particle, uniform force, or harmonic oscillator---the $\order(y^3)$ terms vanish identically, so the fluctuation integral is independent of $x_i, x_f$ and~\eqref{eq:fluctuation-pi} is exact, immediately explaining why~\eqref{eq:free-propagator} took the exact form $F(T)\,\ee^{\ii\Scl/\hbar}$.)}
-
-For general nonlinear potentials, imagine sweeping through path space while adding the unit-length complex phasors $\ee^{\ii S[x]/\hbar}$ head-to-tail in the complex plane (Figure~\ref{fig:stationary-phase}):
+For general potentials with $S \gg \hbar$, adding the unit phasors $\ee^{\ii S[x]/\hbar}$ in the complex plane produces two behaviors (Figure~\ref{fig:stationary-phase}):
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
-    \item \textbf{Far from $\xcl$ ($\delta S \neq 0$):} When the typical action satisfies $S\gg\hbar$, even a tiny path deformation changes $S/\hbar$ by many radians. Successive phasors spin rapidly and curl into tight, self-cancelling spirals (the red outer arms of the Cornu spiral in Figure~\ref{fig:stationary-phase}b).
-    \item \textbf{Near $\xcl$ ($\delta S = 0$):} Because the first variation vanishes at $\xcl$, the phase $S/\hbar$ is locally flat. All paths inside the corridor $|S[x]-S[\xcl]|\lesssim\hbar$ point in nearly the same direction in the complex plane and add constructively (the thick teal central segment), generating almost the entire resultant amplitude $K$.
+    \item Away from $\xcl$ ($\delta S \neq 0$), small path changes rotate $S/\hbar$ rapidly, winding the phasor sum into self-cancelling spirals.
+    \item Near $\xcl$ ($\delta S = 0$), $S[x]$ is stationary, so paths satisfying $|S[x]-S[\xcl]|\lesssim\hbar$ have aligned phases and produce the dominant contribution to $K$. Thus $\delta S = 0$ arises in classical mechanics as the stationary-phase condition of quantum interference.
 \end{itemize}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.98\textwidth]{assets/fig6_stationary_phase.pdf}
-    \caption{\textbf{Stationary-phase interference and the emergence of the classical trajectory.}
-    \textbf{(a)} A one-parameter slice of the action functional $S[\xcl+y]/\hbar$ near the classical path $y=0$ ($\delta S=0$), showing the narrow stationary corridor $\Delta S\lesssim\hbar$ (blue band).
-    \textbf{(b)} Exact complex-plane phasor sum (Cornu spiral, $\int\ee^{\ii\pi s^2/2}\,\dd s$). Far paths ($\delta S\neq 0$, red) wind into tight self-cancelling spirals around the asymptotic foci $(\pm\frac{1}{2},\pm\frac{1}{2})$, while aligned phasors near $\xcl$ (teal) generate almost the entire net propagator amplitude $K$ (blue vector).}
+    \includegraphics[width=0.96\textwidth]{assets/fig6_stationary_phase.pdf}
+    \caption{\textbf{(a)} Action $S[\xcl+y]/\hbar$ near $y=0$ ($\delta S=0$), showing the stationary band $\Delta S\lesssim\hbar$. \textbf{(b)} Complex phasor sum (Cornu spiral): far paths curl up and cancel, while paths near $\xcl$ add coherently.}
     \label{fig:stationary-phase}
 \end{figure}
 
-Hamilton's principle of least (stationary) action is thereby demystified: \emph{the classical particle does not ``sniff out'' the global minimum of an abstract integral in advance; rather, the quantum particle explores every path, and destructive wave interference erases everything except the stationary neighborhood $\delta S = 0$.}
+\subsection{Estimating the Corridor Width}
 
-\subsection{Quantitative Estimate of the Semiclassical ``Tube Width''}
-
-Let us compute the physical thickness of the constructive corridor $|S[x]-S[\xcl]|\lesssim\hbar$ for a free particle of mass $m$ traveling distance $L = x_f - x_i$ in flight time $T$ (classical speed $v = L/T$).
-
-Consider a simple triangular detour $y(t)$ that deviates transversely by $\Delta y$ at the midpoint $t = T/2$ and returns linearly to zero at both endpoints:
+For a free particle traveling distance $L = x_f - x_i$ in time $T$ ($v = L/T$), take a piecewise-linear detour $y(t)$ reaching $\Delta y$ at $t = T/2$ and vanishing at $t=0, T$:
 \begin{equation}
     y(t) =
     \begin{cases}
-        \dfrac{2\Delta y}{T}\,t, & 0 \le t \le \dfrac{T}{2}, \\[8pt]
+        \dfrac{2\Delta y}{T}\,t, & 0 \le t \le \dfrac{T}{2}, \\[6pt]
         \dfrac{2\Delta y}{T}(T-t), & \dfrac{T}{2} \le t \le T.
     \end{cases}
 \end{equation}
-Because $\dot y = \pm\frac{2\Delta y}{T}$ on each half-interval, the excess action $\Delta S := S[\xcl+y]-S[\xcl] = \frac{1}{2}\delta^2 S[y]$ is exact:
-\begin{equation}
-    \Delta S = \int_0^T \frac{1}{2}m\dot y^2\,\dd t
-             = \frac{1}{2}m\left(\frac{2\Delta y}{T}\right)^2 T
-             = \frac{2m(\Delta y)^2}{T}.
-\end{equation}
-Setting the constructive-interference threshold $\Delta S \sim \hbar$ determines the characteristic half-width of the quantum corridor:
+The excess action is $\Delta S = \int_0^T \frac{1}{2}m\dot y^2\,\dd t = \frac{2m(\Delta y)^2}{T}$. Setting $\Delta S \sim \hbar$ gives the corridor half-width
 \begin{equation}
     \Delta y_{\mathrm{tube}} \sim \sqrt{\frac{\hbar T}{2m}}
-    = \sqrt{\frac{h}{mv}\cdot\frac{vT}{4\pi}}
     = \sqrt{\frac{\lambda_{\mathrm{dB}}\,L}{4\pi}},
     \qquad
-    \lambda_{\mathrm{dB}} := \frac{h}{mv}.
+    \lambda_{\mathrm{dB}} := \frac{h}{mv},
     \label{eq:tube-width}
 \end{equation}
-Remarkably, $\sqrt{\lambda_{\mathrm{dB}} L}$ is the exact matter-wave analogue of the \textbf{first Fresnel zone radius} in physical optics! Table~\ref{tab:tube-scales} evaluates~\eqref{eq:tube-width} in two contrasting physical regimes.
-
-\begin{table}[htbp]
-    \centering
-    \small
-    \setlength{\tabcolsep}{5.5pt}
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{@{}l c c c p{4.25cm}@{}}
-        \toprule
-        \textbf{System} & \textbf{Mass $m$} & \textbf{Flight $(L, T)$} & \textbf{Corridor $\Delta y_{\mathrm{tube}}$} & \textbf{Physical Regime} \\
-        \midrule
-        Rolling marble & $1.0\,\text{g}$ & $1\,\text{m},\; 1\,\text{s}$ & $2.3 \times 10^{-16}\,\text{m}$ & Sub-nuclear; pure 1D classical line \\
-        $1\,\text{eV}$ electron & $9.11 \times 10^{-31}\,\text{kg}$ & $1\,\text{cm},\; 17\,\text{ns}$ & $9.9 \times 10^{-7}\,\text{m}$ & $\sim 1\,\mu\text{m}$; full diffraction \& interference \\
-        \bottomrule
-    \end{tabular}
-    \caption{\textbf{Scale of the constructive path-integral corridor $\Delta y_{\mathrm{tube}} = \sqrt{\hbar T/(2m)}$.}
-    For macroscopic objects, the corridor is far smaller than an atomic nucleus, so classical mechanics is extraordinarily sharp. For microscopic electrons over laboratory distances, the corridor spans microns---vastly exceeding atomic lattices and micro-slits, invalidating any narrow-tube picture.}
-    \label{tab:tube-scales}
-\end{table}
-
-\clearpage
-\subsection{Summary: Two Complementary Pictures of Quantum Dynamics}
-
-Table~\ref{tab:comparison} summarizes how the canonical (Hamiltonian) and path-integral (Lagrangian) formulations complement one another---mirroring the two halves of these notes.
+which has the same $\sqrt{\lambda L}$ scaling as the first Fresnel zone in wave optics. Table~\ref{tab:tube-scales} compares~\eqref{eq:tube-width} for a macroscopic body and a low-energy electron.
 
 \begin{table}[!htbp]
     \centering
     \small
-    \renewcommand{\arraystretch}{1.32}
-    \begin{tabular}{@{} >{\bfseries}p{2.6cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{6.1cm} @{}}
+    \setlength{\tabcolsep}{6pt}
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{@{}l c c c >{\raggedright\arraybackslash}p{4.4cm}@{}}
         \toprule
-        Aspect & \textbf{Canonical Formulation (Hamiltonian)} & \textbf{Path-Integral Formulation (Lagrangian)} \\
+        \textbf{System} & \textbf{Mass $m$} & \textbf{Flight $(L, T)$} & \textbf{Width $\Delta y_{\mathrm{tube}}$} & \textbf{Regime} \\
         \midrule
-        Central object & State vector $\ket{\psi(t)}$ and operators $\hat x, \hat p, \hat H$ & Classical paths $x(t)$ and action functional $S[x]$ \\
-        Evolution law & Differential: $\ii\hbar\partial_t\ket{\psi} = \hat H\ket{\psi}$, $\hat U=\ee^{-\ii\hat H T/\hbar}$ & Integral: $K = \int\Dpath x\,\ee^{\frac{\ii}{\hbar}S[x]}$ \\
-        Connection & Inserts $\int\ket{p}\bra{p}\,\dd p$ + Gaussian $p$-integral (Legendre) & Short-time Fresnel expansion ($\eta\sim\sqrt{\varepsilon}$) gives Schr\"odinger Eq. \\
-        Classical limit & Ehrenfest's theorem ($m\,\dd^2\langle\hat x\rangle/\dd t^2=-\langle V'(\hat x)\rangle$) & Stationary phase ($\delta S = 0$, corridor $\Delta S\lesssim\hbar$) \\
-        Key strengths & Bound-state spectra, algebraic symmetries, unitarity & Manifest Lorentz/gauge covariance, semiclassics, QFT \& instantons \\
+        Marble & $1.0\,\text{g}$ & $1\,\text{m},\; 1\,\text{s}$ & $2.3 \times 10^{-16}\,\text{m}$ & Sub-nuclear; sharp classical curve \\
+        $1\,\text{eV}$ electron & $9.11 \times 10^{-31}\,\text{kg}$ & $1\,\text{cm},\; 17\,\text{ns}$ & $9.9 \times 10^{-7}\,\text{m}$ & $\sim 1\,\mu\text{m}$; wide diffraction regime \\
         \bottomrule
     \end{tabular}
-    \caption{\textbf{Duality between the canonical and path-integral formulations of quantum mechanics.}}
-    \label{tab:comparison}
+    \caption{Characteristic corridor width $\Delta y_{\mathrm{tube}} = \sqrt{\hbar T/(2m)}$ in two regimes.}
+    \label{tab:tube-scales}
 \end{table}
 
 \end{document}
