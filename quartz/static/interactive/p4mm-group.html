@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>平面群 p4mm 群元交互图 · FPKS</title>
+    <style>
+      :root {
+        --bg: #f6f4ec;
+        --card: #fdfcf7;
+        --border: #ddd8c9;
+        --fg: #26241e;
+        --muted: #6b6659;
+        --accent: #a94f2d;
+        --accent-soft: rgba(169, 79, 45, 0.12);
+        --accent-fg: #ffffff;
+        --canvas-bg: #faf8f1;
+        --grid: rgba(38, 36, 30, 0.12);
+        --axis: rgba(38, 36, 30, 0.35);
+        --rot-fill: rgba(37, 99, 235, 0.16);
+        --rot-stroke: rgba(37, 99, 235, 0.48);
+        --ref-fill: rgba(217, 119, 6, 0.16);
+        --ref-stroke: rgba(217, 119, 6, 0.48);
+        --id-fill: rgba(16, 185, 129, 0.4);
+        --id-stroke: #059669;
+        --sel-fill: rgba(169, 79, 45, 0.45);
+        --sel-stroke: #a94f2d;
+        --mid-fill: rgba(147, 51, 234, 0.24);
+        --mid-stroke: #9333ea;
+        --cell-stroke: #0f766e;
+        --geo-accent: #b91c1c;
+        --hover-bg: #eee9db;
+        --font-sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-serif: "Noto Serif SC", Georgia, serif;
+        --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      html[data-theme="dark"] {
+        --bg: #20201f;
+        --card: #282826;
+        --border: #3d3c36;
+        --fg: #f0efec;
+        --muted: #a09d92;
+        --accent: #d97757;
+        --accent-soft: rgba(217, 119, 87, 0.16);
+        --accent-fg: #1b1a18;
+        --canvas-bg: #191918;
+        --grid: rgba(240, 239, 236, 0.11);
+        --axis: rgba(240, 239, 236, 0.35);
+        --rot-fill: rgba(96, 165, 250, 0.2);
+        --rot-stroke: rgba(96, 165, 250, 0.5);
+        --ref-fill: rgba(251, 191, 36, 0.18);
+        --ref-stroke: rgba(251, 191, 36, 0.48);
+        --id-fill: rgba(52, 211, 153, 0.38);
+        --id-stroke: #34d399;
+        --sel-fill: rgba(217, 119, 87, 0.5);
+        --sel-stroke: #f08a66;
+        --mid-fill: rgba(192, 132, 252, 0.28);
+        --mid-stroke: #c084fc;
+        --cell-stroke: #2dd4bf;
+        --geo-accent: #fb7185;
+        --hover-bg: #35342f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-sans);
+        font-size: 14px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.embedded {
+        background: transparent;
+      }
+
+      .page {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 20px 16px 28px;
+      }
+
+      body.embedded .page {
+        max-width: 100%;
+        padding: 4px 0 8px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      body.embedded .topbar {
+        display: none;
+      }
+
+      .title-wrap h1 {
+        margin: 0;
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .title-wrap p {
+        margin: 3px 0 0;
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .btn-link,
+      .btn-theme {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        color: var(--fg);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .btn-link:hover,
+      .btn-theme:hover {
+        background: var(--hover-bg);
+      }
+
+      .layout {
+        display: flex;
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 680px) {
+        .layout {
+          flex-direction: column;
+        }
+      }
+
+      .canvas-col {
+        flex: 1 1 auto;
+        min-width: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      canvas {
+        width: 100%;
+        max-width: 440px;
+        aspect-ratio: 440 / 410;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        display: block;
+      }
+
+      .legend {
+        width: 100%;
+        max-width: 440px;
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .legend-items {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .swatch {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        border-radius: 2px;
+        vertical-align: -1px;
+        margin-right: 4px;
+      }
+
+      .controls-col {
+        width: 260px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12.5px;
+      }
+
+      @media (max-width: 680px) {
+        .controls-col {
+          width: 100%;
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+      }
+
+      .readout-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .readout-label {
+        color: var(--muted);
+      }
+
+      .readout-formula {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--accent);
+      }
+
+      .readout-action {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+
+      .readout-geo {
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid var(--border);
+        font-weight: 600;
+        color: var(--fg);
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        margin-bottom: 5px;
+        font-size: 12px;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+      }
+
+      .r-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+      }
+
+      .r-btn {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        padding: 5px 0;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--fg);
+        cursor: pointer;
+        transition:
+          background 0.12s,
+          border-color 0.12s;
+      }
+
+      .r-btn:hover {
+        background: var(--hover-bg);
+      }
+
+      .r-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-fg);
+        font-weight: 700;
+      }
+
+      .t-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stepper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 8px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+
+      .stepper-btns {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .step-btn {
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--fg);
+        font-family: var(--font-mono);
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      .step-btn:hover {
+        background: var(--hover-bg);
+      }
+
+      .step-val {
+        width: 22px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .presets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .preset-btn {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        padding: 4px 8px;
+        border-radius: 5px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--fg);
+        cursor: pointer;
+      }
+
+      .preset-btn:hover {
+        background: var(--hover-bg);
+      }
+
+      .toggles {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .toggles label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .toggles input {
+        accent-color: var(--accent);
+      }
+
+      .embed-footer {
+        display: none;
+        margin-top: 6px;
+        text-align: right;
+        font-size: 11.5px;
+      }
+
+      body.embedded .embed-footer {
+        display: block;
+      }
+
+      .embed-footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .embed-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <div class="title-wrap">
+          <h1>平面群 p4mm（G = ℤ² ⋊ D₄）群元交互图</h1>
+          <p>
+            每个不对称三角形与一个群元 {R | t} 一一对应；绿色为单位元，青色虚线为单位方格 [0, 1)²
+          </p>
+        </div>
+        <div class="top-actions">
+          <a class="btn-link" href="/Group/">← 返回群论</a>
+          <button id="themeToggle" class="btn-theme" type="button">深浅色</button>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="canvas-col">
+          <canvas
+            id="gridCanvas"
+            width="440"
+            height="410"
+            aria-label="平面群 p4mm 群元格点图"
+          ></canvas>
+          <div class="legend">
+            <span class="legend-items">
+              <span
+                ><span
+                  class="swatch"
+                  style="background: rgba(37, 99, 235, 0.3); border: 1px solid #2563eb"
+                ></span
+                >旋转 (det=+1)</span
+              >
+              <span
+                ><span
+                  class="swatch"
+                  style="background: rgba(217, 119, 6, 0.3); border: 1px solid #d97706"
+                ></span
+                >反射 (det=−1)</span
+              >
+              <span
+                ><span
+                  class="swatch"
+                  style="background: rgba(16, 185, 129, 0.45); border: 1px solid #059669"
+                ></span
+                >单位元</span
+              >
+            </span>
+            <span>点击任意三角形选中群元</span>
+          </div>
+        </div>
+
+        <div class="controls-col">
+          <div class="card">
+            <div class="readout-top">
+              <span class="readout-label">当前群元</span>
+              <span id="elFormula" class="readout-formula">{A | (1, 0)}</span>
+            </div>
+            <div id="elAction" class="readout-action">(x, y) ↦ (-y + 1, x)</div>
+            <div id="elGeo" class="readout-geo">绕 (0.5, 0.5) 逆时针转 90°</div>
+          </div>
+
+          <div>
+            <div class="section-head">
+              <span>点群操作 R ∈ D₄（8 个）</span>
+              <span id="detBadge" class="mono">det = +1</span>
+            </div>
+            <div id="rButtons" class="r-grid"></div>
+          </div>
+
+          <div>
+            <div class="section-head">
+              <span>格点平移 t = (tₓ, tᵧ) ∈ ℤ²（无限个）</span>
+            </div>
+            <div class="t-grid">
+              <div class="stepper">
+                <span class="mono" style="color: var(--muted)">tₓ</span>
+                <div class="stepper-btns">
+                  <button class="step-btn" data-axis="tx" data-delta="-1" type="button">−</button>
+                  <span id="txVal" class="step-val">1</span>
+                  <button class="step-btn" data-axis="tx" data-delta="1" type="button">+</button>
+                </div>
+              </div>
+              <div class="stepper">
+                <span class="mono" style="color: var(--muted)">tᵧ</span>
+                <div class="stepper-btns">
+                  <button class="step-btn" data-axis="ty" data-delta="-1" type="button">−</button>
+                  <span id="tyVal" class="step-val">0</span>
+                  <button class="step-btn" data-axis="ty" data-delta="1" type="button">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-head"><span>讲义示例速览</span></div>
+            <div class="presets">
+              <button class="preset-btn" data-r="A" data-tx="1" data-ty="0" type="button">
+                {A|(1,0)} 1b
+              </button>
+              <button class="preset-btn" data-r="B" data-tx="0" data-ty="0" type="button">
+                {B|(0,0)} 4d
+              </button>
+              <button class="preset-btn" data-r="e" data-tx="1" data-ty="0" type="button">
+                {e|(1,0)} 平移
+              </button>
+              <button class="preset-btn" data-r="B" data-tx="1" data-ty="0" type="button">
+                {B|(1,0)} 滑移
+              </button>
+            </div>
+          </div>
+
+          <div class="toggles">
+            <label><input id="chkDecomp" type="checkbox" checked />两步分解（先 R 后 t）</label>
+            <label><input id="chkCell" type="checkbox" checked />单位方格 [0,1)²</label>
+          </div>
+        </div>
+      </section>
+
+      <div class="embed-footer">
+        <a href="/static/interactive/p4mm-group.html" target="_blank" rel="noopener"
+          >在新标签页中打开全屏交互图 ↗</a
+        >
+      </div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(location.search)
+      const isEmbedded = params.get("embed") === "1"
+      if (isEmbedded) document.body.classList.add("embedded")
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme === "dark" ? "dark" : "light")
+        draw()
+      }
+
+      const initialTheme =
+        params.get("theme") ||
+        (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light")
+      document.documentElement.setAttribute("data-theme", initialTheme)
+
+      document.getElementById("themeToggle").addEventListener("click", () => {
+        const cur = document.documentElement.getAttribute("data-theme")
+        applyTheme(cur === "dark" ? "light" : "dark")
+      })
+
+      window.addEventListener("message", (event) => {
+        if (event.origin !== location.origin) return
+        if (event.data && event.data.type === "fpks-p4mm-theme") {
+          applyTheme(event.data.theme)
+        }
+      })
+
+      function postHeight() {
+        if (!isEmbedded || window.parent === window) return
+        const h = Math.ceil(document.documentElement.scrollHeight)
+        window.parent.postMessage({ type: "fpks-p4mm-height", height: h }, location.origin)
+      }
+
+      const D4 = [
+        { id: "e", label: "e", det: 1, fn: (x, y) => [x, y], expr: ["x", "y"] },
+        { id: "A", label: "A", det: 1, fn: (x, y) => [-y, x], expr: ["-y", "x"] },
+        { id: "A2", label: "A²", det: 1, fn: (x, y) => [-x, -y], expr: ["-x", "-y"] },
+        { id: "A3", label: "A³", det: 1, fn: (x, y) => [y, -x], expr: ["y", "-x"] },
+        { id: "B", label: "B", det: -1, fn: (x, y) => [x, -y], expr: ["x", "-y"] },
+        { id: "AB", label: "AB", det: -1, fn: (x, y) => [y, x], expr: ["y", "x"] },
+        { id: "A2B", label: "A²B", det: -1, fn: (x, y) => [-x, y], expr: ["-x", "y"] },
+        { id: "A3B", label: "A³B", det: -1, fn: (x, y) => [-y, -x], expr: ["-y", "-x"] },
+      ]
+
+      const BASE_TRI = [
+        [0.1, 0.05],
+        [0.43, 0.05],
+        [0.43, 0.27],
+      ]
+      const BASE_CENTROID = [(0.1 + 0.43 + 0.43) / 3, (0.05 + 0.05 + 0.27) / 3]
+
+      const state = { rId: "A", tx: 1, ty: 0, showDecomp: true, showCell: true }
+      const canvas = document.getElementById("gridCanvas")
+      const ctx = canvas.getContext("2d")
+      const RANGE = 2
+      const VIEW_MIN = -2.15
+      const VIEW_MAX = 2.15
+
+      function worldToCanvas(wx, wy) {
+        const w = canvas.width
+        const h = canvas.height
+        const pad = 22
+        const scale = Math.min(w - 2 * pad, h - 2 * pad) / (VIEW_MAX - VIEW_MIN)
+        return [w / 2 + wx * scale, h / 2 - wy * scale]
+      }
+
+      function canvasToWorld(cx, cy) {
+        const w = canvas.width
+        const h = canvas.height
+        const pad = 22
+        const scale = Math.min(w - 2 * pad, h - 2 * pad) / (VIEW_MAX - VIEW_MIN)
+        return [(cx - w / 2) / scale, (h / 2 - cy) / scale]
+      }
+
+      function applyElem(rObj, tx, ty, pt) {
+        const [rx, ry] = rObj.fn(pt[0], pt[1])
+        return [rx + tx, ry + ty]
+      }
+
+      function fmtNum(v) {
+        return Number.isInteger(v) ? String(v) : v.toFixed(1)
+      }
+
+      function fmtShift(base, t) {
+        if (t === 0) return base
+        return t > 0 ? `${base} + ${t}` : `${base} - ${Math.abs(t)}`
+      }
+
+      function describeGeometry(rId, tx, ty) {
+        if (rId === "e") {
+          if (tx === 0 && ty === 0) return { text: "恒等变换（所有点原地不动）", type: "id" }
+          return { text: `纯平移 (${tx}, ${ty})`, type: "trans" }
+        }
+        if (rId === "A") {
+          const cx = (tx - ty) / 2
+          const cy = (tx + ty) / 2
+          return {
+            text: `绕 (${fmtNum(cx)}, ${fmtNum(cy)}) 逆时针转 90°`,
+            type: "rot",
+            center: [cx, cy],
+          }
+        }
+        if (rId === "A2") {
+          const cx = tx / 2
+          const cy = ty / 2
+          return {
+            text: `绕 (${fmtNum(cx)}, ${fmtNum(cy)}) 旋转 180°`,
+            type: "rot",
+            center: [cx, cy],
+          }
+        }
+        if (rId === "A3") {
+          const cx = (tx + ty) / 2
+          const cy = (ty - tx) / 2
+          return {
+            text: `绕 (${fmtNum(cx)}, ${fmtNum(cy)}) 顺时针转 90°`,
+            type: "rot",
+            center: [cx, cy],
+          }
+        }
+        if (rId === "B") {
+          const y0 = ty / 2
+          if (tx === 0)
+            return {
+              text: `关于直线 y = ${fmtNum(y0)} 反射`,
+              type: "mirror",
+              p1: [-3, y0],
+              p2: [3, y0],
+            }
+          return {
+            text: `滑移反射：镜面 y = ${fmtNum(y0)}，滑移 (${tx}, 0)`,
+            type: "glide",
+            p1: [-3, y0],
+            p2: [3, y0],
+          }
+        }
+        if (rId === "A2B") {
+          const x0 = tx / 2
+          if (ty === 0)
+            return {
+              text: `关于直线 x = ${fmtNum(x0)} 反射`,
+              type: "mirror",
+              p1: [x0, -3],
+              p2: [x0, 3],
+            }
+          return {
+            text: `滑移反射：镜面 x = ${fmtNum(x0)}，滑移 (0, ${ty})`,
+            type: "glide",
+            p1: [x0, -3],
+            p2: [x0, 3],
+          }
+        }
+        if (rId === "AB") {
+          const c = (ty - tx) / 2
+          const g = (tx + ty) / 2
+          const lineStr =
+            c === 0 ? "y = x" : c > 0 ? `y = x + ${fmtNum(c)}` : `y = x - ${fmtNum(Math.abs(c))}`
+          if (g === 0)
+            return {
+              text: `关于直线 ${lineStr} 反射`,
+              type: "mirror",
+              p1: [-3, -3 + c],
+              p2: [3, 3 + c],
+            }
+          return {
+            text: `滑移反射：镜面 ${lineStr}，滑移 (${fmtNum(g)}, ${fmtNum(g)})`,
+            type: "glide",
+            p1: [-3, -3 + c],
+            p2: [3, 3 + c],
+          }
+        }
+        if (rId === "A3B") {
+          const c = (tx + ty) / 2
+          const gx = (tx - ty) / 2
+          const lineStr = `x + y = ${fmtNum(c)}`
+          if (gx === 0)
+            return {
+              text: `关于直线 ${lineStr} 反射`,
+              type: "mirror",
+              p1: [-3, 3 + c],
+              p2: [3, -3 + c],
+            }
+          return {
+            text: `滑移反射：镜面 ${lineStr}，滑移 (${fmtNum(gx)}, ${fmtNum(-gx)})`,
+            type: "glide",
+            p1: [-3, 3 + c],
+            p2: [3, -3 + c],
+          }
+        }
+        return { text: "", type: "id" }
+      }
+
+      function cssVar(name) {
+        return getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+      }
+
+      function drawArrow(x1, y1, x2, y2, color, dashed = false) {
+        const dx = x2 - x1
+        const dy = y2 - y1
+        if (Math.hypot(dx, dy) < 6) return
+        ctx.save()
+        ctx.strokeStyle = color
+        ctx.fillStyle = color
+        ctx.lineWidth = 2
+        if (dashed) ctx.setLineDash([5, 3])
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+        ctx.stroke()
+        ctx.setLineDash([])
+        const angle = Math.atan2(dy, dx)
+        const head = 7.5
+        ctx.beginPath()
+        ctx.moveTo(x2, y2)
+        ctx.lineTo(x2 - head * Math.cos(angle - 0.4), y2 - head * Math.sin(angle - 0.4))
+        ctx.lineTo(x2 - head * Math.cos(angle + 0.4), y2 - head * Math.sin(angle + 0.4))
+        ctx.closePath()
+        ctx.fill()
+        ctx.restore()
+      }
+
+      function drawTriangle(tri, fill, stroke, lw = 1) {
+        ctx.beginPath()
+        tri.forEach(([wx, wy], i) => {
+          const [cx, cy] = worldToCanvas(wx, wy)
+          if (i === 0) ctx.moveTo(cx, cy)
+          else ctx.lineTo(cx, cy)
+        })
+        ctx.closePath()
+        ctx.fillStyle = fill
+        ctx.fill()
+        ctx.strokeStyle = stroke
+        ctx.lineWidth = lw
+        ctx.stroke()
+      }
+
+      function draw() {
+        const w = canvas.width
+        const h = canvas.height
+        const bg = cssVar("--canvas-bg")
+        const grid = cssVar("--grid")
+        const axis = cssVar("--axis")
+        const muted = cssVar("--muted")
+        const rotFill = cssVar("--rot-fill")
+        const rotStroke = cssVar("--rot-stroke")
+        const refFill = cssVar("--ref-fill")
+        const refStroke = cssVar("--ref-stroke")
+        const idFill = cssVar("--id-fill")
+        const idStroke = cssVar("--id-stroke")
+        const selFill = cssVar("--sel-fill")
+        const selStroke = cssVar("--sel-stroke")
+        const midFill = cssVar("--mid-fill")
+        const midStroke = cssVar("--mid-stroke")
+        const cellStroke = cssVar("--cell-stroke")
+        const geoAccent = cssVar("--geo-accent")
+
+        ctx.clearRect(0, 0, w, h)
+        ctx.fillStyle = bg
+        ctx.fillRect(0, 0, w, h)
+
+        ctx.lineWidth = 1
+        for (let i = -2; i <= 2; i++) {
+          ctx.strokeStyle = i === 0 ? axis : grid
+          const [x1, y1] = worldToCanvas(i, VIEW_MIN)
+          const [x2, y2] = worldToCanvas(i, VIEW_MAX)
+          ctx.beginPath()
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.stroke()
+
+          const [x3, y3] = worldToCanvas(VIEW_MIN, i)
+          const [x4, y4] = worldToCanvas(VIEW_MAX, i)
+          ctx.beginPath()
+          ctx.moveTo(x3, y3)
+          ctx.lineTo(x4, y4)
+          ctx.stroke()
+        }
+
+        if (state.showCell) {
+          const [u0x, u0y] = worldToCanvas(0, 1)
+          const [u1x, u1y] = worldToCanvas(1, 0)
+          ctx.save()
+          ctx.strokeStyle = cellStroke
+          ctx.lineWidth = 1.6
+          ctx.setLineDash([5, 3])
+          ctx.strokeRect(u0x, u0y, u1x - u0x, u1y - u0y)
+          ctx.restore()
+        }
+
+        for (let tx = -RANGE; tx <= RANGE; tx++) {
+          for (let ty = -RANGE; ty <= RANGE; ty++) {
+            for (const rObj of D4) {
+              const tri = BASE_TRI.map((p) => applyElem(rObj, tx, ty, p))
+              const isId = rObj.id === "e" && tx === 0 && ty === 0
+              const isSel = rObj.id === state.rId && tx === state.tx && ty === state.ty
+              const isMid =
+                state.showDecomp &&
+                rObj.id === state.rId &&
+                tx === 0 &&
+                ty === 0 &&
+                (state.tx !== 0 || state.ty !== 0)
+
+              let fill = rObj.det === 1 ? rotFill : refFill
+              let stroke = rObj.det === 1 ? rotStroke : refStroke
+              let lw = 0.9
+              if (isMid) {
+                fill = midFill
+                stroke = midStroke
+                lw = 1.5
+              }
+              if (isId) {
+                fill = idFill
+                stroke = idStroke
+                lw = 1.7
+              }
+              if (isSel) {
+                fill = selFill
+                stroke = selStroke
+                lw = 2.1
+              }
+              drawTriangle(tri, fill, stroke, lw)
+            }
+          }
+        }
+
+        ctx.font = "11px IBM Plex Mono, ui-monospace, monospace"
+        ctx.fillStyle = muted
+        for (let tx = -RANGE; tx <= RANGE; tx++) {
+          for (let ty = -RANGE; ty <= RANGE; ty++) {
+            const [cx, cy] = worldToCanvas(tx, ty)
+            ctx.beginPath()
+            ctx.arc(cx, cy, tx === 0 && ty === 0 ? 3.5 : 2.2, 0, Math.PI * 2)
+            ctx.fill()
+          }
+        }
+        ctx.fillText("(0,0)", ...worldToCanvas(0.05, -0.18))
+        ctx.fillText("(1,0)", ...worldToCanvas(1.05, -0.18))
+        ctx.fillText("(0,1)", ...worldToCanvas(0.05, 1.08))
+
+        const selR = D4.find((d) => d.id === state.rId)
+        const geo = describeGeometry(state.rId, state.tx, state.ty)
+        if (geo.type === "rot") {
+          const [gx, gy] = worldToCanvas(geo.center[0], geo.center[1])
+          ctx.save()
+          ctx.fillStyle = geoAccent
+          ctx.strokeStyle = bg
+          ctx.lineWidth = 1.8
+          ctx.beginPath()
+          ctx.arc(gx, gy, 5, 0, Math.PI * 2)
+          ctx.fill()
+          ctx.stroke()
+          ctx.restore()
+        } else if (geo.type === "mirror" || geo.type === "glide") {
+          const [x1, y1] = worldToCanvas(geo.p1[0], geo.p1[1])
+          const [x2, y2] = worldToCanvas(geo.p2[0], geo.p2[1])
+          ctx.save()
+          ctx.strokeStyle = geoAccent
+          ctx.lineWidth = 1.8
+          if (geo.type === "glide") ctx.setLineDash([6, 4])
+          ctx.beginPath()
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.stroke()
+          ctx.restore()
+        }
+
+        if (state.showDecomp) {
+          const p0 = worldToCanvas(...BASE_CENTROID)
+          const midW = applyElem(selR, 0, 0, BASE_CENTROID)
+          const p1 = worldToCanvas(...midW)
+          const endW = applyElem(selR, state.tx, state.ty, BASE_CENTROID)
+          const p2 = worldToCanvas(...endW)
+
+          if (state.rId !== "e") drawArrow(p0[0], p0[1], p1[0], p1[1], midStroke, true)
+          if (state.tx !== 0 || state.ty !== 0)
+            drawArrow(p1[0], p1[1], p2[0], p2[1], selStroke, false)
+        }
+      }
+
+      function updateUI() {
+        const selR = D4.find((d) => d.id === state.rId)
+        document.getElementById("elFormula").textContent =
+          `{${selR.label} | (${state.tx}, ${state.ty})}`
+        document.getElementById("elAction").textContent =
+          `(x, y) ↦ (${fmtShift(selR.expr[0], state.tx)}, ${fmtShift(selR.expr[1], state.ty)})`
+        document.getElementById("elGeo").textContent = describeGeometry(
+          state.rId,
+          state.tx,
+          state.ty,
+        ).text
+        document.getElementById("detBadge").textContent =
+          selR.det === 1 ? "det = +1 (旋转)" : "det = −1 (反射)"
+        document.getElementById("txVal").textContent = state.tx
+        document.getElementById("tyVal").textContent = state.ty
+
+        document.querySelectorAll(".r-btn").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.r === state.rId)
+        })
+        draw()
+        postHeight()
+      }
+
+      const rContainer = document.getElementById("rButtons")
+      D4.forEach((d) => {
+        const btn = document.createElement("button")
+        btn.type = "button"
+        btn.textContent = d.label
+        btn.dataset.r = d.id
+        btn.className = "r-btn"
+        btn.onclick = () => {
+          state.rId = d.id
+          updateUI()
+        }
+        rContainer.appendChild(btn)
+      })
+
+      document.querySelectorAll(".step-btn").forEach((btn) => {
+        btn.onclick = () => {
+          const axis = btn.dataset.axis
+          const delta = parseInt(btn.dataset.delta, 10)
+          state[axis] = Math.max(-RANGE, Math.min(RANGE, state[axis] + delta))
+          updateUI()
+        }
+      })
+
+      document.querySelectorAll(".preset-btn").forEach((btn) => {
+        btn.onclick = () => {
+          state.rId = btn.dataset.r
+          state.tx = parseInt(btn.dataset.tx, 10)
+          state.ty = parseInt(btn.dataset.ty, 10)
+          updateUI()
+        }
+      })
+
+      document.getElementById("chkDecomp").onchange = (e) => {
+        state.showDecomp = e.target.checked
+        draw()
+      }
+      document.getElementById("chkCell").onchange = (e) => {
+        state.showCell = e.target.checked
+        draw()
+      }
+
+      canvas.addEventListener("click", (e) => {
+        const rect = canvas.getBoundingClientRect()
+        const cx = (e.clientX - rect.left) * (canvas.width / rect.width)
+        const cy = (e.clientY - rect.top) * (canvas.height / rect.height)
+        const [wx, wy] = canvasToWorld(cx, cy)
+
+        let best = null
+        let bestDist = Infinity
+        for (let tx = -RANGE; tx <= RANGE; tx++) {
+          for (let ty = -RANGE; ty <= RANGE; ty++) {
+            for (const rObj of D4) {
+              const [px, py] = applyElem(rObj, tx, ty, BASE_CENTROID)
+              const d = Math.hypot(wx - px, wy - py)
+              if (d < bestDist) {
+                bestDist = d
+                best = { rId: rObj.id, tx, ty }
+              }
+            }
+          }
+        }
+        if (best && bestDist < 0.35) {
+          state.rId = best.rId
+          state.tx = best.tx
+          state.ty = best.ty
+          updateUI()
+        }
+      })
+
+      window.addEventListener("resize", postHeight)
+      updateUI()
+    </script>
+  </body>
+</html>

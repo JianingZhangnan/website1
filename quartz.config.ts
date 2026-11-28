@@ -6,6 +6,7 @@ import { FpksMath } from "./quartz/plugins/transformers/fpksMath"
 import { FpksMathAssets } from "./quartz/plugins/transformers/fpksMath/assets"
 import { NoteRelativeLinks } from "./quartz/plugins/transformers/noteRelativeLinks"
 import { FermiVisuals } from "./quartz/plugins/transformers/fermiVisuals"
+import { GroupVisuals } from "./quartz/plugins/transformers/groupVisuals"
 import { AstroHomework } from "./quartz/plugins/emitters/astroHomework"
 import { AstroFinal } from "./quartz/plugins/emitters/astroFinal"
 
@@ -76,6 +77,7 @@ const config: QuartzConfig = {
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
       FermiVisuals(),
+      GroupVisuals(),
       FpksMath(),
     ],
     filters: [Plugin.RemoveDrafts()],
